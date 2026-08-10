@@ -93,7 +93,7 @@ export default function Home() {
       <section className="hero">
         <p className="eyebrow">THE ART OF JOY · PENGUIN MODERN CLASSICS</p>
         <h1>今天，读得深一点。</h1>
-        <p className="lede">一个轻量的英语阅读空间。背景先行，正文留在你的 Apple Books，读完再回到这里收集语言与想法。</p>
+        <p className="lede">一个轻量的英语阅读空间。背景先行，正文留在你的手机 EPUB 阅读器，读完再回到这里收集语言与想法。</p>
       </section>
 
       <section className="chapter-picker" aria-label="选择章节">
@@ -114,8 +114,8 @@ export default function Home() {
         <h3>开始前 · 必需背景</h3>
         <p>{chapter.background}</p>
         <div className="read-task">
-          <div><span className="task-no">01</span><strong>在 Apple Books 阅读</strong><p>{chapter.read}</p></div>
-          <a className="books-link" href="https://support.apple.com/guide/books/welcome/mac" target="_blank" rel="noreferrer">打开 Books ↗</a>
+          <div><span className="task-no">01</span><strong>在你的 EPUB 阅读器中阅读</strong><p>{chapter.read}</p></div>
+          <a className="books-link" href="#reader-tip">手机阅读提示 ↓</a>
         </div>
         <button className={isComplete ? "complete done" : "complete"} onClick={toggleComplete}>
           {isComplete ? "已完成 · 查看阅读后内容" : "完成今日阅读"}
@@ -159,6 +159,13 @@ export default function Home() {
           <p><b>03</b> Chapters 58–74 <span>法西斯时期与新思想</span></p>
           <p><b>04</b> Chapters 75–95 <span>战争、解放与记忆</span></p>
         </div>
+      </section>
+
+      <section className="reader-tip" id="reader-tip">
+        <p className="eyebrow">PHONE SETUP</p>
+        <h2>Android 也可以轻松读。</h2>
+        <p>把你合法获得的 EPUB 文件发到手机，然后用你习惯的 EPUB 阅读器打开即可。阅读正文不在本网站展示；这个网页负责每天的背景、进度、词汇和读后回收。</p>
+        <p>每台设备的打卡与词汇独立保存在该设备浏览器中，不需要连接 ChatGPT。</p>
       </section>
     </main>
   );
