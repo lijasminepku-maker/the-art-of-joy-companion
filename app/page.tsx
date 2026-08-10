@@ -34,6 +34,14 @@ const studyFor = (id: number): StudyKit => {
 };
 
 type Reflection = { question: string; answer: string; craft: string; idea: string };
+type DeepReading = {
+  english: string;
+  chinese: string;
+  life: string;
+  lens: string;
+  human: string;
+  takeAway: string;
+};
 const reflectionFor = (id: number): Reflection => {
   if (id === 1) return { question: "身体与劳动在这一章中怎样提示阶级？", answer: "叙述把贫困落实在身体：疲惫、疼痛、暴露、必须劳动的身体，而不是抽象地说“他们很穷”。劳动也不是背景，它决定谁有力气、时间和说话的资格。", craft: "作者从触觉、动作和狭窄空间开始，让读者先感到匮乏，再理解它是社会结构而非个人过错。", idea: "小说从开篇拒绝把贫穷道德化：一个人的起点由阶级和性别共同塑造。" };
   if (id <= 4) return { question: "家庭、地方语言或身体描写怎样限定一个孩子的选择？", answer: "本章把家庭日常写成权力关系：谁能命令、谁做事、谁的身体被评价，都会暴露不平等。地方性的用语也提示“说标准语言”本身是一种资源。", craft: "作者不急于解释制度，而是把它嵌进对话、称呼和细小动作，让压迫显得像日常一样自然。", idea: "她要我们看到：所谓个人命运，最初往往来自一个人无法选择的出生环境。" };
@@ -44,6 +52,81 @@ const reflectionFor = (id: number): Reflection => {
   if (id <= 74) return { question: "政治词为何总和私人关系、恐惧或沉默连在一起？", answer: "威权环境改变的不只是选票，也改变了人们说真话的方式。公开立场、私人信念和亲密关系彼此牵连，不能混为一谈。", craft: "作者用停顿、低声、怀疑和误解制造紧张感，而不把政治简化成课堂知识。", idea: "反抗首先是拒绝让任何意识形态替个人决定欲望、语言和关系。" };
   if (id <= 84) return { question: "战争与国家权力如何改变身体、家庭和语言？", answer: "逮捕、流离和损失让人物的身体与时间感都失去稳定。沉默、回避和片段式记忆是创伤的表现，不是叙述的空白。", craft: "作者用克制的细节呈现暴力的后果，避免把苦难写成猎奇场面。", idea: "宏大历史会落到具体身体上；尊严也常在极端环境里以微小方式被守住。" };
   return { question: "解放以后，为什么自由仍显得复杂而不完整？", answer: "政权结束并不会自动修复伤害、阶级差距或家庭关系。人物既有新的公共语言，也仍要面对旧有的欲望、愧疚和记忆。", craft: "作者用对比和回望让结局拒绝“圆满解决”，从而保留历史的复杂性。", idea: "“joy”不是忘记痛苦，而是在不完美的现实中持续争取活得自主而清醒。" };
+};
+
+const deepReadingFor = (id: number): DeepReading => {
+  if (id === 1) return {
+    english: "This opening asks us to read poverty as a condition written on the body. Hunger, work, and cramped space do not merely create a sad setting: they decide whose needs are noticed and whose voice can carry weight.",
+    chinese: "开篇邀请我们把贫穷理解为写在身体上的处境。饥饿、劳动与狭窄空间不只是悲惨布景：它们决定谁的需要会被看见，谁的话才有分量。",
+    life: "Sapienza 出生在卡塔尼亚一个反法西斯、社会主义家庭；她母亲是劳工运动领袖，父亲是社会主义律师。因而，小说从劳动与不平等切入，并不是把贫困当作命运的装饰。",
+    lens: "学界常从身体、权力与女性主体性来读这部小说：身体不是私人的小事，也是阶级和制度留下痕迹的地方。",
+    human: "当一个人长期为生存耗尽力气时，我们还能多轻易地用“懒惰”“不努力”来判断她吗？",
+    takeAway: "这里的快乐不是天真乐观，而是先看清不平等，再拒绝让它定义一个人的价值。"
+  };
+  if (id <= 4) return {
+    english: "The early chapters make social order feel ordinary: a command, a name, a meal, or a child’s body quietly distributes dignity. The point is not that every adult is cruel, but that cruelty can become invisible when it is called tradition.",
+    chinese: "前几章让社会秩序显得极其日常：一句命令、一个称呼、一顿饭，或孩子的身体，都会悄悄分配尊严。重点并非每个成年人都残忍，而是残忍可能在被称作传统时变得不可见。",
+    life: "作者的成长环境同时包含社会主义、反教权与反法西斯思想；这使她特别警惕任何把服从包装成“天经地义”的语言。",
+    lens: "女性主义研究提醒我们：童年并非政治之前的纯真地带，性别、阶级和语言从一开始就在塑造“可选择的人生”。",
+    human: "我们习惯的家庭规则，究竟是在照顾弱者，还是在训练某些人习惯服从？",
+    takeAway: "Modesta 的反抗首先不是口号，而是对“我本来就该如此”的不信任。"
+  };
+  if (id <= 18) return {
+    english: "Here care and discipline become difficult to separate. A protected life may provide food, learning, and safety, yet it can also ask a person to surrender curiosity, desire, and the right to name her own experience.",
+    chinese: "在这里，照护与规训很难分开。一种受保护的生活可以提供食物、学习和安全，却也可能要求一个人交出好奇心、欲望，以及命名自身经验的权利。",
+    life: "Sapienza 后来参与反法西斯抵抗。她笔下对权威的敏感，不等于拒绝一切共同体，而是追问共同体是否允许异议和成长。",
+    lens: "关于小说“压抑性空间”的研究指出，门、房间、称谓和仪式都是权力的技术；它们决定谁能移动、发问与被相信。",
+    human: "若安全的代价是沉默与顺从，它仍然是安全吗？",
+    takeAway: "小说不把自由理解为任性；它把自由理解为保有判断、欲望和说“不”的能力。"
+  };
+  if (id <= 29) return {
+    english: "Property enters intimacy in these chapters. Love, gratitude, marriage, and loyalty are never purely private when a house, a title, or an inheritance can decide who belongs and who must depend on others.",
+    chinese: "这一阶段里，财产进入了亲密关系。当房子、头衔或继承权能决定谁被接纳、谁必须依附他人时，爱、感激、婚姻与忠诚就绝非纯粹私人的事。",
+    life: "作者来自强烈关注社会不平等的家庭传统，因此她很少把阶层跃升写成单纯的个人成功，而会追问它付出的关系代价。",
+    lens: "学界对小说无政府主义与女性主义的讨论，都强调她拒绝把解放交给既有的家族、国家或财产秩序来批准。",
+    human: "当爱与生存捆绑在一起，一个人能否真正自由地答应、拒绝或离开？",
+    takeAway: "小说要拆开的不是“富人/穷人”的简单对立，而是依赖如何使情感也带上权力。"
+  };
+  if (id <= 39) return {
+    english: "Large history arrives through small disturbances: labour, food, fear, reputation, and the rhythm of a household. The novel resists the comforting idea that private love can remain untouched by public violence.",
+    chinese: "宏大历史通过细小扰动抵达：劳动、食物、恐惧、名誉与家庭的节奏。小说拒绝一个安慰性的想象——私人之爱能够完全不受公共暴力触碰。",
+    life: "Sapienza 的父母曾受法西斯政权迫害，作者本人也参与抵抗；对她而言，政治不是背景板，而是会进入语言、身体和关系的现实压力。",
+    lens: "关于小说历史性与情感的研究提示：她不用口号替代人物，而让历史在焦虑、误解、沉默和日常判断中显形。",
+    human: "动荡来临时，我们会保护身边的人，还是把恐惧变成对更弱者的控制？",
+    takeAway: "真正的政治阅读，是看见历史如何改变普通人相互对待的方式。"
+  };
+  if (id <= 57) return {
+    english: "Desire is treated as a source of knowledge as well as danger. The novel refuses to make a woman morally pure in order to make her worthy of freedom; it lets desire create consequences, contradictions, and responsibility.",
+    chinese: "欲望既被写作一种认识来源，也被写作危险。小说拒绝让女性先变得道德上“纯洁”才配拥有自由；它让欲望带来后果、矛盾与责任。",
+    life: "Sapienza 的写作长期挑战传统女性角色。她不把女性经验缩减为妻子或母亲的单一路径，而坚持人物可以复杂、矛盾、难以被原谅。",
+    lens: "有关小说中性与母职的研究强调：文本不是赞美无后果的越界，而是在追问社会为何把羞耻、照护和责任不均等地分配给女性。",
+    human: "我们是否只允许“讨人喜欢”的女性拥有自由？当她不再符合期待时，我们为什么急于惩罚她？",
+    takeAway: "自由并不取消伦理；它要求每个人拥有解释自己生活、承担选择后果的主体位置。"
+  };
+  if (id <= 74) return {
+    english: "Political language becomes intimate here. A public slogan, a lowered voice, or a withheld confession can reveal the gap between allegiance and conviction. No ideology is allowed to replace the work of personal judgment.",
+    chinese: "政治语言在这里变得亲密。一句公开口号、压低的嗓音或未说出口的坦白，都能暴露忠诚与信念之间的裂缝。没有任何意识形态被允许代替个人判断。",
+    life: "反法西斯抵抗的经历使 Sapienza 对“正确立场”保持双重要求：反抗压迫，同时不把新的教条交给个人灵魂来服从。",
+    lens: "研究者把小说与无政府主义思想、后现代女性主义联系起来，正是因为它警惕权力即使在解放语言中也可能重新出现。",
+    human: "当群体要求一致时，保留怀疑是自私，还是一种对他人与真相的责任？",
+    takeAway: "这部小说的自由不是找到永远正确的阵营，而是不放弃思考、感受与异议。"
+  };
+  if (id <= 84) return {
+    english: "War turns the body into evidence: it is watched, displaced, exhausted, or forced to remember. The restrained narration asks readers not to consume suffering as spectacle, but to notice how violence survives in habits of silence.",
+    chinese: "战争让身体成为证据：它被监视、被驱逐、被耗尽，或被迫记忆。克制的叙述要求读者不要把苦难当作景观消费，而要看见暴力如何留存在沉默的习惯里。",
+    life: "作者的反法西斯家庭背景和抵抗经历，使她对国家暴力有切身的历史距离感；她更关心暴力如何改变人活着的感觉，而不只关心事件本身。",
+    lens: "有关“压抑性建筑与技术”的研究可帮助我们读出：监禁、边界和被监控的空间不只是场景，而是在训练身体与语言。",
+    human: "面对他人的创伤，我们是急着追问细节，还是愿意尊重沉默也可能是一种生存策略？",
+    takeAway: "尊严有时并非胜利，而是在被夺走许多东西之后，仍不让暴力定义自己的全部。"
+  };
+  return {
+    english: "The ending refuses a clean redemption. Liberation changes the political horizon, but it cannot instantly heal memory, class, desire, or grief. Joy becomes an art: a disciplined willingness to live truthfully in an unfinished world.",
+    chinese: "结尾拒绝干净的救赎。解放改变了政治地平线，却不能立刻治愈记忆、阶级、欲望或悲伤。快乐因此成为一种艺术：在未完成的世界里，仍有纪律地、诚实地生活。",
+    life: "Sapienza 的人生和写作都不服从单一身份：演员、作家、抵抗者、女性。她把“快乐”留作实践，而不是一个谁都必须达到的圆满结局。",
+    lens: "关于小说复调与对话性的研究认为，它不把一个意识形态当最终答案；相互冲突的声音迫使读者继续判断。",
+    human: "经历失望后，继续关心世界是一种软弱，还是一种比幻灭更艰难的勇气？",
+    takeAway: "《快乐的艺术》的精神内核不是“永远快乐”，而是在复杂、失去与不完美中，仍争取清醒而自主地活。"
+  };
 };
 
 const partFor = (id: number) =>
@@ -108,6 +191,7 @@ export default function Home() {
   const isComplete = complete.includes(chapterId);
   const study = studyFor(chapterId);
   const reflection = reflectionFor(chapterId);
+  const deepReading = deepReadingFor(chapterId);
   const activePart = partFor(chapterId);
 
   function toggleComplete() {
@@ -235,10 +319,10 @@ export default function Home() {
           <h2>收束今天的阅读</h2>
           <div className="after-grid">
             <article>
-              <h3>双语要点</h3>
-              <p className="english">{chapter.bilingual[0]}</p>
-              <p>{chapter.bilingual[1]}</p>
-              <small>这是学习提示，不是本章全文翻译。</small>
+              <h3>本章双语理解对照</h3>
+              <p className="english">{deepReading.english}</p>
+              <p>{deepReading.chinese}</p>
+              <small>这是基于本章主题的学习摘要，帮助你对照理解；英文原文仍在你设备的本地 EPUB 中。</small>
             </article>
             <article>
               <h3>章节结束 · 赏析</h3>
@@ -247,6 +331,26 @@ export default function Home() {
               <p className="reflection-label">思想线索</p><p>{reflection.idea}</p>
             </article>
           </div>
+          <article className="deep-reading">
+            <p className="eyebrow">A DEEPER READING</p>
+            <h3>人性与精神内核</h3>
+            <div className="deep-grid">
+              <div><p className="reflection-label">作者生命经验</p><p>{deepReading.life}</p></div>
+              <div><p className="reflection-label">学术解读视角</p><p>{deepReading.lens}</p></div>
+              <div><p className="reflection-label">留给你的问题</p><p>{deepReading.human}</p></div>
+              <div><p className="reflection-label">这一章带走什么</p><p>{deepReading.takeAway}</p></div>
+            </div>
+          </article>
+          <details className="research-basis">
+            <summary>这套解读依据什么？</summary>
+            <p>这里不是把小说简化成作者自传，而是把她的生命背景作为理解文本的一条线索，再与研究中的“身体与权力”“女性主体性”“制度空间”“复调叙事”等视角交叉阅读。</p>
+            <ul>
+              <li><a href="https://www.treccani.it/enciclopedia/goliarda-sapienza_%28Dizionario-Biografico%29/" target="_blank" rel="noreferrer">Treccani · Goliarda Sapienza 传记</a>：反法西斯、社会主义家庭与抵抗经历。</li>
+              <li><a href="https://www.researchgate.net/publication/310526424_L%27arte_della_gioia_di_Goliarda_Sapienza_tra_anarchia_e_femminismo_postmoderno" target="_blank" rel="noreferrer">Dell&apos;Abate Çelebi (2016)</a>：无政府主义思想与后现代女性主义。</li>
+              <li><a href="https://rosa.uniroma1.it/rosa03/status_quaestionis/article/view/18794" target="_blank" rel="noreferrer">Status Quaestionis</a>：小说中的压抑性空间与权力技术。</li>
+              <li><a href="https://revistas.usp.br/italianistica/en/article/view/223698" target="_blank" rel="noreferrer">Revista de Italianística</a>：快乐、复调与对话性叙事。</li>
+            </ul>
+          </details>
           <div className="word-box">
             <h3>标记一个词或词块</h3>
             <p>阅读时遇到想复习的表达，就记在这里。它会保存在这台设备。</p>
