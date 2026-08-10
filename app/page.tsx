@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
 
 type Chapter = {
   id: number;
@@ -17,7 +17,7 @@ const partFor = (id: number) =>
 
 const details = (id: number): Omit<Chapter, "id" | "part"> => {
   if (id <= 4) return {
-    focus: "西西里乡村与童年", background: "1900 年前后的西西里：贫困、佃农关系与父权家庭塑造了一个孩子可拥有的选择。注意身体与劳动描写如何提示阶级位置。", read: "在 Apple Books 中完成 Chapter " + id + "。先连续读，不逐词翻译；只标记妨碍理解、反复出现或很有表达力的词块。", bilingual: ["Class is shown through work, space, and who gets to speak.", "阶级通过劳动、空间，以及谁有资格发言来呈现。"], analysis: "从具体的家庭和空间关系入手：谁拥有资源，谁只能承受后果？"
+    focus: "西西里乡村与童年", background: "1900 年前后的西西里：贫困、佃农关系与父权家庭塑造了一个孩子可拥有的选择。注意身体与劳动描写如何提示阶级位置。", read: "在本页的本地阅读器或你习惯的 EPUB 阅读器中完成 Chapter " + id + "。先连续读，不逐词翻译；只标记妨碍理解、反复出现或很有表达力的词块。", bilingual: ["Class is shown through work, space, and who gets to speak.", "阶级通过劳动、空间，以及谁有资格发言来呈现。"], analysis: "从具体的家庭和空间关系入手：谁拥有资源，谁只能承受后果？"
   };
   if (id <= 18) return {
     focus: "修道院、教育与规训", background: "convent 不只是宗教场所，也是教育、慈善和纪律机构。理解称谓（nun、Mother、priest）背后的等级，比记住全部宗教词更重要。", read: "完成 Chapter " + id + "，并收藏 6–10 个词块。优先选与权威、服从、身体或空间有关的表达。", bilingual: ["Care and control can exist in the same institution.", "照护与控制可以存在于同一个制度中。"], analysis: "观察善意、保护与限制是否同时出现；不要急着把人物简化为好人或坏人。"
@@ -55,6 +55,11 @@ export default function Home() {
   const [showAfter, setShowAfter] = useState(false);
   const [word, setWord] = useState("");
   const [words, setWords] = useState<string[]>([]);
+  const [bookName, setBookName] = useState("");
+  const [readerMessage, setReaderMessage] = useState("选择你手机中已保存的 EPUB 后，即可在此阅读。文件不会上传。 ");
+  const readerRef = useRef<HTMLDivElement>(null);
+  const readerInputRef = useRef<HTMLInputElement>(null);
+  const renditionRef = useRef<{ destroy?: () => void } | null>(null);
 
   useEffect(() => {
     const savedComplete = localStorage.getItem("joy-complete");
@@ -83,6 +88,31 @@ export default function Home() {
     setWord("");
   }
 
+  async function openEpub(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    if (!file.name.toLowerCase().endsWith(".epub")) {
+      setReaderMessage("请选择 EPUB 格式的电子书文件。");
+      return;
+    }
+    if (!readerRef.current) return;
+    setReaderMessage("正在这台设备上打开电子书…");
+    renditionRef.current?.destroy?.();
+    readerRef.current.replaceChildren();
+    try {
+      const { default: ePub } = await import("epubjs");
+      const book = ePub(await file.arrayBuffer());
+      const rendition = book.renderTo(readerRef.current, { width: "100%", height: "620px", flow: "scrolled-doc" });
+      renditionRef.current = rendition;
+      await rendition.display();
+      setBookName(file.name.replace(/\.epub$/i, ""));
+      setReaderMessage("正在本机阅读：不上传、不保存到网站服务器。");
+    } catch {
+      setBookName("");
+      setReaderMessage("这个文件暂时无法打开。请确认它是可读取的 EPUB 文件后重试。");
+    }
+  }
+
   return (
     <main>
       <header className="topbar">
@@ -94,6 +124,20 @@ export default function Home() {
         <p className="eyebrow">THE ART OF JOY · PENGUIN MODERN CLASSICS</p>
         <h1>今天，读得深一点。</h1>
         <p className="lede">一个轻量的英语阅读空间。背景先行，正文留在你的手机 EPUB 阅读器，读完再回到这里收集语言与想法。</p>
+      </section>
+
+      <section className="reader-import" aria-label="本地 EPUB 阅读器">
+        <div>
+          <p className="eyebrow">YOUR PRIVATE READER</p>
+          <h2>把你的 EPUB 放在这里读。</h2>
+          <p>文件只在你的手机浏览器里打开，不会传到网站，也不会被公开。</p>
+        </div>
+        <label className="import-button">
+          选择本地 EPUB
+          <input ref={readerInputRef} type="file" accept="application/epub+zip,.epub" onChange={openEpub} />
+        </label>
+        <p className="reader-message">{bookName ? `已打开：${bookName}。` : readerMessage}</p>
+        <div ref={readerRef} className={bookName ? "epub-canvas open" : "epub-canvas"} />
       </section>
 
       <section className="chapter-picker" aria-label="选择章节">
@@ -114,8 +158,8 @@ export default function Home() {
         <h3>开始前 · 必需背景</h3>
         <p>{chapter.background}</p>
         <div className="read-task">
-          <div><span className="task-no">01</span><strong>在你的 EPUB 阅读器中阅读</strong><p>{chapter.read}</p></div>
-          <a className="books-link" href="#reader-tip">手机阅读提示 ↓</a>
+          <div><span className="task-no">01</span><strong>在本地 EPUB 阅读器中阅读</strong><p>{chapter.read}</p></div>
+          <button className="books-link" onClick={() => readerInputRef.current?.click()}>选择 EPUB ↗</button>
         </div>
         <button className={isComplete ? "complete done" : "complete"} onClick={toggleComplete}>
           {isComplete ? "已完成 · 查看阅读后内容" : "完成今日阅读"}
@@ -141,7 +185,7 @@ export default function Home() {
           </div>
           <div className="word-box">
             <h3>标记一个词或词块</h3>
-            <p>在 Books 里划线后，把真正想复习的表达记在这里。它会保存在这台设备。</p>
+            <p>阅读时遇到想复习的表达，就记在这里。它会保存在这台设备。</p>
             <div className="word-entry">
               <input value={word} onChange={(event) => setWord(event.target.value)} onKeyDown={(event) => event.key === "Enter" && addWord()} placeholder="例如: come to terms with" aria-label="添加词汇" />
               <button onClick={addWord}>加入</button>
@@ -161,12 +205,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="reader-tip" id="reader-tip">
-        <p className="eyebrow">PHONE SETUP</p>
-        <h2>Android 也可以轻松读。</h2>
-        <p>把你合法获得的 EPUB 文件发到手机，然后用你习惯的 EPUB 阅读器打开即可。阅读正文不在本网站展示；这个网页负责每天的背景、进度、词汇和读后回收。</p>
-        <p>每台设备的打卡与词汇独立保存在该设备浏览器中，不需要连接 ChatGPT。</p>
-      </section>
     </main>
   );
 }
