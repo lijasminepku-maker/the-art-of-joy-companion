@@ -33,6 +33,19 @@ const studyFor = (id: number): StudyKit => {
   return { ...theme, words: Array.from({ length: 5 }, (_, index) => theme.words[(start + index) % theme.words.length]) };
 };
 
+type Reflection = { question: string; answer: string; craft: string; idea: string };
+const reflectionFor = (id: number): Reflection => {
+  if (id === 1) return { question: "身体与劳动在这一章中怎样提示阶级？", answer: "叙述把贫困落实在身体：疲惫、疼痛、暴露、必须劳动的身体，而不是抽象地说“他们很穷”。劳动也不是背景，它决定谁有力气、时间和说话的资格。", craft: "作者从触觉、动作和狭窄空间开始，让读者先感到匮乏，再理解它是社会结构而非个人过错。", idea: "小说从开篇拒绝把贫穷道德化：一个人的起点由阶级和性别共同塑造。" };
+  if (id <= 4) return { question: "家庭、地方语言或身体描写怎样限定一个孩子的选择？", answer: "本章把家庭日常写成权力关系：谁能命令、谁做事、谁的身体被评价，都会暴露不平等。地方性的用语也提示“说标准语言”本身是一种资源。", craft: "作者不急于解释制度，而是把它嵌进对话、称呼和细小动作，让压迫显得像日常一样自然。", idea: "她要我们看到：所谓个人命运，最初往往来自一个人无法选择的出生环境。" };
+  if (id <= 18) return { question: "照护为何也可能成为控制？称谓和空间如何表现权力？", answer: "修道院里的关怀总伴随规则：谁可以提问、移动、读写或保持沉默。头衔和房门并非装饰，它们划出能行动的人与被管理的人。", craft: "作者把伦理冲突放在反差里——温柔的语言、严厉的制度；神圣的空间、具体的身体需要。", idea: "她质疑任何要求女性或儿童以顺从换取保护的制度。" };
+  if (id <= 29) return { question: "庄园、头衔、房间和婚姻怎样把私人关系变成权力关系？", answer: "本章让财产关系进入亲密关系：名字、钥匙、房间、婚姻安排都决定谁能进入中心、谁只能被安置。人物的感情并没有脱离阶级。", craft: "作者借物品和空间叙事，而不只写人物心理；读者从“谁拥有何物”读出结构。", idea: "她挑战把贵族生活浪漫化的传统，并追问女性能否在既有秩序中获得自主。" };
+  if (id <= 39) return { question: "战争前后的变化如何渗入家庭、劳动和名誉？", answer: "国家政治并非遥远新闻：它通过劳力缺失、资源变化、焦虑和对“荣誉”的要求进入日常。人物最小的选择也开始有了历史重量。", craft: "作者用生活细节而非口号推进时代转折，让历史成为可以触摸的压力。", idea: "私人生活从来不是政治的避风港，尤其对资源有限的人而言。" };
+  if (id <= 57) return { question: "欲望、婚姻和名誉之间的冲突怎样被写出来？", answer: "文本不把人物的欲望化约为道德错误，而是展示社会如何分配羞耻、合法性和照护义务。传闻、日记和沉默也提醒我们：没有单一可靠版本。", craft: "作者故意保留矛盾与不适，使读者不能用简单的“对/错”来结束判断。", idea: "自由不是没有后果，而是承认每个人应有解释自己生活的权利。" };
+  if (id <= 74) return { question: "政治词为何总和私人关系、恐惧或沉默连在一起？", answer: "威权环境改变的不只是选票，也改变了人们说真话的方式。公开立场、私人信念和亲密关系彼此牵连，不能混为一谈。", craft: "作者用停顿、低声、怀疑和误解制造紧张感，而不把政治简化成课堂知识。", idea: "反抗首先是拒绝让任何意识形态替个人决定欲望、语言和关系。" };
+  if (id <= 84) return { question: "战争与国家权力如何改变身体、家庭和语言？", answer: "逮捕、流离和损失让人物的身体与时间感都失去稳定。沉默、回避和片段式记忆是创伤的表现，不是叙述的空白。", craft: "作者用克制的细节呈现暴力的后果，避免把苦难写成猎奇场面。", idea: "宏大历史会落到具体身体上；尊严也常在极端环境里以微小方式被守住。" };
+  return { question: "解放以后，为什么自由仍显得复杂而不完整？", answer: "政权结束并不会自动修复伤害、阶级差距或家庭关系。人物既有新的公共语言，也仍要面对旧有的欲望、愧疚和记忆。", craft: "作者用对比和回望让结局拒绝“圆满解决”，从而保留历史的复杂性。", idea: "“joy”不是忘记痛苦，而是在不完美的现实中持续争取活得自主而清醒。" };
+};
+
 const partFor = (id: number) =>
   id <= 39 ? "Part One" : id <= 57 ? "Part Two" : id <= 74 ? "Part Three" : "Part Four";
 
@@ -94,6 +107,8 @@ export default function Home() {
   const progress = Math.round((complete.length / 95) * 100);
   const isComplete = complete.includes(chapterId);
   const study = studyFor(chapterId);
+  const reflection = reflectionFor(chapterId);
+  const activePart = partFor(chapterId);
 
   function toggleComplete() {
     const next = isComplete ? complete.filter((id) => id !== chapterId) : [...complete, chapterId];
@@ -175,11 +190,14 @@ export default function Home() {
         <label>
           <span>今日章节</span>
           <select value={chapterId} onChange={(event) => { setChapterId(Number(event.target.value)); setShowAfter(complete.includes(Number(event.target.value))); }}>
-            {chapters.map((item) => <option key={item.id} value={item.id}>Chapter {item.id} · {item.part}</option>)}
+            {chapters.filter((item) => item.part === activePart).map((item) => <option key={item.id} value={item.id}>Chapter {item.id}</option>)}
           </select>
         </label>
         <button onClick={() => setChapterId(Math.min(95, chapterId + 1))} disabled={chapterId === 95} aria-label="下一章">→</button>
       </section>
+      <nav className="part-switcher" aria-label="选择部分">
+        {["Part One", "Part Two", "Part Three", "Part Four"].map((part) => <button key={part} className={activePart === part ? "active" : ""} onClick={() => { const first = chapters.find((item) => item.part === part)!; setChapterId(first.id); setShowAfter(complete.includes(first.id)); }}>{part.replace("Part ", "P")}</button>)}
+      </nav>
 
       <section className="today-card">
         <div className="card-kicker">SELF-PACED · {chapter.part.toUpperCase()}</div>
@@ -187,6 +205,7 @@ export default function Home() {
         <div className="rule" />
         <h3>开始前 · 必需背景</h3>
         <p>{chapter.background}</p>
+        <div className="focus-question"><span>本章观察问题</span>{reflection.question}</div>
         <section className="study-kit">
           <h3>IELTS 5 · 本章必学词块</h3>
           <p className="study-intro">今天只学这 5 个；先在阅读中认出它们，再尝试使用其中 1 个。</p>
@@ -223,8 +242,9 @@ export default function Home() {
             </article>
             <article>
               <h3>章节结束 · 赏析</h3>
-              <p>{chapter.analysis}</p>
-              <small>风格追问：{study.prompt}</small>
+              <p className="reflection-label">读后回答</p><p>{reflection.answer}</p>
+              <p className="reflection-label">为什么这样写</p><p>{reflection.craft}</p>
+              <p className="reflection-label">思想线索</p><p>{reflection.idea}</p>
             </article>
           </div>
           <div className="word-box">
