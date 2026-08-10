@@ -12,6 +12,27 @@ type Chapter = {
   analysis: string;
 };
 
+type StudyWord = { word: string; meaning: string; use: string };
+type StudyKit = { words: StudyWord[]; technique: string; model: string; prompt: string };
+
+const wordThemes: StudyKit[] = [
+  { words: [{ word: "drag", meaning: "拖，费力地移动", use: "drag oneself through" }, { word: "splinter", meaning: "碎木片；裂开", use: "a splinter of light" }, { word: "hovel", meaning: "破旧小屋", use: "a cramped hovel" }, { word: "stifle", meaning: "压抑，窒息", use: "stifle a cry" }, { word: "linger", meaning: "徘徊；迟迟不散", use: "a smell lingered" }, { word: "bleak", meaning: "凄凉的，黯淡的", use: "a bleak room" }], technique: "用一个具体名词加一个感官动词，让环境先于解释说话。", model: "A damp smell lingered in the narrow room.", prompt: "找一处空间描写：它如何暗示人物的处境？" },
+  { words: [{ word: "convent", meaning: "女修道院", use: "life in a convent" }, { word: "devotion", meaning: "虔诚；投入", use: "show devotion to" }, { word: "confess", meaning: "忏悔；坦白", use: "confess a fear" }, { word: "obedience", meaning: "服从", use: "demand obedience" }, { word: "mercy", meaning: "仁慈，宽恕", use: "ask for mercy" }, { word: "stern", meaning: "严厉的", use: "a stern voice" }], technique: "把抽象权力写进动作和语气，而不是直接说“他很有权力”。", model: "Her stern voice allowed no room for questions.", prompt: "谁能命令，谁只能沉默？用一个动词说明。" },
+  { words: [{ word: "estate", meaning: "庄园；地产", use: "manage an estate" }, { word: "inherit", meaning: "继承", use: "inherit a name" }, { word: "privilege", meaning: "特权", use: "a privilege to" }, { word: "servant", meaning: "仆人", use: "a household servant" }, { word: "summon", meaning: "召唤；传唤", use: "summon someone" }, { word: "bargain", meaning: "交易；讨价还价", use: "strike a bargain" }], technique: "用身份词和房间/物品的归属，侧写阶级，而非直接下结论。", model: "The keys were not merely metal; they decided who could enter.", prompt: "本章中哪件物品或哪个空间最能说明权力？" },
+  { words: [{ word: "enlist", meaning: "参军；争取支持", use: "enlist in the army" }, { word: "ration", meaning: "配给；限量", use: "food rationing" }, { word: "upheaval", meaning: "剧变，动荡", use: "social upheaval" }, { word: "scarce", meaning: "稀缺的", use: "become scarce" }, { word: "endure", meaning: "忍受；持续", use: "endure hardship" }, { word: "aftermath", meaning: "余波，后果", use: "in the aftermath of" }], technique: "用小的日常变化呈现大的历史，而不急于讲大道理。", model: "After the news arrived, even bread became a measure of fear.", prompt: "历史事件怎样改变了一个日常细节？" },
+  { words: [{ word: "tenderness", meaning: "温柔，柔情", use: "show tenderness" }, { word: "jealous", meaning: "嫉妒的", use: "be jealous of" }, { word: "longing", meaning: "渴望，思念", use: "a longing for" }, { word: "vow", meaning: "誓言", use: "make a vow" }, { word: "conceal", meaning: "隐瞒，掩藏", use: "conceal the truth" }, { word: "burden", meaning: "负担", use: "carry a burden" }], technique: "把情绪落在身体、停顿或具体物件上，避免只写 happy / sad。", model: "She folded the letter twice before she answered.", prompt: "人物没有直说的情绪，藏在什么动作或沉默里？" },
+  { words: [{ word: "regime", meaning: "政权，统治体制", use: "an authoritarian regime" }, { word: "dissent", meaning: "异议", use: "voice dissent" }, { word: "allegiance", meaning: "忠诚，拥护", use: "pledge allegiance" }, { word: "propaganda", meaning: "宣传", use: "state propaganda" }, { word: "refuge", meaning: "避难处；庇护", use: "seek refuge" }, { word: "defy", meaning: "违抗，挑战", use: "defy an order" }], technique: "先辨说话者和风险，再理解政治词；公开语言与私人信念未必相同。", model: "He lowered his voice before he named the regime.", prompt: "这句话是谁说的？他/她为何不能直接说？" },
+  { words: [{ word: "custody", meaning: "拘押；监护权", use: "taken into custody" }, { word: "resistance", meaning: "抵抗；抵抗运动", use: "join the resistance" }, { word: "liberation", meaning: "解放", use: "after liberation" }, { word: "scarcity", meaning: "匮乏", use: "a time of scarcity" }, { word: "witness", meaning: "见证者；目睹", use: "bear witness to" }, { word: "trauma", meaning: "创伤", use: "live with trauma" }], technique: "克制地写创伤：以可观察的后果替代夸张形容词。", model: "He answered slowly, as if each word had to cross a distance.", prompt: "本章的沉默或停顿可能意味着什么？" },
+  { words: [{ word: "rebuild", meaning: "重建", use: "rebuild a life" }, { word: "disillusionment", meaning: "幻灭", use: "political disillusionment" }, { word: "compromise", meaning: "妥协", use: "reach a compromise" }, { word: "solidarity", meaning: "团结", use: "act in solidarity" }, { word: "legacy", meaning: "遗产；留下的影响", use: "leave a legacy" }, { word: "reconcile", meaning: "和解；调和", use: "reconcile with" }], technique: "用对比组织复杂评价：not only ... but also ... / while ... , ...。", model: "Freedom brought relief, but it did not erase what had been lost.", prompt: "本章的“自由”带来了什么，又没有解决什么？" },
+];
+
+const studyFor = (id: number): StudyKit => {
+  const themeIndex = id <= 4 ? 0 : id <= 18 ? 1 : id <= 29 ? 2 : id <= 39 ? 3 : id <= 57 ? 4 : id <= 74 ? 5 : id <= 84 ? 6 : 7;
+  const theme = wordThemes[themeIndex];
+  const start = (id - 1) % theme.words.length;
+  return { ...theme, words: Array.from({ length: 5 }, (_, index) => theme.words[(start + index) % theme.words.length]) };
+};
+
 const partFor = (id: number) =>
   id <= 39 ? "Part One" : id <= 57 ? "Part Two" : id <= 74 ? "Part Three" : "Part Four";
 
@@ -47,14 +68,13 @@ const chapters: Chapter[] = Array.from({ length: 95 }, (_, index) => {
   return { id, part: partFor(id), ...details(id) };
 });
 
-const weekFor = (chapter: number) => Math.min(40, Math.ceil(chapter / 2.4));
-
 export default function Home() {
   const [chapterId, setChapterId] = useState(1);
   const [complete, setComplete] = useState<number[]>([]);
   const [showAfter, setShowAfter] = useState(false);
   const [word, setWord] = useState("");
   const [words, setWords] = useState<string[]>([]);
+  const [lastCheckIn, setLastCheckIn] = useState("");
   const [bookName, setBookName] = useState("");
   const [readerMessage, setReaderMessage] = useState("选择你手机中已保存的 EPUB 后，即可在此阅读。文件不会上传。 ");
   const readerRef = useRef<HTMLDivElement>(null);
@@ -64,13 +84,16 @@ export default function Home() {
   useEffect(() => {
     const savedComplete = localStorage.getItem("joy-complete");
     const savedWords = localStorage.getItem("joy-words");
+    const savedCheckIn = localStorage.getItem("joy-last-check-in");
     if (savedComplete) setComplete(JSON.parse(savedComplete));
     if (savedWords) setWords(JSON.parse(savedWords));
+    if (savedCheckIn) setLastCheckIn(savedCheckIn);
   }, []);
 
   const chapter = useMemo(() => chapters.find((item) => item.id === chapterId)!, [chapterId]);
   const progress = Math.round((complete.length / 95) * 100);
   const isComplete = complete.includes(chapterId);
+  const study = studyFor(chapterId);
 
   function toggleComplete() {
     const next = isComplete ? complete.filter((id) => id !== chapterId) : [...complete, chapterId];
@@ -86,6 +109,13 @@ export default function Home() {
     setWords(next);
     localStorage.setItem("joy-words", JSON.stringify(next));
     setWord("");
+  }
+
+  function saveToday() {
+    const today = new Intl.DateTimeFormat("en-CA").format(new Date());
+    localStorage.setItem("joy-last-check-in", today);
+    localStorage.setItem("joy-last-chapter", String(chapterId));
+    setLastCheckIn(today);
   }
 
   async function openEpub(event: ChangeEvent<HTMLInputElement>) {
@@ -123,7 +153,7 @@ export default function Home() {
       <section className="hero">
         <p className="eyebrow">THE ART OF JOY · PENGUIN MODERN CLASSICS</p>
         <h1>今天，读得深一点。</h1>
-        <p className="lede">一个轻量的英语阅读空间。背景先行，正文留在你的手机 EPUB 阅读器，读完再回到这里收集语言与想法。</p>
+        <p className="lede">按兴趣决定今天读多少。读一页、半章或整章都可以；这里负责把每一次阅读变成真实可积累的英语能力。</p>
       </section>
 
       <section className="reader-import" aria-label="本地 EPUB 阅读器">
@@ -152,15 +182,29 @@ export default function Home() {
       </section>
 
       <section className="today-card">
-        <div className="card-kicker">WEEK {weekFor(chapter.id)} · {chapter.part.toUpperCase()}</div>
+        <div className="card-kicker">SELF-PACED · {chapter.part.toUpperCase()}</div>
         <h2>Chapter {chapter.id}<span>{chapter.focus}</span></h2>
         <div className="rule" />
         <h3>开始前 · 必需背景</h3>
         <p>{chapter.background}</p>
+        <section className="study-kit">
+          <h3>IELTS 5 · 本章必学词块</h3>
+          <p className="study-intro">今天只学这 5 个；先在阅读中认出它们，再尝试使用其中 1 个。</p>
+          <div className="vocabulary-grid">
+            {study.words.map((item) => <article key={item.word}><b>{item.word}</b><span>{item.meaning}</span><em>{item.use}</em></article>)}
+          </div>
+          <div className="sentence-lab">
+            <h3>好句写法 · 可迁移</h3>
+            <p>{study.technique}</p>
+            <p className="english">{study.model}</p>
+            <small>阅读提示：{study.prompt}</small>
+          </div>
+        </section>
         <div className="read-task">
           <div><span className="task-no">01</span><strong>在本地 EPUB 阅读器中阅读</strong><p>{chapter.read}</p></div>
           <button className="books-link" onClick={() => readerInputRef.current?.click()}>选择 EPUB ↗</button>
         </div>
+        <button className="pause" onClick={saveToday}>{lastCheckIn === new Intl.DateTimeFormat("en-CA").format(new Date()) ? "今天已留下阅读位置" : "今天先读到这里"}</button>
         <button className={isComplete ? "complete done" : "complete"} onClick={toggleComplete}>
           {isComplete ? "已完成 · 查看阅读后内容" : "完成今日阅读"}
         </button>
@@ -178,9 +222,9 @@ export default function Home() {
               <small>这是学习提示，不是本章全文翻译。</small>
             </article>
             <article>
-              <h3>简略章节解析</h3>
+              <h3>章节结束 · 赏析</h3>
               <p>{chapter.analysis}</p>
-              <small>写作提示：用 60–100 词回答 “What changed, and why?”</small>
+              <small>风格追问：{study.prompt}</small>
             </article>
           </div>
           <div className="word-box">
@@ -196,7 +240,7 @@ export default function Home() {
       )}
 
       <section className="roadmap">
-        <div><p className="eyebrow">READING MAP</p><h2>40 周，不赶进度。</h2></div>
+        <div><p className="eyebrow">READING MAP</p><h2>不用赶进度。</h2></div>
         <div className="part-list">
           <p><b>01</b> Chapters 1–39 <span>童年、修道院、庄园与战争前夜</span></p>
           <p><b>02</b> Chapters 40–57 <span>成年、亲密关系与后果</span></p>
