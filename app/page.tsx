@@ -1,6 +1,12 @@
 "use client";
 
 import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  "https://pcesxvzbvcjhogbcpfje.supabase.co",
+  "sb_publishable_UzSpjWDA96zHofXwDEKHdA_cbLb0Amm"
+);
 
 type Chapter = {
   id: number;
@@ -173,6 +179,10 @@ export default function Home() {
   const [lastCheckIn, setLastCheckIn] = useState("");
   const [bookName, setBookName] = useState("");
   const [readerMessage, setReaderMessage] = useState("选择你手机中已保存的 EPUB 后，即可在此阅读。文件不会上传。 ");
+  const [syncEmail, setSyncEmail] = useState("");
+  const [accountEmail, setAccountEmail] = useState("");
+  const [syncMessage, setSyncMessage] = useState("登录后，阅读进度、打卡和标记词会在你的设备间同步。");
+  const [syncing, setSyncing] = useState(false);
   const readerRef = useRef<HTMLDivElement>(null);
   const readerInputRef = useRef<HTMLInputElement>(null);
   const renditionRef = useRef<{ destroy?: () => void } | null>(null);
@@ -186,6 +196,47 @@ export default function Home() {
     if (savedCheckIn) setLastCheckIn(savedCheckIn);
   }, []);
 
+  useEffect(() => {
+    let active = true;
+    const restoreCloudState = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!active || !session?.user) return;
+      setAccountEmail(session.user.email ?? "已登录");
+      const { data } = await supabase
+        .from("reading_sync_state")
+        .select("completed, saved_words, last_check_in, last_chapter")
+        .eq("user_id", session.user.id)
+        .maybeSingle();
+      if (!active) return;
+      if (data) {
+        const cloudComplete = Array.isArray(data.completed) ? data.completed : [];
+        const cloudWords = Array.isArray(data.saved_words) ? data.saved_words.filter((item): item is string => typeof item === "string") : [];
+        setComplete(cloudComplete);
+        setWords(cloudWords);
+        setLastCheckIn(data.last_check_in ?? "");
+        localStorage.setItem("joy-complete", JSON.stringify(cloudComplete));
+        localStorage.setItem("joy-words", JSON.stringify(cloudWords));
+        if (data.last_check_in) localStorage.setItem("joy-last-check-in", data.last_check_in);
+        if (data.last_chapter) localStorage.setItem("joy-last-chapter", String(data.last_chapter));
+        setSyncMessage("已同步到云端。现在可在手机或电脑继续阅读。");
+      } else {
+        await pushCloudState(session.user.id, {
+          completed: JSON.parse(localStorage.getItem("joy-complete") ?? "[]"),
+          words: JSON.parse(localStorage.getItem("joy-words") ?? "[]"),
+          lastCheckIn: localStorage.getItem("joy-last-check-in") ?? "",
+          lastChapter: Number(localStorage.getItem("joy-last-chapter") ?? "1"),
+        });
+        if (active) setSyncMessage("已建立你的云端阅读档案。");
+      }
+    };
+    void restoreCloudState();
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) void restoreCloudState();
+      else if (active) { setAccountEmail(""); setSyncMessage("登录后，阅读进度、打卡和标记词会在你的设备间同步。"); }
+    });
+    return () => { active = false; subscription.unsubscribe(); };
+  }, []);
+
   const chapter = useMemo(() => chapters.find((item) => item.id === chapterId)!, [chapterId]);
   const progress = Math.round((complete.length / 95) * 100);
   const isComplete = complete.includes(chapterId);
@@ -194,11 +245,47 @@ export default function Home() {
   const deepReading = deepReadingFor(chapterId);
   const activePart = partFor(chapterId);
 
+  async function pushCloudState(userId: string, state: { completed: number[]; words: string[]; lastCheckIn: string; lastChapter: number }) {
+    const { error } = await supabase.from("reading_sync_state").upsert({
+      user_id: userId,
+      completed: state.completed,
+      saved_words: state.words,
+      last_check_in: state.lastCheckIn || null,
+      last_chapter: state.lastChapter,
+      updated_at: new Date().toISOString(),
+    });
+    if (error) throw error;
+  }
+
+  async function syncState(next: { completed: number[]; words: string[]; lastCheckIn: string; lastChapter: number }) {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+    try {
+      setSyncing(true);
+      await pushCloudState(user.id, next);
+      setSyncMessage("刚刚已同步。");
+    } catch {
+      setSyncMessage("暂时未能同步；你的内容已保存在这台设备，稍后可再次尝试。 ");
+    } finally { setSyncing(false); }
+  }
+
+  async function sendLoginLink() {
+    const email = syncEmail.trim();
+    if (!email) { setSyncMessage("请输入你的邮箱。 "); return; }
+    setSyncing(true);
+    const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } });
+    setSyncing(false);
+    setSyncMessage(error ? "邮件暂时未能发送，请检查邮箱后重试。" : "登录链接已发送到邮箱。请在手机或电脑打开邮件中的链接。 ");
+  }
+
+  async function signOut() { await supabase.auth.signOut(); }
+
   function toggleComplete() {
     const next = isComplete ? complete.filter((id) => id !== chapterId) : [...complete, chapterId];
     setComplete(next);
     localStorage.setItem("joy-complete", JSON.stringify(next));
     setShowAfter(!isComplete);
+    void syncState({ completed: next, words, lastCheckIn, lastChapter: chapterId });
   }
 
   function addWord() {
@@ -208,6 +295,7 @@ export default function Home() {
     setWords(next);
     localStorage.setItem("joy-words", JSON.stringify(next));
     setWord("");
+    void syncState({ completed: complete, words: next, lastCheckIn, lastChapter: chapterId });
   }
 
   function saveToday() {
@@ -215,6 +303,7 @@ export default function Home() {
     localStorage.setItem("joy-last-check-in", today);
     localStorage.setItem("joy-last-chapter", String(chapterId));
     setLastCheckIn(today);
+    void syncState({ completed: complete, words, lastCheckIn: today, lastChapter: chapterId });
   }
 
   async function openEpub(event: ChangeEvent<HTMLInputElement>) {
@@ -253,6 +342,15 @@ export default function Home() {
         <p className="eyebrow">THE ART OF JOY · PENGUIN MODERN CLASSICS</p>
         <h1>今天，读得深一点。</h1>
         <p className="lede">按兴趣决定今天读多少。读一页、半章或整章都可以；这里负责把每一次阅读变成真实可积累的英语能力。</p>
+      </section>
+
+      <section className="sync-card" aria-label="跨设备同步">
+        <div>
+          <p className="eyebrow">YOUR READING, IN SYNC</p>
+          <h2>在手机和电脑间继续。</h2>
+          <p>{syncMessage}</p>
+        </div>
+        {accountEmail ? <div className="signed-in"><strong>{accountEmail}</strong><button onClick={signOut}>退出登录</button></div> : <div className="login-row"><input type="email" value={syncEmail} onChange={(event) => setSyncEmail(event.target.value)} placeholder="你的邮箱" aria-label="登录邮箱" /><button onClick={sendLoginLink} disabled={syncing}>{syncing ? "发送中…" : "发送登录链接"}</button></div>}
       </section>
 
       <section className="reader-import" aria-label="本地 EPUB 阅读器">
