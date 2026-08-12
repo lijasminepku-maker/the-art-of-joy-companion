@@ -1,0 +1,62 @@
+{
+  "_framework-BFtc-H7a.js": {
+    "file": "the-art-of-joy-companion/_next/static/chunks/framework-BFtc-H7a.js",
+    "name": "framework",
+    "imports": [
+      "_rolldown-runtime-CMBOk-op.js"
+    ]
+  },
+  "_rolldown-runtime-CMBOk-op.js": {
+    "file": "the-art-of-joy-companion/_next/static/chunks/rolldown-runtime-CMBOk-op.js",
+    "name": "rolldown-runtime"
+  },
+  "app/page.tsx": {
+    "file": "the-art-of-joy-companion/_next/static/chunks/page-BLmi4RTe.js",
+    "name": "page",
+    "src": "app/page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-CMBOk-op.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-BFtc-H7a.js"
+    ],
+    "dynamicImports": [
+      "node_modules/epubjs/src/index.js"
+    ]
+  },
+  "node_modules/epubjs/src/index.js": {
+    "file": "the-art-of-joy-companion/_next/static/chunks/src-CZGQE77x.js",
+    "name": "src",
+    "src": "node_modules/epubjs/src/index.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-CMBOk-op.js"
+    ]
+  },
+  "node_modules/vinext/dist/shims/layout-segment-context.js": {
+    "file": "the-art-of-joy-companion/_next/static/chunks/layout-segment-context-CUIrG3ld.js",
+    "name": "layout-segment-context",
+    "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-CMBOk-op.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-BFtc-H7a.js"
+    ]
+  },
+  "virtual:vinext-app-browser-entry": {
+    "file": "the-art-of-joy-companion/_next/static/chunks/index-CXmbXENe.js",
+    "name": "index",
+    "src": "virtual:vinext-app-browser-entry",
+    "isEntry": true,
+    "imports": [
+      "_rolldown-runtime-CMBOk-op.js",
+      "_framework-BFtc-H7a.js"
+    ],
+    "dynamicImports": [
+      "virtual:vinext-app-browser-entry",
+      "node_modules/vinext/dist/shims/layout-segment-context.js",
+      "app/page.tsx"
+    ]
+  }
+}
