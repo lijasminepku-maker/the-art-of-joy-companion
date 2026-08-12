@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 8 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch007.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" selected>Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch009.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 8<span>修道院、教育与规训</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">convent 不只是宗教场所，也是教育、慈善和纪律机构。理解称谓背后的等级，比记住全部宗教词更重要。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">8 
+
+And she had to steal more of them,
+				accumulate as many as possible even there in that enormous room they called the
+				parlour; it was the only room in the convent with tall windows, full of gilded
+				furniture. Amid the glitter of gold, the black piano held precious notes and chords
+				free for the taking. All she had to do was follow Sister Teresa’s voice, not
+				sweet like Mother Leonora’s, but really rather coarse. 
+
+‘Today after the vocal drills and
+				the piano exercises we will also learn to write the notes … Oh, what is it
+				this morning, my child? Your eyes are so radiant that you look like the Virgin Mary
+				being lifted up to everlasting glory by the angels. Ah, youth, how beautiful and
+				resplendent it is!’ 
+
+‘It’s not youth, Sister
+				Teresa: it’s that after months and months of promising and putting it off,
+				Mother Leonora is going to show me the stars.’ 
+
+‘I’m glad. You see, being
+				good and obedient has quickly brought you a reward!’ 
+
+Actually, not so quickly. For months she
+				had toiled over that damn embroidery frame under the harpy-like eyes of that
+				shrewish Sister Angelica. 
+
+‘“Only good bringeth forth
+					good!” 5 And tonight you will go … it’s tonight you’re going,
+				isn’t it? You will go with her where none of us has ever set foot. Actually, I
+				should say “has never laid eyes”, because it’s about seeing with
+				your eyes!’ 
+
+‘Not even
+				you, Sister Teresa?’ 
+
+‘Good heavens, no! Aside from the
+				fact that going round and round up that iron staircase would make me drop from
+				vertigo before reaching the top of that slender tower. How slender it is! It may be
+				my impression, but when it’s windy, it appears to sway like a banner. Then
+				too, I don’t suffer from insomnia. I sleep at night, by God’s grace, and
+				I wouldn’t trade my sleep for all the stars in the firmament.’ 
+
+‘What does insomnia have to do
+				with it, if I may ask?’ 
+
+‘It has everything to do with it!
+				And don’t act so simpering with me. “May I” this, “may
+				I” that. Save all that decorum for Mother Leonora.’ 
+
+‘So what does insomnia have to do
+				with it?’ 
+
+‘It has a lot to do with
+				it.’ 
+
+‘How?’ 
+
+‘If I say it does, it does!
+				You’re so pig-headed! Come on, vocal exercises. Let’s go. Forget
+				insomnia and do your scales.’ 
+
+‘But isn’t insomnia the
+				malady that afflicts you at night and doesn’t let you sleep?’ 
+
+‘Of course! It’s the malady
+				that props your eyelids open with its iron claws and won’t let you close your
+				eyes, or, as they say, will not grant you the blessing of sleep.’ 
+
+‘But isn’t it the malady
+				that by the hand of God strikes those who are in mortal sin?’ 
+
+‘What are you saying! Who tells
+				you such nonsense? Oh, you haven’t been speaking to the gardener, have
+				you?’ 
+
+I had spoken with Mimmo, but I replied
+				promptly: ‘No! God forbid! I never speak to men!’ 
+
+‘A proper answer! So was it that
+				prattler Sister Angelica? Don’t listen to her. That woman has ruined her
+				eyesight with her embroidery and all she sees are tangles of
+				colour … Well! Never mind. We’re not here to embroider. Come on,
+				sing your scales now, in groups of four: one, two, three, four,
+				one …’ 
+
+‘Who is it, then, who suffers from
+				insomnia?’ 
+
+‘Stubborn as a mule, she is, oh! A
+				real horse fly, this picciridda is, when she wants to know something.
+				It’s partly true that insomnia is a punishment that God inflicts on those who have sinned. But sometimes – though
+				rarely – it’s like a warning, an alarm bell for those who possess great
+				intelligence and, without insomnia cautioning them to beware, might fall into sins
+				of presumption, of … What do I care about sins! Let Mother Leonora tell
+				you about them. All I know about are notes! The convent’s physician says that
+				all great minds suffer from insomnia and that it’s also hereditary. But that
+				fellow is a heretic, and except for castor oil or some pill, it’s best not to
+				listen to him.’ 
+
+‘Ah! Then it’s Mother
+				Leonora who suffers from insomnia?’ 
+
+‘Exactly, and when this malady
+				struck her – I think it was two or three years after she came here to fill the
+				position vacated by Mother Giovanna, who died … never mind how she died,
+				may God forgive her! – a medical specialist, sent from Palermo only in exceptional
+				cases, after examining and re-examining her obtained the bishop’s dispensation
+				for her to bring her father’s telescope here. He was a great astronomer. And
+				she installed it on the tower. The dispensation also stated that she could spend as
+				many hours as she wished studying the stars, like her father. That, too, is a family
+				affliction. It’s inherited along with intelligence, wealth and power. You
+				should know that Mother Leonora is from one of the oldest noble families on our
+				island, one of the most affluent. I can’t tell you the name because, as you
+				know, when we take the vows we no longer have family members nor … Are you
+				surprised? Your surprise tells me how many acts of humility Mother Leonora must have
+				performed in her heart to cleanse away the arrogance she must have had. I saw her
+				mother, once. Such arrogance! Beautiful, like her, the same eyes, same forehead,
+				same nose. And then, you too: why do you think you were able to stay here after that
+				night when Tuzzu and his father brought you here? They say it was because the
+				convent was close by, but I think it was because they were afraid of the
+				police … So why do you think you were allowed to stay here?’ 
+
+‘I don’t know.’ 
+
+‘Oh, that’s a good one! She
+				doesn’t know! It was because of Mother Leonora’s influence! If you only
+				knew how she fought, afterwards, to keep you here and not send you to some orphanage
+				with its bedbugs and hunger. Of course, I shouldn’t say that, because the
+				orphanages too are run by nuns, but you
+				know how I am: I can’t help speaking plainly. The fact is that these
+				orphanages are run by nuns from poor families, of low extraction. Lower-class
+				individuals who come from rural areas or from the same wretched orphanages.
+				It’s not like it is here. This, too, is something I shouldn’t say – may
+				God forgive me – but here there isn’t one of us who isn’t the daughter
+				of a baron at least. Even the immensely wealthy have never interfered in here and
+				never will.’ 
+
+‘And you, Sister Teresa, are the
+				daughter of …’ 
+
+‘A baron, that’s right. But
+				you should have said were the daughter of, not are the daughter.
+				Repeat the question.’ 
+
+‘And you, Sister Teresa, whose
+				daughter were you?’ 
+
+‘As I said, of a baron, but a poor
+				one, not from a very old family. That’s another reason why I will never be a
+				Mother Superior! But what does it matter? Less worries and more time for music and
+				for teaching it to the novices and to you … But enough now. Forget the
+				scales and let me hear Clementi’s Sonatina . It’s a joy to
+				teach, especially someone like you. Listen to that touch! The touch of an angel. But
+				that’s enough now, that will do. We have to start learning to write music.
+				Here, come over here: see this sheet of paper with the lines? The lines were made by
+				the novice from the continent. 6 Now you will fill them in for
+				me … No, no, you must do it as if drawing a mouth. There, first the
+				outlines: firmly now …’ 
+
+The pressure of my fingers marked the
+				shapes of notes between the lines, trapping them there: no one would ever be able to
+				take them from me anymore. They were mine, stolen like the adjectives, nouns, verbs
+				and adverbs …</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">8
+
+她还得偷更多，越多越好，甚至在那个她们叫做会客厅的巨大的房间里也要尽量积累；那是修道院里唯一有高大窗户的房间，摆满了镀金家具。在金色的闪光中，那架黑色的钢琴藏着珍贵的音符与和弦，可以随意取用。她只需跟随特蕾莎修女的声音，那声音不像莱奥诺拉嬷嬷的甜美，而是相当粗哑。
+
+&quot;今天，在声乐练习和钢琴练习之后，我们还要学写音符……哦，我的孩子，今天早上你怎么了？你的双眼如此明亮，就像圣母玛利亚被天使们举升到永恒荣耀中一样。啊，青春，多么美丽、多么灿烂！&quot;
+
+&quot;不是青春，特蕾莎修女：是因为嬷嬷答应了好几个月又一再推迟之后，今晚要带我去看星星了。&quot;
+
+&quot;我很高兴。你看，乖巧听话很快就给你带来了奖赏！&quot;
+
+其实没那么快。好几个月来，她一直在那个可恶的绣架前苦干，在那个泼妇安杰莉卡修女鹰隼般的目光下。
+
+&quot;&quot;唯有善才能结出善！&quot;今晚你就要去了……是今晚，对吧？你要跟她去一个我们谁也没有踏足过的地方。其实我该说&#x27;谁也没有亲眼见过&#x27;，因为这可是用眼睛去看啊！&quot;
+
+&quot;连您也没有吗，特蕾莎修女？&quot;
+
+&quot;老天，没有！且不说在那铁楼梯上转啊转的，我还没到那座纤瘦的塔顶就会因眩晕而跌落。它多纤细啊！可能是我的错觉，但刮风的时候，它看起来就像一面旗帜那样摇晃。而且，我不失眠。托上帝的恩典，我夜里睡觉，我可不愿用我的睡眠去换天上的所有星星。&quot;
+
+&quot;恕我冒昧，失眠跟这有什么关系？&quot;
+
+&quot;大有关系！别跟我装模作样的。&#x27;恕我&#x27;这，&#x27;恕我&#x27;那。把你那套礼节留到莱奥诺拉嬷嬷面前去用吧。&quot;
+
+&quot;那失眠到底有什么关系？&quot;
+
+&quot;关系很大。&quot;
+
+&quot;怎么个关系大？&quot;
+
+&quot;我说有关系就是有关系！你可真倔！来吧，声乐练习。开始吧。忘了失眠，练你的音阶。&quot;
+
+&quot;可失眠不就是那种夜里折磨你、让你睡不着的病吗？&quot;
+
+&quot;当然！就是那种用铁爪撑开你眼皮、不让你闭眼，或者说，不赐予你睡眠祝福的病。&quot;
+
+&quot;可这不就是上帝之手惩罚那些身犯大罪之人的病吗？&quot;
+
+&quot;你说什么呢！谁跟你讲这种胡话？哦，你是不是跟那个园丁说过话了？&quot;
+
+我跟米莫说过话，但我立刻回答：&quot;没有！上帝保佑！我从不跟男人说话！&quot;
+
+&quot;答得好！那是不是那个多嘴的安杰莉卡修女说的？别听她的。那个女人刺绣绣坏了眼睛，看到的只有一团团的颜色……好了！不说这个了。我们不是来刺绣的。来吧，现在唱你的音阶，四音一组：一、二、三、四，一……&quot;
+
+&quot;那么，是谁失眠呢？&quot;
+
+&quot;倔得像头骡，哦！这小丫头，当她想知道什么事的时候，真像马蝇一样烦人。失眠是上帝惩罚罪人的，这有一部分是真的。但有时候——虽然很少——它像一种警告，一个警钟，为那些拥有非凡智慧的人敲响，如果没有失眠告诫他们要小心，他们可能会犯下狂妄之罪……罪跟我有什么关系！让莱奥诺拉嬷嬷跟你说去。我懂的只有音符！修道院的医生说所有伟大的头脑都饱受失眠之苦，这还会遗传。但那家伙是个异端，除了蓖麻油或什么药丸之外，最好别听他的。&quot;
+
+&quot;啊！那就是莱奥诺拉嬷嬷失眠了？&quot;
+
+&quot;正是，这种病发作的时候——我想是她来这里填补去世的乔瓦娜嬷嬷空缺的两三年之后……别提她怎么去世的，愿上帝宽恕她！——从巴勒莫派来了一位医学专家，只有在特殊情况下才来，他在反复检查之后，得到了主教的特许，让她把她父亲的天文望远镜带到这里来。她父亲是位伟大的天文学家。她把望远镜安装在塔上。特许状还写明，她可以像她父亲一样，花任意多个小时研究星星。这也是一种家族病。它与智慧、财富和权力一同遗传。你要知道，莱奥诺拉嬷嬷出身于我们岛上最古老、最富有的贵族家庭之一。我不能告诉你名字，因为你知道，我们发了誓之后，就再也没有家人了……你吃惊了？你的惊讶告诉我，莱奥诺拉嬷嬷一定在内心做了多少次谦卑的修行，才能洗去她过去必定有过的傲慢。有一次我见过她母亲。那等傲慢！很美，像她，同样的眼睛，同样的额头，同样的鼻子。还有你呢：你以为那天晚上图祖和他父亲把你送到这里之后，你为什么能留下来？他们说是修道院近，但我觉得是因为他们怕警察……那你想过为什么允许你留下来吗？&quot;
+
+&quot;我不知道。&quot;
+
+&quot;哦，这可有趣了！她不知道！是因为莱奥诺拉嬷嬷的影响力！要是你知道她后来费了多大力气把你留在这里，而不是送到那些有臭虫、饿肚子的孤儿院去。当然，我不该这么说，因为孤儿院也是修女办的，但你知道我这人：我就是忍不住直说。事实是，那些孤儿院是由穷苦人家、出身低微的修女办的。是来自农村或同样悲惨的孤儿院的下层人。跟这里不一样。这也是我不该说的——愿上帝宽恕我——但在我们这里，没有一个人不是至少男爵的女儿。即使那些巨富也从未干涉过这里，永远不会。&quot;
+
+&quot;那您呢，特蕾莎修女，您是谁的女儿……&quot;
+
+&quot;一个男爵，没错。但你应该说曾经是谁的女儿，而不是是谁的女儿。重说一遍。&quot;
+
+&quot;那您呢，特蕾莎修女，您曾经是谁的女儿？&quot;
+
+&quot;我说了，一个男爵，但是个穷男爵，家世不怎么古老。这也是我永远当不上院长的另一个原因！但那又怎样呢？少操心，多些时间搞音乐，教见习修女们和你……不过够了。别练音阶了，让我听听克莱门蒂的小奏鸣曲。教书真是一种快乐，尤其是教像你这样的人。听听那触键！天使般的触键。但现在够了，可以了。我们要开始学写乐谱了。来，过来：看到这张有线条的纸了吗？线条是那个从大陆来的见习修女画的。现在你来替我填满它……不，不，你得像画嘴一样画。来，先画轮廓：手要稳……&quot;
+
+我手指的压力在线条之间留下了音符的形状，把它们困在那里：再也没有人能把它们从我这里夺走了。它们是属于我的，像那些形容词、名词、动词和副词一样，是偷来的……
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>devotion</b><span>虔诚；投入</span><em>show devotion to</em></div>
+<div><b>confess</b><span>忏悔；坦白</span><em>confess a fear</em></div>
+<div><b>obedience</b><span>服从</span><em>demand obedience</em></div>
+<div><b>mercy</b><span>仁慈，宽恕</span><em>ask for mercy</em></div>
+<div><b>stern</b><span>严厉的</span><em>a stern voice</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch007.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch009.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

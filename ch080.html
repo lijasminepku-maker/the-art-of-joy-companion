@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 80 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch079.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" selected>Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch081.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 80<span>战争、流离与国家权力</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">二战时期，旅行、艺术教育、家庭和生育都受不稳定环境影响。法西斯国家的监控、逮捕与监禁会改变人们说话和沉默的方式。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">80 
+
+‘Princess, Princess, Voscenza will do us the favour of sleeping here for tonight. You may
+				close this curtain. That way you won’t see that woman over
+				there … Anyway, all she does is sleep! Unfortunately we haven’t had
+				any instructions … If she bothers you, have them call me at once. But
+				tomorrow, you’ll see, we’ll arrange for a room just for Voscenza .’ 
+
+That voice – do you hear it? –
+				isn’t gentle like Mother Leonora’s, but I have to listen to it and do
+				just what it suggests. For now it’s telling me to be sickened by the sight of
+				that ageless, unkempt woman who lies shaking, hands in her hair, facing the wall.
+				And I, like the voice tells me, make a face of disgust, but not too much so: disgust
+				tempered by great compassion. I am in the hands of people who say they believe in
+				compassion. 
+
+‘Voscenza is too good to
+				be moved by that woman. There’s no call to pity a subversive
+				communist!’ 
+
+‘But who is she?’ 
+
+‘Someone from the continent, a
+				wretched fool! She’s not even a teacher like the one in the next cell,
+				who’s rumoured to be an organizer of the reds. A woman leader of the reds –
+				what will we see next! Oh, Princess, I see you are
+					upset … Voscenza is tired, I’ll let you
+				rest.’ 
+
+She turns away with a slight bow and a
+				hint of a smile, repeating: ‘Good night, Princess.’ You can tell she
+				likes to call me that. Jacopo, Bambolina, tell all the children not to kid
+				themselves: even in prison, princesses
+				and leaders are treated differently. As soon as Sister Giuliana disappears behind
+				the door, the woman leaps to her feet and starts talking to me like someone forced
+				to remain silent for years, rushing at me like a starving person reaching for
+				bread. 
+
+‘Who are you? Why did that slut
+				Sister Giuliana make such a fuss over you? Plus, I’m not from the continent:
+				I’m Roman!’ 
+
+The voice is husky, maybe due to the
+				long silence, but beneath the bruises and scratches (knife wounds?), the face, lit
+				by flashing yellow-green eyes, doesn’t seem unattractive. 
+
+‘Who are you? Do you mind
+				answering me?’ 
+
+Pinned by that implacable yellow gaze,
+				Modesta is tempted to respond just to close her eyes and have a little darkness. 
+
+‘No, Modesta, the danger lies precisely in the cells: for every two real
+					prisoners there is one, maybe even more convincing-looking than the others, who
+					is an informer instead.’ 
+
+Joyce has had some experience with
+				prisons, and what she says should be noted; it might be useful. 
+
+‘You never can tell,
+					Bambù .’ 
+
+‘But she’s boring when she starts in on that subject,
+					Zia!’ 
+
+‘We should listen, and then remember.’ 
+
+‘Besides, you? in prison? Just imagine!’ 
+
+‘You never can tell, Bambù, never!’ 
+
+Modesta remembers and opens her eyes
+				again to observe that relentless creature, who talks and talks and asks
+				questions … And when she turns to the wall and pounds her fists on the
+				damp, flaking plaster, it’s even more excruciating to the eye and ear than the
+				floodlight pointed at Modesta, and the individual sitting behind the desk: 
+
+‘Why, Princess, do you force me to
+				sit at this table? It pains me more than it does you, you must believe me! Under
+				this uniform is a man who is saddened to see you so exhausted, but unfortunately it
+				is my duty. I beg you once again: try to remember something specific. Did someone
+				perhaps want to seek revenge by involving you in matters that pertain to men? A
+				rejected lover? With your charm, it would come as no surprise! Sometimes men who are
+				rejected can become ruthless … Try to remember. All we need are two or
+				three names. We’ll hand them over to the law, and you’ll be back home in
+				less than no time!’ 
+
+Behind the dark
+				grille of the confessional, the thin voice of the priest in Palermo coiled like a
+				snake and made me tremble with fear and horror, more so than Mother Leonora’s
+				shouts or those of this officer, who for three hours has been pacing around the room
+				shrieking like a lunatic. 
+
+‘No, no sitting today! Today
+				we’ll talk better on our feet! Outside, the sun is
+				shining … talk … You are so beautiful, Princess, so young! Why
+				let your silence prolong a conversation that is so distasteful to us
+				both?’ 
+
+Now what is he doing? Why has he
+				stopped? I had just got used to the steady gallop of those short bowlegs. Now
+				though, at regular intervals, he stops and clicks his heels together, as if on
+				parade. 
+
+And in the days that followed, each time
+				I entered and sat down: ‘No, no sitting, we’ll talk better on our
+				feet.’ … The cigar! Why does he now stare at the small ember of his
+				cigar, then look at me lingeringly as he twirls it between his fingers and feigns a
+				smile? Years later, Joyce’s breasts were still scarred by a faint
+				tracery … ‘I’m sorry, I see your eyes are closing, but we have
+				to talk.’ Now, he too sits down, but he’s no longer
+				smoking … They haven’t even changed my clothes yet. I’ve been
+				here for several days. 
+
+‘Well, my dear Modesta, my
+					discovery was horrifying and my decision even more horrific. It’s chilling
+					to sit in a cell and see those poor women come back beaten and raped, and
+					realize with disgust that you, being privileged, remain healthy, with your
+					clothes intact. Of course, they use words like weapons with the leaders, but
+					that’s not saying much: words don’t cut the flesh like the razor
+					blades they often use .’ 
+
+‘And you?’ 
+
+‘After a month I realized that I would lose all my credibility with those
+					comrades who were farm women and workers. To get them to do these
+					“embroideries” on me, as you poetically call them, I had to insult
+					them personally and in any way I could. Only after days and days of this was I
+					able to return to the cell with my head held high. It’s incredible to have
+					to fight to be tortured, but the suspicious looks finally stopped, and we were
+					united again.’ 
+
+The Romana is silent now. She
+				bends over me, the yellow beacons of her pupils peering closely at my forehead, my
+				neck, and on her resolute face I see subtle cuts. Joyce was right; they use razor
+				blades. 
+
+‘Nothing,
+				sure! Mummy’s little darling, not a mark! You come and go from there without a
+				scratch, not a hair out of place, not even your lipstick is smudged, is it,
+				Princess! Who are you, an informer? Tell Nina! Either you tell me or I’ll beat
+				you up but good. Who are you?’ 
+
+I’m sleepy. I could have followed
+				Joyce’s example, but I have no intention of being a hero, and when she rushes
+				at me with her sharp fingernails I grab her wrists with one hand – Nina is tall, but
+				she has slim wrists – and slap her with the other, once, twice, three times. The
+				slaps reopen the cuts, and she’s finally forced to get off of me and stop
+				talking. 
+
+‘That’s so you never try it
+				again. Remember that! Keep in mind, I’m convinced that you’re the one
+				who’s an informer. Yes you, with your bruises, an informer! Bruises make
+				informers more convincing, right! Who are you? Tell me or I’ll start slapping
+				you again. Who are you?’ 
+
+‘Cazzi mia! My fucking
+				business!’ 
+
+I had never heard that word on a
+				woman’s lips, and maybe because I instinctively smile, or because of the
+				dialect that breaks the words into gentle, hesitant pauses, I’m left
+				flabbergasted. 
+
+‘Cazzi mia , bitch! You
+				made me bleed. But I’m glad. You’re no informer if you’re so
+				incensed. Get some sleep now. Tomorrow we’ll talk, the two of
+				us …’ 
+
+‘Please, Princess, tomorrow let’s try to make our conversation more
+					productive. Think about it: if we can see a way to resolve one or two things,
+					tomorrow could be more pleasant, with this beautiful sunshine outside, being
+					able to talk with you in a café, in a park …’ 
+
+* 
+
+‘Do you have breath to spare,
+				Princess, that you want to talk? Save it for those signori . From the looks
+				of things, we’ll have plenty of time to chat!’ 
+
+Never had Joyce been so sympathetic and
+				smiling, despite the numerous grim cuts that blur her features in the dark room;
+				bringing a long, shapely finger to her lips she gestures me to be silent to save my
+				strength after my return from those discussions with the lawyers … No matter what time it is,
+				she waits for me, still on her feet or lying down, but always attentive, her huge
+				eyes wide open. And she doesn’t get upset if I make noise trying to find my
+				cot. 
+
+‘Thank you, Jò, for your understanding. Thank you, my love.’ 
+
+‘They worked you over but good,
+				didn’t they, Princess? Wake up! Who is this Jò? your husband?’ 
+
+‘I killed her …’ 
+
+‘Oh, no, Princess! You have to
+				wake up! Up to now I went along with you. I left you in peace because you
+				weren’t raving, but talking nonsense like that is dangerous! Shit, if only
+				there were a real lamp instead of this dim blue light from
+				purgatory … they think of everything! Come on, sit up and open your eyes.
+				That’s it: take a good look at me – good, so to speak – look at me: I’m
+				Nina, not your husband.’ 
+
+‘Oh, yes! … What did
+				they do to your face? You look like you ran into a cheese grater.’ 
+
+‘Just don’t touch me. Ignore
+				it; otherwise you’ll make the goddamned stinging worse.’ 
+
+‘But what did they do to you,
+				Nina?’ 
+
+‘Nothing. They went to town with
+				the razor blade. You know, the usual fun and games … if only that were
+				all, Princess!’ 
+
+‘For God’s sake, what else,
+				Nina?’ 
+
+‘Ah! I see the subject has brought
+				you back down to earth. Good!’ 
+
+‘For the love of God, what else
+				did they do to you?’ 
+
+‘Think about it: when it comes to
+				games men in uniform play, what else can they do to reduce you to a colander, front
+				and back, huh?’ 
+
+‘And you can smile about
+				it?’ 
+
+‘What should I do, cry about it?
+				Crying doesn’t fill the holes.’ 
+
+‘How many men were
+				there?’ 
+
+‘That’s what I’d like
+				to know! I have the impression there were three of them – you know how it is in all
+				the confusion – but I’d swear that a regiment marched over me, a regiment with
+				sabres and brass bands!’ 
+
+‘You’re so funny when you
+				talk, Nina!’ 
+
+‘Oh, if you only knew, fijetta , how much I like to talk, kid! Like my father, who was an
+				anarchist and taught us to be plain-spoken and not to worship false prophets. I
+				remember at the time Italy entered the war – I was only seven, but I remember because at home we didn’t cook and I
+				was so hungry – I remember my father at the window, spitting as he kept saying:
+				“Don’t believe it, Nina, those people who want to go to war aren’t
+				socialists, they’re traitors.”’ 
+
+‘Oh, but you’re young
+				then!’ 
+
+‘I was born in 1908. Are you
+				shocked? I can believe it! And don’t look at me that way! You think I
+				don’t know I look like an old lady? But as soon as these cuts heal and I can
+				dye my hair again … it’s these dark roots that make me seem
+				old … I could use some henna! Tomorrow I’ll ask Sister Giuliana,
+				just for laughs!’ 
+
+‘What’s henna?’ 
+
+‘Well, a balm! It gives you a nice
+				reddish colour without damaging the hair like other dyes do. In fact, it nourishes
+				the hair since it’s made from a plant, and since when has a plant ever done
+				any harm, right? While we’re on the subject of health, I have to tell you
+				something but … I know you’re going to get embarrassed.’ 
+
+‘Me? About what?’ 
+
+‘Naturally, you landed gentry
+				aren’t taught. Like my father used to say, they spoil you. It was okay before,
+				because who could take your privilege away from you? But now … Who would
+				have thought that even you might sometimes end up in jail!’ 
+
+‘What are you talking about? I
+				don’t understand.’ 
+
+‘It’s that I’ve
+				noticed your modesty – I’ve watched you, what do you think! – and I
+				don’t know how to tell you but … To make a long story short, can you
+				feel how hard and bloated your belly is? It looks like a drum. You need to take a
+				crap, fijetta bella . You have to shit, kid, or your head will split and
+				your bowels will be on fire.’ 
+
+It’s that plain talk or the warmth
+				of Nina’s hand as she palpates the taut surface of my belly that makes me cry
+				so hard and repeat in a distant, long-forgotten voice: ‘I can’t, Nina, I
+				can’t.’ When had I last heard that childish voice echoing in a dark
+				room? Was it Prando who kept saying: ‘I can’t, Mama, I
+				can’t’, or was it Bambolina? Jacopo never cried; he just frowned like a
+				sobre, mindful little old man. 
+
+‘When you’re done crying –
+				crying is good for you – we have to do it, nennella ! 100 Come on now, what are you
+				ashamed of? It’s only the two of us. What if they had tossed you in with ten
+				others – all having to shit in the same
+				bucket in the middle of the room – what would you have done then, huh?’ 
+
+‘One bucket for ten women, Nina?
+				What a horror!’ 
+
+‘And not women who are as delicate
+				as you … all staring at you to see how you make out.’ 
+
+‘Ghastly!’ 
+
+‘No, it’s just that by the
+				time you get there, they’ve already spent years and years inside, and inside
+				you get bored. So a newcomer is a novelty, a sensation. How can I explain it? She
+				takes your mind off things, like at the movies. If only they were satisfied to just
+				look. On the other hand, what can you expect? Common prisoners, thieves, whores. Oh,
+				not that I have anything against thieves and whores; hating them doesn’t fit
+				with anarchist thinking. We hate the masters who reduce them to stealing and make
+				them become whores. As the song rightly goes: “ Son nostre figlie le
+					prostitute, son … , the prostitutes are our daughters”. 101 But what the
+				hell! I try to hold to an ideal, but they become hyenas! If this sainted lady
+				hadn’t come, this teacher in the cell next to ours, they’d have eaten me
+				alive! She was the one who made them send me here to the infirmary … 
+
+‘Come on, don’t worry!
+				I’m going to bed now – if you can call it that! – and I’ll turn and face
+				the wall. You pull this filthy sheet that Sister Giuliana calls a curtain closed and
+				take a crap. Okay? No? Get over it now – what’s your name, anyway? Goddamn it!
+				– this princess stuff isn’t for me … Modesta? Hell, what a name! Who
+				named you that? It’s worse than Princess. Imagine calling such a beautiful
+				lady Modesta, especially one who’s crying because she doesn’t want to
+				poop … I can call you Mody, you say? Oh yes, that’s
+				better … Look, Mody, will you make up your mind? What are you worried
+				about if I swear I won’t look at you? The sound you might make? Or the stink?
+				Listen, for the stink do this: take this piece of newspaper and while you go, burn
+				the newspaper with this match – don’t waste it now! we only have a few of them
+				– burn it in the bucket, I mean, and the smell will disappear, you’ll see. All
+				right? Come on, get up and don’t think about me. Make believe I’m not
+				here, pretend I’m blind and deaf: look how well I can act blind and deaf. I
+				could even play a cripple when I performed. I wanted to be an actress when I was
+				little … But what’s wrong,
+				why are you gripping me? What is it? Are you in pain?’ 
+
+‘No, no, it’s just that
+				maybe from laughing or because of the massage you gave me … Oh, Nina,
+				I’m so ashamed, I can’t hold it! I can’t move, I can’t hold
+				it in!’ 
+
+‘And you’re upset?
+				It’s a stroke of luck! Lean on my arm. Good thing you’re not heavy!
+				Here, take off your panties … no, I won’t leave you, there’s
+				no need to cling like that … Let go of my hips! I won’t leave you,
+				but let it all out. For God’s sake, don’t hold back. You can die from
+				intestinal blockage. Don’t hold it in!’ 
+
+Whether because of that
+				‘don’t hold it in’ or the warmth her hips conveyed to my arms, I
+				let myself go, sinking my face between her thighs … I let it all out and
+				she stood there stroking my hair and whispering: ‘There’s a good girl, brava , let it all out, all of it, it will do you good! …’
+				And, something I would never have imagined: as I let myself go, a pleasure sweeter
+				than rosolio or Tuzzu’s tongue now makes me sigh and weep, not from
+				shame, but from joy, as I say over and over again: ‘Nina, Nina, don’t
+				leave me …’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">八十
+
+&quot;公主，公主，殿下今晚行个方便就睡这儿。您可以拉上这道帘子。那样您就看不到那边那个女人了……反正，她成天就是睡！不幸的是我们没接到任何指示……如果她打扰您，让他们立即叫我。但明天，您看，我们会给殿下单独安排一个房间。&quot;
+
+那声音——你听到了吗？——不像莱奥诺拉嬷嬷的那么温柔，但我必须听它，照它暗示的做。此刻它告诉我该对那个看不出年龄、邋遢不堪、双手揪着头发面朝墙壁颤抖的女人感到厌恶。而我，正如那声音告诉我的，做出厌恶的表情，但不过分：厌恶中带着巨大悲悯。我落在一群自称信仰悲悯的人手中。
+
+&quot;殿下心肠太好才会被那女人打动。没必要可怜一个颠覆性的共产党！&quot;
+
+&quot;但她是谁？&quot;
+
+&quot;一个从大陆来的，可怜的白痴！她甚至不是老师，不像隔壁牢房里那个，据说是一个共党组织者。一个女人共党头目——我们还会看到什么！哦，公主，我看您不安了……殿下累了，我让您休息。&quot;
+
+她微微鞠躬，带着一丝微笑转身，重复道：&quot;晚安，公主。&quot;能看出她喜欢那样叫我。雅各布，班博利娜，告诉所有的孩子们别自欺欺人：即使在监狱里，公主和领袖也是被区别对待的。朱莉安娜修女一消失在门后，那女人就跳起来，开始对我说话，像一个被迫沉默多年的人，像饥饿的人奔向面包一样冲向我。
+
+&quot;你是谁？为什么那个婊子朱莉安娜修女对你那么巴结？还有，我不是从大陆来的：我是罗马人！&quot;
+
+声音嘶哑，也许是因为长时间的沉默，但伤痕和抓痕（刀伤？）之下，那张被闪烁的黄绿色眼睛照亮的脸，看起来并非没有吸引力。
+
+&quot;你是谁？你介意回答我吗？&quot;
+
+被那道无情的黄色目光钉住，莫德斯塔忍不住想回答，只为能闭上眼睛，获得一点黑暗。
+
+&quot;不，莫德斯塔，危险恰恰在牢房里：每两个真正的囚犯中就有一个，甚至可能看起来比其他人更像真的，其实是线人。&quot;
+
+乔伊斯对监狱有些经验，她说的话应该记下；也许会有用。
+
+&quot;你永远说不准，班布。&quot;
+
+&quot;但当她开始说那个话题时很烦人，阿姨！&quot;
+
+&quot;我们应该听，然后记住。&quot;
+
+&quot;再说了，你？在监狱里？想象一下！&quot;
+
+&quot;你永远说不准，班布，永远！&quot;
+
+莫德斯塔记起来，又睁开眼观察那个无情的人，她不断说话不断提问……当她转向墙壁，用拳头捶打着潮湿剥落的灰泥时，那对眼和耳的折磨甚至比指向莫德斯塔的聚光灯和坐在桌子后面的人更甚：
+
+&quot;公主，您何必强迫我坐在这张桌子前？这比我更让您痛苦，您必须相信我！在这制服下是一个难过地看到您如此疲惫的人，但不幸的是这是我的职责。我再次恳请您：试着回忆一些具体的事。是否有人想通过把您卷入男人的事情中来报复您？一个被拒绝的情人？以您的魅力，这不奇怪！有时被拒绝的男人会变得残忍……试着回忆。我们只需要两三个名字。把他们交给法律，您很快就能回家！&quot;
+
+在告解室暗色的栅栏后面，巴勒莫那个神父细弱的声音像蛇一样盘绕，让我因恐惧和厌恶而颤抖，比莱奥诺拉嬷嬷的叫喊或那个军官的叫声更甚，那军官三小时来一直在房间里来回踱步像疯了一样尖叫。
+
+&quot;不，今天不坐！今天站着谈话更好！外面阳光灿烂……谈……您是那么美丽，公主，那么年轻！为什么让您的沉默延长一场对我们俩来说都如此不快的对话？&quot;
+
+现在他在做什么？为什么他停了？我刚刚习惯那双短罗圈腿有节奏的奔跑。可是现在，每隔一会儿，他就停下来，鞋跟咔嚓相碰，像在阅兵。
+
+而在接下来的日子里，每次我进去坐下：&quot;不，不坐，我们站着谈更好。&quot;……雪茄！为什么他现在盯着雪茄的微火，然后边在手指间转动边流连地看着我，佯装微笑？多年后，乔伊斯的乳房上还留下一道淡淡的纹路……&quot;对不起，我看到您眼睛闭上了，但我们得谈谈。&quot;现在，他也坐下了，但他不再抽烟了……他们还没给我换衣服。我已经在这儿好几天了。
+
+&quot;好吧，我亲爱的莫德斯塔，我的发现是可怕的，而我的决定更加可怕。坐在牢房里，看着那些可怜的女人被打被强奸后回来，恶心地意识到你，因为是被照顾的对象，依然健康，衣服完好，这令人不寒而栗。当然，他们对领袖用的是词语作武器，但那说明不了什么：词语不像他们常用的剃刀片那样割肉。&quot;
+
+&quot;你呢？&quot;
+
+&quot;一个月后我意识到，我在那些农民和工人同志面前会失去所有信誉。为了让她们在我身上做出这些诗意的&#x27;刺绣&#x27;，我不得不尽一切可能地侮辱她们。这样做了很多很多天后，我才能昂首挺胸地回到牢房。努力争取被折磨，这简直不可思议，但怀疑的目光终于停止了，我们重新团结在一起。&quot;
+
+那个罗马女人沉默了。她俯向我，她瞳孔的黄色灯塔紧贴我的额头、我的脖颈，在她坚毅的脸上我看到细小的切口。乔伊斯是对的；他们用剃刀片。
+
+&quot;什么都没有，当然！妈妈的小宝贝，一点伤痕都没有！你进出那里毫发无损，头发不乱，甚至连口红都没蹭花，对吧，公主！你是谁，线人？告诉尼娜！要么你告诉我，要么我把你揍个半死。你是谁？&quot;
+
+我困了。我本可以效仿乔伊斯的榜样，但我无意当英雄，当她用尖指甲冲向我的时候，我用一只手抓住她的手腕——尼娜很高，但手腕纤细——另一只手扇她耳光，一下，两下，三下。耳光重新打开了那些切口，她终于被迫放开我，不再说话了。
+
+&quot;这是让你永远别再试了。记住！记住了，我确信你才是线人。是你，带着你的瘀青，是线人！瘀青让线人更有说服力，对吧！你是谁？告诉我，否则我又开始扇你了。你是谁？&quot;
+
+&quot;我他妈的事！&quot;
+
+我从未在女人的嘴唇上听到过那个词，也许因为我本能地笑了，也许因为方言把词语断成温柔、犹豫的停顿，我目瞪口呆。
+
+&quot;我他妈的事，婊子！你让我流血了。但我很高兴。你绝对不是线人，如果你那么愤怒。现在睡吧。明天我们谈，就我们俩……&quot;
+
+&quot;公主，求您了，明天让我们试着让对话更有效。考虑一下：如果我们能找到解决一两件事的方法，明天可能会更愉快，外面阳光明媚，能和您在咖啡馆、在公园里谈话……&quot;
+
+*
+
+&quot;公主，你还有多余的气力要说话？留给那些先生们吧。看这样子，我们有的是时间聊天！&quot;
+
+乔伊斯从未如此和蔼可亲、笑意盈盈，尽管黑暗的房间里无数狰狞的切口模糊了她的五官；她修长优美的手指放在唇边示意我保持沉默，以保存从律师那儿回来后的体力……不管什么时候，她都等着我，站着或躺着，但总是全神贯注，巨大的眼睛大睁着。如果我弄出声响找我的小床，她也不会心烦。
+
+&quot;谢谢你，若，谢谢你的理解。谢谢你，我的爱人。&quot;
+
+&quot;他们把你整得够呛，是不是，公主？醒醒！这若是谁？你丈夫？&quot;
+
+&quot;我杀了她……&quot;
+
+&quot;哦，不，公主！你醒醒！之前我一直顺着你。我让你安静是因为你没说胡话，但那样胡说八道很危险！妈的，要是有盏真正的灯而不是这暗淡的炼狱蓝光……他们什么都想到了！来，坐起来睁开眼睛。对了：好好看着我——勉强这么说——看着我：我是尼娜，不是你丈夫。&quot;
+
+&quot;哦，是的！……他们把你的脸怎么了？你看起来像撞上了奶酪刨。&quot;
+
+&quot;别碰我。别管它；否则你会让那该死的刺痛更厉害。&quot;
+
+&quot;但他们对你做了什么，尼娜？&quot;
+
+&quot;没什么。他们用剃刀片尽兴了。你知道，通常的娱乐……要只是这些就好了，公主！&quot;
+
+&quot;看在上帝份上，还有什么，尼娜？&quot;
+
+&quot;啊！我看这话题把你拉回现实了。好！&quot;
+
+&quot;看在爱的份上，他们还对你做了什么？&quot;
+
+&quot;你想想：当涉及到穿制服的男人的游戏时，他们还能怎么把你变成筛子呢，前前后后，嗯？&quot;
+
+&quot;你居然还能笑得出来？&quot;
+
+&quot;我该怎么样，哭吗？哭填不满洞。&quot;
+
+&quot;有多少男人？&quot;
+
+&quot;这就是我想知道的！我感觉有三个——你知道在混乱中是怎么样的——但我发誓有一个团踩过我，一个带着军刀和铜管乐队的团！&quot;
+
+&quot;你说话真有趣，尼娜！&quot;
+
+&quot;哦，你要是知道，小家伙，我有多喜欢说话！像我父亲，他是个无政府主义者，教我们要直言不讳，不崇拜假先知。我记得意大利参战时——我才七岁，但我记得因为家里不做饭，我饿极了——我记得父亲在窗边吐着唾沫不停说：&#x27;别信，尼娜，那些想打仗的人不是社会主义者，他们是叛徒。&#x27;&quot;
+
+&quot;哦，那你很年轻啊！&quot;
+
+&quot;我生于一九〇八年。你吓到了？我相信是的！别那样看我！你以为我不知道我看起来像个老太太？但只要这些伤口愈合，我能再把头发染色……是这些深色发根让我显老……我需要些指甲花！明天我问朱莉安娜修女要，就为了好玩！&quot;
+
+&quot;指甲花是什么？&quot;
+
+&quot;嗯，一种香膏！给你漂亮的红色，不伤头发，不像其他染料。事实上，它滋养头发，因为是从植物中提取的，植物什么时候有害过呢，对吧？说到健康，我得告诉你件事但……我知道你会尴尬。&quot;
+
+&quot;我？关于什么？&quot;
+
+&quot;自然了，你们这些有地的士绅没人教过。像我爸说的，他们惯坏了你们。以前还好，因为谁能夺走你的特权呢？但现在……谁会想到连你也可能有时进监狱！&quot;
+
+&quot;你在说什么？我不明白。&quot;
+
+&quot;是我注意到你的矜持——我观察过你，你以为呢！——我不知道怎么告诉你但是……长话短说，你能感觉到你的肚子有多硬多鼓吗？看起来像个鼓。你需要拉屎，小家伙。你得拉屎，孩子，不然你的头要裂开，肠子要烧起来了。&quot;
+
+正是那种直白的说话方式，或者是尼娜的手抚摸我紧绷的腹部时的温暖，让我哭得那么厉害，用一种遥远、早已遗忘的声音重复着：&quot;我做不到，尼娜，我做不到。&quot;我上次听到那孩子气的声音在黑暗房间里回响是什么时候？是普兰多一直说&quot;我做不到，妈妈，我做不到&quot;，还是班博利娜？雅各布从来不哭；他只是像一个小大人一样皱着眉，清醒而懂事。
+
+&quot;等你哭完了——哭对你有好处——我们得做这件事，小姑娘！来吧，你有什么好羞的？只有我们俩。如果他们把你和另外十个人扔在一起——所有人都得在屋子中间同一个桶里拉屎——那你怎么办，嗯？&quot;
+
+&quot;十个人一个桶，尼娜？太可怕了！&quot;
+
+&quot;而且不是像你这么娇嫩的女人……全都盯着你看你怎么办。&quot;
+
+&quot;骇人听闻！&quot;
+
+&quot;不，只是到你到那里时，她们已经在里面待了好多年好多年，在里面你会无聊。所以新来的就是新鲜事，一种刺激。我该怎么解释？能让你分心，像看电影。只要她们满足于只是看看就好了。另一方面，你能指望什么呢？普通囚犯，小偷，妓女。哦，不是说我对小偷和妓女有什么偏见；恨她们不符合无政府主义思想。我们恨的是那些把她们逼到偷窃、让她们卖身的统治者。正如那首歌说的：&#x27;妓女是我们的女儿，她们是……&#x27;但见鬼！我努力坚持理想，她们却变成鬣狗！如果不是这位圣洁的女士来了，隔壁牢房的老师，她们早就把我活吃了！是她让她们把我送到医务室来的……
+
+&quot;来，别担心！我去睡觉了——如果那能叫床的话！——我转身面墙。你把这肮脏的床单拉上——朱莉安娜修女称之为帘子——然后拉屎。好吗？不？快克服吧——你叫什么名字，到底？天杀的！——这公主什么的我不吃那一套……莫德斯塔？见鬼，什么名字！谁给你起这个名字的？比公主还糟。想象给这么漂亮的一位女士起名叫莫德斯塔，尤其是个因为不想拉屎而哭鼻子的……我可以叫你莫迪，你说？哦是的，那好多了……听着，莫迪，你能下决心了吗？如果我发誓不看你，你还有什么担心的？你可能发出的声音？还是臭味？听着，为臭味这样做：拿这张报纸，在你拉的同时，用这根火柴点燃报纸——别浪费啊！我们只有几根——我是说在桶里烧它，臭味就会消失，你看着吧。好吗？来，起来，别想我。假装我不存在，假装我又瞎又聋：看我能演得多像又瞎又聋。我小时候演戏甚至能演瘸子。我小时候想当演员……但你怎么了，为什么抓紧我？怎么回事？痛吗？&quot;
+
+&quot;不，不，只是也许因为笑，或因为你给我的按摩……哦，尼娜，我太羞了，我憋不住了！我动不了，我憋不住了！&quot;
+
+&quot;你烦什么？这真是走运！靠在我手臂上。幸好你不重！来，脱下内裤……不，我不会离开你，不用那样紧紧抓着……放开我的腰！我不会离开你，但你得全放出来。看在上帝份上，别憋着。肠堵塞可是会死的。别憋着！&quot;
+
+不知是因为那声&quot;别憋着&quot;，还是她的腰传给我手臂的温暖，我放任自己，把脸埋进她的大腿之间……我全放了出来，她站在那抚摸着我的头发，喃喃道：&quot;乖孩子，好样的，全放出来，全放出来，这样对你好！……&quot;而我从未想象过的事发生了：当我放任自己时，一种比玫瑰甜酒或图祖的舌头更甜美的快感现在让我叹息流泪，不是出于羞耻，而是出于喜悦，我一遍又一遍地说：&quot;尼娜，尼娜，别离开我……&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>resistance</b><span>抵抗；抵抗运动</span><em>join the resistance</em></div>
+<div><b>liberation</b><span>解放</span><em>after liberation</em></div>
+<div><b>scarcity</b><span>匮乏</span><em>a time of scarcity</em></div>
+<div><b>witness</b><span>见证者；目睹</span><em>bear witness to</em></div>
+<div><b>trauma</b><span>创伤</span><em>live with trauma</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch079.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch081.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

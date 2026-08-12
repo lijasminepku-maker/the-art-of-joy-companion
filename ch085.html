@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 85 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch084.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" selected>Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch086.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 85<span>解放后、政治与记忆</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1943 年政权垮台、1945 年解放后，重建并不等于问题消失。战后左翼政党、工会、家庭代际冲突与政治幻灭共同构成新的环境。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">85 
+
+That opulent golden summer, unforgettable
+				for its harvest and its light … as if the earth, anticipating the end of
+				that deluge, was ready to rejoice in a silence brimming with grain, which had
+				suddenly fallen over the fields. 
+
+Mattia: ‘Never in living memory
+				has such a rich harvest been seen on the island! Down in Catania everyone is wild
+				with joy. They cheer for peace just like they called for war before.’ 
+
+Modesta: ‘Always the same reckless
+				lunatics, Mattia. Reckless and vulgar, Nonna Gaia would have said. They don’t
+				see that, once again, it’s a foreign military rousing senseless hope in
+				them.’ 
+
+Pietro: ‘Everything has stopped,
+				Mody …’ 
+
+Bambù: ‘Not a single plane flies
+				over anymore, Zia. I thought war would break out with all those airplanes passing
+				over us, especially at night.’ 
+
+Mattia: ‘In 1918, at the end of
+				the Great War, we young people were joyous because we thought everything would turn
+				out well. And it annoyed us to hear the old people who kept saying: “Peace has
+				broken out, and it will be worse than war”.’ 
+
+Pietro, on the other hand, is calm. He
+				has managed to prevent at least one former prefect from jumping onto the platform
+				and speaking again. 
+
+Pietro: ‘How that traitor Pasquale
+				pleaded! “I was young when they decided to beat up Carlo. What did I know?
+				They only intended to teach him a
+				lesson.” And on and on, pleading and reminding us of all his good deeds. Good
+				deeds! Five years in prison for my Mody! And he, fat and slick, keeps saying that
+				there was nothing more he could do: “How could I have saved her from a proven
+				charge of financing a clandestine party?” If everyone had done as I did and as signorino Jose ordered, something could certainly have changed. At
+				least we would have got rid of the old faces, although now new ones are coming from
+				America. Yesterday I nearly got myself in trouble; I saw the notorious
+				D’Alcamo brothers in a jeep.’ 
+
+Mattia: ‘And who are they,
+				Pietro?’ 
+
+Pietro: ‘Two mafiosi, vicious as
+				sin, so vicious that first they were called angels. Then they disappeared. But as we
+				know, angels fly around, and just as they vanished earlier, now they’re back
+				in the arms of the foreigner. And this tells us that nothing is going to
+				change.’ 
+
+Bambù: ‘Oh, stop, Pietro!
+				that’s enough! Uffa , you make me want to cry! You older people are
+				right, but I want to be serene like Zia. I want to have hope! Hope, at least, that
+				Prando, Jacopo and ’Ntoni will return. Oh, Zia, they must return!’ 
+
+In the silence of an indifferent peace
+				that envelops the endless fields, I find myself wandering alone in the midst of an
+				irreverent abundance of lush fruit, vegetables and fleshy flowers that mocks the
+				dead buried under the rubble. Like at the time of the Spanish flu, big rats
+				(nourished by the corpses? I shudder to think of it) prowl through the half-ruined
+				stables, menacing our livestock. Yesterday we heard about another child found at
+				dawn with his little feet gnawed by those creatures, now as big as cats. Shotgun in
+				hand – it’s now the rule at Carmelo – anyone who has time goes hunting for
+				that primal enemy. And so I too skulk around to flush them out, my head deafened by
+				the blast of the pellets, my wrists sore. 
+
+I’ve been crouching for ten
+				minutes, smoking a cigarette, when a furtive rustling from behind the fence makes me
+				instinctively raise the barrel of the gun. 
+
+‘Damn, it must be my fate!
+				Wherever I go, all I find are guns pointed at me. Hey, Mody! Is this any way to
+				welcome me back?’ 
+
+‘’Ntoni!’ I hear my
+				voice scream. ‘What on earth were you doing behind the fence?’ 
+
+‘Well, I
+				was trying to recover a little before making my appearance. I felt so fearless as I
+				was walking here! But once I saw the house I was ashamed to show up like
+				this … I don’t know! I was hoping I’d seem more decent if I
+				rested up a little.’ 
+
+‘What are you saying,
+				’Ntoni? Come here! Where are you going?’ 
+
+‘But I have lice, too! They
+				torment me, Mody, they’re a torment!’ 
+
+’Ntoni runs off. He must have
+				noticed the horror that came over me, fool that I am! What did I expect – to see
+				them return as they were before? I mustn’t be scared by his appearance.
+				It’s ’Ntoni, it’s his voice! I run after him and grab him by the
+				arms. He didn’t go far; he hasn’t got the strength. All I had to do was
+				touch him and, there, he falls into my arms crying. 
+
+‘Oh, Modesta, finally you’re
+				holding me! So long without a woman’s face, without a woman’s arms! A
+				man can’t live without such tenderness. He can’t live!’ 
+
+’Ntoni trembles in my arms the way
+				he trembled in Stella’s arms when he was a baby. And nothing can warm him up,
+				not a hot bath nor a cup of honeyed chamomile tea. ‘ Quannu pigghia friddu
+					’stu carusu diventa siccu siccu comu fussi manciatu du so stessu
+					trimuri! … comu a so patri ’ – Stella’s words –
+				‘When this boy catches a chill, he becomes skin and bones, like his father, as
+				if his own tremors were eating him up.’ 
+
+Day by day, ’Ntoni grows more
+				gaunt under the covers. And when night falls, the chill reminds him of atrocious
+				scenes from a past known only to him, which makes him shout out orders, entreaties,
+				words in German … Those words erect an icy barrier between him and those
+				of us who are impotent spectators before his struggle. 
+
+Bambù: ‘Oh, Zia, it’s awful!
+				He has a scar. What can it have been? And you, Antonio, what kind of a doctor are
+				you? Why don’t you say something?’ 
+
+Antonio: ‘It’s not clear, or
+				rather it’s plain as day: torture, experiments … I know of some, but
+				only he can tell us.’ 
+
+Bambù: ‘Look, even his hip! It
+				seems like he can’t move his legs properly.’ 
+
+Antonio: ‘No, no Bambolina,
+				he’s not paralysed anywhere; the scars have been closed up for some time.
+				He’s just very malnourished, and
+				that doesn’t help any. The physical wounds will heal soon enough, but the
+				wounds of memory won’t! Don’t cry, Bambù, the important thing is
+				that … well, the important thing is that there’s
+				nothing … well, he’s still a man.’ 
+
+Bambù: ‘Yesterday he asked about
+				Stella. He must have forgotten.’ 
+
+Antonio: ‘It’s possible.
+				Probably his body couldn’t handle that other sorrow and erased it. So much the
+				better!’ 
+
+Bambù: ‘I’m afraid, Antonio,
+				so afraid! What about Prando and Jacopo? Why haven’t they returned? So many
+				have come back …’ 
+
+Antonio: ‘Don’t get upset,
+				Bambù. Try to stay calm like Nina. She’s waiting too. Many have yet to return.
+				I got the numbers down at the town hall: there’s still hope.’ 
+
+Bambù: ‘Oh, Antonio, it seemed
+				like it was all over!’ 
+
+Antonio: ‘War is quick to come and
+				slow to leave. Italy looks like a heap of ruins; the fields are still mined. In
+				Milan, they’ve allotted a kilo and a half of coal per individual, twice a
+				month. They’re warm this winter in Milan, Bambù, in the midst of armed gangs
+				who ransack everything. In Naples, gangs of kids, one of them ninety-strong,
+				attacked a train: the oldest member was seventeen.’ 
+
+Bambù: ‘I’m scared, more
+				scared than before, during the war. The house seems empty since Prando has been
+				gone, and Modesta doesn’t talk, doesn’t smile. She comes and goes from
+				Catania looking sadder and sadder.’ 
+
+Bambolina speaks about me as if I
+				weren’t there, and she’s right. In the evening I sit with them around
+				the table and bring food to my mouth but I’m unable to speak. My mind is
+				focused solely on a deep disappointment. On those men in Palermo, in Catania, who
+				receive me with open arms as they slip around the old desks of power, the same
+				gestures barely softened by white-striped grey suits, the same heads, though not
+				wearing the Fascist beret: ‘ You, Princess, are a heroine, and today more
+					than ever we need women like you. The future will belong to women! Like in
+					America. With your past, you will attract crowds of women to us. You’ll be
+					one of the first women deputies … ’ Except for Pasquale, and I
+				almost feel sorry for him, they’re all still there: their cheeks smoothly
+				shaven, fragrant with bergamot. And though at home I’m silent, there at least
+				I enjoy blanching those cheeks: ‘ You mean the first woman paid to collaborate? Why, isn’t the word “collaborate” used anymore? But of course, collaborate with the landowners, the barons, the
+					priests?’ 
+
+‘But Princess, democracy! It will be a democracy! All we have to do, as America has suggested, is demonstrate first through local
+					elections that we Italians are capable of establishing this democracy! And with a democracy we … you’ll soon see … You’re not turning communist on us, are you, Princess?’ 
+
+‘Oh, Zia, please, say
+				something!’ 
+
+‘Sorry, Bambù. I was thinking
+				about what I should say to those signori tomorrow.’ 
+
+‘Did you say that with the fall of
+				the Parri government and with the Americans in Italy there will never be a
+				revolution?’ 
+
+‘Yes, that’s right, Bambù.
+				Parri falls and that Jesuit De Gasperi takes over the government. 108 The Jesuits will
+				reassume their influence, as Jose would have said.’ 
+
+‘But there’s also
+				Togliatti!’ 
+
+‘For as long as it’s
+				convenient, and certainly to circumvent the risk of revolution. Ah, that’s
+				what I’ll say tomorrow! I want to have some fun.’ 
+
+‘It doesn’t seem like
+				you’re really having fun, Zia!’ 
+
+‘I’ll say that I’m a
+				communist and that I believe only in the revolution. We have to side with the
+				opposition. I’ve thought about it. Nina is right. Especially women:
+				we’re always part of the opposition.’ 
+
+‘Why are you crying now, Zia? For
+				the love of God, why are you crying?’ 
+
+‘Because I’ve made up my
+				mind! But above all, because … because I knew I would never see Jose
+				again. I knew it, but he shouldn’t have died, he shouldn’t
+				have!’ 
+
+‘Oh, Modesta, is he dead? How did
+				it happen?’ 
+
+‘Yes, fighting at Cassino. He had
+				enlisted in the Fifth Army. With him, this war took away one of the best. ‘And if you two foolish little ladies thought for even a moment about
+					celebrating this unfortunate peace, you were mistaken! I will never tolerate the
+					sight of those shirkers who, while profiting from the absence of the best men,
+					prepare to enjoy a peace based on theft and lies. War carries off the best men,
+					always!’ 
+
+Nonna
+				Gaia’s grey eyes pierce my pupils like daggers, and I have to lower my head to
+				escape the pain they inflict … Months of abject conversations, full of
+				inflated rhetoric, good intentions, plans. Meanwhile, in the countryside people are
+				starving to death. And already, invisible shotguns are aimed at the heads of the
+				godless reds. No, that’s what they said before; now they’re called
+				‘Bolshevik emissaries’. Already heads are falling in this time of peace,
+				and now we can put a name to a few heads among the countless who have vanished into
+				thin air: on 7 June 1945, union leader Nunzio Passalacqua is killed in Naro, with
+				instigators and perpetrators acting in broad daylight, out in the open, so that
+				everyone might see and reflect on it. 
+
+* 
+
+‘Indeed, the noblewoman we know
+				gave everything she had to Don Calò. Yes, the same Calogero Vizzini from when we
+				were young, Modesta. The Mafia in Palermo and Monreale encouraged her, let’s
+				say, to support EVIS: 109 a kind of militia formed by the right wing of the separatist
+				party, the party of those who want to separate from Italy so they can steal better.
+				And in the absence of a Mussolini, they finance and arm a certain bandit, Giuliano.
+				Don Calò dealt with him personally. I’ve had confirmed reports.’ 
+
+‘They don’t lose any time,
+				do they, Mattia?’ 
+
+‘The signori are always
+				prompt to act, as Carmine used to tell me when I was a boy: “This is something
+				you must learn from them, only this. Because we peasants are slow, but with the
+				strength of our arms and their alacrity you’ll be riding high like your father
+				Carmine for your whole life and that of your children.” Only now do I
+				understand why it gave me so much joy to lose at the gaming table. It was like a
+				beneficial blood-letting, Mody; it drained away all the bad black blood of us
+				ill-fated Tudia!’ 
+
+‘You Tudia may be ill-fated, but
+				not us Brandiforti! Thanks to our mother’s teachings, we found ourselves on
+				the right side, and we will make the price we paid – first, through anti-fascism and
+				later, fighting in the war and in the mountains – count for something. I warn you,
+				Mattia Tudia, that nothing is solved by such defeatism.’ 
+
+‘Defeatism was a Fascist word, Prando.’ 
+
+‘We’ll find another one,
+				don’t worry! We’ll find other words, right, Mama? The important thing is
+				to act! 
+
+‘How beautiful you are, Mama.
+				I’m ashamed to say so, but I was afraid I’d find you old. It’s
+				strange, but in the midst of that inferno, my only concern was that I wouldn’t
+				find you as I’d left you. Mama, you know what I’ll call you from now on?
+				And maybe it will help to make you stay young for ever …’ 
+
+‘What, Prando?’ 
+
+‘My mamma bambina , my
+				child-Mama … What a strange creature man is!’ 
+
+‘Why, Prando?’ 
+
+‘Oh yes, strange! Before, I had
+				you all to myself and I didn’t understand you. Then, when I was far away I
+				realized who you were and I was afraid of losing you: a kind of remorse for not
+				having understood you earlier, as if fate wanted to punish me for my inattention.
+				That was the only thing I was afraid of, not killing or being killed. Let me rest my
+				head on your lap. Touching you is the only way I feel sure I’ve found you
+				again.’ 
+
+As soon as he lays his head on my lap he
+				falls asleep. His face, unchanged, shows no signs of distance. As if he had gone and
+				returned from a ride on his motorcycle. Only his eyes have become more thoughtful.
+				Another wound, still red, can be seen parallel to the long scar on his cheek that
+				has now faded. His skin has lost the gloss of stone polished by the sea, but even in
+				sleep it is still firm and smooth under my fingers. Why can’t I rejoice in his
+				return? Is it Nonna Gaia’s refrain perhaps? ‘ In every war the best
+					are lost … ’ Or maybe it’s the presence of ’Ntoni
+				who, cloaked in his sorrow, wanders distractedly in the garden without speaking?
+				From a distance, his restored body makes him look just as he was before, but when
+				you get closer, his eyes bleed from a wound that is still open. 
+
+An airplane passes overhead, obscuring
+				the sun, and Prando’s eyes open, somewhat troubled.‘You’re here,
+				Mama? Thank goodness! I always fall sleep. I wonder why? It’s as if I never
+				get enough sleep and … But are you sad, Mama? Oh, I’m sorry, what a
+				moron! Your Prando will always be a self-centred idiot! Is it because of Jacopo? Are
+				you worried about Jacopo? But he must
+				come back, Mama, he must … He was the best of all of us.’ 
+
+Those words make me cry out loud in his
+				arms. If Jacopo is dead, I won’t add another line to these memoirs of mine and
+				I’ll remain silent for ever.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">八十五
+
+那个丰饶的金色夏天，因它的收成和光芒而令人难忘……仿佛大地预感到那场洪水即将终结，准备在一片充满谷物的寂静中欢欣——那寂静突然降临在田野上。
+
+马蒂亚：&quot;在人们的记忆中，岛上从未见过如此丰收！卡塔尼亚城里人人欣喜若狂。他们欢呼和平，就像从前呼喊战争一样。&quot;
+
+莫德斯塔：&quot;总是同样的鲁莽疯子，马蒂亚。鲁莽而粗俗，诺娜·盖娅会这么说。他们看不到，又一次，是外国军队在他们心中激起无谓的希望。&quot;
+
+彼得罗：&quot;一切都停了，莫迪……&quot;
+
+班布：&quot;没有一架飞机再飞过头顶了，阿姨。我原以为战争会因那些不断经过我们上空的飞机而爆发，尤其是在夜里。&quot;
+
+马蒂亚：&quot;一九一八年，世界大战结束时，我们年轻人欢欣鼓舞，因为我们以为一切都会变好。而老人们不停地说：&#x27;和平爆发了，它会比战争更糟糕&#x27;，这让我们很恼火。&quot;
+
+另一方面，彼得罗很冷静。他至少阻止了一个前省长跳上讲台再次发言。
+
+彼得罗：&quot;那个叛徒帕斯夸莱是怎么哀求的！&#x27;我还年轻，当他们决定殴打卡洛的时候。我知道什么呢？他们只是打算教训他一下。&#x27;说个不停，哀求着，提醒我们他所有的善行。善行！我的莫迪蹲了五年牢！而他，肥胖又圆滑，不停地说他也没办法再做什么：&#x27;我怎么能在确凿的资助秘密政党的罪名下救她呢？&#x27;如果每个人都像我和何塞少爷所做的那样，情况肯定可以改变。至少我们甩掉了那些老面孔，尽管……&quot;
+
+莫德斯塔：&quot;尽管什么，彼得罗？&quot;
+
+彼得罗：&quot;我应该亲手杀了这个混蛋，而我没有。现在他逍遥法外，像条泥鳅一样又滑进了这个新党派。我看他们会再次把他推上位置。原谅我，莫迪，原谅我。&quot;
+
+莫德斯塔：&quot;这不重要，彼得罗，真的不重要。重要的是你在这儿，卡洛的事业没有被遗忘。你的手在颤抖……&quot;
+
+彼得罗：&quot;自从用这双手掐死帕斯夸莱那天起，它们就一直在颤抖。它们颤抖着，但又带着巨大的喜悦。像大地一样，尽管布满伤痕，却欣喜于不再被碾压。我感觉到体内一切都在歌唱，在重生。然而，我是不是快死了，莫迪？我能感到有东西在我胸中啮咬。我害怕。&quot;
+
+莫德斯塔：&quot;你怎么能害怕呢，彼得罗？卡洛从来没有害怕过。你还记得他在绞刑架下多么平静吗？他走上去，像走到一个朋友的家里……&quot;
+
+彼得罗：&quot;是的，我记得。我决不会忘记。正是因为记得他，我才不再害怕了。来吧，莫迪，我们去看看有没有成熟的梨子。尼娜在哪儿？我好久没见到尼娜了。&quot;
+
+莫德斯塔：&quot;她在花园里。在柠檬树那边。&quot;
+
+彼得罗：&quot;我爱那片柠檬树的地方。当你从那片树荫里走出来，天空就像一幅画。啊，尼娜在那儿。她坐在石凳上，像一尊雕像。她面前是贝阿特里切的雕像……你还记得吗，莫迪？她总是说那儿是最美的地方。&quot;
+
+莫德斯塔：&quot;我记得。贝阿特里切想要被葬在那儿。但那是禁地。&quot;
+
+彼得罗：&quot;现在一切都变了，莫迪。我们可以把贝阿特里切葬在任何她想要的地方。甚至葬在阳光下，如果她愿意的话。谁知道我们在这儿还能待多久……&quot;
+
+尼娜：&quot;彼得罗！莫迪！来，过来。你们看到天空了吗？它完全是金色的，像蜂蜜。我觉得它会滴落到我们头上。哦，彼得罗，你的手在颤抖。&quot;
+
+彼得罗：&quot;是因为你，尼娜。你看，我已经老了，但你仍然美丽。我有时想，如果我年轻些……但也许最好还是不要。你是莫迪的。&quot;
+
+尼娜：&quot;我是我自己的，彼得罗。而且，如果说我属于谁，那就是属于那些为自由而战的人。你也是他们中的一员。所以我在某种意义上也是你的。来，坐这儿。莫迪，你也来。我们看着天，等着战争结束。&quot;
+
+*战争结束的那天，岛上到处响起了钟声。人们在街上跳舞，互相拥抱。他们以为一切都结束了。但对我们来说，一切才刚刚开始。*
+
+莫德斯塔：&quot;你听到他们了吗，尼娜？整个卡塔尼亚都在唱歌。&quot;
+
+尼娜：&quot;我听到了。我还听到彼得罗的呼吸。他的呼吸不一样了，你注意到了吗？他不再害怕了。&quot;
+
+莫德斯塔：&quot;是的，我注意到了。也许因为卡洛又对他说话了。&quot;
+
+尼娜：&quot;也许。或者也许只是因为这天空。来，我们得进去了。天黑了，燕子们都回巢了。看它们飞得多快！它们知道夜晚要降临了。&quot;
+
+莫德斯塔：&quot;但它们会回来的，尼娜。它们总是会回来。&quot;
+
+尼娜：&quot;是的，它们总是会回来。我们也会的。只要我们还活着，我们就会回来，一次又一次，直到我们找到我们一直在寻找的东西。不管那是什么。&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>rebuild</b><span>重建</span><em>rebuild a life</em></div>
+<div><b>disillusionment</b><span>幻灭</span><em>political disillusionment</em></div>
+<div><b>compromise</b><span>妥协</span><em>reach a compromise</em></div>
+<div><b>solidarity</b><span>团结</span><em>act in solidarity</em></div>
+<div><b>legacy</b><span>遗产；留下的影响</span><em>leave a legacy</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch084.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch086.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

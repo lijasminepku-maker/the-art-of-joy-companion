@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 42 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch041.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" selected>Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch043.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 42<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">42 
+
+The sea was waiting. I looked at it with
+				the childlike gaze of Eriprando, wide-eyed, roving. It was summer, and I had to
+				steal a bit of freedom from that grudging sea. To do so I had to understand it,
+				touch it with my body as Beatrice was able to do. It was curious, but as she ran
+				along the beach Beatrice barely limped anymore, like when she danced. Making up my
+				mind to enter the water was the hardest thing I’d had to do so far. The sea
+				was harsh, and rejected me, resentfully. I struggled to grasp that fluid body that
+				eluded me, surprising me on all sides. I kept losing my balance, hurriedly
+				retreating on all fours to find myself coughed up on the beach, breathless. 
+
+‘Forgive me for intruding, signorina , but you will never learn if you continue fighting the waves
+				like that. You have to surrender to the sea. I’ve been watching you for ten
+				minutes and … actually I meant to ask you how to get to Villa Suvarita.
+				I’m looking for Princess Brandiforti.’ 
+
+A voice whose soft r’s rolled down
+				on the sand without disturbing the silence made me raise my eyes, still stinging
+				from the salt, but all I could see was a white shirt gleaming in the sun. 
+
+‘Pardon my impertinence, signorina , but you need a swimming instructor and I need a villa that I
+				can’t seem to find. The villa of a certain—’ 
+
+‘I heard you. I am the Princess.
+				Go ahead, speak.’ 
+
+‘Oh, I’m sorry! I
+				didn’t think … But what am I saying? Sorry again. I didn’t mean to disturb you.
+				If you will be so kind as to tell me where the villa is, I will go and wait for you
+				there.’ 
+
+‘Why, were you looking for me or
+				the villa?’ 
+
+‘You, but … just a
+				moment, I’ll put on my jacket. It was very hot in the woods.’ 
+
+‘Well then?’ 
+
+‘Oh! Carlo Civardi, physician. The
+				attorney, Santangelo, sent me. I see that you are looking at me doubtfully.
+				I’m used to it and to reassure you I will tell you that I am not as young as I
+				look. In a month I’ll be twenty-eight. But if my appearance doesn’t
+				inspire your confidence, don’t worry. I’m used to that too. I
+				understand. All in all, I came with very little hope. I like Sicily very much, but
+				unfortunately I see that here, too, the preconceived notion of in senectute
+					sapientia prevails, even more so than in my region.’ 
+
+‘And where are you
+				from?’ 
+
+‘From Milan, Princess, a very
+				beautiful city, but somewhat damp. To be frank, I’ve had some mild discomfort
+				in my joints that politely suggests that I be wary of the poetic mists of the north,
+				and that has, let’s say, driven me south in search of the sun. How beautiful
+				this island of yours is! I travelled it far and wide before stopping here in
+				Catania.’ 
+
+‘And why did you stop here in
+				Catania?’ 
+
+‘The usual story, common and
+				simple: my uncle is Dr Lenzi, a friend of Attorney Santangelo. I work with him. I
+				see that you’re puzzled. I’ll go back to my uncle: his hair is
+				completely white and this obviously inspires confidence. I see that fortunately
+				you’re smiling, even though it’s at me. I was beginning to think that
+				what Santangelo says about you was true.’ 
+
+‘What does Santangelo
+				say?’ 
+
+‘Well, that you have an iron will.
+				That …’ 
+
+‘… That I don’t trust
+				anyone, that I’m cold, aloof and tightfisted.’ 
+
+‘Well, not exactly.’ 
+
+‘Yes, exactly. Santangelo is
+				right.’ 
+
+‘Well then, if you will allow me,
+				I won’t disturb you any further.’ 
+
+‘Where are you going? Not only do
+				you look like a young boy, but you give up quickly like a little boy.’ 
+
+‘You
+				think so?’ 
+
+‘Why don’t you disguise
+				yourself as an old man?’ 
+
+‘Pardon?’ 
+
+‘Like actors do: eye glasses,
+				whitened hair, a fake beard. In fact, why don’t you grow a beard?’ 
+
+‘But I have a moustache! Besides,
+				up north hardly anyone wears a beard anymore. It’s more sanitary.’ 
+
+‘Really? The problem is that men
+				still wear them here. Why don’t you grow one? It would help you look at least
+				twenty-four or twenty-five, instead of eighteen.’ 
+
+‘Oh, dear God, only eighteen? I
+				see. Forgive me for bothering you.’ 
+
+‘Just a minute, please. Do you
+				know how to swim?’ 
+
+‘What?’ 
+
+‘If you know how to swim and will
+				teach me, I’ll overlook your age and entrust the Prince to your
+				care.’ 
+
+‘Blackmail?’ 
+
+‘Take it any way you like. I must
+				learn how to swim.’ 
+
+‘It’s not very dignified for
+				a doctor, but I can’t afford to refuse. I have only two patients, and on top
+				of it all they don’t pay … So then, may I see the Prince? Is it
+				something serious?’ 
+
+‘No, no! It’s just that his
+				old doctor died. You may see him tomorrow, but come with a bathing suit. Now please
+				leave me. Talking in the sun is tiring. Good day!’ 
+
+As you probably realized, not knowing
+				how to behave with that young man, I had adopted the abrupt manner of the Princess,
+				God rest her soul. It always worked. After a moment’s uncertainty, I heard him
+				stumbling hastily into the woods. 
+
+I had learned so many things from that
+				grand old woman! I felt her rise up inside me in her proud solitude, while Modesta,
+				intimidated by that stranger, clung to her. Could it be that Gaia also shouted so
+				much because she was sometimes afraid of people, just as I had been afraid of that
+				well-spoken doctor? What was the reason for that fear? I close my eyes to question
+				the past and a procession of nuns, old men, and lay sisters with their ageless faces
+				comes marching toward me. The doctor was the first young man I had ever met. I had
+				done the right thing asking him to return. I had to interrupt that procession that now seemed restful to me in
+				comparison with that boy’s intense gaze. To my astonishment, I realized that I
+				was afraid of his young age. But I was only twenty-one and, fearful or not, I had to
+				meet his youth head-on with mine. 
+
+‘Who was that, Modesta?’ 
+
+‘The new doctor.’ 
+
+‘I don’t believe it. He
+				looks like a boy. And besides, even if he were a doctor, is that the way to receive
+				him, Modesta? You shouldn’t have!’ 
+
+I find myself on my feet slapping her,
+				but not hard enough to hurt her, like the first time. I now know how to deal with
+				those prejudices which, from the depths of twenty years of custom and convention,
+				resurfaced darkly in the blue lake of her eyes. Crying calms her, and whether
+				it’s because she’s afraid of me or because my slaps enable her to feel
+				justified in her own eyes, she accepts life and is happy again. 
+
+* 
+
+Beatrice now laughs with the doctor,
+				whom she didn’t want to have anything to do with earlier; they’re amused
+				by my clumsy attempts to stay afloat. I must look really comical as I founder in the
+				water just a few yards from shore. They swim away blithely, confidently cutting
+				through the sea and laughing, but meanwhile I manage to float and do a few strokes,
+				provided I can see the bottom. Who knows when I’ll be able to go out where all
+				you can see is an expanse of dark water probed by the sun? For hours, from the boat
+				I had watched those slow tentacles patiently plumbing those mysterious depths.
+				Another month or two – autumn was still far off, fortunately! – and with the help of
+				that young man I would do it … They’re laughing
+				again … they’ve reached the rock of the Prophet. That rock had
+				become my aspiration. I studied, read, took care of Eriprando, but deep inside me
+				that rock rose up like a promise. 
+
+The days passed, revolving around that
+				promise, that lava silhouette that emerged – at times pensive, at other times
+				glowering – in a pool of water which from the beach always appeared green, until I
+				was able to see up close that it was not an optical illusion, that in fact the sea
+				was always green around the Prophet’s colossal head. With Carlo’s help, I had done it.
+				Just in time; large clouds were already appearing on the horizon. I was trembling
+				with elation over the swim and because the air had turned cool overnight. Carlo,
+				too, was elated. He stood aside, silent, after helping me climb onto the
+				Prophet’s tresses. He never spoke when we were alone; I had to wait for
+				Beatrice to hear his voice. Gaia had worked all too well … But by this
+				time I couldn’t undo it. Maybe it was better that way. I couldn’t get
+				used to that youthfulness and intelligence that assailed me with a fervour and
+				language that were new to me. I had to steal that mastery of his: his ability to
+				play the keyboard of words the way I could make a hundred nuances echo from the
+				notes on the piano. For months now, I had been grasping each new word on the spot
+				and repeating it to myself so I wouldn’t forget it. In time, I would talk like
+				him, just as in time I was able to feel the remote, unreachable lava of that small
+				island beneath my feet. 
+
+* 
+
+‘Lying in the sun without an
+				umbrella, Modesta? You’ll ruin your skin! How many times must I tell you?
+				You’re already so dark! It’s unattractive, that dark skin, like a
+				peasant woman’s.’ 
+
+‘On the contrary, if I may say so,
+				the Princess is ahead of her time. And perhaps she knows it. In Riccione there are
+				many women who have accepted heliotherapy upon the advice of us doctors. The healing
+				properties of the sun have been known for some time, only this medical truth
+				clashed, as always, with modesty, or rather with an aesthetic ideal it hides behind.
+				Last summer we saw swimsuits that were actually scandalous – for the husbands, of
+				course! But times change. You can’t stop progress, and the Princess, dear
+				Beatrice, perhaps consciously, or following her instinct or love for the sun, as she
+				likes to call it, is doing something to promote women’s liberation. Paleness
+				and fragility, after all, are nothing but subtle bridles to curb and tame female
+				nature, just like the Chinese bind their little girls’ feet in the name of
+				beauty. Now, now, Beatrice, don’t get upset. I can see I’m boring you.
+				It’s the fault of my job: a professional deviation.’ 
+
+‘I’m
+				not bored, Carlo. It’s just that I feel like playing croquet. Shall we
+				go?’ 
+
+The two run off to look for mallets.
+				Beatrice has given him permission to call her by name. It’s normal;
+				they’re just kids. ‘Consciously’, ‘heliotherapy’,
+				‘professional deviation’. What marvellous expressions! 
+
+* 
+
+‘No, Beatrice, no! You’re
+				very kind, but it’s hopeless for you to go to so much trouble to see that the
+				Princess takes an interest in me. Don’t you see that even when I speak, she
+				not only doesn’t listen to me but she closes her eyes as if …’ 
+
+‘On the contrary, I do listen to
+				you, and to prove it to you I can tell you that you’re sympathetic toward
+				those socialists you talk so much about.’ 
+
+‘May I ask how you realized
+				that?’ 
+
+‘From the way you spoke, some days
+				ago, about women.’ 
+
+‘And you weren’t
+				scandalized? You didn’t send me away?’ 
+
+‘Why should I have?’ 
+
+‘Well … Attorney
+				Santangelo had advised me …’ 
+
+‘Santangelo doesn’t interest
+				me. What interests me, instead, are these sympathies of yours. Well? No
+				answer?’ 
+
+‘Forgive me, Princess, I’m
+				very confused. You have the ability to surprise me continually. I never imagined
+				that you were interested in politics.’ 
+
+‘No, we’re not at all
+				interested in politics! Modesta! How can you think of joking about these things?
+				Can’t you see you’re embarrassing him? Carlo has no sympathy for those
+				godless atheists! I don’t like it when you act like that! I’m going to
+				take a swim.’ 
+
+‘No, Doctor, I would advise you
+				not to follow her; you’d lose her. Let her swim. Later we’ll explain to
+				her that there’s nothing wrong with those socialists. It takes patience with
+				Beatrice, and time. I can see you’re puzzled. Believe me, it’s better
+				this way. Sooner or later it would have come out. Or were you hoping that Beatrice
+				would never find out? Why are you staring at me in a daze?’ 
+
+‘It’s not that. It’s
+				just … the fact is that I’ve never heard you speak so gently and at such length.
+				It’s your voice that enchants me. You should speak more often.’ 
+
+‘You haven’t answered my
+				question. How did you become a socialist?’ 
+
+‘It was at university. Two or
+				three critical meetings, and everything became clear to me.’ 
+
+‘Are there many socialists in
+				Milan?’ 
+
+‘Many, yes. And even more in
+				Turin. Even here in Sicily there are many.’ 
+
+‘Are you serious?’ 
+
+‘Yes.’ 
+
+‘And you know them?’ 
+
+‘To be honest, I’m here in
+				Catania to make contact with comrades.’ 
+
+‘Ah! Now I understand why you
+				haven’t bothered to look for other patients besides us these past months. I
+				found it very surprising. But I attributed it to family affluence and – forgive me –
+				indolence.’ 
+
+‘I must admit, you don’t
+				miss a thing. Your diagnosis was nearly accurate. No, definitely not indolence! But
+				a certain economic stability that allowed me to see my actions clearly. I’ll
+				explain. For some years my calling as a doctor has come up against many situations
+				that stripped it of the aura of sanctity I had seen in it as a youth. I realized
+				that being a doctor in this society is nothing more than trying to repair the damage
+				caused by working conditions in mines and factories, by prejudices or by
+				circumstances of poverty and filth – damage created at a rapid rate, much too fast
+				for good intentions and the paltry efforts of individual doctors. What good does it
+				do – in a lifetime – to save a hundred people, ninety-nine of them wealthy or well
+				off, when you’ve realized that medicine must first and foremost prevent
+				illness for everyone, indiscriminately? A doctor’s profession in such
+				conditions is equivalent to that of a missionary who goes to Africa to heal the
+				lepers and save some souls … above all his own! Come to think of it,
+				they’re no fools: if they truly eradicated suffering, how could they continue
+				to enjoy those playthings they call the soul, evil and redemption? I was joking.
+				Partly because I’m becoming pompous. And so to conclude this very pedantic
+				little speech: a doctor’s profession is only valid if accompanied by political
+				action that aims to provide everyone with healthful, liveable homes and genuinely
+				efficient hospitals. To do this it is
+				necessary to act, act deep down at the root causes. There is no other
+				way.’ 
+
+‘Is that what socialism
+				is?’ 
+
+‘Yes, but I can see you’re
+				preoccupied. I’m afraid I’ve bored you.’ 
+
+‘You know very well that not only
+				did you not bore me but … don’t be coy!’ 
+
+‘You’re right.’ 
+
+‘You resort to acting demure
+				because I’m a woman, and this allows you to presume that your talk is too
+				profound for …’ 
+
+‘Touché! I apologize. But
+				it’s so rare to find women—!There are some extraordinary women, truly
+				extraordinary, among the socialists, but still very few, unfortunately very
+				few!’ 
+
+‘You taught me to swim,
+				didn’t you?’ 
+
+‘Yes.’ 
+
+‘Would you teach
+				me … would you introduce me to some of these socialists?’ 
+
+‘I’d like to kiss your hand.
+				Such a lovely hand! Thank you for not withdrawing it. I love you,
+				Princess!’ 
+
+‘Weren’t you in love with
+				Beatrice?’ 
+
+‘I am very fond of Beatrice, but
+				since I’ve heard you speak, I realize that I was clinging to Beatrice to get
+				to you. Forgive me. No, don’t pull your hand away! I am not fond of
+					love. I’ve already suffered too much in the name of love. If you
+				intend to quash all hope, with your permission I will stop coming here. There are
+				many doctors in the city. Now I must go, Princess. No! Don’t be angry with me
+				if I don’t come tomorrow. I have no hope, I can see that! Think me vile if you
+				like, but don’t hold it against me, because I loved you for an
+				hour.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">42
+
+大海在等待。我以埃里普兰多那般孩子气的目光凝视着它——眼睛睁得大大的，四下逡巡。正值夏日，我必须从那吝啬的大海手中偷几分自由。要做到这点，我必须了解它，像贝亚特里切那样用身体去触碰它。说来奇怪，贝亚特里切在沙滩上奔跑时几乎不再跛脚了，就仿佛她起舞时一般。下决心踏入海水，是我迄今为止做过的最艰难的事。大海是严酷的，它拒绝了我，满怀怨愤。我奋力抓住那个流质的躯体，它却总是躲开我，从四面八方突袭。我不断失去平衡，匆忙四脚并用逃回岸边，气喘吁吁地发现自己被吐上沙滩。
+
+&quot;请原谅我贸然打扰，小姐，可您若继续这样与海浪搏斗，永远也学不会。您必须向大海屈服。我观察您十分钟了，而且……其实我是想向您打听去苏瓦里塔别墅的路。我在找布兰迪福尔蒂公主。&quot;
+
+一个声音传来——那柔软的r音在沙上滚落，不惊扰寂静——我抬起还在被海盐刺痛的眼睛，却只见一件白衬衫在日光下闪闪发光。
+
+&quot;原谅我的冒昧，小姐，但您需要一位游泳教练，而我需要一座似乎找不到的别墅。一位名叫——&quot;
+
+&quot;我听见了。我就是公主。说吧。&quot;
+
+&quot;哦，抱歉！我以为……可我在说什么？再次抱歉。我不是有意打扰您。如果您愿意告诉我别墅在哪儿，我就去那里等您。&quot;
+
+&quot;怎么，你是在找我，还是在找别墅？&quot;
+
+&quot;找您，但……稍等，我穿上外套。森林里太热了。&quot;
+
+&quot;那么？&quot;
+
+&quot;哦！卡洛·奇瓦尔迪，医生。是圣安杰洛律师让我来的。我看您……&quot; </div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>burden</b><span>负担</span><em>carry a burden</em></div>
+<div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div>
+<div><b>jealous</b><span>嫉妒的</span><em>be jealous of</em></div>
+<div><b>longing</b><span>渴望，思念</span><em>a longing for</em></div>
+<div><b>vow</b><span>誓言</span><em>make a vow</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch041.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch043.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

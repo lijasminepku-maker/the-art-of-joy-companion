@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 22 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch021.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" selected>Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch023.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 22<span>庄园、贵族与社会流动</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">estate、title、inheritance 和 marriage 构成贵族权力的语言。西西里的土地租佃链也让佣人、管理者和地主之间的关系很复杂。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">22 
+
+We raced off, or rather the small hand
+				pulled me, because, to tell the truth, I didn’t have the strength either to
+				stand there or move. The little hand dragged me through corridors and stairways
+				until I began to recognize the draperies of the corridor leading to my room. The
+				thought of having to go back in there alone made me slow up and squeeze her fingers
+				hard. I apologized, because she almost fell. 
+
+‘Oh, I’m sorry!’ 
+
+‘It’s nothing! I
+				didn’t hurt myself, see? I didn’t even fall.’ 
+
+I looked at her: standing still like
+				that, there was something lopsided about her slim little figure, as if one shoulder
+				were lower than the other. 
+
+‘Did my mother scare you? Is that
+				why you’re looking at me like that and gripping my hand so tight? She has this
+				effect on everyone the first time, but then you get used to her.’ 
+
+Something in that silky little face –
+				even her eyelashes shone golden there in the dim sunlight – warmed me and made me
+				forget prudence for a moment. 
+
+‘No, it’s my room that
+				frightens me.’ 
+
+‘Your room? What’s wrong
+				with your room? If you want, I’ll come in with you and take a look. Maybe
+				it’s gloomy … there are a lot of bleak rooms in this
+				house … rooms with depressing stories. I hope they haven’t given you
+				one of those. May I come in, or would you rather be alone to pray like you always
+				do?’ 
+
+I was about to
+				say: pray? not on your life! In fact, I was afraid I had said it, but luckily the
+				practice of prudence acted on its own and I heard my voice reply, ‘No, come
+				in, it would please me. I’ll pray later. I’ve prayed so much and shed so
+				many tears over Mother Leonora that I consider your kind concern for me a sign from
+				God, Principessina . I was so cold before.’ 
+
+‘Yes, I can see that. I also see
+				that you speak like my aunt. You must have loved her very much to have her voice and
+				her way of expressing herself. There’s a photograph of her when she was young
+				in the rose-coloured parlour. I’ll show it to you; you look like
+				her.’ 
+
+‘You look like her too, Principessina .’ 
+
+‘Naturally! But don’t call
+				me Principessina . Call me Beatrice.’ 
+
+‘Beatrice? But your
+				mother …’ 
+
+‘Cavallina, yes, she nicknamed me
+				Filly … for various reasons. She says that Beatrice doesn’t suit me,
+				that Papa was wrong to name me after Dante’s Beatrice. She was too perfect,
+				she says. But the fact is that Dante was Papa’s favourite poet. But
+				let’s go in, let’s see this room. Come on …’ 
+
+Still tugging me by the hand that now
+				burned in hers, she opened the door with assurance, and I happily followed her. Just
+				like the poet, I too had my Beatrice, halo and all, to confront the inferno that
+				room had been for me. 
+
+When I stepped in, Beatrice so
+				illuminated it with her mass of golden hair that I felt almost ashamed of having
+				found fault with it. But after standing in the centre of the room for a moment,
+				staring at the floor, she said, ‘Of course, it’s not exactly a beautiful
+				room, but I can assure you that no one died in here. None of these objects is
+				associated with any misfortune. No, no one died here. On the contrary, a while ago
+				there was an English girl who left us to get married. Unfortunately for us, because
+				not only was she quite charming, but she was also a very good teacher. For a year
+				now my mother has been looking for another one, but the only photographs that have
+				come from London are those of ugly old hags. This month alone I rejected ten of
+				them. Just imagine if Mama had seen them!’ 
+
+My little filly laughed as she wandered
+				around the room touching the walls, examining the drapes. Until she suddenly
+				stopped, as if she had lost her balance;
+				she was out of breath, yet she hadn’t been running. She looked at me and
+				became serious, staring at the hem of her dress. So that was it. My Beatrice
+				wasn’t perfect like the poet’s inspiration: she limped. Seeing her
+				pallor, I tried to smile at her, but my damned lips wouldn’t move. I would
+				have to come up with some exercises to learn how to smile. 
+
+‘Such a sad, sad
+				smile …’ 
+
+Yes, I must think up some exercises. 
+
+‘What is it … do you
+				feel sorry for me?’ 
+
+That do you feel sorry for me loosened the knots of prudence that bound me and I found myself so close to her that
+				I was almost embracing her. 
+
+‘Feel sorry for you? Of course
+				not, Beatrice. You’re so beautiful, and even though …’ 
+
+‘Then you noticed? Thank goodness!
+				That way with you at least I won’t have to force myself anymore.’ 
+
+‘Force yourself to do
+				what?’ 
+
+‘You see, Modesta, when I’m
+				with my mother I have to force myself to limp as little as possible; otherwise she
+				starts yelling. You’ve heard what she’s like, haven’t you? I have
+				to make sure I hide this flaw of mine from strangers. But since you’ve noticed
+				it and won’t say anything to her, I don’t have to strain myself anymore.
+				I can see that you’re sincere. What a relief! My leg hurts so much when I
+				force it like that.’ 
+
+And it must have been so, because
+				Cavallina continued her inspection of the room hopping and skipping with joy. 
+
+The small dissonant note of her left
+				foot somehow lent her slim waist a certain tenderness, making you want to hold it in
+				your hands like a precious thing that might break at any moment. Summoning back the
+				prudence that was abandoning me, I did not grasp her waist. But to justify my hands,
+				which were too close to it, I said: ‘What a lovely belt! What a wonderful
+				shade of red!’ 
+
+‘But it’s not red, Modesta,
+				it’s claret. Oh, forgive me, these things are all new to you and are of no
+				interest to you … This is exactly the reason I couldn’t decide
+				whether or not to tell you why this room isn’t as cheerful as mine.
+				You’re always praying, and you’re so serious!’ 
+
+‘Don’t be silly, Beatrice. Tell me. I’d like to know.’ 
+
+‘It’s because it’s
+				missing a mirror. Here, you see? See that mark on the wallpaper? There was a mirror
+				here. They’re beautiful, you know, their frames carved with gilded flowers. I
+				have one in my room … I wonder why they took it down? That’s
+				what’s making the room dismal. Oh, I know why! In the convent there were no
+				mirrors in the rooms, right? And you certainly wouldn’t want one: it’s
+				frivolous. Argentovivo told me that even when you comb your hair, you never even
+				look at yourself in the mirror that’s in the toilette.’ 
+
+‘No, we aren’t allowed to
+				look at ourselves in a mirror.’ 
+
+‘Of course. And that’s why
+				the room is gloomy. If there were a mirror in here, even with the faint sunlight we
+				have today, the room would absorb and reflect it … See how it was hung
+				here purposely to catch even the smallest ray of light from the window? Naturally,
+				without it all this wallpaper seems drab. If you’d like … maybe it
+				wouldn’t do any harm. And maybe you could pray just the same, if you
+				want …’ 
+
+‘I’ll think about
+				it.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">22
+
+我们飞奔而去，更确切地说，是那只小手拽着我，因为说实话，我已没有力气站着，也没有力气挪步。那只小手拖着我穿过走廊和楼梯，直到我开始认出通往我房间的那条走廊的帷幔。一想到又要独自回到那个房间，我不由得放慢了脚步，狠狠捏紧了她的手指。我道了歉，因为她差点摔倒。
+
+「哦，对不起！」
+
+「没什么！我没伤着自己，你看？我甚至都没摔倒。」
+
+我看着她：那样静止不动地站着，她纤细娇小的身形有种不太对称的感觉，仿佛一边肩膀比另一边低些。
+
+「我母亲吓着你了吧？所以你才这样看着我，还把我的手抓得这么紧？她第一次见谁都是这个效果，但以后你就会习惯的。」
+
+那张如丝绸般柔滑的小脸上——就连她的睫毛也在暗淡的日光下闪着金光——有某种东西温暖了我，让我暂时忘却了谨慎。
+
+「不，是我的房间让我害怕。」
+
+「你的房间？你的房间有什么问题？要是你愿意，我跟你一起进去看看。也许是太阴郁了……这宅子里有很多阴冷的房间……有些房间还有令人沮丧的故事。我希望他们没有给你那样的房间。我能进来吗，还是你宁愿独自祈祷，就像你平时那样？」
+
+我差点脱口而出：祈祷？绝不可能！事实上，我害怕自己已经说出口了，但幸好，谨慎的习惯自行起了作用，我听见自己的声音答道：「不，请进吧，我很乐意。我稍后再祈祷。我已为莱奥诺拉修女祈祷了那么多，流了那么多眼泪，我视您对我的善意关怀为上帝的一个征兆，小公主殿下。方才我是太冷了。」
+
+「是的，我看得出来。我还看出你说话的腔调像我姨妈。你一定非常爱她，才会有她的声音和她的表达方式。在玫瑰色的会客厅里有一张她年轻时的照片。我带你看；你长得很像她。」
+
+「您也很像她，小公主殿下。」
+
+「当然像！不过别叫我小公主殿下。叫我贝阿特丽切吧。」
+
+「贝阿特丽切？可是您的母亲……」
+
+「卡瓦利娜，对，她给我起了个绰号叫小母马……原因种种。她说贝阿特丽切不适合我，说爸爸不该用但丁的贝阿特丽切来给我取名。她说她太完美了。但事实上，但丁是爸爸最爱的诗人。不管怎样，我们进去吧，看看这个房间。来吧……」
+
+她依然拽着我的手——此刻我的手在她手中发烫——她笃定地推开了门，我欣然跟随着她。恰如那位诗人，我也有了我的贝阿特丽切，连同光环，来面对那个房间曾是我的地狱。
+
+当我踏入时，贝阿特丽切用她那头浓密的金发将它照得如此明亮，我几乎为自己对它有所挑剔而感到羞愧。但她在房间中央站了片刻，凝视着地板，然后说道：「当然，这算不上一个漂亮的房间，但我可以向您保证，这里没有死过人。这些物件没有一件与任何不幸有关。没有，没有人死在这里。相反，不久前这里住过一位英国姑娘，她离开我们去结婚了。对我们来说这很遗憾，因为她不仅相当迷人，还是一位非常好的老师。这一年来我母亲一直在找另一位，但从伦敦寄来的照片尽是些丑陋的老太婆。仅这个月我就拒绝了十个。想想看，要是妈妈见了她们！」
+
+我的小母马笑着在房间里转悠，摸着墙壁，审视着帷幔。直到她突然停下来，仿佛失去了平衡；她喘不过气来，可刚才并没有奔跑。她看着我，变得严肃起来，盯着自己裙子的下摆。原来如此。我的贝阿特丽切并不像诗人的灵感那般完美：她跛足。看见她苍白的脸色，我试着向她微笑，但我那该死的嘴唇又动不了了。我得想些练习来学会微笑。
+
+「如此悲伤、悲伤的微笑……」
+
+是的，我必须想出些练习。
+
+「怎么了……你为我感到难过吗？」
+
+那句「你为我感到难过」松开了束缚我的谨慎之结，我发现自己离她如此之近，几乎是在拥抱她。
+
+「为你难过？当然不是，贝阿特丽切。你这么美，即使……」
+
+「那么你注意到了？谢天谢地！这样至少在你面前，我不必再勉强自己了。」
+
+「勉强自己做什么？」
+
+「你看，莫德斯塔，当我和母亲在一起时，我不得不尽量少跛一点；否则她就会开始大喊大叫。你刚才已经见识过她是什么样了吧？我必须在陌生人面前藏起这个缺陷。但既然你已经注意到了，而且不会告诉她，我就不必再硬撑了。我看得出你是真心的。真是解脱！我那样硬撑的时候，腿疼得厉害。」
+
+想必确实如此，因为卡瓦利娜继续在房间里以喜悦的蹦跳和跳跃继续着她的巡视。
+
+她左脚那小小不和谐的音符，不知怎的，为她纤细的腰肢平添了几分柔情，让人想用双手捧住它，如同捧着一件随时可能碎裂的珍宝。我召回了正在离我而去的谨慎，没有去握住她的腰。但为了让我的手——它们离她的腰太近了——有个理由，我说道：「多么可爱的腰带！多么美妙的红色！」
+
+「可这不是红色，莫德斯塔，这是酒红色。哦，请原谅，这些东西对你来说都是新的，你也不会感兴趣……这正是我犹豫要不要告诉你为什么这个房间不如我的房间那么欢快的原因。你总是在祈祷，而且你那么严肃！」
+
+「别傻了，贝阿特丽切。告诉我。我想知道。」
+
+「因为它缺了一面镜子。你看，这里？看见墙纸上那个印子了吗？原来这里有一面镜子。你知道，它们很美，镜框上雕着镀金的花朵。我房间里有一面……我在想他们为什么把它取下来了？这就是房间显得阴郁的原因。哦，我知道为什么了！在修道院里，房间里是没有镜子的，对吗？你肯定也不想要：那是轻浮的东西。阿真托维沃告诉我，就连你梳头的时候，你也从来不看梳妆间里那面镜子里的自己。」
+
+「是的，我们不允许看镜子中的自己。」
+
+「当然。这就是房间阴郁的原因。如果这里有一面镜子，即便以今天这样微弱的阳光，房间也能吸收和反射它……你看，它挂在这里，就是为了捕捉窗户透进来的哪怕最微弱的光线？自然，少了它，所有这些墙纸都显得灰暗。如果你愿意的话……也许不会有什么坏处。而且也许你照样可以祈祷，如果你想的话……」
+
+「我会考虑的。」
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>servant</b><span>仆人</span><em>a household servant</em></div>
+<div><b>summon</b><span>召唤；传唤</span><em>summon someone</em></div>
+<div><b>bargain</b><span>交易；讨价还价</span><em>strike a bargain</em></div>
+<div><b>estate</b><span>庄园；地产</span><em>manage an estate</em></div>
+<div><b>inherit</b><span>继承</span><em>inherit a name</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch021.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch023.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

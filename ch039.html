@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 39 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch038.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" selected>Chapter 39</option></select>
+  <a href="ch040.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 39<span>战争前夕与家族秩序</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1915 年意大利参加第一次世界大战。乡村生活与国家大事并不同步，但战争、价格、劳动力和家族荣誉会逐步进入私人生活。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">39 
+
+Eriprando, freed from the swaddling
+				strips, no longer cried; he played with my nipple and with Beatrice’s hair
+				which, loosened there in the sun, attracted him. When he pulled harder Beatrice
+				yelled, and to get back at him took over my other breast and sucked. They fought
+				over my body, and in that joyful tussle they became friends. I took advantage of it
+				to rest, surrendering to those two creatures to whom, for the first time in my life,
+				I felt wholly connected. 
+
+I needed rest. I was tired. Was that
+				weariness perhaps a sign that I was no longer young? I had never felt tired before.
+				Or was it knowing that I was now alone in having to nourish and protect them? That
+				was it. I wasn’t old. I had just emerged from my early youth and I already had
+				a past. That fatigue was merely a longing for something that one has had and thinks
+				will never return. 
+
+It was that same yearning that prompted
+				me to record my youth on these pages, because I don’t want silence to
+				obliterate Beatrice’s long hair, illuminated by the sun, which held us with
+				its inimitable narcotic warmth. I would like to stay in this moment. But even now,
+				as I write, the sun is going down, someone is knocking at the door, a car is waiting
+				at the gate … 
+
+The impressive Lancia Trikappa 27 was waiting,
+				gleaming in the sun, and even now that I knew it wasn’t a coach, the idea of a
+				second trip into the unknown blurred my vision. Like an echo of fear, a feeling from
+				the past crept into the joy of the moment, poisoning it. It was the child-me who edged her way
+				between me and the present time. Closing my eyes, I saw myself as I was then,
+				clutching Mimmo’s arm. I had to banish that little girl who would not be
+				reassured no matter what. I turned my gaze to Beatrice, who was silent beside me,
+				wholly absorbed in stroking Eriprando’s hair. She was always holding him. It
+				was she, now, who didn’t want a wet-nurse to care for him, not even to wash or
+				feed him, and she was a help to me as well. With the Princess’s death my work
+				had doubled, and despite Carmine’s help I had very little time to
+				myself … 
+
+The car was moving. Beatrice was
+				laughing softly. She didn’t even turn to look at the villa, completely taken
+				with her little nephew. They looked alike, two peas in a pod. For months and months
+				everyone in the villa had been saying so. It was natural, but there, in that odd
+				setting, the similarity was truly striking, even for children of the same father. I
+				too did not look back. I wasn’t leaving anything in that house. Mimmo
+				wasn’t there, and all of Jacopo’s books had already been sent off in a
+				trunk with Signorina Inès, Ippolito and Pietro, who was pained by the devoted gaze
+				his dear Prince, now reserved only for his new passion. 
+
+‘I’m aggrieved, Princess.
+				Truly disappointed! I was hoping that in a month or so this infatuation for the
+				Torinese woman would subside, but … ah well, men! You mustn’t take
+				it to heart. You must have patience! Men, they’re all alike! Even my father,
+				God rest his soul, was captivated by every new skirt! But you must believe me,
+				it’s you my Prince loves, Voscenza … It embarrasses me to speak
+				to you about such things. But, well, given the way things are, I think that in
+				Catania – Voscenza will forgive me – I think we will need to distract him
+				with some picciotta , 28 ahem, yes, like we did in the days when the Princess, God rest
+				her soul, was alive because – the point is – the Torinese is a
+				virgin … what is it, are you crying?’ 
+
+Poor Pietro! Certainly not crying! I had
+				covered my face with my hands because I was about to burst out laughing. In Catania,
+				the longed for Catania, I would have a large room all to myself with Jacopo’s
+				books. So longed for and, to me, seemingly so far away that I nearly panicked when I
+				heard Beatrice cry out: 
+
+‘Catania! Catania! Look how
+				beautiful it is, Modesta, look! You too, Eriprando, look at your city!’ 
+
+Stunned by its
+				proximity, I opened my eyes and shut them again, dazzled by the expanse of dark
+				rooftops shining in the sun, plunging into a blue sky that stretched to infinity, as
+				far as the eye could see: the sea! Tuzzu’s blue sea! 
+
+‘Yes, yes, it’s the sea! And
+				who is Tuzzu? … Yes, where it gets lighter, that’s the
+				horizon.’ 
+
+My eyes filled with that uncontainable
+				expanse of light, which wouldn’t fade even with my eyelids tightly shut. I
+				heard myself say: 
+
+‘Let’s go see it up close,
+				now!’ 
+
+At Beatrice’s command, the swift
+				car began racing as though pursued by those high, dark walls, with their many
+				windows and iron balconies, which hurtled behind us. 
+
+As soon as the car stopped I jumped out,
+				breathless, followed by Beatrice. And maybe because I expected to see it from above
+				like before, I had to look up to find that inverted liquid sky which flowed serenely
+				toward boundless freedom. Great white birds glided in the dizzying wind. My lungs,
+				released, opened up and I breathed for the first time. For the first time, tears of
+				gratefulness rolled down my face. Or was it the strong, pungent taste of that wind
+				that bent over my mouth to kiss me?</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">39
+
+埃里普兰多摆脱襁褓之后不再哭了；他一会儿玩弄我的乳头，一会儿拨弄贝亚特里切的头发——她在那儿阳光下松开的头发吸引着他。他扯得重了，贝亚特里切就叫喊起来，作为报复，她霸占了我另一侧的乳房，吸吮起来。他们在我身上争抢，在那场欢乐的扭打中，他们成了朋友。我趁机休息，将自己交托给这两个生命——我这辈子第一次感到与他们完全相连。
+
+我需要休息。我累了。这疲倦难道是我不再年轻的征兆？我从前从未感到疲倦。抑或是意识到如今只剩我一人来哺育和保护他们？正是如此。我并不老。我刚从青春初期脱身，便已有了过往。那疲倦不过是对已拥有、以为永不重来的某种事物的眷念。
+
+正是这同样的眷念促使我将青春记录在这几页纸上，因为我不愿沉默湮没贝亚特里切的长发——日光下闪亮的长发，以那无可比拟的麻醉般的温暖，将我们拢在一起。我想停留在此刻。然而，即便此刻，在我书写之时，太阳正西沉，有人在敲门，一辆汽车等在门口……
+
+那辆令人瞩目的兰西亚Trikappa 27正等在门外，在阳光下闪闪发光，而即使现在我知道这不是马车，第二次踏入未知之境的想法依然模糊了我的视线。如同一阵恐惧的回声，一抹来自过往的感觉悄然潜入此刻的欢愉，将其毒化。是那个孩童时期的我，挤进了我与当下之间。闭上眼，我看见那时的自己，紧紧抓着米莫的手臂。我必须驱逐那个无论如何都无法安心的小女孩。我转向身旁的贝亚特里切，她沉默不语，完全……</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>upheaval</b><span>剧变，动荡</span><em>social upheaval</em></div>
+<div><b>scarce</b><span>稀缺的</span><em>become scarce</em></div>
+<div><b>endure</b><span>忍受；持续</span><em>endure hardship</em></div>
+<div><b>aftermath</b><span>余波，后果</span><em>in the aftermath of</em></div>
+<div><b>enlist</b><span>参军；争取支持</span><em>enlist in the army</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch038.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch040.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

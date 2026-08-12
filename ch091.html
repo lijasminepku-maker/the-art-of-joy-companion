@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 91 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch090.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" selected>Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch092.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 91<span>解放后、政治与记忆</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1943 年政权垮台、1945 年解放后，重建并不等于问题消失。战后左翼政党、工会、家庭代际冲突与政治幻灭共同构成新的环境。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">91 
+
+In front of the small artificial pond
+				that has miraculously risen before her, Modesta stops and ripples the green water
+				with her hand. But no joy comes from that miracle. Prando turns his back and stalks
+				away. ‘You’ll never see me again, Mama, never!’ To rebel against a
+				son … This was something she hadn’t known: that rebelling against a
+				son produces unbounded sadness, doesn’t it, Modesta? Why? Think hard, Modesta;
+				don’t fall into a trap. If you think hard and don’t lose your head –
+				just like during the bombings – you’ll find the answer. Here: sit down on the
+				small gilded stool where your Beatrice used to sit while you splashed about in the
+				water: ‘ I’ll set it here, Modesta. It’s charming, such an antique in this modern
+					setting … It’s original, plus this way we can go on
+					talking. ’ There, sit on the stool and light a cigarette. The
+				bathwater can wait. Amid smoke and tears Modesta thinks: rebelling against a father
+				occurs when you think you’re young and have all eternity ahead of you, but
+				rebelling against a son – when you are perhaps nearing the end of the journey –
+				reveals thoughts of carnal loneliness that smack of death. So then, what to do?
+				I’m still dressed. I can run outside and call him back, and by so doing decree
+				my own living death, submitting to words and actions contrary to my own thinking,
+				watching the systematic destruction of that poor Amalia, who’s confident like
+				all intelligent women yet new to the art of being an adult. Watching the reverse
+				destruction to which Carluzzu is subjected day by day: ‘ You’re a
+					man. You have to prove how manly you
+					are, Carluzzu! Not womanish like today’s young men! ’ 
+
+They’re not even thirty and
+				already, as always, they’re railing against fourteen- and twenty-year-olds.
+				No, Modesta! To accept this is vile, more vile than siding with the jailers there on
+				the island. If you held out on that windswept scrap of rock … if you held
+				out then, you cannot nullify that action now by totally surrendering to Prando (or
+				the fear of death?) or to the fear of old age that has been instilled in you to
+				preserve order in society, just to safeguard that first line of defence which –
+				Fascism or not – is still the family, the training ground for future soldiers,
+				soldier-mothers, grandmother-queens. Besides, why that eternal glorification of
+				youth? The young work, produce, bear children, go to war, all before gaining
+				self-awareness. But at forty, at fifty years of age, a human being – if he
+				hasn’t perished in the incessant social war – becomes dangerous: he poses
+				questions, he demands freedom, rest, joy. Even the term ‘old age’ is a
+				lie, Modesta. It’s been crammed with scary ghosts, like the word
+				‘death’, to make you be quiet, deferential to the established rules. Who
+				knows what old age is? When it starts? In Stendhal’s day, a woman was old at
+				thirty. At thirty I had just begun to understand things and to live. How many have
+				dared cross the threshold of that word without listening to the preconceptions and
+				clichés? Maybe more than you imagine, since among those cast aside you can find
+				serene faces and calm, wise gazes. But no one has ever dared speak out because of
+				fear – always that eternal fear – of toppling the bogus equilibrium that has been
+				established. Standing before the closed door of that frightening word, the
+				temptation to go in and look around takes hold of you, doesn’t it, Modesta? Of
+				course, after entering that door, you could meet your death just around the corner.
+				But why wait for it out there, shoulders hunched, hands limp in your lap? Why not go
+				and meet it? Challenge it day by day, hour by hour, stealing all the life you can
+				from it? 
+
+The cigarette between your fingers has
+				gone out and the water inspires you to fight. Glowing pink, green and blue on the
+				shelf in the shadows are scented soaps straight out of The Arabian Nights –
+				who would have imagined it back then, eh, Beatrice? Bambù put them there to bring me
+				joy. Perhaps she understood my fearfulness? ‘ You seem distant, Zia. Why? Distant and distracted . Please, go back to being your old
+				self! ’ Soaping myself is pleasurable; my firm body only needs some
+				exercise. It’s time to move, to fight with every muscle and every bit of brain
+				power in the chess game with La Certa that awaits me. Every year
+				that’s stolen, won, every hour wrested from the chessboard of time, becomes
+				eternal in that final match. Think, Modesta: maybe growing old is nothing more than
+				an ultimate act of revolution … 
+
+Revolution? Modesta smiles, trying to
+				float in that small pool of artificial water. 
+
+‘You float in the tub as if you were out at sea, Mody!’ 
+
+‘It’s raining outside, Beatrice. It’s winter, but all I have
+					to do is close my eyes and remember … It’s just that I’m
+					afraid I’ll forget how to swim. What do you think? When summer comes, will
+					I still know how to swim?’ 
+
+‘Once you’ve learned to swim, Mody, you never forget
+					how.’ 
+
+‘Once you’ve learned the joy of revolution, you mean.’ 
+
+Beatrice must really be afraid of that
+				word, since her face becomes small and pinched and turns pale, so pale that it
+				vanishes in the steam rising to the ceiling from the hot water. Has she gone?
+				Don’t be afraid, Beatrice. Even the word ‘revolution’ lies or
+				grows old. We need to find another one. If Carlo were alive, he’d find one. He
+				was so good at it, a fount of new words …</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">九十一
+
+在她面前奇迹般升起的小小人工池塘前，莫德斯塔停下脚步，用手拨弄着绿色的水面泛起涟漪。但从那个奇迹中生不出任何喜悦。普兰多转过身大步离去。&quot;你再也见不到我了，妈妈，永远！&quot;反抗一个儿子……这是她不曾知道的：反抗一个儿子会产生无尽的悲伤，不是吗，莫德斯塔？为什么？好好想想，莫德斯塔；别落入陷阱。如果你好好想，保持清醒——就像在轰炸期间一样——你会找到答案的。来：坐在那把小小的镀金凳子上，你的贝阿特里切曾坐在上面，而你在水中溅水嬉戏：&quot;我放这儿了，莫德斯塔。很迷人，在如此现代的环境中放一件这样的古董……很有创意，而且这样我们还能继续谈话。&quot;好，坐在凳子上，点支烟。洗澡水可以等。在烟雾和泪水之间，莫德斯塔想：反抗父亲是在你以为自己还年轻、前面有永恒时发生的，但反抗一个儿子——当你也许正接近旅程的终点时——揭示出对肉体孤独的思绪，带着死亡的气味。那么，该怎么办？我还没脱衣服。我可以跑出去叫他回来，从而判决我自己活着的死亡，屈从于与我思想相反的言语和行为，眼睁睁看着那个可怜的阿玛利亚被系统地摧毁，而她像所有聪明女人一样自信，却对成年人的艺术还那么生疏。看着卡卢祖日复一日遭受的相反摧毁：&quot;你是男人。你必须证明你多么男子汉，卡卢祖！不要像今天的年轻人那样娘娘腔！&quot;
+
+他们还不到三十岁，却已经，一如既往，在抨击十四岁和二十岁的年轻人。不，莫德斯塔！不能那样。至少不能对普兰多。不能。你不会那样的。抽烟。等洗澡水凉下来。等那无边的悲伤减轻。它会的，你知道的。它总是会的，只要你给它时间。&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>rebuild</b><span>重建</span><em>rebuild a life</em></div>
+<div><b>disillusionment</b><span>幻灭</span><em>political disillusionment</em></div>
+<div><b>compromise</b><span>妥协</span><em>reach a compromise</em></div>
+<div><b>solidarity</b><span>团结</span><em>act in solidarity</em></div>
+<div><b>legacy</b><span>遗产；留下的影响</span><em>leave a legacy</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch090.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch092.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

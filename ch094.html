@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 94 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch093.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" selected>Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch095.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 94<span>解放后、政治与记忆</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1943 年政权垮台、1945 年解放后，重建并不等于问题消失。战后左翼政党、工会、家庭代际冲突与政治幻灭共同构成新的环境。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">94 
+
+The grove of orange and lemon trees lit
+				by thousands of little light bulbs – back then we couldn’t have done it with
+				candles, could we, Beatrice? – slowly fades in the glow of dawn. Yet couples holding
+				one another tightly continue circling in the marble dance area where the two
+				staircases meet. Prando slowly climbs Carmelo’s broad steps, looking for his
+				mother. All night he’s watched me; soon we’ll know who won the contest.
+				I did not tremble as I feared I would, and now I know the reason for this serenity
+				of mine in the face of Pietro’s death and Prando’s illness. It’s
+				not indifference, a blunting of the senses due to age, as I had suspected.
+				It’s the complete mastery of emotion and a supreme awareness of each precious
+				moment that life rewards you with if you have courage and a steady
+				hand … Carmine slowly climbs the stairs of Carmelo. Now I know, old man,
+				the deep sense of freedom and joy you felt before dying, and I no longer envy you.
+				I’ve acquired your skill, and from now on there will only be joy for me. I see
+				it in my future and in your eyes, Prando. 
+
+‘What do you see in my eyes, old
+				woman?’ 
+
+‘I see that you won’t die
+				before my eyes are closed.’ 
+
+‘And how long do you think
+				you’ll live?’ 
+
+‘Who knows? A long time, I
+				hope.’ 
+
+‘So my life depends on
+				yours?’ 
+
+‘If you want it to. If you
+				don’t, kill yourself! But do it sooner, with a revolver. Waiting for death whining and snivelling is for the
+				mediocre, and you’ve been a lot of things, but never a coward.’ 
+
+‘You won the wager and Prando will
+				repay you by wanting to live. What else can he do? What fun is it to die if you know
+				that the one who gave birth to you won’t even shed a tear?’ 
+
+* 
+
+’Ntoni: ‘What a fantastic
+				idea to light up the garden bright as day, and inside, where most of the party took
+				place, keep the parlours dim. All night I went around as though I were in a dream. A
+				dream is what it is! Congratulations, Mody. This party is a dream!’ 
+
+Bambù: ‘Carluzzu, hug me. I feel
+				so deserted!’ 
+
+’Ntoni: ‘You always feel
+				deserted whenever a party is over, or a performance ends. Something is gone, leaving
+				many small deaths inside … cold, rosy little pearls like the ones
+				you’re wearing around your neck, Bambù.’ 
+
+Carlo: ‘Always up to date, our
+				’Ntoni! You can sense it, can you, you old wolf, that they’re
+				reassessing D’Annunzio?’ 120 
+
+Bambù: ‘No, Carluzzu, let
+				’Ntoni speak. I like it. Maybe he’s the only one who hasn’t
+				changed.’ 
+
+’Ntoni: ‘And how was I
+				before, Bambuccia?’ 
+
+Bambù: ‘The most amusing and
+				original.’ 
+
+’Ntoni: ‘And do you know why
+				I haven’t changed?’ 
+
+Bambù: ‘No.’ 
+
+’Ntoni: ‘Because I
+				haven’t married … What is it? Why are you crying, Bambù? My comment
+				was meant to be funny.’ 
+
+Bambù: ‘I want to see Jacopo! He
+				never sends us news except once in a blue moon.’ 
+
+Jose sends word of himself more and more
+				rarely … He’s fighting far away and Jacopo follows
+				him … For a moment, Modesta fears she will never see him again and clasps
+				Prando’s head tightly to her breast. 
+
+Prando: ‘What is it, old
+				woman?’ 
+
+Modesta: ‘I’m afraid,
+				Prando.’ 
+
+Prando: ‘For me?’ 
+
+Modesta: ‘No, for Jacopo. Always
+				alone, fighting!’ 
+
+Prando: ‘I
+				actually envy him! It’s fate’s good fortune to have a head that allows
+				you to fight with your mind. I could only fight with my arms, but the time for that
+				is past. Maybe that’s why my body has come to weigh on me.’ 
+
+Bambù: ‘Your body has come to
+				weigh on you because you eat and drink too much.’ 
+
+Prando: ‘That’s also
+				true.’ 
+
+Bambù: ‘Even now, instead of lying
+				there on Modesta’s lap, why don’t you see to Ignazio? He’s fallen
+				asleep on the rug. Go and put him to bed. He’s your son, isn’t
+				he?’ 
+
+Carlo: ‘Oh Zia, how contentedly
+				he’s sleeping! I, I don’t know …’ 
+
+Bambù: ‘What?’ 
+
+Carlo: ‘Seeing Ignazio in this dim
+				light … for a second it was like seeing myself. Yes, as though I
+				too …’ 
+
+Bambù: ‘Naturally … if
+				you only knew how many times you fell asleep like your brother!’ 
+
+Carlo: ‘And I was afraid too,
+				wasn’t I, Bambù?’ 
+
+Bambù: ‘You were afraid everyone
+				would leave and never return. But then we gave you so much warmth and affection
+				and … you got over it. We always had to hold you in our arms.’ 
+
+Carlo: ‘Imagine! Now that you tell
+				me that, I can feel powerful arms lifting me up in my sleep.’ 
+
+Bambù: ‘Oh, of course, it was
+				Pietro who, very quietly, without a word – he knew your father would never do it –
+				would lift you up and carry you upstairs.’ 
+
+Carlo: ‘Pietro! I can feel him
+				still with us. I’ve seen him many times in my dreams, walking around among us
+				with his impassive face … I’ll go and get Ignazio – or
+				Ignazio-Carluzzu – and take him upstairs. I want to see what being a father feels
+				like. Because Pietro was a father, right, Bambù?’ 
+
+Bambù: ‘Yes, a father and a
+				mother, Carluzzu … I’ll go and take a stroll around to see
+				who’s still here. Parties are always like that! Until the sun rises and
+				extinguishes the lights, no one has the heart to put an end to the
+				enjoyment … Oh Carlo, look how beautiful! Everything is all white and
+				shining, and the light bulbs against the greenery seem just like gleaming
+				oranges … you too, ’Ntoni! Come on, get up, look!’ 
+
+’Ntoni:
+				‘I was falling asleep. Good thing you woke me. I’ll come with you. You
+				can’t miss a sunrise like this.’ 
+
+Prando: ‘Shall we go too,
+				Mama?’ 
+
+Modesta: ‘Of course, Prando. A
+				sunrise like this should never be missed.’ 
+
+‘Until the sun rises, no one
+					has the heart to put an end to the enjoyment .’ It’s
+				understandable. Who would dare commit such a crime? … Did I say that or
+				did Prando, who’s whispering meaningless phrases in my ear? Or was it Bambù,
+				running nimbly ahead of us, her slender hand raised – the wing of a dove – to point
+				the way? Her slim torso sways back and forth in the silence. 
+
+Bambù: ‘Why is it so quiet,
+				Prando?’ 
+
+Prando: ‘The musicians are
+				sleeping. Look at them: fallen like vanquished paladins.’ 
+
+Bambù: ‘But people are still
+				dancing …’ 
+
+Prando: ‘Sure, everyone sings
+				something, a waltz, a tango, whatever he likes.’ 
+
+Bambù: ‘We should tell Argentovivo
+				to bring us something hot. Look at those two huddling inside the niche;
+				they’re numb with cold.’ 
+
+Prando: ‘I already did. Here she
+				comes, tottering with her tray. How fat and comical Argentovivo has
+				become!’ 
+
+’Ntoni: ‘She must be happy
+				fat, because she talks less. There’s no avoiding it: either sex, or food, or
+				incessant chatter.’ 
+
+Argentovivo: ‘What’s that, signorino ?’ 
+
+’Ntoni: ‘I was saying that
+				plump and speechless you’re delightful, Argentovivo, delightful!’ 
+
+Argentovivo: ‘You’re too
+				kind, signorino .’ 
+
+’Ntoni: ‘For you, I’m
+				always a signorino , right, Argentovivo? What a comfort to remain young, for
+				someone at least! Come, come dance with me.’ 
+
+Modesta: ‘All of Carmelo’s
+				rooms filled … If your grandmother were here, Prando, you’d hear it!
+				Shouts of rage! Maybe it’s because I’m sleepy, but in this silence
+				I’m afraid I’m going to hear her voice explode at any moment.
+				Who’s yelling like that?’ 
+
+Prando: ‘It’s Nina, Mama,
+				and she’s not yelling. She’s singing, in the arms of her gallant beau.
+				How repugnant I find him! Look out, they’ve seen us. Come on, let’s run behind the hedge. Maybe we can
+				avoid the simpering of that pathetic gentleman.’ 
+
+Nina: ‘Oh, no you don’t,
+				Prandone! You have to stop keeping Modesta sequestered like that. We have a right to
+				her company too. Oh, from a distance, don’t worry. But where are you taking
+				her?’ 
+
+Prando: ‘To bed, Nina.’ 
+
+Nina: ‘To bed? But we’re
+				just getting started! Stay, Mody, stay with your Nina.’ 
+
+Prando is holding me tight. The hundreds
+				of stairs, drapes and corridors of that house have transported me back to a deathly
+				past. Nina must have sensed it because she loosens Prando’s arms firmly and
+				laughs. 
+
+Nina: ‘Oh no, mummy’s
+				darling boy! We let you have her all night, but now Mody is staying with
+				us.’ 
+
+Prando: ‘But she’s worn out,
+				Nina!’ 
+
+Nina: ‘You’d like that, my
+				dear boy! You know what I think? That she’s tired of being sucked dry by your
+				problems. Oh, these babies, Marco! The more you suckle them, the greedier they grow
+				up to be.’ 
+
+Prando: ‘You’re a bitch,
+				Nina, a bitch, I swear to God!’ 
+
+Nina: ‘Why don’t you go to
+				Amalia? Look at her over there, how she’s looking at you …’ 
+
+Prando: ‘Believe me, I’m
+				going. Are you coming, Mama?’ 
+
+I’d like to go. I’m tired,
+				but by now Nina has taken me in her arms, and besides, I can’t be impolite to
+				her friend. Prando is always rude to outsiders. To make amends, I hold out my hand
+				to that gentleman, though I don’t catch his name. 
+
+Modesta: ‘What did you say his
+				name was, Nina?’ 
+
+Marco: ‘Marco Clayton, signora . Clearly, Nina, your Modesta doesn’t want to know
+				me.’ 
+
+Nina: ‘Go on, Mody, I’ve
+				introduced him to you a hundred times! What, are you getting forgetful on me now?
+				Don’t you remember that evening when you came to my house with Carlo, and then
+				to the theatre? You have to forgive her, Marco. When Mody is with Carluzzu, she
+				doesn’t notice anyone else.’ 
+
+Of course, that
+				evening … Pietro was still alive and Olimpia was still here with us. Nina
+				is right; he was also at the wake and at the funeral service. Now I remember that face, always there beside
+				Nina … 
+
+I’m sleepy and Prando is calling
+				to me with his eyes. I should follow him. But what about that gentleman?
+					‘ Remember, Mody, that a princess, even if she isn’t one, must
+					never offend anyone, not even the humblest of men .’ 
+
+Marco: ‘Well, Nina, how about a
+				nice cup of tea? I have the feeling your Modesta is very tired. We should
+				go.’ 
+
+He’s offended. He smiles, but you
+				can tell he’s hurt. I have to say something. 
+
+Modesta: ‘Forgive me, but I really
+				am tired …’ Now why do I hear my voice saying, ‘You’re a
+				musician, aren’t you? Can you swim?’ 
+
+Nina: ‘What’s got into you,
+				Modesta? You crack me up! Didn’t I tell you, Marco? She seems oh-so-serious
+				and then …’ 
+
+Modesta: ‘Let’s go for a
+				swim, then!’ 
+
+Nina: ‘But the sea is far away,
+				Mody.’ 
+
+Modesta: ‘It seemed far by
+				carriage. But now, by car, it’s less than an hour,…’ 
+
+Nina: ‘What do you say, Marco?
+				Should we make her happy? Jump in the car and take her to the sea? Look at that
+				impudent face! She’s always like that, my Mody. Even in jail she managed to
+				come up with some wacky idea, and you could kiss peace goodbye!’ 
+
+Marco: ‘Really?’ 
+
+The two of them laugh, and it’s
+				clear that they’re only staying with Modesta to be polite. You can tell by the
+				way they look at one another that they’re just waiting to be alone so they can
+				laugh and joke around. I’ve become too serious! By trying to imitate Nonna
+				Gaia and make people respect me, I’ve become possessed by her, and now
+				I’m old and harsh. Or is it because I don’t fall in love anymore? After
+				me, Nina had a grand affair – à la Grand Hotel , 121 as she described it – and then another sublime or springtime
+					love … ‘ What are you living for, if you don’t fall in
+					love in springtime? ’ But it must not have been so sublime if after
+				three months, at the height of August, she’s letting that musician look at her
+				that way. 
+
+Nina: ‘So what should we do now,
+				Marco? This one has fallen asleep.’ 
+
+Modesta:
+				‘I’m not sleeping. I just closed my eyes because I don’t feel like
+				talking.’ 
+
+Marco: ‘It’s not a problem,
+				Nina, we’ll take her upstairs. I’ll do it … Look, she’s
+				taken off her shoes and curled up as if she were already in bed. How lifeless she
+				is! Are you sure it’s nothing serious?’ 
+
+Nina: ‘No, no, this always
+				happens! She can go for days and days without sleeping, even back then in prison,
+				then all of a sudden she can sleep for two days and two nights.’ 
+
+Marco: ‘How strange!’ 
+
+Nina: ‘Carluzzu told me it’s
+				a talent great leaders have. I don’t know if he was joking – Carluzzu is
+				always kidding around. Actually, he told me that when Caesar – Julius Caesar, I mean
+				– didn’t know what to do, he would fall asleep.’ 
+
+Marco: ‘Don’t make me laugh,
+				Nina. I’m afraid I’ll drop her or wake her up.’ 
+
+Nina: ‘Not a chance! When
+				she’s like this not even an earthquake could wake her.’ 
+
+I can’t be sleeping if I can hear
+				their words. And I could make him have an apoplectic attack, as Nina says, if I were
+				to start screaming or laughing. But I don’t feel like talking, especially now
+				that Carluzzu has joined the procession and is having a good time teasing Nina about
+				how strong her musician friend is. 
+
+Carlo: ‘Hey, Nina, for once you
+				have a strapping guy. How come? Have you changed your views on virility? I’ve
+				always seen you with fairies and nymphets.’ 
+
+When Carluzzu jokes like that he sounds
+				a little like ’Ntoni. Why does that surprise you, Modesta? One way or another,
+				they’re both Stella’s sons, except that Carluzzu – don’t tell
+				’Ntoni, he’d be offended, poor thing! – is much, much more intelligent
+				than ’Ntoni.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">九十四
+
+橘树和柠檬树的小树林被数千只小灯泡照亮——那个时候我们不可能用蜡烛做到，对吗，贝阿特里切？——在黎明的光芒中缓缓暗淡。然而紧紧相拥的情侣们继续在大理石舞池上旋转，那是两道楼梯交汇之处。普兰多慢慢爬上卡尔梅洛宽阔的台阶，寻找他的母亲。一整夜他都注视着我；很快我们就会知道谁赢了这场较量。我没有像我担心的那样颤抖，现在我明白在面对彼得罗的死亡和普兰多的病痛时这份宁静的原因。这不是冷漠，也不是我以为的因年龄而致的感觉迟钝。这是对情感的完全掌控，以及一种对每一个宝贵时刻的至高觉知——如果你有勇气和一只稳定的手，生活会回报你这些时刻……卡尔米内慢慢爬上卡尔梅洛的楼梯。现在我知道了，老人，你临死前所感受到的那种深深的自由和喜悦，我不再羡慕你了。我已掌握了你的技艺，从此以后对我来说，将只有喜悦。我在我的未来里看到它，也在你的眼中看到，普兰多。
+
+&quot;你在我的眼中看到了什么，老太婆？&quot;
+
+&quot;我看到你不会死在我的眼睛闭上之前。&quot;
+
+&quot;你觉得你会活多久？&quot;
+
+&quot;谁知道呢？很久，我希望。&quot;
+
+&quot;那么我的生命取决于你的生命？&quot;
+
+&quot;如果你想让它这样。如果你不想，就自杀吧！但要快点，用左轮手枪。在哀号和抽泣中等待死亡是为平庸之辈准备的，而你可以是很多事情，但从来不是懦夫。&quot;
+
+&quot;你赢了赌局，普兰多会通过想要活下去来回报你。他还能做什么呢？如果你知道那个生你的人甚至不会掉一滴眼泪，死还有什么趣呢？&quot;
+
+*
+
+恩托尼：&quot;把花园点得像白昼一样亮的想法真是太棒了，还装了一千只灯泡——来向彼得罗致敬！他不想在黑暗中离去，他知道这一点。&quot;
+
+莫德斯塔：&quot;他知道。他知道很多事情。&quot;
+
+&quot;你看到克里斯皮娜的脸了吗，当她看到所有那些灯光时？她说看起来像纽约。她再也不想回美国去了。她想留在这儿，和我们在一起。&quot;
+
+&quot;她会留下的。这儿是她的家。&quot;
+
+&quot;你觉得彼得罗看到她时认出了她吗？在最后？&quot;
+
+&quot;他认出了。他等的就是她。在那之后，他放手了。像卡尔米内一样。&quot;
+
+&quot;像卡尔米内一样。莫迪，我知道你会觉得我疯了，但我觉得彼得罗没有真正死去。他就在这儿，在这些灯光中，在这些树木里。我能感觉到他。&quot;
+
+&quot;我不觉得你疯了。我也感觉到了他。&quot;
+
+&quot;我们所有人都是吗？连普兰多也是？我看到他在看星星。&quot;
+
+&quot;连普兰多也是。&quot;
+
+&quot;那么也许这是真的。也许死去的人并没有真正离开我们。也许他们只是换了一种方式和我们在一起。一种我们还不完全理解的方式。&quot;
+
+&quot;也许吧，恩托尼。也许吧。&quot;&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>solidarity</b><span>团结</span><em>act in solidarity</em></div>
+<div><b>legacy</b><span>遗产；留下的影响</span><em>leave a legacy</em></div>
+<div><b>reconcile</b><span>和解；调和</span><em>reconcile with</em></div>
+<div><b>rebuild</b><span>重建</span><em>rebuild a life</em></div>
+<div><b>disillusionment</b><span>幻灭</span><em>political disillusionment</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch093.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch095.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 79 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch078.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" selected>Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch080.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 79<span>战争、流离与国家权力</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">二战时期，旅行、艺术教育、家庭和生育都受不稳定环境影响。法西斯国家的监控、逮捕与监禁会改变人们说话和沉默的方式。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">79 
+
+They’re not so tall now that
+				they’re standing beside me. It’s the uniform that makes their legs seem
+				longer and the epaulettes that create those enormous shoulders. Leaning on
+				someone’s arm as I climb into the big black car, I feel the muscles of a man,
+				yes, but someone like Mattia, like ’Ntoni, not giants. It’s the
+				specially fitted uniform that makes those chest muscles, those back muscles, look
+				huge. I turn away to the window opposite me so I won’t have to hear Mela
+				crying in Jacopo’s arms, or see the terrified, blank stare in Ida’s
+				eyes. It’s been many years since I’ve gone outside at dawn and maybe
+				this is a chance to find out who’s been digging in the sand the past two or
+				three nights … There, once we turn the corner, massive German trucks are
+				parked along the road, loaded with sand, their engines running, while among the
+				dunes huge bulldozers descend to dig up the ‘sun’s flour’;
+				that’s what Tuzzu used to call the sand. Are the Germans stealing our
+				sand … to make fortifications? 
+
+‘Could I have a
+				cigarette?’ 
+
+‘Of course, Princess.’ 
+
+I need to smoke, but only so I
+				won’t smell the scent of lavender on those impeccably shaved cheeks. I wonder
+				why I waited so long to savour the fragrant smoke that envelops the foreign faces in
+				a serene fog and focuses the mind. The leisurely act of bringing that little white
+				cylinder to your mouth soothes your nerves, and you can distract yourself by
+				following the tiny blaze as it unhurriedly approaches your lips. Joyce was right when she would carefully, almost
+				reverently, pull her treasure out of its case. But hers weren’t white and
+				blond like these; they were dark tobacco, wrapped in yellow paper. 
+
+‘Another cigarette, Princess? But
+				of course, of course, I’ll leave you the whole pack.’ 
+
+The big black car has stopped in front
+				of the entrance to the Prefecture. The journey is over. It must be Sunday if so many
+				black pleated skirts, two by two, crowd the sidewalks. ‘The Duce has
+					liberated us from corsets and cumbersome clothing. He wants us limber, in low
+					heels, our stride brisk to serve the country.’ 
+
+We have to wait for them all to troop by
+				before we can go inside. 
+
+* 
+
+‘It’s a disgrace, Princess,
+				an outrage!’ 
+
+If Pasquale the traitor hasn’t
+				called me by name, there’s a reason for it and I have to listen to him. By
+				using that title, he is advising me to be regal. I had forgotten that I was a
+				princess and this armchair in the Prefecture is very comfortable. My head is heavy,
+				but I dispel my drowsiness, and straighten my shoulders. I must not have smiled
+				until now, because when my lips part in a condescending smile, the two non-uniformed
+				officers stare at me, puzzled. 
+
+‘That what I think too, Prefect.
+				And I won’t stoop to ask the reason for the disturbance you are causing me. I
+				have been inconvenienced and affronted!’ 
+
+Hearing these words, the two officers
+				lean toward one another, whispering. Then the taller of the two murmurs sadly:
+				‘Orders from above, Princess, but we can assure you that we very much regret
+				it.’ 
+
+‘Of course, of course. A
+				misunderstanding! I have done everything possible not to cause you any disturbance.
+				A princess in contact with those good-for-nothing communists, just
+				imagine!’ 
+
+‘Exactly, Pasquale! I may address
+				you informally as I do in private, may I not? It reassures me …’ 
+
+‘But of course, Princess. I am
+				honoured by your friendship. And I feel it’s important for me to state that
+				I’ve had nothing to do with any of this. Orders came from Berlin to Rome: a
+				misunderstanding, surely!’ 
+
+‘From
+				Berlin?’ 
+
+Timur seemed so gentle, but Joyce is
+				right to keep warning me: ‘He’s dangerous, Modesta, dangerous like
+					all the young men of the left who went over to Fascism … They’re
+					the most dangerous, as though they want to cleanse themselves of a shameful
+					past.’ 
+
+* 
+
+‘We’re in serious trouble,
+				Modesta, done for!’ 
+
+‘But they went away,
+				Pasquale.’ 
+
+‘To telephone, just to
+				phone … We’re finished, damn it! May I ask what you were thinking
+				when you revealed our friendship? If they check into it, they’ll discover who
+				I was.’ 
+
+‘Exactly! That’s what I
+				wanted.’ 
+
+‘Some gratitude! But what do you
+				mean? Do you realize that what you did was stupid, plain stupid? If they suspect me,
+				how will I be able to help you?’ 
+
+‘That’s not true!
+				You’re part of the norm. You were all with us, before. And that, as you well
+				know, won’t harm you in the least. Declaring my friendship with you, on the
+				other hand, means you have no choice but to help me, like it or not.’ 
+
+‘Shrewd! I would have saved you
+				regardless.’ 
+
+‘I never believed you, Pasquale,
+				or rather, I believed you kept a foot in both camps as long as it seemed that
+				Fascism might end in five or ten years. But now you’re better off just
+				throwing us all overboard.’ 
+
+‘Clever, damn you!’ 
+
+‘I only wanted to take
+				precautions.’ 
+
+‘Then listen carefully: your
+				situation is a matter that lies outside my jurisdiction. The order to investigate
+				your case came from Berlin. And one of those two came down from Rome purposely for
+				you!’ 
+
+‘Was it Timur?’ 
+
+‘Who is Timur? What are you
+				talking about?’ 
+
+‘Joyce’s brother.’ 
+
+‘No, Joyce has nothing to do with
+				this, nor does this … what did you say his name was? But who gives a damn!
+				This is all much more serious! They’ve arrested someone in Paris, an informer,
+				a certain Marabbito who claims that over
+				the years you’ve done nothing but finance comrades abroad, act as a spy, and
+				who knows what else!’ 
+
+‘That’s it? Is that what
+				you’re getting all worked up about? I was afraid …’ 
+
+‘But it’s enough to throw
+				you in jail for years and years!’ 
+
+‘Well, I thought it was something
+				worse.’ 
+
+‘What else did you do, you
+				goddamn, idiotic woman! What did you do?’ 
+
+Pasquale shouts and runs around the room
+				like a crazed chicken. In just a few years he’s gone bald. Without the thick
+				mass of blond ringlets – like a little angel! – his small round pate looks like a
+				perfect ostrich egg. He doesn’t even have those few black strands that Mama
+				carefully combed over Tina’s head … And for a moment Modesta is
+				tempted to lop off that scrawny neck with a knife, the big one that Mama used to
+				kill the hens. It wouldn’t be bad to watch that egg roll among the dark,
+				opulent furniture in the Prefect’s office, enjoy the amusing spectacle a
+				little while, smoking a cigarette … thereby putting a worthy end to his
+				sweaty, drawing-room performances in uniform, when he entertains everyone with
+				anti-fascist jokes, winking at some big shot: ‘All winds blow over the
+					island and we are excellent sailors!’ 
+
+‘Good God, are you crazy? Have you
+				forgotten the special tribunals? They suspect you of espionage. Do you or
+				don’t you understand?’ 
+
+‘Are you reminding me that the
+				death penalty has been reinstated?’ 
+
+‘And you’re looking at
+				yourself in the mirror?’ 
+
+‘Luckily in my haste, I grabbed
+				Bambù’s purse. She’s pretty, isn’t she, Pasquale? Look at these
+				beautiful pearls … Fortunately there’s powder and lipstick!
+				Bambolina is right about these things, like her mother. I’ve been neglecting
+				myself for some time, and that’s not wise.’ 
+
+‘What are you doing? Putting on
+				makeup? Look, I won’t be able to go with you to Palermo. You’ll be in
+				the hands of men who will interrogate you. They won’t give you a
+				moment’s peace, never mind powder!’ 
+
+‘On the contrary, you’re
+				wrong! Powder and lipstick! I’m not so bad yet, am I, Pasquale? The tall one
+				was giving me a certain look!’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">七十九
+
+他们站在我身边时，却不像想象中那么高大了。是制服使他们的腿显得更长，肩章造就了那巨大肩膀。扶着某人的手臂爬进那辆大黑车时，我感受到了男人的肌肉，是的，但那是马蒂亚、恩托尼那样的，不是巨人。是特制的制服让那些胸肌、背肌显得巨大。我转头看向对面的车窗，这样就不用听到梅拉在雅各布怀里哭泣，或看到伊达眼中那种惊恐茫然的目光。我已经很多年没有在天刚亮时出门了，也许这是弄清楚过去两三夜谁在沙子里挖掘的机会……到了，我们一转过弯，庞大的德国卡车沿路停放着，满载沙子，引擎还在运转，而在沙丘间巨大的推土机正在挖起&quot;太阳的面粉&quot;；图祖曾这样叫沙子。德国人在偷我们的沙子……是为了修筑防御工事吗？
+
+&quot;我能要一支烟吗？&quot;
+
+&quot;当然可以，公主。&quot;
+
+我需要抽烟，但这只是为了不闻到那些刮得无可挑剔的脸颊上薰衣草的香味。我想知道为什么我等了这么久才品味那芳香的烟雾，它将陌生的面孔笼罩在一片宁静的雾中，集中心神。将那白色的小圆柱悠闲地送到唇边的动作能舒缓神经，你可以追随着那不紧不慢接近嘴唇的微小火焰来分散注意力。乔伊斯是对的，当她小心翼翼、近乎虔诚地从盒子里取出她的珍宝时。但她的不是像这样白而金黄的；她的烟是深色烟草，裹在黄色卷烟纸里。
+
+&quot;再来一支烟，公主？当然，当然，我把整包留给你。&quot;
+
+大黑车停在省政府入口前。旅程结束了。一定是星期天，那么多黑色褶裙，两人一排，挤满人行道。&quot;领袖已将我们从束身衣和笨拙的衣服中解放出来。他要我们灵活，穿低跟鞋，步伐轻快地为国家服务。&quot;
+
+我们得等她们全部列队走过才能进去。
+
+*
+
+&quot;这是耻辱，公主，是侮辱！&quot;
+
+如果叛徒帕斯夸莱没有直呼我的名字，那是有原因的，我必须听他的。用那个头衔，他是在建议我保持王室气派。我忘了自己是个公主，而省政府的这把扶手椅非常舒适。我头很重，但我驱散了困意，挺直了肩膀。到此刻为止我一定没有笑过，因为当我的嘴唇分开露出一个恩赐般的微笑时，那两个穿便衣的军官困惑地盯着我。
+
+&quot;我也这么认为，省长先生。我不会屈尊询问扰我安眠的原因。我受到了不便和冒犯！&quot;
+
+听到这些话，那两个军官互相俯身低语。然后那个高个子忧伤地喃喃道：&quot;上面的命令，公主，但我们可以向您保证我们非常遗憾。&quot;
+
+&quot;当然，当然。一个误会！我已经尽了一切努力不给你们造成任何麻烦。一个公主和那些没用的共产党人有联系，想象一下！&quot;
+
+&quot;正是，帕斯夸莱！我可以像私下里一样直呼你名吗？这让我安心……&quot;
+
+&quot;当然可以，公主。我很荣幸得到您的友谊。而且我觉得我有必要声明，我和这一切毫无关系。命令从柏林下达到罗马：一定是个误会！&quot;
+
+&quot;从柏林？&quot;
+
+蒂穆尔看起来那么温和，但乔伊斯一直警告我是对的：&quot;他很危险，莫德斯塔，像所有从左派转向法西斯主义的年轻人一样危险……他们是最危险的，好像他们想洗清一段可耻的过去。&quot;
+
+*
+
+&quot;我们有大麻烦了，莫德斯塔，完了！&quot;
+
+&quot;但他们走了，帕斯夸莱。&quot;
+
+&quot;去打电话，只是去打电话……我们完蛋了，该死！我能问你揭开我们友谊时你在想什么吗？如果他们追查，会发现我曾经是谁。&quot;
+
+&quot;正是！这就是我想要的。&quot;
+
+&quot;真是感激！但你什么意思？你意识到你所做的不仅是蠢，简直是蠢透了吗？如果他们怀疑我，我怎么帮你？&quot;
+
+&quot;那不是真话！你是常态的一部分。你们以前都站在我们这边。而这，你很清楚，对你不会造成丝毫伤害。另一方面，宣示我和你的友谊，意味着你别无选择只能帮我，不管你愿不愿意。&quot;
+
+&quot;精明！我不管怎样都会救你的。&quot;
+
+&quot;我从不相信你，帕斯夸莱，或者说，我相信你在两边都留了一脚，只要法西斯主义似乎可能在五年或十年后结束。但现在你最好把我们全都丢下船。&quot;
+
+&quot;聪明，该死的你！&quot;
+
+&quot;我只是想采取预防措施。&quot;
+
+&quot;那么仔细听：你的处境是我权限之外的事。调查你案子的命令来自柏林。而那两个人里的一个，是特地从罗马下来为你而来的！&quot;
+
+&quot;是蒂穆尔吗？&quot;
+
+&quot;蒂穆尔是谁？你在说什么？&quot;
+
+&quot;乔伊斯的哥哥。&quot;
+
+&quot;不，乔伊斯与此无关，这个……你说他叫什么来着？操，管他呢！这一切比那严重得多！他们在巴黎逮捕了一个人，一个线人，某个叫马拉比托的人，他声称这些年来你一直在资助海外的同志，充当间谍，天知道还有什么！&quot;
+
+&quot;就这些？这就是你这么激动的原因？我还以为……&quot;
+
+&quot;但这足以让你蹲上好多年大牢！&quot;
+
+&quot;嗯，我还以为有更糟的呢。&quot;
+
+&quot;你还做了什么，你这个天杀的蠢女人！你做了什么？&quot;
+
+帕斯夸莱像只疯狂的小鸡满屋子大叫大跑。才几年功夫他就秃顶了。没有了那一头浓密的金色卷发——像个小天使！——他小小的圆脑袋看起来像个完美的鸵鸟蛋。他甚至连妈妈小心梳在蒂娜头上的那几缕黑发丝都没有……有一瞬间莫德斯塔真想把那把刀——妈妈用来杀母鸡的那把大刀——砍进那瘦骨嶙峋的脖子。看那个蛋在省长办公室那些暗淡华丽的家具间滚动一会儿不会太坏，边抽支烟边欣赏这有趣的景象……从而给他那些在众人面前穿着制服、大汗淋漓的客厅表演一个应有的结局，那时他一边拿反法西斯的笑话逗乐大家，一边朝某个大人物挤眉弄眼：&quot;岛上四面来风，我们都是优秀的水手！&quot;
+
+&quot;天哪，你疯了吗？你忘了特别法庭吗？他们怀疑你搞间谍活动。你到底明不明白？&quot;
+
+&quot;你是在提醒我死刑已经恢复了吗？&quot;
+
+&quot;而你竟在照镜子？&quot;
+
+&quot;幸好我匆忙中抓了班布的包。她很漂亮，对吧，帕斯夸莱？看这些美丽的珍珠……幸好有粉和口红！班博利娜在这方面是对的，像她母亲一样。我有一阵子没管自己了，那可不明智。&quot;
+
+&quot;你在干什么？在化妆？听着，我没法陪你去巴勒莫。你会落在审问你的男人手里。他们不会给你片刻安宁，更别说粉了！&quot;
+
+&quot;恰恰相反，你错了！粉和口红！我还不算太难看，对吧，帕斯夸莱？那个高个子对我投来的目光可不一般！&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>custody</b><span>拘押；监护权</span><em>taken into custody</em></div>
+<div><b>resistance</b><span>抵抗；抵抗运动</span><em>join the resistance</em></div>
+<div><b>liberation</b><span>解放</span><em>after liberation</em></div>
+<div><b>scarcity</b><span>匮乏</span><em>a time of scarcity</em></div>
+<div><b>witness</b><span>见证者；目睹</span><em>bear witness to</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch078.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch080.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

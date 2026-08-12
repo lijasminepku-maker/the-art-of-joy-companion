@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 88 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch087.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" selected>Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch089.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 88<span>解放后、政治与记忆</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1943 年政权垮台、1945 年解放后，重建并不等于问题消失。战后左翼政党、工会、家庭代际冲突与政治幻灭共同构成新的环境。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">88 
+
+Nina’s voice trails off toward the
+				darkness of the parlour. I’d like to follow that voice and go on dreaming
+				while she talks. But the buzz of voices, the clanging of trains, the muffled sound
+				of pressing throngs branch out from my future and invade the room, keeping me pinned
+				in my chair … I’d like to drive off those crowds and go back with
+				her to a small cell, where being more than a few feet apart from one another is
+				unthinkable. Why is that? Is it nostalgia for that lost cell that’s making me
+				cry like this? How could I have known it if life hadn’t shown me? How could I
+				have known that my greatest joy lay concealed in the seemingly darkest years of my
+				life? One must surrender to life, always without fear … Even now, between
+				train whistles and the slamming of compartment doors, life calls me, and I must
+				go. 
+
+The ability to speak and to transport my
+				listeners, which had suddenly revealed itself in me, exciting my senses and my mind
+				as though I were under the influence of a drug, kept telling me that this natural
+				gift – most likely firmly ripened in the fertile soil of years of silence, study and
+				reflection – could serve to bring us women like Nina, like Bambolina … To
+				awaken them from a twenty-year lethargy, let them know that they aren’t the
+				first, acquaint them with examples from the past. 
+
+‘Look, Modesta, you can’t
+				fall back on that Alexandra Kollontai in every speech … Balabanoff, did
+				you say? Maria Giudice? Come on, Modesta. They’re problematic figures,
+				nonaligned. Sensational more than
+				anything else, at least for the time being. When we learned that Maria was ill,
+				I’ll be frank with you, it was a relief for everyone. It’s awful to say
+				so, but all she did was create confusion. You can’t just suddenly start
+				talking about free love, about abortion and divorce. You have to take it gradually,
+				as comrade Giorgio says.’ 
+
+Right, Giorgio … On the desk,
+				his photograph stands out among the books. 
+
+‘Your husband, you
+				mean?’ 
+
+‘As you wish, Modesta. I see you
+				haven’t changed.’ 
+
+‘Nor have you.’ 
+
+On the other side of the desk, polished
+				and without a trace of dust, Joyce (or her ghost?) smiles at me with mild
+				detachment. 
+
+‘Here, there are other, more
+				urgent things to worry about.’ 
+
+‘But why did I have to call you by
+				your husband’s name in order to see you?’ 
+
+‘What of it? True, you’ve
+				never had a political mind, Modesta. We have to reassure the public, we have to show
+				the country that we are respectable people in all ways, not those lawless reds,
+				those rabble-rousing reds, and so on, like you still see written on walls in the
+				rural areas.’ 
+
+Where had she learned that winning,
+				democratic smile, just like the one you saw on celebrities and politicians overseas?
+				Before, she’d never smiled, and the grave sadness of her eyes had made her
+				beautiful. Now, with that strange smile seemingly pinned to the corners of her
+				mouth, her white hair expertly cut by skilful hands – a cut just barely longer than
+				a man’s – her beauty had become rigid, reduced to an abstract image of
+				mortuary solitude. Modesta had sensed it years before, but the living embodiment of
+				her intuition makes her tremble with anger, and with fear. 
+
+To overcome the repugnance that
+				Joyce’s words spill into her being, Modesta searches her memory for the faces
+				of other female comrades she’s met on platforms, at assemblies, at rallies
+				during those years … Luciana? Carla? Renata, maybe? Renata, only
+				twenty-two years old, with that eternal refrain repeated yet again just last night?
+					‘ But women, barring some exceptions, are silly fools. A waste of time, Modesta! I really don’t understand how a person like you
+					can waste your time going to dinner with one of them. ’ Watch out, Bambolina, Crispina, Olimpia: beware!
+				In twenty or thirty years, don’t blame men when you find yourselves crying in
+				a cramped room with your hands rubbed raw by bleach. It’s not men who have
+				betrayed you, but these women who were once slaves themselves, who have willingly
+				forgotten their state of bondage. By disavowing you, they can align themselves with
+				men in various positions of power. 
+
+‘So what have you decided,
+				Modesta?’ 
+
+‘Decided?’ 
+
+‘You never change! It’s
+				hopeless to try to get you to think. The minute you don’t like what someone is
+				saying, you lose yourself in idle reveries and amen! You had a lot of promise,
+				Modesta, but I see that your exquisitely female obstinacy got the upper
+				hand.’ 
+
+Watch out, Bambolina, Crispina,
+				Olimpia … Be careful, you who have had the privilege of culture and
+				freedom, not to follow the example of these perfectly allied slaves. Instead of
+				hands worn away by bleach, years of dismal mannish training await you – training in
+				how to chain the poorest women to the assembly line – along with atrocious sleepless
+				nights: efficiency at all costs. And after twenty years of this training, you will
+				find yourselves trapped by distorted acts and thinking, restrained by emptiness and
+				regret for your lost identity – like this shadow of herself who smiles out of
+				official duty, an embodiment neither male nor female. 
+
+‘I told comrade Giorgio that it
+				was hopeless to try to persuade you, but he insisted. He has a strange respect for
+				you, and in the name of our old friendship, I decided to talk to you. But I see
+				it’s no use, that you will not accept the cuts that have justly – I repeat,
+				justly – been made to your article. It’s too violent, Modesta. We cannot
+				today, in 1950, entitle an article: “We are all murderers”.’ 
+
+‘Why not, Joyce? According to you
+				and to what we Marxists have thought for decades at least, weren’t we all – I
+				who speak to the crowds, you who sit behind that desk, the doorman who, content with
+				his paltry power, ushers me in with reactionary bows – weren’t we all to blame
+				for leading that woman from Salerno, for driving her to drown herself with her three
+				children because of the wretched living conditions that—’ 
+
+‘Mentally
+				unbalanced, Modesta! I’m a doctor; don’t forget that.’ 
+
+‘No, that wasn’t it! I spoke
+				with everyone. I saw the photographs. She looks like Stella. Think about that,
+				Joyce: Stella.’ 
+
+‘And who is she?’ 
+
+‘Stella. Jacopo’s wet
+				nurse.’ 
+
+‘Ah yes, that pretty little
+				peasant girl, somewhat faded … how is she?’ 
+
+‘It doesn’t matter. Just as
+				this article doesn’t matter.’ 
+
+‘So then we won’t publish
+				it?’ 
+
+‘Under those conditions,
+				no!’ 
+
+‘Modesta, you don’t intend
+				to create a furore, do you?’ 
+
+‘If it were possible for me to
+				create one, I would, but I know that it isn’t possible because you are a gang
+				of traitors, Joyce. And as such, powerful as usual.’ 
+
+‘You mean we’re not insane.
+				We can’t alarm citizens that way. We have to win the Catholic voters!
+				We’re in a Catholic country, Modesta. You’re forgetting your
+				history!’ 
+
+‘An article in a magazine
+				doesn’t have the circulation of a newspaper, and as I see it, the specialized
+				press is exactly the place where we should begin discussing the most weighty issues
+				in order to keep the tradition – our tradition – alive, and prepare to
+				disseminate it tomorrow. The way you’re acting, you’re not merely
+				showing respect for the Catholic electorate, you’re meeting it fully and
+				distorting the very roots of our struggle.’ 
+
+‘Fine! We’ve finally seen
+				each other, but now I have work to do and I’d like an answer.’ 
+
+‘Yes, Joyce, we’ve seen each
+				other … and now I know why I tried to avoid seeing you these past
+				years.’ 
+
+‘Why is that?’ 
+
+‘I knew that if I saw you I would
+				understand things clearly, and I didn’t want to. I wanted to delude myself,
+				and that’s because … damn! how hard it is to see clearly when
+				you’re doing something that in itself satisfies you, gives you joy, drugs
+				you.’ 
+
+‘I’m trying to be patient
+				with you, Modesta. What is it that you like so much?’ 
+
+‘Well, speaking, feeling the
+				vibration of the crowd, the applause!’ 
+
+‘You
+				never change. For me it’s not a pleasure.’ 
+
+‘Oh, really?’ 
+
+‘No, for me it’s a
+				duty.’ 
+
+‘Are you sure of that?’ 
+
+‘That’s enough, Modesta,
+				enough!’ 
+
+‘You taught me the little bit of
+				psychology that we should all know, Joyce.’ 
+
+‘Oh, enough about the past. I have
+				a lot to do.’ 
+
+‘And I, on the other hand, no
+				longer have anything, and I feel like a deflated balloon.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">八十八
+
+尼娜的声音朝客厅的黑暗渐行渐远。我想跟随那个声音，在她说话时继续做梦。但嗡嗡人声、火车的铿锵、拥挤人群的闷响从我的未来分叉出来侵入房间，把我钉在椅子上……我想驱散那些人群，和她一起回到那间小牢房——在那儿，两人相隔超过几英尺是不可想象的。为什么呢？是那失去的牢房的乡愁让我这样哭泣吗？如果生活没有向我展示，我怎能知道？我怎能知道，我最大的喜悦竟隐藏在我生命中看似最黑暗的岁月里？人必须臣服于生活，永远不要恐惧……即使现在，在火车汽笛和车厢门砰然关闭之间，生活在召唤我，我必须走。
+
+说话和打动听众的能力——它突然间在我身上显露出来，刺激着我的感官和头脑，仿佛我受到了某种药物的影响——不停告诉我，这天赋——很可能在多年沉默、研究和反思的肥沃土壤中牢固成熟——可以用来唤醒像尼娜、像班博利娜那样的我们女人……将她们从二十年的沉睡中唤醒，让她们知道自己并非第一个，让她们熟悉过去的榜样。
+
+&quot;听着，莫德斯塔，你不能每次演讲都搬出那位亚历山德拉·柯伦泰……巴拉班诺夫，你是说？玛丽亚·朱迪切？别这样，莫德斯塔。她们是有问题的人物，不结盟。眼下更关键的不过是制造轰动。当我们得知玛丽亚生病时，坦白对你说，大家松了一口气。这样说很可怕，但她只会制造混乱。你不能突然开始谈论自由恋爱……&quot;
+
+那是若泽。总是若泽，用他那耐心的、轻蔑的笑容。他以为他能挡在我前面，但他错了。我的声音比他想象的要强大。我的声音比任何审查制度都要强大。
+
+但数月过去，我的喉咙开始疼痛。不是那种可以用药物治愈的疼痛。是话语的重量开始压在喉间。每场演讲后，我的声音会沙哑好几天。然后越来越久。然后有一天，我站在讲台上，张开嘴，什么也说不出来。
+
+医生说是神经性的。静养，他说。到海边去。别再演讲了。
+
+而我，在所有这些年里第一次，不知道该怎么办。&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>solidarity</b><span>团结</span><em>act in solidarity</em></div>
+<div><b>legacy</b><span>遗产；留下的影响</span><em>leave a legacy</em></div>
+<div><b>reconcile</b><span>和解；调和</span><em>reconcile with</em></div>
+<div><b>rebuild</b><span>重建</span><em>rebuild a life</em></div>
+<div><b>disillusionment</b><span>幻灭</span><em>political disillusionment</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch087.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch089.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

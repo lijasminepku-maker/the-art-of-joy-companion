@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 77 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch076.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" selected>Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch078.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 77<span>战争、流离与国家权力</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">二战时期，旅行、艺术教育、家庭和生育都受不稳定环境影响。法西斯国家的监控、逮捕与监禁会改变人们说话和沉默的方式。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">77 
+
+Jacopo’s gestation lasted several
+				months, and now he was reborn from his intellect as new flesh. Meanwhile, I stopped
+				thinking about myself. I overlooked Prando’s coming and going with gifts for
+				Stella, for Bambù and Mela, then quickly leaving again, locked in his silence. I
+				hadn’t been wrong: each time, there was no regret, no hurt, in his hasty
+				departure as he turned away irritated by Stella’s tears, only a desire to be
+				free. And Joyce? 
+
+Ever more beautiful in her apparent
+				death, she roams around the house, jealously peering at faces and throwing fits. But
+				we on the island know how to live with the dead, how to quiet them if need be, and
+				never to believe it when they say, ‘We were so happy, Modesta, what
+					happened?’ 
+
+What happened was that you were never
+				satisfied with anything, chasing your dream of perfection, and now you lie buried
+				six feet under in my garden and you’d like to go back to yesterday. But for
+				the living, yesterday served only as fertilizer for this new today, tangible and
+				filled with sunshine. I have all that sunlight inside me, and Jacopo’s arms
+				around my neck, his caresses in my hair. 
+
+‘Why are you always with Jacopo now?’ 
+
+A jealous rage seizes her. The jealousy
+				of a possessive master reddens her cheeks, and as before, I look away from the
+				purple splotching that turns her ugly. But one must be patient. After all,
+				she’s right: until yesterday, I was a faithful little wife, and she, confident
+				of her power, boasted to herself that
+				unlike other mortals, she was not jealous. Well, Joyce, what good was all that
+				intelligence of yours, all that knowledge, if you weren’t able to scratch the
+				surface of even a tiny fraction of your guilt? How arrogantly you stated:
+					‘ My mother? A masochist who sought her persecutor in that country
+					squire from Todi. ’ I see you with Renan, and then with Joland,
+				parading through the streets of the living as you take turns scourging one another.
+				And I myself almost slipped into that secular via crucis of purification.
+				Now I see that your anger isn’t jealousy, it’s simply anger and envy
+				toward someone who looks at you joyfully and refuses to suffer with you. I turn and
+				walk out of the room. It’s dark in that room and outside the sun is
+				shining … 
+
+‘Where are you going now? What are
+				you doing with Jacopo? Did you sleep with him? The boy has assumed a masterful air.
+				You’re capable of anything! You never loved me, I was only a diversion for you
+				at a time when you were bored. It’s men you’re drawn
+				to …’ 
+
+How can I make her see that I loved her
+				as long as she seemed like a woman to me, as long as my hands found that skin
+				delicate, those breasts full, that abdomen soft. But now that I see her locked in
+				the impervious armour of an impotent male, my illusions are over and I run to
+				Mattia, who after so many months has finally returned from America with the
+				money. 
+
+* 
+
+‘How did it go,
+				Mattia?’ 
+
+‘What happened? … Did
+				you suddenly fall asleep while we were talking? What do I know! Who knows what goes
+				on in that little head of yours! I only phoned you about the paintings and you ran
+				over here; you didn’t ask how or why, with everything I went through to do you
+				this favour, and then you fell asleep.’ 
+
+‘Who put me in this
+				bed?’ 
+
+‘I did. You slept a night and a
+				day! I called Stella, I got scared, but she told me it was nothing to worry
+				about … You certainly gave me a scare! You were tossing and turning in
+				your sleep. Once you said they wanted to separate us. Who can understand you women!
+				You’re not a sleepwalker, are you?
+				Do you remember the telephone call at least?’ 
+
+‘I felt like seeing you. You were
+				away a long time, Mattia.’ 
+
+‘Well, these aren’t matters
+				that you can take care of in two days, Mody.’ 
+
+‘How come you called me
+				Mody?’ 
+
+‘Whenever my father said
+				“Mody” I’d become jealous and I felt a hatred for you that now
+				seems strange to me. How things change when La Certa passes through and
+				clarifies the past!’ 
+
+‘Why did you put me in this room?
+				Why is it so quiet here at Carmelo?’ 
+
+‘They’re all dead, so I
+				closed everything up. What did I need all those bedrooms and parlours for? I only
+				keep this wing open: three rooms and an electric kitchenette, like they have in
+				America.’ 
+
+‘And who looks after
+				you?’ 
+
+‘A woman comes in and cleans,
+				careful not to let me notice her. I’ve had enough of dinners and lavishly set
+				tables. Why, don’t you like this room?’ 
+
+‘I grew up in this room, Mattia,
+				but it was different then. I recognized it by the big window.’ 
+
+‘Well, I had them remove all that
+				junk: mirrors, vases, velvets! Why are you crying?’ 
+
+He smiles, pulling his pipe out of the
+				pocket of his blue velvet jacket, and I know he won’t say another word until
+				the small flame is well lit. Slowly, the scent of tobacco rises up, reducing the
+				room to that bare, distant one with its roughhewn planks, redolent of resin, and
+				Carmine’s white curls. Another year or two, and Mattia’s salt-and-pepper
+				hair will also be a bright snow white. 
+
+‘What is it, Mody? Why are you
+				staring at me like that?’ 
+
+‘Will you let me take a
+				puff?’ 
+
+‘Oh, right, this little she-devil
+				even smokes a pipe! I’d forgotten! Take this one – I’ll fill another one
+				– but treat it carefully because it’s my favourite pipe you’re holding.
+				Just look at her smoke! How did you learn how?’ 
+
+‘Now that La Certa has
+				passed by and clarified things, as you said, I can tell you: your father taught
+				me.’ 
+
+‘I knew
+				the answer when I asked you, Mody. But you were wrong to say “your
+				father”; you should have said “Carmine the padrone , the lord
+				and master”.’ 
+
+‘You still haven’t made your
+				peace with him?’ 
+
+‘No! When it comes to padroni , not even La Certa has the power to reconcile us. And
+				these days I hate him more than before. I’ve thought about it, you know –
+				alone, in this house of the dead, I’ve thought about it – and I hate him even
+				more, because by following his example of greed I lost my wife and children. And I
+				buried him a long time ago, no longer part of me, in a field far removed from my
+				heart. I’ve suppressed his voice and I don’t want any part of what he
+				left behind. That’s another reason I came back to you. You, sphinx-like, had
+				seen my error and you warned me. You rejected me back then because you didn’t
+				want masters, and I came back to you to learn. Oh, I don’t want answers in
+				words; these aren’t things you learn from words. I’ve watched you,
+				I’ve watched your children and I’m looking at you now …’ 
+
+‘And what do you see?’ 
+
+‘Enormous freedom of thought and
+				action! How did you manage to achieve such freedom? Down at Villa Suvarita they
+				weren’t even surprised by your departure.’ 
+
+‘I got them used to it.’ 
+
+‘How?’ 
+
+‘By allowing them the same
+				freedom. When they were little – partly so I wouldn’t have to listen to them,
+				partly to accustom them to it – I would go to a hotel in Catania. You have to put
+				some distance between you and those you love. Distance clarifies things almost
+				better than La Certa .’ 
+
+‘Ah, I see. Is that why you sent
+				Prando away?’ 
+
+‘The weed of dominance was
+				beginning to grow in him, and if this weed grows persistently in Tudia
+				soil … Go find your slaves elsewhere, the world is full of
+				them.’ 
+
+‘The problem is that we Tudia
+				aren’t fond of those whom you call slaves. It’s the mania to subjugate
+				those who are free that drives us.’ 
+
+‘I know. There’s that
+				tendency in me as well, but I don’t nurture it. It doesn’t get you
+				anywhere, Mattia! When you subjugate, you become a slave yourself, watching over those you’ve rendered powerless to
+				look after themselves, clinging to you like leeches.’ 
+
+‘Is that how you talk to your
+				children? Aren’t you fearful for them, for their future?’ 
+
+‘When you’ve fertilized the
+				soil, the plant will grow, Mattia. You’ve brought me money for
+				fertilizer.’ 
+
+‘I thought you wanted to amass
+				it.’ 
+
+‘Now you’re talking like
+				your father. Money is useful so you can be free in the present, not in some
+				uncertain future.’ 
+
+‘One night in Las Vegas, I was
+				about to lose everything that Carmine had stored up. I was overcome by a mad urge to
+				fritter it away and I lost and lost, but then something stopped me … a
+				kind of oppression, rage at all those concrete and gleaming glass walls rising to
+				the heavens. For many years they’d seemed like magnificent cathedrals of
+				power, and then … I don’t know, Mody … That night I was
+				dead drunk, and at the window where I went to get some air – it was sweltering
+				inside – I had a sudden longing for our valleys of almond trees and orange groves
+				sloping down toward the sea, and for a moment I seemed to be whirling in the scent
+				of orange blossoms. They told me I fainted and fell to the ground. Naturally when I
+				came to, I realized that I had to fertilize what little land was left, and I came
+				back. Even if this house of the dead was the only thing waiting for me, the plants
+				were still alive, and I knew I had to nurture that scent.’ 
+
+‘You lost that much?’ 
+
+‘Nearly everything. But, as you
+				say, I feel liberated and I can sleep again. Why is that? That’s what I wanted
+				to ask you.’ 
+
+‘You’re asking what you
+				already know. All that wealth was superfluous.’ 
+
+‘Those years when I was well-off,
+				always wheeling and dealing, went by without my remembering a single day. Now, like
+				someone risen from the dead, I’m rediscovering everything, and that midsummer
+				evening with you seems like a baptism. Though I was a mere bystander, there to
+				watch, I drank in the sound of the mandolins, your wine, your joy, finally
+				experiencing the sounds and tastes. Why is that, Sphinx?’ 
+
+‘You’re asking me to put in
+				words what you already know, Mattia.’ 
+
+‘As
+				confirmation. One must touch the Mountain’s true stone and the water of the
+					Simeto 98 of
+				words to know what water is, what stone is, what words are. I’m sleepy again.
+				Even the whisper of pain, which like a snake was slithering slowly from my arm to
+				sting me here in my heart, has been dulled by sleep. What is it, Mody, why
+				aren’t you answering?’ 
+
+‘Did it go away when you
+				slept?’ 
+
+‘Yes.’ 
+
+‘Then sleep, caruso . That
+				way the painful serpent will glide away in your slumber.’ 
+
+‘Did you say caruso ?’ 
+
+‘Yes, and picciriddu .’ 
+
+‘Last night you embraced me. Was
+				it gratitude because of the money?’ 
+
+‘No. It was to touch the truth of
+				stone and water, as you said before.’ 
+
+‘What’s wrong, Mody? Why are
+				you so pale? Why are you trembling? Come here. Sit down again.’ 
+
+‘Oh, Mattia, I thought I saw a
+				white figure coming through the trees down there.’ 
+
+‘Where?’ 
+
+‘Back there, among the branches of
+				Nonna Gaia’s weeping willow. She loved that sad tree, and in the midday heat
+				she would read for hours and hours in its shade … She didn’t sleep
+				in the afternoon.’ 
+
+‘I don’t see anything,
+				Modesta. Maybe you thought of her and she appeared to you. The dead find their way
+				in during the struggle between sun and shadow: it’s noon, the hour when the
+				sun turns black.’ 
+
+‘As a young girl I was always
+				afraid in this room. It seemed immense to me, and instead it’s small. Even the
+				grounds seemed endless … Maybe it was a ray of sunshine on one of those
+				white statues. I had forgotten those statues. Let’s go outside. I want to see
+				them again.’ 
+
+‘Come on. I’ll take off my
+				jacket if I may. I’d put it on because coming from outside, it’s chilly
+				within these walls.’ 
+
+‘Like back then, Mattia. I too
+				used to look for a shawl when I entered the hall.’ 
+
+Outside the
+				walls the sun is dazzling. The sun always blinds me when I go out, and the white
+				statues shimmer in a silent, frenzied dance: ‘One, two,
+					three … one, two, three … Quick, let’s gallop down to
+					the sun.’ 
+
+‘Where are you running to?
+				You’ll perspire and catch cold, Mody! What are you looking for? There’s
+				nobody here. Hey, tosta carusa , where are you, you impulsive
+				girl?’ 
+
+In the distance, Mattia’s voice
+				rises higher and higher. Or is it Beatrice calling me, frightened by the hour when
+				spirits appear? It’s not Nonna Gaia stirring the branches of her willow tree.
+				Joyce, motionless, stares at me, her gaze dilated: she does not speak. 
+
+‘What are you doing here,
+				Joyce?’ 
+
+‘That’s a question I should
+				be asking you.’ 
+
+‘I fell asleep.’ 
+
+‘How convenient for you to fall
+				asleep.’ 
+
+‘How did you get here?’ 
+
+‘The same way you did. By
+				car.’ 
+
+‘When I was a girl, shut away in
+				that convent, I thought it took days and days to get to Catania. Then the first time
+				I saw Catania in little more than an hour, with the sea just beyond it, I
+				couldn’t believe my eyes.’ 
+
+‘I’m not interested in your
+				stories, Modesta. I’m leaving!’ 
+
+‘Wait. Come up to the house.
+				I’ll show you where I grew up.’ 
+
+‘Don’t touch me! Go to him.
+				Don’t you hear him calling you?’ 
+
+‘You have no reason to be
+				suspicious, Joyce. Wait! Mattia and I just talked and …’ 
+
+Joyce whirls around, ashen. Arms rigid
+				at her sides, she swerves behind a marble pedestal and disappears among the weeping
+				branches of the willow. 
+
+‘She’s gone.’ 
+
+‘Who, Mody? Now you’re
+				scaring me. I saw something too.’ 
+
+‘It’s Joyce.’ 
+
+‘Why is she running
+				away?’ 
+
+‘She’s jealous, or rather
+				she acts jealous now. Before, I could stay out for three days and she wouldn’t
+				even notice.’ 
+
+‘What’s between you and her,
+				Modesta?’ 
+
+‘You
+				already know the answer: love, Mattia. On my side, a deep love that made me believe
+				she loved me too. It happens. But then I understood, and now she’s dead to
+				me … You were right; I shouldn’t have run. I’m perspiring and
+				I feel dizzy.’ 
+
+‘Running at high noon can make
+				your blood go haywire! Don’t move. Lie down in the shade – that’s it –
+				and don’t talk.’ 
+
+In the silence, the green canopy of the
+				branches battles the black sun. 
+
+‘This is where she was standing
+				before. See? The grass is crushed.’ 
+
+‘Don’t talk, lie quietly. I
+				don’t like your colour.’ 
+
+‘She was here.’ 
+
+‘Who, Mody?’ 
+
+‘The apparition … She
+				stood here motionless and spied on us.’ 
+
+‘The apparition has vanished, and
+				if you lie still and rest it won’t return.’ 
+
+In the silence, the green shade of the
+				tall willow stoops over my forehead. 
+
+‘Your hands are cool, Mattia. How
+				can that be?’ 
+
+‘I didn’t run and I
+				didn’t see any apparitions. Hush, Modesta. If she’s dead to you, forget
+				her or she’ll come to haunt you for ever.’ 
+
+‘She’s evil, that woman,
+				like Inès. They don’t know the art of forgetting and they take their revenge
+				on everyone: on themselves, on men, on children. Do you know why she came here? Like
+				Santa Rosalia, she wants to wear the gold, diamond-studded mantle but also be a man
+				with a sword.’ 
+
+‘Your pulse has stopped
+				racing.’ 
+
+‘And your hand has grown
+				warm.’ 
+
+‘Now just be quiet, and Mattia
+				will pick you up and carry you to the house. We’ll face the heat together and
+				then at home we’ll put a nice cool cloth on that troubled brow.’ 
+
+* 
+
+‘You’re feeling better with
+				the damp towel, aren’t you? You’re smiling again.’ 
+
+‘Yes, and I don’t want to go
+				out in the midday heat anymore, Mattia.’ 
+
+‘Of course, no one should go out
+				at this time of day. Only stray dogs are
+				out and about … They slink along the meagre shadow of the walls or stand
+				stock-still like goats. Have you seen goats at this hour in the stony fields? If you
+				don’t look closely, you almost don’t notice them; they seem like
+				statues. Not even their eyes move as they wait for the midday heat to pass, so they
+				can breathe again.’ 
+
+As I wait for the hour when the heat
+				abates and apparitions vanish, I cling to his chest. At dusk, lava radiates the heat
+				it has absorbed throughout the day, and if you lie on it, it warms you as the wind
+				becomes glacial. 
+
+‘You’re trembling now, Mody.
+				What is it? Are you cold again?’ 
+
+‘A little.’ 
+
+‘I’ll find another blanket
+				for you.’ 
+
+‘You’re trembling
+				too.’ 
+
+‘Yes, but not from the cold. I
+				wanted you, Modesta. Your touch aroused me.’ 
+
+‘So why did you hide
+				it?’ 
+
+‘One doesn’t take advantage
+				of an embrace that comes from gratitude, or sleepiness or sorrow. So while you
+				slept, I went to a velluta to quench my burning thirst.’ 
+
+‘You still call them vellute ?’ 
+
+‘What should I call them? Those
+				offensive names foreigners call them?’ 
+
+‘Velluta , a silken
+				lady … I hadn’t heard that word in so long! We’re losing our
+				language, Mattia, and the island will be left with great regret. Tuzzu used to say:
+				“Colours come from the heart, thoughts from memory, words from
+				passion.”’ 
+
+‘Who was Tuzzu?’ 
+
+‘A carusu who knew all
+				the words and taught them to me. Do you like words, Mattia?’ 
+
+‘No, I like silence.’ 
+
+‘And you absorb
+				it …’ 
+
+‘It’s going to rain tonight;
+				the heat was so extreme … You don’t feel cold anymore?’ 
+
+‘No, and you? You don’t feel
+				desirous anymore?’ 
+
+‘It subsided as we talked,
+				Modesta.’ 
+
+‘Why are you way over
+				there?’ 
+
+‘I know I
+				could have you now; you told me so. But I don’t want to mix things. I’m
+				still sated from the velluta ’s attentions. Go to sleep, and tomorrow
+				we’ll see if you’ve caught a cold or if it was just the stress of coming
+				back.’ 
+
+‘And where are you
+				going?’ 
+
+‘To my own bed.’ 
+
+‘I’m afraid. This house is
+				becoming more and more silent. While you were making me race through the heat, I saw
+				that all the balconies and windows of the house were deserted.’ 
+
+‘There’s no one here. Rows
+				of rooms closed on the emptiness of a man alone. If you’re afraid, I’ll
+				sleep on the sofa. Don’t be frightened. I won’t leave you by yourself.
+				Now go to sleep.’ 
+
+As if sleep had been awaiting his
+				command to bend over me with its forgetfulness, I fall asleep, lulled by the
+				reassurance of his breathing. And I’m not afraid when he leans over me in the
+				grey dawn and whispers softly: ‘I told you so, Mody: it rained all night. For
+				four or five hours it will be cool. Do you want me? Or shall I take you home while
+				it’s still cool?’ 
+
+‘No, I want to stay
+				here.’ 
+
+I place first my palms, then my cheek on
+				the warm rock of his chest and he takes me in his arms. How could I have known if he
+				hadn’t told me that even amid the grass of quiet friendship a pleasure
+				stronger than passion can grow? A sure, carnal pleasure, no wounding, no
+				uncertainty. He doesn’t believe it either. He looks at me, surprised. I feel
+				his hands exploring my body to understand, blind hands that see for the first time.
+				I was right to run away from that swamp of false sentiment. I was right to run to
+				him. After looking at me, he drops back down on me, heavy yet light, confident of my
+				body’s equilibrium.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">七十七
+
+雅各布的孕育持续了数月，如今他从自己的才智中重生为新的血肉。与此同时，我不再思虑自己。我忽略了普兰多带着给斯特拉、班布和梅拉的礼物来来去去，然后匆匆离去，锁在自己的沉默中。我没看错：每次，他匆忙离去时并无悔意，也无伤痛，他只是因斯特拉的眼泪而烦躁地转身离开，只有对自由的渴望。而乔伊斯呢？
+
+她愈显美丽于她那表面上的死亡，在屋子里游荡，嫉妒地窥视着面孔，大发脾气。但我们岛上的人知道如何与死者共处，必要时如何安抚他们，也决不相信他们说&quot;我们是那么幸福，莫德斯塔，发生了什么？&quot;
+
+发生了的是，你从不满足于任何事物，追逐你那完美的梦想，而现在你被埋在我花园六尺之下，你想回到昨天。但对活人来说，昨天只是这崭新的、充满阳光的今天的肥料。我内心充满那阳光，还有雅各布环绕我脖颈的手臂，他抚弄我头发的爱抚。
+
+&quot;你现在为什么总是和雅各布在一起？&quot;
+
+一阵嫉妒的狂怒攫住了她。占有欲强的主人的嫉妒染红了她的脸颊，和以前一样，我移开视线，不去看那把她变丑的紫色斑块。但必须要有耐心。毕竟，她是对的：直到昨天，我还是个忠实的小妻子，而她自信于自己的力量，对自己夸耀说不像其他凡人，她不会嫉妒。好吧，乔伊斯，你所有的智慧，所有的知识，有什么用呢，如果你甚至无法触及你罪恶中哪怕极小一部分的表面？你多么傲慢地宣称：&quot;我母亲？一个在托迪那个乡绅身上寻找迫害者的受虐狂。&quot;我看到了你和勒南，然后是若朗，在活人的街道上游行，交替鞭笞彼此。而我自己也几乎滑入了那条世俗的净化苦路。现在我看到你的愤怒不是嫉妒，只是对那些快乐地看着你、拒绝与你一起受苦的人的愤怒和嫉妒。我转身走出房间。那房间里是黑暗的，而外面阳光灿烂……
+
+&quot;你现在去哪里？你和雅各布在做什么？你和他睡了吗？那男孩已经有了主人的神气。你什么事都干得出来！你从未爱过我，我只是在你无聊时的一个消遣。你真正被吸引的是男人……&quot;
+
+我怎能让她明白，只要她在我眼中还是个女人，只要我的手仍然觉得那肌肤细腻，那乳房丰满，那腹部柔软，我就爱着她。但现在我看到她被锁在一个软弱男性的不透盔甲中，我的幻想结束了，我跑向马蒂亚，在那么多个月之后，他终于带着钱从美国回来了。
+
+*
+
+&quot;怎么样，马蒂亚？&quot;
+
+&quot;发生了什么？……我们谈话时你突然睡着了吗？我怎么知道！谁知道你那个小脑袋里在想什么！我打电话给你只是关于画的事，你就跑过来了；你没问怎么来的，为什么，带着我为你做这事所经历的一切，然后你就睡着了。&quot;
+
+&quot;谁把我放到这张床上的？&quot;
+
+&quot;我。你睡了一夜又一天！我给斯特拉打了电话，我吓坏了，但她告诉我没什么可担心的……你真是吓了我一跳！你在睡梦中辗转反侧。有一次你说他们想把我们分开。谁能理解你们女人！你不是梦游症患者吧？至少你还记得那个电话吗？&quot;
+
+&quot;我想见你。你离开很久了，马蒂亚。&quot;
+
+&quot;嗯，这些事情不是两天就能办好的，莫迪。&quot;
+
+&quot;你怎么叫我莫迪？&quot;
+
+&quot;每当我父亲说&#x27;莫迪&#x27;时，我就会嫉妒，对你有种仇恨，现在这对我来说显得很奇怪。当拉切尔塔经过并澄清过去后，事情变化真大！&quot;
+
+&quot;你为什么把我放在这个房间？为什么卡尔梅洛这儿这么安静？&quot;
+
+&quot;他们全死了，所以我把一切都关闭了。我要那么多卧室和客厅做什么？我只开放这一翼：三个房间和一个电炉小厨房，像美国那样的。&quot;
+
+&quot;谁照顾你？&quot;
+
+&quot;有个女人来打扫，小心不让我注意到她。我受够了晚餐和奢华布置的餐桌。怎么，你不喜欢这个房间吗？&quot;
+
+&quot;我是在这个房间长大的，马蒂亚，但那时不一样。我是从那扇大窗户认出它的。&quot;
+
+&quot;嗯，我让他们把那些垃圾都搬走了：镜子，花瓶，丝绒！你为什么哭？&quot;
+
+他微笑着，从蓝色天鹅绒夹克口袋里掏出烟斗，我知道他不会再说一句话，直到那小火焰好好燃起。慢慢地，烟草的香气升起，把房间还原成那个裸露的、遥远的、有着粗削木板和松脂香味的房间，还有卡尔米内的白色卷发。再过一两年，马蒂亚的灰白头发也会变成明亮的雪白。
+
+&quot;怎么了，莫迪？你为什么那样盯着我看？&quot;
+
+&quot;能让我吸一口吗？&quot;
+
+&quot;哦，对了，这个小女魔竟然还会抽烟斗！我忘了！拿这个——我再装一个——但小心拿着，因为你手里是我最喜欢的烟斗。看看她抽烟的样子！你怎么学会的？&quot;
+
+&quot;既然如你所说，拉切尔塔已经经过并澄清了事情，我可以告诉你：你父亲教我的。&quot;
+
+&quot;我问你的时候就知道了答案，莫迪。但你不应该说&#x27;你父亲&#x27;；你应该说&#x27;卡尔米内老爷，领主和主人&#x27;。&quot;
+
+&quot;你还没和他和解吗？&quot;
+
+&quot;没有！对领主们而言，连拉切尔塔都没有力量让我们和解。这些天我比以前更恨他。我想过了，你知道——独自在这死人之屋里，我想过了——我更恨他，因为按照他贪婪的榜样，我失去了妻子和孩子。我很久以前就埋葬了他，不再是我的一部分，葬在远离我心田的地方。我压制了他的声音，不想要他留下的任何东西。这也是我回到你身边的另一个原因。你，像斯芬克斯一样，看到了我的错误并警告了我。你当时拒绝我是因为你不想要主人，我回来向你学习。哦，我不想要用言语回答；这些不是从言语中学到的东西。我观察过你，我观察过你的孩子们，现在我也在看着你……&quot;
+
+&quot;你看到了什么？&quot;
+
+&quot;思想和行动的巨大自由！你是如何达到这样的自由的？在苏瓦里塔别墅，他们甚至对您的离去毫不惊讶。&quot;
+
+&quot;我让他们习惯了。&quot;
+
+&quot;怎么做到的？&quot;
+
+&quot;通过给他们同样的自由。当他们还小的时候——部分是为了不用听他们吵闹，部分是为了让他们习惯——我会去卡塔尼亚的旅馆。你必须在你和所爱的人之间保持距离。距离几乎比拉切尔塔更好地澄清事物。&quot;
+
+&quot;啊，我明白了。所以你把普兰多送走了？&quot;
+
+&quot;主宰的杂草开始在他身上生长了，如果这种杂草在图迪亚的土壤里顽强生长……去别处找你的奴隶吧，世界充满了奴隶。&quot;
+
+&quot;问题是我们图迪亚人并不喜欢你所说的奴隶。驱使我们的是征服自由之人的狂热。&quot;
+
+&quot;我知道。我身上也有那种倾向，但我不滋养它。那没有结果，马蒂亚！当你征服时，你自己就成了奴隶，看守着那些被你剥夺了自理能力、像水蛭一样依附着你的人。&quot;
+
+&quot;你就是这样和你孩子们说话的吗？你不为他们担心，不担心他们的未来吗？&quot;
+
+&quot;当你给土壤施了肥，植物就会生长，马蒂亚。你带给我施肥的钱了。&quot;
+
+&quot;我以为你想囤积它。&quot;
+
+&quot;你现在说话像你父亲。钱有用是为了当下的自由，而不是为某个不确定的未来。&quot;
+
+&quot;有一晚在拉斯维加斯，我差点输光了卡尔米内积攒的一切。我被一股疯狂的挥霍冲动攫住，一直输一直输，但后来有什么阻止了我……一种压迫感，对那些升向天际的混凝土和闪亮玻璃墙的愤怒。许多年来它们看起来像宏伟的权力大教堂，然后……我不知道，莫迪……那一夜我喝得烂醉，在窗边透气时——里面闷热难耐——我突然渴望起我们的杏仁树山谷和向海倾斜的柑橘园，有一瞬间我仿佛在橘子花的香气中旋转。他们告诉我我晕倒在地上。自然，当我醒来时，我意识到我必须为剩下的那一点点土地施肥，于是我回来了。即使只有这死人之屋等着我，植物还活着，我知道我必须滋养那种香气。&quot;
+
+&quot;你损失了那么多？&quot;
+
+&quot;几乎一切。但是，如你所说，我感到解放了，我又能入睡了。为什么呢？这就是我想问你的。&quot;
+
+&quot;你在问你已经知道的事情。所有那些财富都是多余的。&quot;
+
+&quot;那些我富有的岁月，总在投机倒把，过去了，我不记得有哪一天。现在，像一个从死亡中复活的人，我在重新发现一切，那个仲夏之夜和你在一起像是洗礼。尽管我只是个旁观者，在那观看，我吸收着曼陀林的声音，你的酒，你的喜悦，终于体验到了声音和滋味。为什么呢，斯芬克斯？&quot;
+
+&quot;你在让我用言语表达你已经知道的事情，马蒂亚。&quot;
+
+&quot;作为确认。人必须触摸山峦真正的石头和话语的西梅托河水，才能知道水是什么，石头是什么，话语是什么。我又困了。就连那耳语的疼痛——它像蛇一样从我的手臂慢慢滑过刺痛我心脏——也被睡眠钝化了。怎么了，莫迪，你为什么不回答？&quot;
+
+&quot;你睡着时它消失了吗？&quot;
+
+&quot;是的。&quot;
+
+&quot;那就睡吧，卡鲁索。那样痛苦的蛇就会在你的安眠中滑走。&quot;
+
+&quot;你刚才说卡鲁索？&quot;
+
+&quot;是的，还有皮奇里杜。&quot;
+
+&quot;昨晚你拥抱了我。是因为钱的感激吗？&quot;
+
+&quot;不。是为了触摸石头和水的真相，如你之前所说。&quot;
+
+&quot;怎么了，莫迪？你为什么这么苍白？你在颤抖？过来。再坐下来。&quot;
+
+&quot;哦，马蒂亚，我想我看到一个白色的身影穿过那边的树林而来。&quot;
+
+&quot;哪里？&quot;
+
+&quot;后面那儿，诺娜·盖娅垂柳的枝条间。她爱那棵悲伤的树，在午间的炎热中，她会在它的树荫下读上好几个小时……她下午不睡觉。&quot;
+
+&quot;我什么也没看见，莫德斯塔。也许你想起了她，她就向你显现了。死者在太阳与阴影的搏斗中找到了入口：现在是正午，太阳变黑的时刻。&quot;
+
+&quot;作为少女时，我在这个房间里总是害怕。它在我看来无边无际，实际上它很小。连花园也似乎无穷无尽……也许是一道阳光落在一尊白色雕像上。我忘了那些雕像。我们出去吧。我想再看看它们。&quot;
+
+&quot;来吧。如果你不介意我就脱掉夹克。从外面进来，这墙内有些凉。&quot;
+
+&quot;就像那时一样，马蒂亚。我进入大厅时也常找披肩。&quot;
+
+墙外，阳光耀眼。出门时阳光总是让我目眩，白色雕像在沉默而狂乱的舞蹈中闪烁：&quot;一、二、三……一、二、三……快，我们奔向太阳吧。&quot;
+
+&quot;你跑哪去？你会出汗着凉的，莫迪！你在找什么？这儿没人。嘿，托斯塔卡鲁萨，你在哪里，冲动的小姑娘？&quot;
+
+远处，马蒂亚的声音越来越高。还是贝阿特里切在叫我，被幽灵出现的时刻吓坏了？不是诺娜·盖娅在搅动她的柳枝。乔伊斯，一动不动，凝视着我，她的目光涣散：她没有说话。
+
+&quot;你在这儿做什么，乔伊斯？&quot;
+
+&quot;这话应该我问你。&quot;
+
+&quot;我睡着了。&quot;
+
+&quot;你可真方便就睡着了。&quot;
+
+&quot;你怎么来的？&quot;
+
+&quot;和你一样。坐车。&quot;
+
+&quot;当我还是个女孩，被关在那个修道院里时，我以为去卡塔尼亚需要好多好多天。然后我第一次在不到一个小时就看到了卡塔尼亚，大海就在它后面，我简直不敢相信自己的眼睛。&quot;
+
+&quot;我对你的故事不感兴趣，莫德斯塔。我要走了！&quot;
+
+&quot;等等。到屋里来。我给你看我长大的地方。&quot;
+
+&quot;别碰我！去他那。你没听见他在叫你吗？&quot;
+
+&quot;你没有理由怀疑，乔伊斯。等等！马蒂亚和我只是谈话而且……&quot;
+
+乔伊斯猛地转身，面色灰白。手臂僵直地垂在两侧，她猛拐过一个大理石基座，消失在垂柳的枝条间。
+
+&quot;她走了。&quot;
+
+&quot;谁，莫迪？你现在吓到我了。我也看见了什么。&quot;
+
+&quot;是乔伊斯。&quot;
+
+&quot;她为什么跑掉？&quot;
+
+&quot;她嫉妒，或者确切说她现在假装嫉妒。以前，我可以在外面待三天，她甚至都不注意。&quot;
+
+&quot;你和她之间有什么，莫德斯塔？&quot;
+
+&quot;你已经知道答案：爱，马蒂亚。在我这边，一种深深的爱让我相信她也爱我。这种事会发生。但后来我明白了，现在她对我来说已经死了……你说得对；我不该跑。我出汗了，头好晕。&quot;
+
+&quot;在正午奔跑会让你的血液紊乱！别动。躺在树荫下——对了——别说话。&quot;
+
+在寂静中，枝条的绿色华盖与黑色太阳搏斗。
+
+&quot;她刚才就站在这儿。看到了吗？草被压倒了。&quot;
+
+&quot;别说话，安静躺着。我不喜欢你的面色。&quot;
+
+&quot;她在这儿。&quot;
+
+&quot;谁，莫迪？&quot;
+
+&quot;那幽灵……她站在这儿一动不动，窥视着我们。&quot;
+
+&quot;那幽灵消失了，如果你安静躺着休息，它不会回来。&quot;
+
+在寂静中，高高垂柳的绿荫俯向我的额头。
+
+&quot;你的手是凉的，马蒂亚。怎么会这样？&quot;
+
+&quot;我没跑，也没看见幽灵。嘘，莫德斯塔。如果她对你来说是死了，就忘掉她，否则她会永远来纠缠你。&quot;
+
+&quot;她很坏，那个女人，像伊内丝一样。她们不知道遗忘的艺术，她们报复所有人：报复自己，报复男人，报复孩子。你知道她为什么来吗？像圣罗莎莉亚一样，她想要披着镶钻石的金斗篷，同时又要做一个带剑的男人。&quot;
+
+&quot;你的脉搏不跳那么快了。&quot;
+
+&quot;你的手变暖了。&quot;
+
+&quot;现在安静，马蒂亚会抱起你把你带到屋里。我们一起面对炎热，然后在家给你的烦恼额头敷上凉布。&quot;^*&quot;
+
+&quot;敷上湿毛巾你感觉好些了吧？你又在笑了。&quot;
+
+&quot;是的，我不想再在正午的炎热中出去了，马蒂亚。&quot;
+
+&quot;当然，没人应该在这个时间出门。只有流浪狗才在外面……它们沿着墙壁微薄的阴影溜过，或像山羊一样纹丝不动地站着。你见过山羊在这个时辰于多石的田野里吗？如果你不仔细看，你几乎注意不到它们；它们像雕像。连它们的眼睛也不动，等着正午的炎热过去，好再次呼吸。&quot;
+
+在我等待炎热消退、幽灵消失的时辰里，我紧紧依偎他的胸膛。黄昏时分，熔岩释放出它整天吸收的热量，如果你躺在上面，当风变得冰冷时，它会温暖你。
+
+&quot;你现在在发抖，莫迪。怎么了？你又冷了吗？&quot;
+
+&quot;有一点。&quot;
+
+&quot;我再给你找条毯子。&quot;
+
+&quot;你也在发抖。&quot;
+
+&quot;是的，但不是因为冷。我想要你，莫德斯塔。你的触摸让我兴奋起来。&quot;
+
+&quot;那你为什么隐藏它？&quot;
+
+&quot;人不该利用出于感激、困倦或悲伤的拥抱。所以你睡着时，我去找了一个维卢塔来解我燃眉之渴。&quot;
+
+&quot;你还叫她们维卢塔？&quot;
+
+&quot;我该叫她们什么？外国人叫她们的那些冒犯性的名字？&quot;
+
+&quot;维卢塔，丝缎般的女子……我好久没听到这个词了！我们在丢失我们的语言，马蒂亚，这岛会留下巨大的遗憾。图祖常说：&#x27;色彩来自心，思想来自记忆，词语来自激情。&#x27;&quot;
+
+&quot;图祖是谁？&quot;
+
+&quot;一个知道所有词语并把它们教给我的卡鲁苏。你喜欢词语吗，马蒂亚？&quot;
+
+&quot;不，我喜欢沉默。&quot;
+
+&quot;你吸收着它……&quot;
+
+&quot;今晚要下雨了；炎热是如此极端……你不冷了？&quot;
+
+&quot;不，你呢？你不渴望了吗？&quot;
+
+&quot;我们谈话时它消退了，莫德斯塔。&quot;
+
+&quot;为什么你在那边那么远？&quot;
+
+&quot;我知道我现在可以得到你；你告诉我了。但我不想混淆事物。我还因维卢塔的关注而满足。去睡吧，明天我们再看你是着凉了还是只是回归的压力。&quot;
+
+&quot;你去哪里？&quot;
+
+&quot;我自己的床。&quot;
+
+&quot;我害怕。这房子越来越安静了。你让我在炎热中奔跑时，我看到房子所有的阳台和窗户都空无一人。&quot;
+
+&quot;这儿没有人。一排排房间关闭在一个独居男人的空虚之上。如果你害怕，我睡在沙发上。别怕。我不会留下你一个人。现在睡吧。&quot;
+
+仿佛睡眠一直在等待他的命令，带着遗忘向我俯来，我在他呼吸的安抚中入睡。当他在灰蒙的黎明俯身向我，轻声低语时，我并不害怕：&quot;我早告诉你了，莫迪：下了一整夜的雨。四五个小时内会很凉爽。你想要我吗？还是趁凉快我送你回家？&quot;
+
+&quot;不，我想留在这儿。&quot;
+
+我先把掌心，然后是我的脸颊放在他胸膛温暖的石头上，他把我拥入怀中。如果不是他告诉我，我怎能知道，即使在友谊宁静的草丛中，也能生长出比激情更强大的快感？一种确定的、肉体的快感，没有伤害，没有不确定。他也不相信。他惊讶地看着我。我感到他的手在探索我的身体去理解，那些第一次见到的盲手。我逃离那虚伪情感的沼泽是对的。我跑向他是对的。看了我之后，他又落回我身上，沉重而轻盈，对我身体的平衡充满信心。</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>witness</b><span>见证者；目睹</span><em>bear witness to</em></div>
+<div><b>trauma</b><span>创伤</span><em>live with trauma</em></div>
+<div><b>custody</b><span>拘押；监护权</span><em>taken into custody</em></div>
+<div><b>resistance</b><span>抵抗；抵抗运动</span><em>join the resistance</em></div>
+<div><b>liberation</b><span>解放</span><em>after liberation</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch076.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch078.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

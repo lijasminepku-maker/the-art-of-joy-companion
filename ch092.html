@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 92 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch091.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" selected>Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch093.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 92<span>解放后、政治与记忆</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1943 年政权垮台、1945 年解放后，重建并不等于问题消失。战后左翼政党、工会、家庭代际冲突与政治幻灭共同构成新的环境。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">92 
+
+A few strokes, and already my hand is
+				touching the Prophet’s beard: long ringlets combed by the waves, where swarms
+				of fish drift in the green silence of the algae. You can stretch out between the
+				beard and the forehead, and the giant’s large hollow eye won’t blink,
+				riveted as he is by millions of years looking out at sea. Before Modesta was able to
+				swim, the distance of that gaze made her tremble with hope and misgivings. Now, only
+				a profound peace invades her mature body at each sensation of her skin, veins,
+				joints. A body that is its own master, made wise by an understanding of the flesh. A
+				profound awareness … of touch, sight, taste. Lying on her back on the
+				rocky ledge, Modesta observes how her developed senses can take in the entire blue
+				expanse, the wind, the distance, without the fragile fears of childhood. Astonished,
+				she discovers the meaning of the skill her body has acquired during the long, brief
+				course of her fifty years. It’s like a second childhood, but with a precise
+				awareness of being young, an appreciation of how to, touch, see, enjoy. Fifty years:
+				the golden age of discovery. Fifty years: a happy age unjustly maligned by poets and
+				birth records. 
+
+How to describe that summer afternoon
+				lying on the rock, touched by the last caress of the setting sun? How to describe
+				the joy of that discovery? How to tell others about it? How to communicate the
+				happiness of each simple act, each step, each new encounter … with faces,
+				books, sunsets and dawns, Sunday afternoons on sun-drenched beaches? ‘ Good for you,
+					Nonna, I envy you! I’ve discovered that envy is the right attitude for
+					wanting things. By envying you, I’m trying to imitate you, and maybe
+					someday I’ll be like you. ’ How to describe the joy of listening
+				to that boy? The emotion his voice communicates when he tells me: ‘ With
+					you, Modesta – will you let me call you that? – with you, I feel like I have a
+					buddy. So, buddy, the boss – my father – paid me. Shall we go to the movies and
+					pass some time? I just have to see The Asphalt Jungle ; everyone is
+					talking about it! The movies have now become a must. Come with me. It only lasts
+					a couple of hours; then we’ll walk around and talk. I have so much to say
+					about that Julien you introduced me to … ’ It may be that after
+				the movie we won’t talk about either the film or about Julien Sorel, 117 but we’ll
+				go to Nina’s instead and laugh and eat, and Carluzzu and Olimpia will play the
+				guitar endlessly, passing it back and forth along with a glass of wine … 
+
+* 
+
+Stop here, in this joy bursting with
+				the senses and the mind, and thus freeze for ever in me, in you, the best ten years
+				of my life, those between fifty and sixty? The temptation is strong, but life
+				doesn’t stop, and Carluzzu has entered the bookshop. His face has changed. His
+				eyes blaze with hatred and he wipes his perspiring brow. He stares at me, and for a
+				moment his gaze grows calmer. He needs me. 
+
+‘What is it, Carluzzu?
+				What’s happened?’ 
+
+‘What happened is that I had to
+				beat up your son, that is, according to the civil registry – my father I mean, if
+				you believe that stinking birth certificate! I didn’t mean to, I know I
+				didn’t want to! But all of a sudden he slaps me. I tell myself: be good,
+				Carlo, it’s just the usual little slap. But then he starts yelling, and I
+				can’t stand being yelled at, Nonna, you know that. So I made him shut up by
+				force. And I could have killed him too!’ 
+
+‘And then?’ 
+
+‘I went to the port to vent my
+				anger, walking up and down amid the fishmongers’ cries. Then I stopped at the
+				mussel stand and I must have eaten a hundred raw mussels, I think! I downed them
+				with a glass of wine and the steam went out of me. Oh, Mody – it may have been the mussels or the wine at midday – I
+				felt like I was flying in the sunshine, light as a gull among the white walls and
+				the shouts, the hot sun pressing at my back and the cool wind on my forehead. And I
+				told myself: “Why lose all this for that animal? And then it’s no use
+				thinking about taking a train, a steamship – you’ve already done that so many
+				times – you’ll always come back here, like Zio ’Ntoni and Zio
+				Jacopo.” Then I think about that animal again, your son … I see him
+				slammed against the wall by my fists, his head lowered like a tired lion, and I feel
+				a little sorry and I tell myself: “Let’s go see if he’s lost a few
+				teeth … He cares a lot about his teeth: that dazzling smile he can flash
+				at the jurors.” I know, it’s no use you smiling, we all went to night
+				school, as Nicola says: I know it’s age-old remorse, ancestral. Who would dare
+				raise a hand against his own father’s mane, white or not, be he a believer or
+				an atheist? Fine, so I go back home, I open the door without making a sound, I go
+				into the hall and what do I hear? You won’t believe it: his voice, pompous and
+				persuasive like in court, saying on the phone: “Yes, it’s true,
+				Mattia … he beat me up, that’s all there is to it! When you have a
+				son of your own blood who is not a weakling, but a real man, this, too, can happen.
+				Lucky you, you only have two girls!”’ 
+
+‘And what did you do?’ 
+
+‘Fischia! Damn! Hey,
+				Mody, do you know that in Rome it’s popular for young people to say
+					“ fischia! ”? Nicola told me. It’s awful, but it sticks
+				in your mind like the lyrics to a bad song.’ 
+
+‘And so?’ 
+
+‘Fischia! Oh, sorry! So I
+				uttered a string of dithyrambs à la Miller, the great blasphemous Henry, 118 and completely
+				satisfied with my cultural skills, I came straight to you, the one who gave them to
+				me … Now let’s go! I’ll take you to a restaurant. Your
+				grandson is rich today.’ 
+
+‘Why is that?’ 
+
+‘I finished the thesis for Nicola.
+				Remember, I came to you for information? I steal your ideas on Anglo-Saxon
+				literature, add a little something of my own and sell the product to Nicola, who is
+				rich and doesn’t know a damn thing! Then he looks good at home and with his
+				professor. Complete thievery, Nonna, on your shoulders …’ 
+
+‘What could be better in this case
+				than to be robbed? If they rob you, it means you’re rich, right?’ 
+
+‘So, ragazzaccia , what will you have, naughty girl?’ 
+
+‘Spaghetti!’ 
+
+‘Me too! Hey my friend, two
+				spaghetti alle vongole and torrents of white wine!’ 
+
+‘What sunshine, Carlo! One more
+				week and then we can swim until October.’ 
+
+‘Do you know that you’re a
+				fabulous little nonna ?’ 
+
+‘You gave me a stunning account of
+				your morning, Carlo, but you didn’t tell me why you beat up my
+				Prando.’ 
+
+‘Are you fond of your
+				Prando?’ 
+
+‘No, but I love him.’ 
+
+‘You have a clarity, Mody,
+				that’s scary, as Nina says.’ 
+
+‘So then, what did your old father
+				want this morning?’ 
+
+‘The same old story:
+				“You’re young … you don’t know what it means
+				to …” And always at the same time, at the table, when you’re
+				famished and not in the mood: “Not everyone, son, has the good fortune of
+				having a father who paves the way for him. Why pursue impossible things like
+				archaeology when you have a law practice that yields like an oil well right here at
+				your fingertips?” That was five years ago, remember? And to keep the peace, I
+				said to myself: “Let’s make him happy; after all, he’s the boss,
+				and with a boss, either you kill him right away, or you dupe him.” So I skip
+				classes and repay him for what it cost him to raise me. Because that’s the
+				point: all they want is for the money they spent on you to pay off. Forget paternal
+				love! But is it true he was an anti-fascist, Mody?’ 
+
+‘Of course, and a communist as
+				well.’ 
+
+‘If he was a communist, then why
+				did he leave the Party when the 20th Congress 119 took place? What did he think, that a
+				revolution is all sweetness and light? Uncle Jacopo didn’t drop out; on the
+				contrary, he told me back then in Milan that it was time to fight harder, to stay in
+				the Party and finally make Gramsci’s ideas heard … I know, I’m
+				sorry, we’ve talked about it so many times and I’m being a pest.
+				It’s just that it’s hard for us young people to understand. Take
+				Nicola … Outwardly, in public, his father declares himself communist, then
+				on Sunday he goes to Mass. And in the evening they say prayers. What a screw-up, as
+				Nina says! I can’t talk to Nicola anymore, Mody. It’s awful, but I’m going to lose
+				him! It’s like he’s deflated, worn out. One day his mind seems clear,
+				the next day he starts saying it’s all hopeless. Did you know he only reads
+				Indian texts now? I read the Autobiography of a Yogi too, to try and
+				understand him, but all I found in it was the usual warmed-over mysticism. How can
+				people not see that it’s just another opiate packaged in America? What can you
+				do? At least it’s not found in our house, thanks in part to the wife your son
+				really doesn’t deserve. She’s on the ball, all right! I don’t know
+				how she slaves away all day looking after Papa and still keeps up on things. Such a
+				sharp mind! I don’t understand how a woman like her can put up with your son,
+				Nonna, I just don’t get it! You didn’t stand for it.’ 
+
+‘It’s because Amalia lacks
+				confidence in herself, Carluzzu. She doesn’t know it, but she lacks confidence
+				because she’s a woman.’ 
+
+‘You know, sometimes I enjoy
+				teasing her. I cosy up to her and ask her to run away with me. She pretends to be
+				indignant, and in a beautiful full voice says: “But Carlo, I’m your
+				mother!” And I say: “No, Amalia, I’m Stella’s son.”
+				“But I’m old.” And I: “Stella was old too when she had me
+				with your husband.” At this point, she flushes and says: “How awful to
+				tell carusi the truth, they take advantage of it!” And she
+				laughs … those are the few times I see her laugh. I feel so sorry for her
+				that sometimes I almost feel I love her. Is it true, Mody, that love is so very,
+				very close to compassion? It’s partly for her that I got my law degree. I tell
+				myself: “Now that you’re a lawyer, Carlo, your father will be mollified.
+				He’ll give you money and you can go to Greece for three months before you get
+				into uniform.” Instead, this morning he comes out with: “So then,
+				beginning tomorrow you’ll come to court with me and start learning the
+				ropes.” And I: “But Papa, in six months I have to leave for military
+				service!” And he says: “No, no, we’ll get you an exemption.”
+				Resorting to nature as evidence, I reply: “But Papa, at over six feet tall and
+				with a chest this broad it will be impossible!” And him: “Everything is
+				possible for a Brandiforti!” I lose my appetite, and on my plate I see
+				battlefields, compulsory calls to arms, crusades, and I realize why wars break
+				out … it’s one way to escape from home. But Judas Priest, Mody! How
+				can he talk like that at his age? How can he say: “You’ll see the moral
+				satisfaction you’ll get from having an innocent man absolved!” For every one you save, there are a
+				hundred in the prisons … Doesn’t he understand that here, everything
+				should be called into question, starting with his morals, which are at least a
+				thousand years old?’ 
+
+‘Carlo talked like you forty years
+				ago.’ 
+
+‘Carlo who?’ 
+
+‘Bambolina’s
+				father.’ 
+
+‘Right, and he was killed. But
+				they won’t kill me, Mody! They won’t kill us, thanks to you, and to
+				Jacopo. I met his students up in Trento, young people with their eyes open, guys
+				like me determined not to be seduced by any false idealism. It’s just
+				that …’ 
+
+‘What, Carluzzu?’ 
+
+‘There are so few of us, Nonna, so
+				few!’ 
+
+‘It’s always been that
+				way.’ 
+
+‘And the few I’ve met, in
+				Milan, in London, in Paris, are sad.’ 
+
+‘It’s always been that way,
+				Carlo.’ 
+
+‘I don’t want to be sad like
+				them.’ 
+
+‘But there is still joy in knowing
+				that you are different, Carluzzu, if you know how to find it.’ 
+
+‘It’s true. That’s
+				what they don’t want to understand! As if they were ashamed of being happy, as
+				if happiness necessarily meant being like all the others: superficial and vain. Look
+				at Uncle ’Ntoni, up there in Rome: a success with the public and with the
+				critics, streams of intellectuals, of cultured people waiting to congratulate him in
+				his dressing room. As soon as we’re alone, a tragic mask falls over his
+				face!’ 
+
+‘But ’Ntoni is a comic
+				actor, Carlo. Don’t forget that.’ 
+
+‘What does that mean?’ 
+
+‘There’s also temperament.
+				Don’t become fanatical about joy, for heaven’s sake! The temperament of
+				a comic is terribly sad. There’s something mysterious, unfathomable in people,
+				in the professions they choose. Nature itself is unfathomable, Carluzzu, for crying
+				out loud! Let’s let others be the way they are, or how they want to
+				be!’ 
+
+‘You’re right, Nonna.
+				I’m a fanatic like your Prando and before you get mad – I can see you’re
+				getting angry – give me your hand. Peace! I’ll take you to see what a great
+				bar they’ve opened near the Pescheria : all mirrors and
+				glitter.’ 
+
+Hand in hand we
+				walked down to the port to take our minds off things, following the white wings of
+				seagulls chasing lingering clouds. 
+
+‘Is it true, Mody, that if you
+				occasionally let the mind wander, it opens its wings and glides over colours,
+				sucking up their nectar as if it were a butterfly?’ 
+
+The same thought at the same moment
+				there along the quay in the shadow of the port. Can a sixty-year-old woman have the
+				same thoughts as a young man of twenty? I look at him: in the last of the
+				sun’s light, his dark eyes are veined with green and violet. 
+
+‘In the daytime your eyes are
+				light, Carluzzu.’ 
+
+‘Mama, I mean Stella, had dark
+				eyes, didn’t she?’ 
+
+‘Yes. Black as a starless
+				night.’ 
+
+‘Too bad I can’t remember
+				her.’ 
+
+‘I remember her for you,
+				Carlo.’ 
+
+Yes, a sixty-year-old woman can have the
+				same thoughts as a boy of twenty. Still amazed, happy as a child, Modesta throws her
+				arms around that boy’s neck and he takes her by the waist and lifts her,
+				swinging her around among the fishermen, the stalls, the cries of the vendors. Carlo
+				later told Nina and his friends that a few people turned around, surprised, but not
+				indignant or scornful: 
+
+‘Imagine a serious, elegant lady
+				who suddenly flies off the ground as if she had wings, hugging and kissing me! In a
+				flash, the considerable conformist in me tells me: “Stop, or they’ll
+				lynch you here, Carlo!” But the other Carlo quickly replies: “Coward,
+				face up to them like she does. Better yet, reinforce her gesture by swinging her
+				around, and let it be a lesson to you and to this stern, arrogant race from which
+				you come.” My heart explodes as I make her go flying, and for interminable
+				seconds I await a raspberry, some snide comment. Instead, not a word … And
+				when I set her down and dare glance around, I see a few people almost fearfully
+				avert their eyes, and one individual staring at me, transfixed by a sharp doubt that
+				maybe, yes, maybe that odd couple is happy and has the courage to show it.
+				It’s that old man from the port, the one as big as an armoire, with two shaggy
+				little brushes for eyebrows. Well, after a moment that mountain of wrinkles smiles
+				at me. It’s a victory!’ 
+
+Nina laughs and is beautiful, perhaps
+				more beautiful than before. She must be
+				in love again. With whom? Maybe the tall, thin man who stares at her with the eyes
+				of a music connoisseur who can listen effortlessly to the most complicated rhythms?
+				Or is her new love Cesare, with his languid body and a face flashing with
+				imagination? No, it must be the musician whom Nina is attracted to … 
+
+And I’d like to stay there for
+				ever, but Bambù is calling me. I’d like to stay and go on listening to Carlo,
+				who has the gift of telling stories, of captivating you and transporting you far
+				away. But life moves swiftly in this conscious youth, it calls and I must go. Life
+				cannot be stopped. Pietro is dying and he needs me.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">九十二
+
+几下划水，我的手已经碰到了先知的胡须：被波浪梳理的长卷须，那里成群的鱼在藻类的绿色寂静中漂移。你可以伸展在胡须和额头之间，巨人那大而空洞的眼睛不会眨动，因为他被数百万年凝视大海的目光所定格。在莫德斯塔学会游泳之前，那目光的距离让她因希望和疑虑而颤抖。现在，只有一种深沉的宁静侵入她成熟的身体，随着她皮肤、血管、关节的每一次感觉。一具自己的主人般的身体，因对肉体的理解而变得智慧。一种深刻的觉知……触觉、视觉、味觉的觉知。莫德斯塔仰面躺在岩架上，观察她发达的感官如何能吸收整个蔚蓝的广阔、风、远方，没有童年时那些脆弱的恐惧。她惊讶地发现，她的身体在五十年漫长而短暂的历程中获得的技能的意义。这就像一个第二次童年，但有一种年轻的精确意识，知道如何触摸、观看、享受。五十岁：发现的黄金时代。五十岁：一个被诗人和出生记录不公正地诋毁的幸福年龄。
+
+如何描述那个夏日午后躺在岩石上，被落日最后一道爱抚触碰的时光？如何描述那发现的喜悦？如何将它告诉别人？如何传达每一个简单行为、每一个脚步、每一次新的相遇的幸福……面孔、书籍、日落和黎明、阳光斑驳的海滩上的星期日下午？&quot;你真走运，奶奶，我羡慕你！我发现羡慕是渴望事物的正确态度。通过羡慕你，我在试着模仿你，也许有一天我会像你一样。&quot;如何描述听那个男孩说话时的喜悦？情感太饱满无法言说，但身体，那明智的身体，记下了每一个瞬间，保留它们，如同一种神圣的储备，以应对未来的暗夜。&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>disillusionment</b><span>幻灭</span><em>political disillusionment</em></div>
+<div><b>compromise</b><span>妥协</span><em>reach a compromise</em></div>
+<div><b>solidarity</b><span>团结</span><em>act in solidarity</em></div>
+<div><b>legacy</b><span>遗产；留下的影响</span><em>leave a legacy</em></div>
+<div><b>reconcile</b><span>和解；调和</span><em>reconcile with</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch091.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch093.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

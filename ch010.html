@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 10 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch009.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" selected>Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch011.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 10<span>修道院、教育与规训</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">convent 不只是宗教场所，也是教育、慈善和纪律机构。理解称谓背后的等级，比记住全部宗教词更重要。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">10 
+
+A high fever took care of making amends,
+				gripping me the instant I saw Mother Leonora shut me out as she went on praying,
+				frozen as a corpse. A fever caused by fear, I think. How could I have been so
+				foolish as to tell Mother Leonora what I was thinking? Shivering, my teeth
+				chattering, I tried to make sense of what had happened to me. The terrible fever
+				lasted three days and three nights, gouging my brain with the question: why did you
+				do it? I had done it because like a fool, I who thought I was so clever had put too
+				much faith in Mother Leonora. And so the disillusionment of seeing her cowardice day
+				after day, and consequently, no longer loving her, had made me commit one of the
+				most predictable errors. Once I realized my mistake, the fever went away. But not
+				the terror of being exiled from all those women who, though fatuous and
+				contemptible, were essential to me. For years they had seemed so sweet and beautiful
+				and tall! They weren’t even tall. At fifteen I was already taller than Sister
+				Costanza, who was the homeliest, true, but also the tallest. Too bad. I almost
+				wished I could go back to the time when I admired them and tried to walk and talk
+				like them. Careful, Modesta, even this desire to return to a past that can no longer
+				be is a sentimental trap that can cost you dearly. No! Look at the reality: what
+				happened happened and could not have been otherwise. Now I have to get out of this
+				exile in which Mother Leonora has plunged me. In three days I haven’t seen
+				anyone except the nursing sister and the old, bald doctor. If he were at least young! I wonder where Tuzzu is? Maybe
+				he went to sea. 
+
+The sea … now I knew what it
+				was. I had glimpsed it in so many reproductions of famous paintings, they almost
+				made me forget the desire I once had to see it. 
+
+‘What is the sea like, Tuzzu?’ 
+
+‘A vast stretch of water as
+					far as the eye can see. See, it’s like this stony ground you see before
+					you from morning till night. Only instead of these rocks and mud and –
+					let’s not even mention the eyesores! – there’s water, blue
+					water . Sometimes calm like the water in the well, sometimes tossing
+					like the reeds when the fagoniu 7 blows.’ 
+
+‘So it’s just like in the paintings in the nuns’
+					house?’ 
+
+‘What are you saying, you silly ninny! Those pieces of canvas hung on the
+					walls are fake, false and deceitful. Nature can’t be painted or bought.
+					Besides, what can you expect from those shrivelled-up mummies? They’ve
+					betrayed their own nature and all of nature, as my father and my uncle, God rest
+					his soul, used to say. He could even read and write too. Barren, is what they are! They chose to be barren
+					like the treacherous, deceitful sand. Never mind paintings! Come on, let’s
+					walk a little, come …’ 
+
+Tuzzu led me by the hand along an
+				endless expanse of springy blue grass that swayed so much it made you feel like you
+				do after drinking rosolio at Easter. 
+
+‘Such a silly monkey this picciridda is! First she pesters you like a fly because she wants to see the sea, then when you
+					take her there she doesn’t even recognize it.’ 
+
+The grass gave way beneath my feet and
+				pulled me down; I clung to Tuzzu’s arm, terrorized … How did you
+				save us from the fire, Tuzzu? 
+
+‘Don’t be afraid! Can’t you see I’m holding you? As long
+					as I’m holding you, you don’t have to fear either water or
+					fire.’ 
+
+And it was so. I didn’t sink. And
+				we walked along, hand in hand, in the blue sea of Tuzzu’s eyes. His hand was
+				hot and gripped me tight … 
+
+No, it wasn’t Tuzzu. It was that
+				bald little man with the lizard eyes, gripping my wrist and shouting. He was always
+				shouting, that little man. Maybe because he didn’t wear either a white or a
+				black skirt? 
+
+‘Look, a
+				seizure! And to make matters worse, her fever has risen again! This girl is going to
+				die on us! Run, Sister Costanza, go immediately to Mother Leonora, and tell her that
+				whatever sin this child has committed, she’d better come quickly or this one
+				will die!’ 
+
+So that was how to get out of there.
+				That little man wasn’t as bad as he seemed. He must also be intelligent. I had
+				to do as he said, and not be quiet and good like I had been those three days. 
+
+I closed my eyes to rejoin Tuzzu and the
+				sea that left me fearful and breathless. And with all the strength inspired by
+				desire and terror, I cried out loudly, but with one small variation. Instead of
+				Tuzzu’s name, I said: ‘Mother! Forgive me, Mother!’ And I thought
+				of Tuzzu, whom I had forgotten for so long: ‘Forgive me, Mother, forgive
+				me!’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">10
+
+一场高烧替我做了补救，一看到莱奥诺拉嬷嬷继续祈祷、像一具尸体般冰冷地把我拒之门外时，高烧就攫住了我。我想，这是恐惧引起的高烧。我怎么会蠢到告诉莱奥诺拉嬷嬷我心里在想什么？我瑟瑟发抖，牙齿打颤，试图理清发生在我身上的事。那可怕的高烧持续了三天三夜，一个问题掏空了我的脑子：你为什么那样做？我那样做是因为像个傻瓜一样，我这个自以为聪明的人，太相信莱奥诺拉嬷嬷了。于是，日复一日看到她的懦弱而幻想破灭，因而不再爱她，便让我犯了一个最可预见的错误。一旦意识到我的错误，烧就退了。但那种恐惧却没有退去——害怕被所有这些女人放逐，她们虽然虚浮可鄙，对我却至关重要。多年来她们看起来那么甜美、美丽、高大！她们甚至连高大都不是。十五岁时我已经比科斯坦扎修女高了，她是最丑的，没错，但也是最高的。太糟了。我几乎希望自己能回到过去，那个时候我还仰慕她们，试图像她们一样走路说话。小心，莫德斯塔，甚至连这种想要回到一个不再可能的过去的欲望，也是一个可能会让你付出沉重代价的感伤陷阱。不！直面现实：发生的已经发生，不可能不是这样。现在我得从莱奥诺拉嬷嬷把我抛入的这种放逐中挣脱出来。三天来，除了看护修女和那个秃头老医生，我没见过任何人。他要是年轻点也好啊！不知道图祖在哪里？也许他去了海上。
+
+海……现在我知道它是什么了。我在那么多名画复制品中瞥见过它，几乎让我忘记了曾经想看它的渴望。
+
+&quot;海是什么样的，图祖？&quot;
+
+&quot;一片望不到边际的水域。你看，就像你从早到晚看到的这片石头地。只不过不是这些石头和泥浆——那些难看的东西更别提了！——而是水，蓝色的水。有时候静得像井水，有时候像法戈尼乌风吹拂时的芦苇一样翻腾。&quot;
+
+&quot;那就跟修女们房里的画一样咯？&quot;
+
+&quot;你说什么呢，你这傻丫头！那些挂在墙上的画布都是假的，虚假的、骗人的。大自然不能画，也买不到。再说，你能指望那些干瘪的木乃伊什么呢？她们背叛了自己的本性，背叛了整个大自然，正如我父亲和我叔叔——愿他安息——常说的。他还能读书写字呢。她们是贫瘠的！她们选择了像那阴险骗人的沙子一样贫瘠。别提什么画了！来吧，咱们走一走，来……&quot;
+
+图祖牵着我的手，沿着无边无际的蓝色弹力草地走，草地晃得让你感觉像复活节喝了玫瑰甜酒之后那样。
+
+&quot;这小丫头真是个傻猴子！先是像苍蝇一样缠着你要看海，等你带她去了，她反倒认不出来了。&quot;
+
+草在我脚下塌陷，把我往下拽；我抓住图祖的胳膊，吓坏了……你是怎么把我们从火里救出来的，图祖？
+
+&quot;别怕！你没看见我抓着你吗？只要我抓着你，你就不用怕水也不用怕火。&quot;
+
+确实如此。我没有沉下去。我们手牵手走在图祖眼睛那片蓝色的海里。他的手很热，紧紧握着我的手……
+
+不，不是图祖。是那个秃头小个子男人，长着一双蜥蜴眼睛，抓着我的手腕大声嚷嚷。他总是嚷嚷，那个小个子。也许是因为他既没穿白裙也没穿黑裙？
+
+&quot;看，发作了！更要命的是，她又烧起来了！这女孩要死在我们手里了！快跑，科斯坦扎修女，马上去找莱奥诺拉嬷嬷，告诉她不管这孩子犯了什么罪，她最好赶紧来，不然这孩子就要死了！&quot;
+
+原来这就是离开那里的办法。那个小个子并不像看上去那么坏。他一定也很聪明。我得照他说的做，不能像那三天那样安静乖巧。
+
+我闭上眼睛，重回图祖和他那片让我既恐惧又窒息的海。怀着欲望和恐惧激发的全部力气，我大声呼喊，但做了一点小小的改动。没说图祖的名字，我说的是：&quot;嬷嬷！原谅我，嬷嬷！&quot;我想起了图祖，那个我遗忘了那么久的人：&quot;原谅我，嬷嬷，原谅我！&quot;
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>obedience</b><span>服从</span><em>demand obedience</em></div>
+<div><b>mercy</b><span>仁慈，宽恕</span><em>ask for mercy</em></div>
+<div><b>stern</b><span>严厉的</span><em>a stern voice</em></div>
+<div><b>convent</b><span>女修道院</span><em>life in a convent</em></div>
+<div><b>devotion</b><span>虔诚；投入</span><em>show devotion to</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch009.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch011.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

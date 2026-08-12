@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 75 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch074.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" selected>Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch076.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 75<span>战争、流离与国家权力</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">二战时期，旅行、艺术教育、家庭和生育都受不稳定环境影响。法西斯国家的监控、逮捕与监禁会改变人们说话和沉默的方式。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">75 
+
+Cloaked in his manly silence, Prando			hastens the separation by firmly removing Bambolina&#x27;s desperate arms from			around his neck. What does that desperation signify? And Mela&#x27;s silently			staring at me, biting her lip? An accusation? Is it my fault they&#x27;re losing			their dearest darling? I&#x27;d like to hover over them and protect them, but			it&#x27;s not permitted. There&#x27;s a precise limit to helping others. Beyond			that limit, invisible to many, there is only a desire to impose one&#x27;s own way			of being … The lie contained in words is a bottomless pit, and Modesta			decides to keep silent and remain at the mercy of that empty place around the oval			table of their childhood, which, seen from the top of the stairs, in the evening, is			a yawning abyss. I can&#x27;t go down those stairs. If I could only lean on			Prando&#x27;s arm … but Stella is crying and calling from down there. No,			she&#x27;s not crying; she&#x27;s just upset. 
+
+&#x27;Modesta, please, come down! Ever			since Prando moved out, there&#x27;s no peace in this house anymore.&#x27; 
+
+&#x27;What is it, Stella?&#x27; 
+
+&#x27;How do I know! Every day			it&#x27;s something else! They were so quiet before. Since Prando			left …&#x27; 
+
+&#x27;That&#x27;s enough about Prando			leaving, Stella! Don&#x27;t make me mad. I asked you what&#x27;s wrong and			that&#x27;s all!&#x27; 
+
+&#x27;It&#x27;s just that Jacopo, ever			since … well, for days now he hasn&#x27;t been himself, and this morning			he stopped eating. He hasn&#x27;t budged from his room. He didn&#x27;t even want			to come down for Crispina&#x27;s lesson, and the picciridda started crying. It took a hundred and one stories to			quiet her down! Even now that it&#x27;s time to eat he won&#x27;t come			down … Oh, you&#x27;ll go? Thank goodness!&#x27; 
+
+I&#x27;m familiar enough with the room			Jacopo chose, but I&#x27;ve never noticed that the immense bay windows almost touch			the large palm tree that presses to c...</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">75
+
+裹着他男子汉的沉默，普兰多坚定地将班波莉娜绝望的双臂从他脖子上拿开，加速了分离。那份绝望意味着什么？还有梅拉沉默地盯着我，咬着嘴唇？是一种指控吗？他们失去最心爱的人，是我的错吗？我多想盘旋在他们上方，保护他们，可这是不被允许的。帮助他人，有一条精确的界限。越过那条界限——许多人看不见它——便只剩下将自身存在方式强加于人的欲望……词语中包含的谎言是一道无底深渊，莫德斯塔决定保持沉默，任凭自己被困在那张他们童年时代椭圆桌周围的虚空之中——那张桌子，从楼梯顶端俯瞰，在夜晚，便是一个张着大口的深渊。我走不下那些楼梯。若我能倚着普兰多的手臂该多好……可斯特拉在下面哭着喊我。不，她没有哭，只是心烦意乱。
+
+「莫德斯塔，求你了，下来吧！自从普兰多搬出去后，这房子里就再也没有安宁了。」
+
+「什么事，斯特拉？」
+
+「我怎么知道！每天都有新花样！以前他们那么安静。自从普兰多走了……」
+
+「别再说普兰多搬走的事了，斯特拉！别惹我发火。我问你怎么了，仅此而已！」
+
+「就是雅各布，自从……嗯，好几天了，他一直不对劲，今天早上他不吃饭了。他寸步不离房间。连克里斯皮娜上课他都不肯下来，小丫头都哭起来了。讲了上百个故事才把她哄住！现在到吃饭时间了他还是不下来……哦，你肯去？谢天谢地！」
+
+我对雅各布选的那个房间相当熟悉，但我从未注意到那巨大的凸窗几乎触到了那棵紧挨着的大棕榈树……</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>liberation</b><span>解放</span><em>after liberation</em></div>
+<div><b>scarcity</b><span>匮乏</span><em>a time of scarcity</em></div>
+<div><b>witness</b><span>见证者；目睹</span><em>bear witness to</em></div>
+<div><b>trauma</b><span>创伤</span><em>live with trauma</em></div>
+<div><b>custody</b><span>拘押；监护权</span><em>taken into custody</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch074.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch076.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

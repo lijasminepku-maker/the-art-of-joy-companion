@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 4 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch003.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" selected>Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch005.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 4<span>西西里乡村与童年</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1900 年前后的西西里：贫困、佃农关系与父权家庭塑造了一个孩子可拥有的选择。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">4 
+
+And he seemed happy lying there next to
+				me, naked. I had never seen a naked man. Without the blue jacket his shoulders
+				looked like the white rocks in the stream in mulberry season when the ceusa 3 ripened and the sun, high overhead, hung in the centre of the sky
+				for days and days and months. I opened my eyes and there it was, pinned there. I
+				closed them, but it was still there, motionless behind the window pane. Spying? I
+				had to sleep. Even with my eyes closed, the sun’s gleaming blades pierced my
+				eyelids and I had to sleep all curled up to hide from that light that peered in at
+				me. 
+
+‘What are you doing? Trying to
+				hide, all curled up like that? Are you afraid of your papa?’ 
+
+How did he know? All naked and white
+				like that, he was scary, but I mustn’t show it. I had to be strong, like him.
+				If he sees that I’m scared, he’ll think I’m like Mama and he
+				won’t take me away with him. 
+
+‘I’m not afraid. It’s
+				those scimunite , those silly ninnies crying in there … they make
+				me sick. If it’s true that you’re my father and you’re like me,
+				use your fist to make them shut up.’ 
+
+The rocks beside me were now slowly
+				moving. He was burning and the wispy hair, blond as a field of rye, rose from his
+				wrists to his shoulders. The rye was on fire. When had it been? We were gathering
+				mulberries, Mama and I, and Tina was laughing under the fig tree, when a chunk of
+				that stationary sun high above fell, and like a fiery serpent began slithering and
+				burning everything around it. The blond hair was burning, the poppies, the clothes that Mama had hung out to dry,
+				Tina’s skirts … the smoke from that scorched hair was choking me
+				too. 
+
+‘How can I, figlietta ,
+				how can I shut those squawking chickens up when you’re caressing me like that?
+				What a flower you are! A real rosebud.’ 
+
+The blond rye was burning and the smoky
+				serpent was strangling her throat, she had to get away … She had to run
+				and climb the fig tree and scream like that time … Tuzzu would come and
+				take her in his arms when he heard her screams. 
+
+‘How did you save me from the
+					fire, Tuzzu ?’ 
+
+‘You under one arm and poor
+					Tina under the other: so singed she looked like a piece of wood when you make
+					charcoal .’ 
+
+‘Why didn’t you leave
+					her there to burn? You should have saved only me .’ 
+
+‘Just listen to this
+					wicked picciridda , what a heart this little girl has! If you say it
+					again, I’ll let you burn, so help me God, even if you are white and plump
+					as a dove .’ 
+
+She had to get away, but the rock had
+				slowly rolled over on her, crushing her against the wooden planks of the big bed,
+				and the flames were rising. Tina was screaming, but those screams gave her no
+				pleasure. That man wasn’t holding her under his arm, wasn’t caressing
+				her like Tuzzu did. Instead, he roughly spread her legs and stuck something hard and
+				cutting in the hole where pee-pee comes out. He must have taken the kitchen knife
+				and wanted to cut her up like Mama quartered the lamb with Tuzzu’s help at
+				Easter. The blade was entering the lamb’s quivering thighs – the big hand sank
+				into the blood to divide, split apart – and she would be left there on the planks of
+				the bed, torn to pieces. 
+
+* 
+
+You couldn’t see anything. Had
+				the sun gone down? Or was she already dead, quartered like the lamb? The
+				knife’s pain was still there, rising up past her belly button into her
+				stomach, then further up, shattering her chest. Yet she was able to move her arms.
+				She searched for the knife with her fingers; there it was, shoved in from behind. Her chest was intact and her
+				belly too, intact. Only the torn flesh below her belly burned and something thick
+				and slimy, a strange fluid, oozed: not pee, blood. She didn’t need to look:
+				she had known it for ever. 
+
+Better to lie still with my eyes closed
+				and sleep, but the sun is splitting my head and I have to open my eyes: that glow
+				isn’t the sun but the oil lamp that Mama used to light before so she could
+				work … such a long time ago, before that naked man who was now asleep
+				beside me had come – and with him the painful blood. Mama too, when the blood came,
+				would press her stomach and cry; then piles of red-stained cloths would accumulate
+				in the basin. 
+
+The pain was gone now and her father
+				seemed happy in his sleep. Soon he would wake up and would certainly want to do
+				again the thing that had made him so happy. Mama always said: ‘It’s a
+				misfortune to be born a woman; once the blood comes, goodbye peace and contentment!
+				All they want is their own pleasure, they quarter you from top to bottom, never
+				satisfied.’ 
+
+Before, I was a child, but now I’m
+				a woman, and I have to be careful: he’s already moving. I have to get away.
+				But where? It’s dark outside. 
+
+The toilet? All I had to do was turn the
+				key and take refuge in Mama’s arms. But no sound came from that door, plus
+				Mama had never hugged me; she only hugged Tina. Even now, pressing an ear to the
+				wood, I could hear them sleeping in each other’s arms. I could hear
+				Tina’s heavy breathing and Mama’s lighter breath, just like every night
+				in the big bed: me at the foot of the bed and those two clasped together up there.
+				No, she wouldn’t open the door; she just wanted to know if even there on the
+				floor they were hugging. Maybe she could see through the cracks with the lamp.
+				Nothing, you couldn’t see anything … I have to wake them up, I have
+				to wake them with the lamplight … All I do is set the lamp down near the
+				door and remove the glass that protects the flame: like the sun, the flame blazes up
+				and scorches my forehead, making me step back. Almost immediately it creeps swiftly
+				along the parched wood. It hasn’t rained for months. 
+
+Tuzzu had been wrong to save Tina from
+				the fire that time. He had been wrong. He should have saved only me. But this time
+				he wasn’t there, and even if it
+				meant dying for fear of those flames, that smoke that was nearly choking me, I would
+				not call for help, or scream.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">4
+
+他赤身躺在我旁边，似乎很开心。我从未见过裸体的男人。脱掉那件蓝色外套，他的肩膀像桑葚季节时溪流中的白色岩石，那时桑葚熟了，太阳高悬在天空正中，日复一日、月复一月地挂在那里。我睁开眼睛，它就在那里，钉在那里。我闭上眼睛，它还在那里，一动不动地贴在窗玻璃后面。在窥视吗？我得睡觉。即使闭上眼睛，太阳那耀眼的光芒仍刺穿我的眼睑，我得蜷缩着睡，躲避那窥视着我的光。
+
+&quot;你在干什么？那样蜷缩着想躲起来？你怕你爸爸吗？&quot;
+
+他怎么知道的？那样赤条条白花花的，他很吓人，但我不能表现出来。我必须坚强，像他一样。要是他看出我怕了，他会以为我像妈妈那样，就不会带我走了。
+
+&quot;我不怕。是那些蠢货，那些在里头哭哭啼啼的傻丫头……让我恶心。如果你真的是我父亲，真的跟我一样，就用你的拳头让她们闭嘴。&quot;
+
+身旁的白色岩石现在慢慢动了起来。他浑身发烫，那金黄色的细软汗毛，像一片黑麦田般从手腕一直长到肩膀。黑麦田着火了。那是什么时候的事？妈妈和我正在采桑葚，蒂娜在无花果树下笑，头顶上方那轮凝固不动的太阳突然坠落了一块，像一条火蛇开始蜿蜒爬行，烧光了周围的一切。金色的汗毛在燃烧，罂粟花在燃烧，妈妈晾在外面的衣服在燃烧，蒂娜的裙子在燃烧……烧焦毛发的浓烟也呛得我喘不过气来。
+
+&quot;我怎么行呢，我的小女儿，你那样抚摸着我，我怎么让那些呱呱叫的母鸡闭嘴呢？你真是朵花！一朵真正的……&quot;
+
+不，我不能让火焰吞没蒂娜。我必须把她拖到溪边。但图祖，图祖在哪里？他应该帮我的。可我为什么也叫不出声呢？为什么我没有力气把蒂娜从火焰中拖出来呢？尽管害怕那些火焰、害怕那几乎让我窒息的浓烟，我不会呼救，也不会尖叫。
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>stifle</b><span>压抑，窒息</span><em>stifle a cry</em></div>
+<div><b>linger</b><span>徘徊；迟迟不散</span><em>a smell lingered</em></div>
+<div><b>bleak</b><span>凄凉的，黯淡的</span><em>a bleak room</em></div>
+<div><b>drag</b><span>拖，费力地移动</span><em>drag oneself through</em></div>
+<div><b>splinter</b><span>碎木片；裂开</span><em>a splinter of light</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch003.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch005.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

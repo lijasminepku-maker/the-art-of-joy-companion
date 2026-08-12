@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 82 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch081.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" selected>Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch083.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 82<span>战争、流离与国家权力</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">二战时期，旅行、艺术教育、家庭和生育都受不稳定环境影响。法西斯国家的监控、逮捕与监禁会改变人们说话和沉默的方式。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">82 
+
+Nina saves up her sugar and mine:
+				‘You can drink the so-called coffee without sugar – or even pour it into the
+				bucket; it’s nothing but dishwater, whereas this precious white powder, mixed
+				with an egg, increases its nutritional value a hundred per cent.’ Day by day
+				the paper packet grows and ends up between Nina’s bra and her breasts. Only
+				she has the discipline not to open it, not even during the longest hours of hunger,
+				from noon till seven. 
+
+‘So much sugar, Nina! You’re
+				really strong willed. I wouldn’t be able to resist.’ 
+
+Nina smiles, and my admiration makes her
+				more beautiful. Hour by hour, the ugly mask of scars, now healed, fades away, partly
+				because of my caresses and my breath. 
+
+‘Oh, yes, Mody, keep doing that.
+				It relieves me. If you only knew how these scabs itch! Just like when I had the
+				chickenpox, and my mother tied my hands to the bed. It was torture! Don’t
+				stop! Now that I’ve met you, I don’t want my face to be scarred. Before,
+				when I thought you were an informer, all I did was scratch myself. If only there was
+				a mirror! You say most of the scabs have disappeared without leaving a mark? Oh,
+				Mody, is it true, or are you just saying that to make me feel better?’ 
+
+‘I’m your mirror; you can
+				trust me. I’m the only mirror that doesn’t lie. Your skin is becoming
+				flawless again, and if it weren’t for the dark circles under your
+				eyes … Your colouring has an amber tone like when you come back from a walk on the first sunny day after
+				winter – it seems impossible here inside these walls.’ 
+
+‘I’m not just saying this,
+				but Nina has always been admired for her complexion. As for the dark circles, yours
+				are no joke either, nennella ! We wore ourselves out last night.’ 
+
+‘You said we could.’ 
+
+‘And it’s not a criticism.
+				It’s nice to think back, knowing that in a few seconds Nina can make things
+				better … Hold on a minute. Hey, I don’t want to brag, but no one can
+				whip up a zabaglione or a mayonnaise like me. You like mayonnaise, huh? I
+				dream about it! Not to brag, but none of the women in my family or in the
+				neighbourhood could make two eggs yield so much. Look, they seem like ten! Now,
+				there’s a good girl, suck it slowly, it’s more nourishing that
+				way.’ 
+
+We look into each other’s eyes as
+				the thick liquid stolen from the sun goes down, warming the tongue, the palate. 
+
+‘The last spoonful for Mody
+				because she’s more piccina . Little minx! Come on, mmm … all
+				done!’ 
+
+‘That was so good! I feel all warm
+				inside. Will you let me kiss the hiding place where you keep the sugar?’ 
+
+‘No!’ 
+
+‘At least let me touch
+				it.’ 
+
+‘Okay, touch, but then it’s
+				time to walk. Come on, get a move on, Mody. Apart from everything else, at this hour
+				that bitch Sister Giuliana could arrive. Come on, we have to go from one wall to the
+				other at least ten times …’ 
+
+‘It’s boring!’ 
+
+‘I know! Close your eyes part way,
+				and imagine that Nina is taking you for a stroll through the woods.’ 
+
+‘No, not the woods!’ 
+
+‘Listen to her! And where would
+				you like to walk? You just have to ask: there’s something for
+				everyone.’ 
+
+‘The beach, Nina. I haven’t
+				seen the sea in so long! Take me to the seashore this time. Let’s walk along
+				the never-ending strip of sand …’ 
+
+‘About-face! Oh, no, you
+				can’t lean on me like that! Come on, turn around and let’s start
+				over … You like the sea, eh?’ 
+
+‘Oh,
+				yes … that isn’t the wall … that’s where the reef
+				begins. Can you make it?’ 
+
+‘Let’s try.’ 
+
+‘If you can do it, Nina, maybe
+				we’ll make it there …’ 
+
+‘Make it where, micia ?’ 
+
+‘To see the sunset.’ 
+
+‘Of course, pussycat, whatever you
+				like. Come on, just a little farther and we’re done for today.’ 
+
+‘A little farther, yes. Look out
+				there, do you see the little island, the Prophet?’ 
+
+‘It looks like clouds to
+				me.’ 
+
+‘Because you can’t see
+				it.’ 
+
+‘Actually, I can’t see far
+				away.’ 
+
+‘Then trust me, and we’ll
+				get there quickly. If we’re lucky, we’ll see the sun bend down to kiss
+				the Prophet’s brow.’ 
+
+‘No!’ 
+
+‘Then in an instant, the sun drags
+				the head down with it into darkness … Why are you stopping, Nina?
+				There’s time before the soup. The sunset is far off. Let’s keep walking
+				a little more.’ 
+
+‘Too hot for me, too much
+				light!’ 
+
+‘Let’s at least go as far as
+				the top of the rise. There are trees and shade up there.’ 
+
+‘All I see are white rocks and
+				yellow rocks, then more white and yellow. God, what misery!’ 
+
+‘The yellow isn’t rocks,
+				it’s yellow blossoms, broom. You’re really myopic, Nina!’ 
+
+‘That’s right, keep it up!
+				I’ve told you a hundred times I’m nearsighted.’ 
+
+‘Then trust me and keep walking.
+				There are trees and shade up there.’ 
+
+Nina lies down in the shade and closes
+				her eyes. Now I know I can lie down beside her and lay my head on her breast. Her
+				ample bosom doesn’t feel my weight and I can travel, as I did then, from her
+				belly to her neck without disturbing that deep, regular breathing. How can Carmine
+				go on sleeping while I move up and down his body? 
+
+‘You’re light as a
+					feather, figghia ! Besides, how can a big animal like me feel the weight
+					of a little micia , a pussycat?’ 
+
+‘You’re not an animal, you’re a beautiful column! Once I saw
+					them on the other side of the island. They’re scattered in the fields,
+					sleeping in the sun.’ 
+
+It’s not Carmine who is caressing
+				his pussycat with a parched marble hand. He used to call me gattina ,
+				kitten, or micia , pussycat, like the voice that keeps saying: ‘What
+				is my minx of a pussycat doing, sleeping? Or is she getting ready to play a naughty
+				trick on me?’ 
+
+‘And you, what are you doing with
+				your eyes closed?’ 
+
+‘I’m trying to get over this
+				fatigue that’s come over me. Clearly, though I yearned to see the sky, I
+				don’t appreciate it now that I see it. I don’t feel it. What can I say?
+				I can’t enjoy it. Well, four years in a cell are four years! I’m not
+				used to the fresh air, and my eyes hurt. If I hadn’t met you, I might have
+				rotted away in that jail awaiting trial. Shit, I had given up hope of any kind of
+				sentence. It seems like a joke! Hoping for a trial as if it were a prize! Then you
+				come and everything is resolved: relocation, books for you, ink,
+				paper …’ 
+
+‘And for you, yarn and a crochet
+				hook.’ 
+
+‘… A trial in a jiffy. It was
+				all so quick, like in the movies, that I still feel confused. Oh, Mody, keep an eye
+				on the time! At sunset we have to go back in. I have no intention of losing this
+				paradise for a walk.’ 
+
+‘It’s allowed, Nina.
+				Don’t get excited. You were so strong in prison!’ 
+
+‘True, I have to get used to
+				it …’ 
+
+‘And find something to
+				do.’ 
+
+‘That’s also true. You
+				write, teach, but what do you write?’ 
+
+‘Twaddle, Nina, to pass the
+				time.’ 
+
+‘And you earn money too!
+				Didn’t you give a lesson today?’ 
+
+‘No, I want to be free at least
+				one day a week.’ 
+
+‘Impudent minx! On an island the
+				breadth of a hand, she wants to be free! Hey, I like it, because when I’m
+				alone I don’t know what to do with myself.’ 
+
+‘You have to keep busy.’ 
+
+‘That’s what I wanted to
+				talk to you about. Yesterday at the market I saw that they were selling badly
+				crocheted red and blue berets. I can get by with a crochet hook …’ 
+
+‘Exactly. That’s what I was
+				saying.’ 
+
+‘I want to try!’ 
+
+‘And you
+				could also make baby blankets. All they do is have babies on this island.’ 
+
+‘That and die. Not one day goes by
+				that you don’t see a funeral. It must be all these rocks and the lack of
+				water. I’d really like to try! Yesterday, with two berets, an old woman took
+				home a litre of water. I really should give it a try. Are you sure they’ll
+				send us yarn from your house? What’s happening at your house, anyway? All you
+				do is get letters, read them and say nothing. Nina is curious, very curious.
+				It’s a defect of hers.’ 
+
+‘You can read them.’ 
+
+‘Oh no, not that! My father said
+				it’s a violation of privacy. It’s not part of the anarchist
+				“Ideal”.’ 
+
+‘If you want, I’ll tell
+				you.’ 
+
+‘It’s about time!’ 
+
+A succession of iron birds streak across
+				the sky, ignoring the wretched piece of land in the middle of the sea. Where are
+				they headed, to spew out their deadly breath? To more attractive places, of course,
+				full of people and life. 
+
+‘That’s why they ignore us,
+				Nina. Their metallic hunger craves young, wholesome flesh, not a few acres populated
+				by shrunken bodies and spent eyes. Oh, Nina, have you seen the man who sells lemons?
+				If you can call him that. He has no nose, no lips, and two slits for eyes. He looks
+				like he was eaten by insects.’ 
+
+‘Only him, Mody? I counted about a
+				dozen of them and then I got tired. It must be leprosy, even if they don’t say
+				it. But never mind, tell me about things at your house … Bambolina is
+				going to marry your Mattia? Are you upset about it?’ 
+
+‘When she told me about it that
+				night – it seems a century ago – I was sad at first, but then as I waited for dawn,
+				I realized that I wasn’t sad because I was losing Mattia but because I felt
+				vanquished, old: forty years! 
+
+‘You, forty years
+				old …’ 
+
+‘Forty-two today,
+				Nina …’ 
+
+‘… I don’t believe it.
+				Not even if I were to see it in writing!’ 
+
+‘Yet I felt every one of those
+				years that night. Because youth and old age are only hypothetical.’ 
+
+‘What
+				does that mean?’ 
+
+‘It means that even age is
+				something that you choose, that you convince yourself of.’ 
+
+‘You think so? But nature also
+				comes into it.’ 
+
+‘Of course, and hard work, and
+				poverty, the privations that age people prematurely. But for those who have had the
+				privilege to be spared that, like me, old age is only a concept instilled in you,
+				like so many others.’ 
+
+‘I like you, Mody. I like the way
+				you acknowledge your privilege.’ 
+
+‘It’s the primary duty, it
+				seems to me, for those who think like we do.’ 
+
+‘But tell me about that
+				night.’ 
+
+‘I told you: I was falling into
+				the trap of cliché. Oh, no matter how much you rebel, it’s hard to overcome
+				the rules of society that tell you: this is how you are at ten; then at twenty, like
+				this; at forty, with children, you’re old … I’m ashamed to say
+				it, but that night I was losing my rebellion. I was about to enlist in the army of
+				sheep ambling through the world. 
+
+‘But not for long! Before dawn
+				I’d realized it, and if they hadn’t arrested me, I would have gone in
+				search of something else. The world is big, as Carmine used to say.’ 
+
+‘You still think about your old
+				man?’ 
+
+‘When he helps me.’ 
+
+‘When are they getting
+				married?’ 
+
+‘Oh, they’re not getting
+				married. I said that to make you understand. They’re already together, and
+				things seem fine, even in bed. Read this: “And don’t worry, Zia, even
+				though everything is fine between me and Mattia, I won’t ever become one of
+				those legitimate … whom our friend talks about.”’ 
+
+‘What do the three dots stand for,
+				Mody?’ 
+
+‘Whores. She didn’t write it
+				because she was afraid of censorship.’ 
+
+‘And who is this
+				friend?’ 
+
+‘August Bebel … Here,
+				there’s more: “I got to know him well, not like Mela, who only pretended
+				to read him. And now I know that Papa was right when he said that our friend’s
+				words will be the new bible for the women of tomorrow. But enough of these serious
+				matters. I want to tell you how
+				wonderful the villa has become with all the rooms full of life. Even Pietro and
+				Crispina are with us because of the bombings. Catania is an inferno.” And so
+				Carmelo has returned to the Brandiforti, as Beatrice hoped it would.’ 
+
+‘And Mela? Crispina?’ 
+
+‘Crispina is studying with a real
+				teacher, and Mela has had a series of successes. In America, life goes
+				on.’ 
+
+‘Still with her
+				Ippolita?’ 
+
+‘Still. Who can understand nature!
+				I think that she will always love only women, although for the press she passes as a
+				virgin devoted solely to Music. Maybe in time, she’ll take a husband as a
+				cover … unless the world changes.’ 
+
+‘Oh sure, the world is going to
+				change tomorrow! Please!’ 
+
+‘Still, it might
+				change.’ 
+
+‘We’re comrades and we can
+				say it, Mody: where do you see that it’s changed? In Russia, they’ve
+				discarded everything that mattered to our individual freedom. After only a few
+				years, they forgot about free love and went right back to marriage. And that’s
+				not all!’ 
+
+‘I like it when you talk like
+				that, Nina.’ 
+
+‘Well I don’t! I’m
+				sick and tired of talking virtuously and reading books full of dreams. It’s
+				easy for you to talk, but in Spain the man of my life was killed by our communist
+				comrades!’ 
+
+‘Are you sure?’ 
+
+‘Sure as can be: eyewitnesses. You
+				yourself know that when the time came, they did away with all the anarchists, and
+				not just them.’ 
+
+‘The dream was too far ahead of
+				its time, Nina. Anarchy is a destination, not …’ 
+
+‘Oh sure, too far ahead! And when
+				is it that we’ll really decide to take a small step forward, eh, my worthless
+				Princess? And your Gramsci? You condemned him! Arminio, my brother, saw him, you
+				know! Always alone in a cell, or outdoors, isolated from the comrades and scorned.
+				The jailers had a free hand.’ 
+
+‘So?’ 
+
+‘So Gramsci suffered from
+				insomnia, and the guards banged on the bars every hour to wake him up. You’re
+				as good as dead in prison if the comrades abandon you. “They” killed
+				him!’ 
+
+‘But even
+				though Arminio knew these things, he continued the struggle like you, it seems to
+				me.’ 
+
+‘Thank you kindly! One must always
+				stay on the side of what’s right! But with your eyes open, don’t make me
+				angry, Mody!’ 
+
+Nina is terrifying when she gets
+				infuriated. Her eyes flash yellow sparks and her deep voice echoes cavernously. 
+
+‘I don’t want to lose my
+				temper, Mody, over these stories from the past! Tell me about ’Ntoni. I like
+				that young man from your descriptions of him. Have you heard anything about
+				him?’ 
+
+‘No. I only know that he fled
+				after my arrest.’ 
+
+‘Many were arrested in Rome. I
+				heard it yesterday at the port where the ship that unloads water is docked. They
+				were talking about Rome.’ 
+
+‘What were they saying?’ 
+
+‘That in Rome all you see are
+				women, children and the elderly, and that people are starving in the
+				streets …’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">八十二
+
+尼娜攒下她的糖和我的糖：&quot;你可以不加糖就喝那所谓的咖啡——甚至倒进桶里也行；不过是洗碗水罢了，而这珍贵的白色粉末，和鸡蛋混在一起，营养价值增加一百倍。&quot;日复一日，纸包越来越大，最终落在尼娜的胸罩和乳房之间。只有她有这样的纪律不去打开它，即使在最漫长的饥饿时刻，从正午到七点。
+
+&quot;这么多糖，尼娜！你真有毅力。我肯定忍不住。&quot;
+
+尼娜微笑着，我的钦佩让她更美。一小时又一小时，那丑陋的伤疤面具，如今已愈合，渐渐消退，部分是因为我的抚摸和我的气息。
+
+&quot;哦，是的，莫迪，继续这样做。这让我解脱。你不知道这些痂有多痒！就像我得水痘时，妈妈把我的手绑在床上。那是折磨！别停！既然我遇到了你，我不希望我的脸上留疤。以前，当我还以为你是线人时，我光是在抓自己。要是有面镜子就好了！你说大部分的痂都脱落了，没留痕迹？哦，莫迪，是真的吗，还是你只是说来安慰我的？&quot;
+
+&quot;我是你的镜子；你可以信任我。我是唯一不撒谎的镜子。你的皮肤再次变得无瑕，如果不是你眼睛下的黑眼圈……你的肤色带着琥珀色调，就像冬天后第一个晴天散步回来时那样——在这墙内似乎不可能。&quot;
+
+&quot;我不是白说的，尼娜的肤色一直受人仰慕。至于黑眼圈，你的也不开玩笑，小姑娘！昨晚我们可把自己累坏了。&quot;
+
+&quot;你说过我们可以的。&quot;
+
+&quot;这不是批评。难得想到在这地狱里还有空间给快乐，而我们，快乐得像个孩子……你那哲学家也会喜欢这种安排，难道不是吗？哪个哲学家说的？——就是那个说没有感官就没有思想的人。你说，莫迪，我们在这件事上比他们强吗？在我们女人之间，更容易互相理解。总之，和男人在一起很快你就没得聊了。然后他们就开始抽烟，把你忘在一边，好像在说&#x27;完事了&#x27;。我了解他们，那些没良心的！甚至穷人和老爷也一样，我爸说过。咳，但我们用不着搞政治！男人就是男人，句号。说到这儿，我真想再来一次，但只来一点点，免得我们太累。只一点点，像蝴蝶的翅膀。&quot;
+
+&quot;你说得对。你像蝴蝶翅膀一样抚摸我。我也想抚摸你，让你感受没有镜子我也能看到你有多美。&quot;
+
+&quot;哦，莫迪，轻点……对，这样，轻。我看到你学得不错。是的，我知道我很美，但现在我觉得镜子不再重要了。镜子总是说同样的话，而你每次都能说出新的美。你累了吗，亲爱的？你需要休息吗？我知道了：来吧，把脸枕在我胸口，我来给你讲个小故事，我编的。&quot;
+
+&quot;什么故事？&quot;
+
+&quot;嗯，为了解闷，我编我们俩逃出去了。我们正走在罗马的街头，因为我了解罗马，我们手挽手，在时装店前停下来，就像在西班牙广场那边，然后去咖啡馆……我喜欢做白日梦。你呢？&quot;
+
+&quot;我也喜欢。&quot;
+
+&quot;你呢，你给自己编故事吗？&quot;
+
+&quot;有时。&quot;
+
+&quot;我能知道一个吗？&quot;
+
+&quot;如果我告诉你，你可能会生气。&quot;
+
+&quot;为什么？&quot;
+
+&quot;因为在我的梦里我们不在罗马。我们在我的岛上，我带你去看我的地方。我想让你见见她——我岛上的尼娜——我想看看她看到大海时的脸。&quot;
+
+&quot;也许吧，如果我见到海，我不知道我是什么表情。我只在海的图片上见过它。还有我们跑进你别墅的那次，在仙人掌丛里。但那天晚上天太黑了，看不到卡塔尼亚的海。它的声音很大！让我害怕。为什么，莫迪？为什么我害怕？也许因为我们罗马人没有海，我们不习惯那些喧嚣。然后第二天早上，我又偷溜回去，回到我的牢房；我必须在我床铺上，早晨点名时。&quot;
+
+&quot;然后呢？&quot;
+
+&quot;然后什么？&quot;
+
+&quot;你不打算和我一起做这个逃跑的梦吗？&quot;
+
+&quot;不，我不能。如果我开始想这些事情，然后刑期结束时他们又要加判我。你看，有时在我编的故事里，我甚至让奥林匹娅也加入我们。但第二天，我在墙上发现一只蟑螂，我就想，谁知道我什么时候才能再次见到奥林匹娅？你知道，不久前我想通了这个问题：我们还是别做太多梦了。比如，当我们做爱的时候，我是完全在那儿的，和你在一起，一步也不离开你。而且你知道吗？它会变得更好。更真实。那感觉像是我所有的毛孔都在快乐地歌唱。你也是吗？&quot;
+
+&quot;是的。&quot;
+
+&quot;那么，那个关于去岛上的梦——现在也许我们可以做了。等你先睡着，然后我从你眼中溜进去，进入你的梦。好吗？&quot;
+
+&quot;好的。&quot;
+
+&quot;真的吗？真的好吗？那你闭上眼睛……对了。现在我也闭上眼，慢慢来，悄悄地进入你的梦。小心不要醒。&quot;
+
+*
+
+&quot;看，尼娜，这就是卡尔梅洛，有大窗户的那间屋子，在二楼。她就在那儿，我小时候的莫德斯塔。看到她的辫子了吗？&quot;
+
+&quot;真漂亮，那么黑，配着红丝带！这些植物是什么？&quot;
+
+&quot;巨大的仙人掌梨。但那边，看到那些白色的雕像了吗？对，那边那尊：诺娜·盖娅的垂柳。&quot;
+
+&quot;我们走近点……我从没见过垂柳。你不觉得我们得跟她打个招呼吗？&quot;
+
+&quot;诺娜·盖娅不好惹，但你可以信赖她。瞧，她看到我们了，她在微笑，但她没有放下书。&quot;
+
+&quot;可是如果她不好惹，我们还是走开吧。那儿，朝大海那边。我们沿着小径走，到那些种着玫瑰和带刺的……叫什么来着，那种仙人掌似的，比我还高……那儿！我觉得那些黄色的很漂亮。它们叫什么？噢，我们在那边那片柠檬树荫下坐一会儿吧。这儿，像这样你靠着我。&quot;
+
+&quot;你真美，莫迪，但我更喜欢诺娜·盖娅；她的眼睛燃烧着绿光。我觉得她很美！你说她让我害怕是真的。她看的书是什么？&quot;
+
+&quot;我不知道。&quot;
+
+&quot;也许，等我们醒来，你可以试着记起来然后告诉我？我觉得它一定很有趣。&quot;
+
+&quot;我现在就可以试着看看。&quot;
+
+&quot;不，别去！让她继续读下去吧。你看到她的眼睛有多绿了吗？像猫的。但你的眼睛更温柔。真好，能溜进彼此的梦里。&quot;
+
+&quot;我醒来时，尼娜，这个梦不会消失吧？&quot;
+
+&quot;你什么意思？&quot;
+
+&quot;我是说，你不会回到那个想挠破自己脸、想撞墙的尼娜吧。&quot;
+
+&quot;不，只要我和你在一起，莫迪。现在你合上眼吧。我们也得歇歇，亲爱的。安静地休息，像我们在海滩上一样。&quot;
+
+&quot;可是这儿没有海。&quot;
+
+&quot;我们可以假装有。你听到远处那隆隆声了吗？&quot;
+
+&quot;听到了，那是海浪拍打先知……或者只是风声？&quot;
+
+&quot;是我想象中的海浪声。睡着吧，小宝贝。明天夜里有你受的，如果你不睡的话。你听到律师们的声音了吗……不，不，我不再说那些事了。让我们待在海滩上。也许明天我能像这样把你抱在怀里，面对他们。我只需紧握你的手，对你说：&#x27;记住海滩&#x27;。然后你睡着了，在梦里，你看到我们在一起，在那柠檬树下。睡吧，卡鲁萨。这是几个星期以来，我的睡眠第一次不靠噩梦、不需尖叫。多么平静啊，莫迪。睡吧，好好睡。&quot;&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>scarcity</b><span>匮乏</span><em>a time of scarcity</em></div>
+<div><b>witness</b><span>见证者；目睹</span><em>bear witness to</em></div>
+<div><b>trauma</b><span>创伤</span><em>live with trauma</em></div>
+<div><b>custody</b><span>拘押；监护权</span><em>taken into custody</em></div>
+<div><b>resistance</b><span>抵抗；抵抗运动</span><em>join the resistance</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch081.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch083.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

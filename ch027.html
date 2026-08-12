@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 27 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch026.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" selected>Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch028.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 27<span>庄园、贵族与社会流动</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">estate、title、inheritance 和 marriage 构成贵族权力的语言。西西里的土地租佃链也让佣人、管理者和地主之间的关系很复杂。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">27 
+
+‘Go on, you realized it! I can tell
+				you’re not surprised. Maman is right: you see and notice everything. She also
+				says she hasn’t met many young women as intelligent and determined as you. And
+				she’s very annoyed because she can’t seem to come up with a nickname for
+				you. She says you’re the opposite of your given name and … why are
+				you turning pale? She’s not angry with you! You know how she is; she’s
+				just irritated that she can’t manage to find you a nickname.’ 
+
+Terrified, I was about to draw my hair
+				back up in a bun. Beatrice was naive, but the Princess was not; it would mean
+				trouble for me if she were to see my braids! 
+
+‘What are you doing? No, no, leave
+				them down! Besides I have the hairpins now and I’m not giving them to you!
+				I’m so glad you realized it! That way I don’t have to pretend not to be
+				lame, or older … But please, don’t let Nonna know you
+				know.’ 
+
+‘So then the Princess is your
+				grandmother, and not your mother?’ 
+
+‘How could she have had me? I
+				don’t know how old she is. She seemed very young to me too, before Ignazio
+				left for the war, but then when they brought him back on a stretcher, in just a few
+				months she became all ashen and shrivelled. I hate seeing her that way. Up until two
+				years ago, you should have seen her ride a horse … Not even Carmine could
+				keep up with her.’ 
+
+‘Who is Carmine?’ 
+
+‘Indeed. That’s the point.
+				Will you let me undo your braids?’ 
+
+‘No,
+				Beatrice, no. It’s not permitted. But then, whose daughter are you?’ 
+
+‘That I can’t tell you. I
+				really can’t. I might cause you to lose your vocation and like Nonna says,
+				your vocation is the only asset you have.’ 
+
+‘It’s not as easy as you may
+				think. When it’s deeply rooted, as it is in me, nothing can change it. But
+				wait: you said you might cause me to lose …’ 
+
+‘There, you figured it out! Yes,
+				because Mother Leonora was my mother. Dear God, how pale you are! But I didn’t
+				tell you! You realized it yourself, didn’t you? You figured it out yourself! I
+				don’t want to take away your vocation.’ 
+
+‘It’s all right, Beatrice.
+				No, you didn’t tell me. I realized it myself.’ 
+
+‘Still it’s one thing to
+				assume something and another thing to know for sure, isn’t it? How pale you
+				are!’ 
+
+‘Just a minute. I’m going to
+				wash my face.’ 
+
+In the small bathroom I leaned over the
+				sink and nearly vomited. I was trembling all over but not because I was upset, as
+				Beatrice thought … That abominable woman … The appalling fiancé,
+				the debutantes’ ball, her panic in the face of worldly
+				corruption … Not to mention the Madonna who had enlightened her about the
+				man’s dreadfulness. God’s grace, her vocation! Yet all the while she had
+				had a man! 
+
+To cool that hatred, I began slapping
+				myself with cold water, until I saw the face of a serene, unsmiling nun in the
+				mirror. As I went back to Beatrice, who was waiting anxiously, her hands full of
+				hairpins, I kept thinking damn you, you liar, I hate you . 
+
+‘I didn’t tell you, Modesta!
+				It was you who realized it, you!’ 
+
+‘Of course, Beatrice, of
+				course.’ 
+
+‘How calm you are now! Did Mother
+				Leonora’s sin make you lose your vocation?’ 
+
+‘“Let he who is without sin
+				cast the first stone”, Beatrice. Besides, Mother Leonora completely atoned for
+				her sin in solitude and prayer. Though I haven’t sinned, none the less I feel
+				unworthy compared to her!’ 
+
+Horrified, I could hear Mother
+				Leonora’s voice speaking through my lips. Could the hatred have reawakened her
+				inside me? The prayer of hatred can do
+				anything; it can bestow both life and death, anything. 
+
+‘Now tell me, there’s a good
+				girl, tell me. Who was your father? The officer to whom she had been
+				promised?’ 
+
+‘If you let me undo your braids
+				here, in the sunlight, I’ll tell you.’ 
+
+‘Go ahead, little one.’ 
+
+‘How sweet your voice is now.
+				You’re a saint, Modesta! You let people do anything to you and you accept it
+				all without rebelling. How do you do it? I wish I were like you! Such beautiful
+				hair! Can I comb it for you?’ 
+
+‘Tell me who your father was. Or
+				don’t you know?’ 
+
+‘Someday I’ll show him to
+				you.’ 
+
+‘You have a photograph?’ 
+
+‘There’s no need for
+				one.’ 
+
+‘Then it’s someone who lives
+				in this house.’ 
+
+‘You’re getting
+				colder … Not really, he comes sometimes … Haven’t you
+				noticed him?’ 
+
+I did a quick review: the priest, too
+				old … the tutor? the Russian concert artist? No, both too
+				old … That skinny man who came to examine ‘the thing’? 
+
+‘The doctor, Beatrice? Is it
+				him?’ 
+
+‘Cold, colder …’ 
+
+‘The notary who came the other
+				night?’ 
+
+‘Colder, colder …’ 
+
+‘That man who comes every once in
+				a while?’ 
+
+‘Warm,
+				warmer … warmer …’ 
+
+‘No! Then
+				it’s …’ 
+
+‘Hot! Come here, look, he’s
+				coming up the terrace … I always run away when he comes.’ 
+
+Behind the window, standing close
+				together, we followed the slow steps of a tall, strapping man … As if he
+				felt our gaze, he raised his head, with its curly white hair, and looked in our
+				direction. For a moment, a pair of blue eyes fixed on us. Glints of gold flashed in
+				those dark blue depths. He was dressed in velvet like Mimmo, except that instead of
+				being brown, the velvet he wore was a blue so dark it seemed black. 
+
+‘Who is
+				he? The gardener?’ 
+
+‘No, the gabellotto , the
+				estate manager. 17 Don’t you see the shotgun he’s carrying?’ 
+
+Of course! That man dressed and moved
+				like Mimmo, but he carried a shotgun slung over his shoulder. A doubt struck me.
+				Beatrice was impetuous, so the Princess had said, capricious and unreliable. Could
+				she be teasing me, as she often did with Argentovivo and the other women? I
+				mustn’t lose sight of the fact that she was the mistress, and that only a
+				‘consecrated veil’ kept me from being a servant in that house. 
+
+‘That can’t be, Beatrice.
+				And even if it were true, you wouldn’t know about it. These things are
+				difficult to find out.’ 
+
+Pulling away from me and hurling herself
+				onto the bed, she’s screaming now and crying, thumping the cover and thrashing
+				the air. 
+
+‘You’re calling me a liar!
+				To protect your Mother Leonora, you’re calling me a liar! She was such a
+				coward! A coward, like you! She abandoned me here, leaving me with these madmen! If
+				it hadn’t been for my tata and then Ignazio, I would have died. Died
+				of loneliness, concealed from everyone. They kept me hidden away, don’t you
+				see? Earlier I told you about all the people who came, in Catania
+				too … but I only saw them from a distance, or from behind a door. Go away!
+				Go like that coward who abandoned me!’ 
+
+She seemed sincere. What should I do? I
+				had to make her quiet down. Not so much for her sake – something inside me told me
+				that those tears were good for her, a healthy outburst that would leave her calm and
+				serene – but because Argentovivo might hear her. And the only way to silence her was
+				to embrace her. 
+
+‘You’re right, Beatrice. It
+				was cowardly of me not to believe you, but you have to understand …’ 
+
+She smiled, the tears running down her
+				chin and neck. Those tears were begging to be dried – by now I knew it – and taking
+				her in my arms I caressed her cheeks, her chin, her neck. 
+
+‘Ignazio used to dry my tears like
+				that too when I cried. He called me his personal fountain. Once he said to me:
+				“I’m thirsty, will you let me drink these tears?” And you,
+				aren’t you thirsty?’ 
+
+I was very
+				thirsty, and my lips sucked up those tears. I didn’t know they were so
+				salty. 
+
+‘How salty they are!’ 
+
+‘Didn’t you know
+				that?’ 
+
+‘No.’ 
+
+‘Why? Haven’t you ever
+				cried?’ 
+
+‘Yes, but …’ 
+
+‘You’ve cried and you never
+				tasted them? How strange! I did it right away … ever since I can remember.
+				And then I discovered that they tasted like sea water – less salty, but the same
+				taste.’ 
+
+‘Have you seen the sea?’ 
+
+‘Of course! Haven’t you?
+				That’s incredible! It’s not possible!’ 
+
+‘Now it’s you calling me a
+				liar. Watch out or I’ll start crying like you.’ 
+
+‘Go ahead! That way I can drink
+				too. But how come you’ve never seen it?’ 
+
+‘I was born in the mountains, but
+				there was someone who always talked to me about it.’ 
+
+‘Your brother?’ 
+
+‘Almost.’ 
+
+‘You never talk about
+				yourself.’ 
+
+‘It’s not
+				permitted.’ 
+
+‘Liar!’ 
+
+‘Watch out, or I’ll start
+				crying and screaming.’ 
+
+‘That’s what I
+				want.’ 
+
+‘Why?’ 
+
+‘I told you, because I’m
+				thirsty, and sleepy too. Will you let me put my hand on your breast?’ 
+
+She didn’t wait for me to answer.
+				She quickly untied my smock and, shifting aside the bands, wasn’t satisfied to
+				place her hand on my breast like before, but pulled it out altogether. I closed my
+				eyes to resist the tantalizing arousal until, hearing her so quiet, I thought she
+				had fallen asleep. Then I looked at her. She wasn’t sleeping. She was staring
+				at my breasts, wide-eyed. 
+
+‘How big and firm they are!
+				They’re more beautiful than my tata ’s, even the
+				nipples … they’re pale. My tata ’s were dark. Will you
+				give me some milk?’ 
+
+Without giving
+				me time to say anything, her lips began sucking me as though she were really
+				drinking. 
+
+‘I’m not thirsty anymore
+				now. It’s your turn.’ 
+
+With a sure gesture she pulled out her
+				breast and forced me, her hand unexpectedly strong, to drink from her nipple as she
+				had done from mine. 
+
+‘That’s it, like that,
+				drink. You have to close your eyes; you’ll satisfy your thirst
+				better.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">27
+
+「说吧，你早猜到了！我看得出你并不惊讶。妈妈说得对：你什么都看到，什么都注意到。她还说她没见过几个像你这样聪慧而坚定的年轻女子。而且她非常恼火，因为她似乎想不出一个适合你的昵称。她说你跟你本名正好相反，而且……你为什么脸色发白？她没有生你的气！你知道她是什么样的人；她只是为自己想不出一个昵称给你而恼火罢了。」
+
+我吓坏了，正要把头发重新盘成发髻。贝阿特丽切天真，但公主可不天真；要是她看见我的辫子，我就有麻烦了！
+
+「你在做什么？不，不，别扎起来！再说发夹现在在我手里，我不会给你的！我太高兴你发现了！这样我就不用再假装不跛，或者假装年纪没那么大了……不过，请你别让奶奶知道你已经知道了。」
+
+「那么公主是你的祖母，不是你母亲？」
+
+「她怎么可能生了我？我不知道她多大年纪。伊尼亚齐奥出征前，我也觉得她非常年轻，但当他们用担架把他送回来时，短短几个月她就变得灰白而干瘪了。我讨厌看见她那样子。直到两年前，你该看看她骑马的样子……连卡尔米内都跟不上她。」
+
+「卡尔米内是谁？」
+
+「对了。这才是重点。你能让我解开你的辫子吗？」
+
+「不，贝阿特丽切，不行。这是不允许的。可是，你到底是谁的女儿？」
+
+「这个我不能告诉你。我真的不能。我可能会让你失去圣召，而就像奶奶说的，你的圣召是你唯一的资产。」
+
+「事情没你想的那么简单。当它根深蒂固，就像在我身上这样，没有什么能改变它。不过等等：你说你可能会让我失去……」
+
+「瞧，你猜到了！是的，因为莱奥诺拉修女是我的母亲。天哪，你的脸色多苍白！但不是我告诉你的！你自己发现的，不是吗？你自己猜到的！我不想夺走你的圣召。」
+
+「没事，贝阿特丽切。不，你没有告诉我。是我自己发现的。」
+
+「可是猜测是一回事，确知是另一回事，对吧？你的脸色多苍白！」
+
+「等一等。我去洗洗脸。」
+
+在小小的浴室里，我俯身在水槽上，几乎呕吐。我浑身发抖，但不是因为心烦意乱，如贝阿特丽切所想……那个可憎的女人……那个骇人听闻的未婚夫，那场上流社会的初次社交舞会，她面对世俗腐化时的恐慌……更别提那位圣母如何启迪她，让她看穿了那个男人的可怕。上帝的恩典，她的圣召！然而她一直都有一个男人！
+
+为了冷却那股恨意，我开始用冷水拍打自己的脸，直到在镜子里看见一张平静、不笑的修女的脸。当我回到贝阿特丽切身边时——她正焦急地等着，手里满是发夹——我心里一直在想：该死的，你这个骗子，我恨你。
+
+「我没有告诉你，莫德斯塔！是你自己发现的，是你！」
+
+「当然，贝阿特丽切，当然。」
+
+「你现在多平静啊！莱奥诺拉修女的罪过让你失去了圣召吗？」
+
+「&#x27;你们中间谁是没有罪的，谁就可以先拿石头打她&#x27;，贝阿特丽切。再说，莱奥诺拉修女在孤独和祈祷中已经完全赎了她的罪。我虽然没有犯罪，但比起她来，我仍觉得不配！」
+
+我惊恐地听到莱奥诺拉修女的声音从我的嘴唇里说了出来。难道那股恨意把她在我心里重新唤醒了吗？仇恨的祈祷无所不能；它可以赋予生命，也可以带来死亡，无所不能。
+
+「现在告诉我，乖孩子，告诉我。谁是你的父亲？是她被许配的那个军官吗？」
+
+「如果你让我在这里、在阳光下解开你的辫子，我就告诉你。」
+
+「解吧，小家伙。」
+
+「你的声音现在多温柔啊。你是个圣人，莫德斯塔！你让别人对你做任何事，你都接受，从不反抗。你是怎么做到的？我希望我能像你一样！多美的头发！我能帮你梳头吗？」
+
+「告诉我你的父亲是谁。还是你不知道？」
+
+「改天我指给你看。」
+
+「你有照片？」
+
+「不需要。」
+
+「那么是住在这栋宅子里的某个人。」
+
+「越来越冷了……不完全是，他有时候来……你没注意到他吗？」
+
+我快速回顾了一遍：神父，太老了……家庭教师？那个俄罗斯音乐会演奏家？不，都太老了……那个来检查&#x27;那个东西&#x27;的瘦男人？
+
+「医生，贝阿特丽切？是他吗？」
+
+「冷，更冷……」
+
+「那天晚上来的那个公证人？」
+
+「更冷，更冷……」
+
+「那个偶尔来一次的男人？」
+
+「暖了，更暖了……更暖了……」
+
+「不！那么是……」
+
+「热了！过来，看，他正走上露台……他来的时候我总跑开。」
+
+在窗后，我们紧紧站在一起，追随着一个高大魁梧男子缓慢的步伐……仿佛感觉到了我们的注视，他抬起头——满头卷曲的白发——朝我们的方向看来。一瞬间，一双蓝眼睛定格在我们身上。在那深蓝色的深处闪烁着点点金光。他穿着跟米莫一样的天鹅绒，只不过他穿的不是棕色，而是一种深得近乎黑色的蓝。
+
+「他是谁？园丁吗？」
+
+「不，是庄园总管。你没看见他扛着的猎枪吗？」
+
+当然！那个男人的穿着和举止都像米莫，但他肩上扛着一杆猎枪。一个疑虑击中了我。贝阿特丽切是冲动的，公主曾这样说过，任性而不可靠。她会不会在逗我，就像她经常对阿真托维沃和其他女人做的那样？我不能忘记她是主子，而只有一袭&#x27;祝圣过的头纱&#x27;才能阻止我成为这宅子里的仆人。
+
+「这不可能，贝阿特丽切。即使是真的，你也不会知道。这种事很难查清楚。」
+
+她从我的怀抱中挣脱，扑倒在床上，尖叫着，哭喊着，捶打着被子，挥舞着双臂。
+
+「你说我是骗子！为了保护你的莱奥诺拉修女，你说我是骗子！她是那样的懦夫！懦夫，就像你一样！她把我遗弃在这里，把我留给这些疯子！要不是我的奶妈，然后是伊尼亚齐奥，我早就死了。死于孤独，对所有人掩藏起来。他们把我藏起来，你难道不明白吗？先前我告诉你所有来过的人，在卡塔尼亚也是……可我只是远远地看见他们，或是从门后看见。走开！像那个遗弃了我的懦夫一样走开！」
+
+她看起来是真诚的。我该怎么办？我必须让她安静下来。不只是为了她——我内心有某种东西告诉我，那些眼泪对她有好处，是一次健康的宣泄，会让她平静安宁——更因为阿真托维沃可能会听见。而让她安静的唯一办法就是拥抱她。
+
+「你说得对，贝阿特丽切。我不相信你是懦弱，但你必须理解……」
+
+她微笑了，泪水顺着下巴和脖子流淌。那些泪水乞求着被擦干——我如今已知道——我将她拥入怀中，轻抚她的脸颊、下巴、脖子。
+
+「伊尼亚齐奥以前也是这样擦干我的眼泪的。他叫我他的私人喷泉。有一次他对我说：&#x27;我渴了，你让我喝这些眼泪好吗？&#x27;你呢，你不渴吗？」
+
+我非常渴，我的嘴唇吮吸着那些眼泪。我不知道它们这么咸。
+
+「多咸啊！」
+
+「你以前不知道吗？」
+
+「不知道。」
+
+「为什么？你从来没哭过吗？」
+
+「哭过，但是……」
+
+「你哭过却从没尝过？真奇怪！我马上就尝了……从我记事起就这样。然后我发现它们尝起来像海水——不那么咸，但是一样的味道。」
+
+「你见过大海吗？」
+
+「当然！你没见过？太不可思议了！不可能！」
+
+「现在轮到你说我是骗子了。小心，不然我要像你一样哭了。」
+
+「哭吧！这样我也能喝了。可是你怎么会从没见过大海呢？」
+
+「我生在山里，但有个人总是跟我讲大海。」
+
+「你的兄弟？」
+
+「差不多。」
+
+「你从不讲你自己的事。」
+
+「这是不允许的。」
+
+「骗子！」
+
+「小心，不然我要开始又哭又叫了。」
+
+「那正是我想要的。」
+
+「为什么？」
+
+「我告诉你了，因为我渴了，也困了。你能让我把手放在你乳房上吗？」
+
+她没有等我回答。她迅速解开了我的罩衫，拨开束带，不再像上次那样仅仅是把手放在我的乳房上，而是把它整个拿了出来。我闭上眼睛，抵御着那撩人的兴奋，直到听见她那么安静，我以为她睡着了。然后我看着她。她没有睡着。她正睁大了眼睛，凝视着我的乳房。
+
+「它们多大、多结实！比我奶妈的还美，连乳头都……它们是浅色的。我奶妈的是深色的。你给我些奶好吗？」
+
+不等我开口说话，她的嘴唇便开始吮吸我，仿佛真的在喝奶。
+
+「我现在不渴了。轮到你了。」
+
+她以确定的手势拿出她的乳房，用她那只出乎意料有力的手强迫我，像她刚才对我那样，从她的乳头喝奶。
+
+「就是这样，对，喝吧。你得闭上眼睛；那样更能解渴。」
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>privilege</b><span>特权</span><em>a privilege to</em></div>
+<div><b>servant</b><span>仆人</span><em>a household servant</em></div>
+<div><b>summon</b><span>召唤；传唤</span><em>summon someone</em></div>
+<div><b>bargain</b><span>交易；讨价还价</span><em>strike a bargain</em></div>
+<div><b>estate</b><span>庄园；地产</span><em>manage an estate</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch026.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch028.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

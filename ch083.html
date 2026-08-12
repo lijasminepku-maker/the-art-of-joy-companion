@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 83 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch082.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" selected>Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch084.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 83<span>战争、流离与国家权力</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">二战时期，旅行、艺术教育、家庭和生育都受不稳定环境影响。法西斯国家的监控、逮捕与监禁会改变人们说话和沉默的方式。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">83 
+
+’Ntoni drags his pale, swollen legs
+				through the streets of Rome, shoved about by indifferent old people and women. He is
+				just one of many who are doomed: the flesh swells with water and the skin becomes
+				taut and white, whiter and whiter before you starve to death. 
+
+‘What is it, micia , why
+				are you screaming? Open your eyes. Nina is right here. Wake up!’ 
+
+‘I had a bad dream,
+				Nina … and my stomach hurts.’ 
+
+‘It’s nothing, micia : it’s hunger.’ 
+
+‘You’re right. You
+				can’t find anything anymore on this shitty island!’ 
+
+‘They’re bombing everywhere,
+				Mody.’ 
+
+‘They’ve forgotten us. Did
+				you see them yesterday, Nina, those pale, swollen children?’ 
+
+‘I’ve told you over and over
+				again that you shouldn’t look at them.’ 
+
+‘You’re right. It’s
+				just that, like Carmine – how could I understand it at the time? – I’m worried
+				about my children. I dreamed that ’Ntoni was starving to death in
+				Rome.’ 
+
+‘I shouldn’t have told you
+				about Rome. Stupid Nina! But ’Ntoni is strong, you said.’ 
+
+‘Yes.’ 
+
+‘Then is it Jacopo you’re
+				worried about?’ 
+
+‘No, just yesterday a letter
+				arrived. Luckily they found he has tuberculosis.’ 
+
+‘Porco cane , bloody hell.
+				Happy about a son who has tuberculosis!’ 
+
+‘It’s not serious, and it’s always better than going to war, like
+				Prando.’ 
+
+‘The hell it is!’ 
+
+‘Prando is strong. Have you seen
+				the fiery letters he writes from the front? In our coded language, that patriotic
+				passion means they’re doing everything they can to bring about a
+				defeat.’ 
+
+‘Wishing for the defeat of their
+				own country?!’ 
+
+‘That’s the only way Fascism
+				can fall, Prando says. But he’s different. Jacopo would be dead, Nina, dead
+				for sure.’ 
+
+‘Hey now, don’t cry, micia .’ 
+
+‘It’s partly
+				hunger.’ 
+
+‘So do this for me. Even if I have
+				to pry open your mouth with a knife, you’re going to eat this cat. Nina
+				pickled it: it’s a delicacy. There are people who are eating
+				rats …’ 
+
+‘Oh no, Nina, no!’ 
+
+‘Do you think I like the idea? It
+				must have been the last one on the island! They’re eating everything and
+				anything, like in Russia after the revolution. Everything, even the rats. Angelica
+				used to tell me about it when I was a little girl. But the hell with Angelica and
+				her revolution! Now it’s you who have to steel yourself. After months of roots
+				and some lentils, Mody, your complexion looks like something out of La
+					Traviata , and I don’t like it one bit! 
+
+‘Do you like La Traviata ?
+				I was crazy about Verdi. When my father opened the shop in Rome, he told me
+				“in Rome there is the Opera” and so my sorrow over having to leave
+				Civitavecchia – I was little at the time – vanished in a flash. And then he kept his
+				promise. Every Sunday afternoon, up there in the gallery – with all those eccentric
+				old people leafing through the scores and singing under their breath – he would
+				always say: “You see, little one, to prepare for the revolution one must soak
+				up lots and lots of fantasy.” A great anarchist, Ottavio! To keep Nicola quiet
+				when he started shouting – Nicola was his cousin, a raging, all-out Leninist – he
+				would whisper very, very softly: “It’s not your fault, Nicola,
+				it’s that you don’t have any imagination! We agree that everything
+				depends on the economy, but then the real revolution has to be
+				invented!”’ 
+
+‘And now it’s our turn,
+				Mody, or rather the cat’s! Don’t run away! Would you rather I had lied to you, maybe? And then what would I
+				do? You have eyes to see, don’t you? They’ve eaten everything, and I
+				can’t blame them. The birds are gone … Because of the bombings, you
+				say? Oh well … Come on, another little piece. Think of it as medicine!
+				Remember the whipped egg? Damn, it was good! Who would have said we’d be
+				longing for an egg we had in prison, eh, Mody? If it weren’t for your
+				horrified face, I’d laugh. How comical you are! Now swallow, or you’ll
+				choke on it! Did you chew it, at least? Oh God, this one is going to choke herself!
+				I apologize for laughing, little one, but I just had a crazy thought! Given the way
+				things are going, don’t you think that before long – and despite all your
+				grimacing – we’ll end up looking back with longing at this little creature
+				too?’ 
+
+* 
+
+‘Nothing at all, Nina?
+				Didn’t you sell the berets?’ 
+
+‘One question deserves another.
+				Didn’t those cialtroni bring you anything, the bastards? Yet they
+				gobble up your lessons.’ 
+
+‘The poor things, they can barely
+				stand on two feet! But it heartens me to see how, despite their hunger, their
+				interest is stronger. They lap it all up as if it were rosolio ! In the
+				convent, I dreamed of being a teacher, mostly because of Mother Leonora’s
+				lectern, her pointer … When Jacopo was five, he dreamed of being
+				pope.’ 
+
+‘Damn! He’s no slouch, your
+				Jacopo.’ 
+
+‘It’s because of their age.
+				They have so much energy, they don’t know what to do with it. All you have to
+				do is not oppose their dreams and then in time, having had their fill, they come to
+				understand; dreams satisfy you like another life. In fact, afterwards Jacopo began
+				to dream of becoming a pirate.’ 
+
+‘I dreamed of being an opera
+				singer.’ 
+
+‘Indeed, you have a stupendous
+				voice.’ 
+
+‘Yes, but seeing how big and fat
+				they were, I got disgusted. I wanted to be slim!’ 
+
+‘You can be happy: we’re in
+				the right place here.’ 
+
+‘Funny! But do I see a little
+				packet?’ 
+
+‘Really,
+				Nina, it’s only the usual handful of lentils. And besides, there’s no
+				water!’ 
+
+‘That’s why they let you
+				have them, those little buggers.’ 
+
+‘That’s not true!’ 
+
+‘Of course it’s not true. I
+				said it just to say something.’ 
+
+‘How well they catch on if you
+				speak clearly to them! At first I thought my own children were so bright because of
+				the way I raised them. But I see that isn’t so. Except for that Mazzella, who
+				is really deficient, they all get it, and that helps.’ 
+
+‘They even understand too much!
+				Watch out, the parish priest has complained, I wouldn’t want them to send us
+				to a worse island. Things can always get worse!’ 
+
+‘I’m not afraid, Nina.
+				Prando was right: all hell is breaking loose, and they have other things to worry
+				about … As I was saying, I wanted to be a teacher.’ 
+
+‘You already told me, piccoletta . Hunger isn’t doing you any good, little
+				one.’ 
+
+‘If you tell me I’m
+				repeating myself, it means you don’t love me anymore, Nina.’ 
+
+‘What are you saying, micia , come here … There, that’s it, on my lap, my
+				little pussycat. Oh, you’re burning up! Don’t tell me you’ve got a
+				fever?’ 
+
+‘No, no, you don’t love me
+				anymore. Even yesterday, you didn’t want to kiss me.’ 
+
+‘Well now Nina will kiss you.
+				Come! Yesterday I went up and down four times for the mail, micia ,
+				don’t forget that!’ 
+
+‘But before you always kissed me,
+				even when you were tired.’ 
+
+‘So? What does that mean?
+				Naturally the flesh always calms down little by little in these things, but in
+				return there’s so much tenderness, right, micia ? So much tenderness
+				it almost makes me cry … Come now, a small kiss on these beautiful eyes,
+				this face, this mouth that goes on and on, just to make it stop
+				chattering …’ 
+
+‘And also on my firm, arrogant
+				chin, as you used to say … Do you still like it, Nina?’ 
+
+‘Of course I still do, like this
+				beautiful serene brow, just barely marred by a scar that changes shape,
+				colour … what shape does it have today, do you know? It looks like a small pale brook full of little
+				stars.’ 
+
+‘Oh, Nina, don’t mention
+				water. I’m so thirsty!’ 
+
+‘I can’t blame you. So then
+				let’s say that today it has the shape of a comet. You’ve told me
+				everything, but not how you got this scar.’ 
+
+‘I don’t feel like talking
+				about it. I just feel thirsty.’ 
+
+‘Then you know what your Nina
+				says? It’s time to get a move on!’ 
+
+‘You’re so funny when you
+				say that!’ 
+
+‘Get a move on, then. Come on,
+				shake your ass! Lazy bones! Not to brag, but we Romans are really elegant spirits,
+				almost worthy of Sir Eden, or stylish Bond Street, as Arminio used to
+				say.’ 
+
+‘What pronunciation, Nina! Say it
+				again: Strreeteh’.’ 
+
+‘What does pronunciation matter?
+				As long as you get it! Besides, I live by reflected light and I’m satisfied
+				with that.’ 
+
+‘Whose reflected light?’ 
+
+‘My Arminio’s. He knows
+				foreign languages and all that. I revolve around him. I look at him and swell with
+				satisfaction!’ 
+
+‘You still think about your
+				brother, eh, Nina?’ 
+
+‘Like you and your old man: when I
+				need him.’ 
+
+‘Listen, Nina, you haven’t
+				told me everything either, like why you stopped studying.’ 
+
+‘Who knows! Arminio says
+				it’s because of the usual old female self-deprecation. It’s true. I let
+				myself get discouraged! Oh, not at home. At home, to my father, we were all
+				equal … and in fact, damn if he wasn’t right! All dead or in jail,
+				women and men alike! What was I saying? Oh yes, not at home but outside, in school.
+				He also said that maybe it depended on your date of birth. I was born too soon, and
+				he must be right because Licia, the youngest, studies and she’s quicker than a
+				locomotive … Come on, move. I really hope I hear from Olimpia: with Licia
+				she’s in good hands, but you know how it is! A mother’s anxiety
+				doesn’t let up. Come on, let’s go.’ 
+
+‘No, tell me about Arminio. What
+				is he like?’ 
+
+‘Again? You must know it by
+				heart.’ 
+
+‘Yes, but I like to hear about
+				him.’ 
+
+‘Not to brag, but he’s my
+				brother!’ 
+
+‘Is it true that his eyes change
+				colour, or did you make it up?’ 
+
+‘Look at
+				mine. What do you think?’ 
+
+‘Will I get to meet
+				him?’ 
+
+‘How should I know! It seems to me
+				that we won’t meet anyone here anymore except in the next world! Come on,
+				let’s go.’ 
+
+‘I feel weak, Nina. What is
+				it?’ 
+
+‘Then stay here. I’ll go.
+				Today is a good day, you’ll see. You’ll see, I’ll come back with a
+				lot of letters and something to eat.’ 
+
+I’m sure that’s true. When
+				Nina says she’ll be right back, she means it. She’s never been late, not
+				ten minutes or an hour. But whether due to thirst or hunger, or because of all that
+				salt water – even from a distance you can tell it’s salty and bitter – today
+				I’m afraid I won’t see her face again. To calm the trembling of my
+				knees, even if I had to crawl over the scorching rocks on all fours, I race after
+				her and grab her hand … I can’t see anything, yet it’s broad
+				daylight. All I feel is the warmth of her hand urging me down toward what was once a
+				quiet cove of pale blue water, with rows of white houses like the ones Jacopo used
+				to draw when he was five or six years old … Why has Nina stopped? And why,
+				instead of the usual silent, empty streets, are there so many people pushing and
+				shouting? Why is that man who has climbed onto the ledge now plucking at the wall
+				and hurling stones at us?</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">八十三
+
+恩托尼拖着苍白肿胀的双腿穿过罗马的街道，被冷漠的老人和女人推来搡去。他只不过是众多注定要死的人之一：肉体因积水而肿胀，皮肤变得紧绷发白，越来越白，直到你饿死为止。
+
+&quot;怎么了，小猫咪，你为什么尖叫？睁开眼睛。尼娜就在这儿。醒醒！&quot;
+
+&quot;我做了一个噩梦，尼娜……我的胃疼。&quot;
+
+&quot;没什么，小猫咪：是饿的。&quot;
+
+&quot;你说得对。在这个狗屎岛上，你再也找不到任何东西了！&quot;
+
+&quot;到处都在轰炸，莫迪。&quot;
+
+&quot;他们忘了我们。你昨天看到那些苍白肿胀的孩子了吗，尼娜？&quot;
+
+&quot;我跟你说了一遍又一遍，你不该看他们。&quot;
+
+&quot;你说得对。只是，像卡尔米内一样——我当时怎么能理解呢？——我担心我的孩子们。我梦见恩托尼在罗马快要饿死了。&quot;
+
+&quot;我不该跟你讲罗马的事。笨尼娜！但恩托尼很强壮，你说过的。&quot;
+
+&quot;是的。&quot;
+
+&quot;那么你是担心雅各布？&quot;
+
+&quot;不，昨天刚来了一封信。幸好他们发现他得了肺结核。&quot;
+
+&quot;猪狗，天哪。竟然为得了肺结核的儿子高兴！&quot;
+
+&quot;不严重，总比去打仗好，像普兰多那样。&quot;
+
+&quot;见鬼去吧！&quot;
+
+&quot;普兰多很强壮。你看见他从前线写来的那些炽热的信了吗？在我们的密码语言里，那种爱国热情意味着他们正想方设法促成一场失败。&quot;
+
+&quot;希望自己的国家战败？！&quot;
+
+&quot;普兰多说这是法西斯主义垮台的唯一办法。但他不一样。雅各布会死，尼娜，肯定会死。&quot;
+
+&quot;嘿，别哭，小猫咪。&quot;
+
+&quot;有一部分是饿的。&quot;
+
+&quot;那就为我这样做。即使你吃不下这面包，把它嚼一嚼，你会看到你的胃就安静了。至少不是完全空的。&quot;
+
+&quot;我已经嚼过了。我的胃好像被钳子夹住了。&quot;
+
+&quot;莫迪，如果这能让你好受点，你可以咬我的衣服。我不在乎：我们可以再缝起来。&quot;
+
+&quot;你的衣服有什么味道，尼娜？像是迷迭香和蜂蜜。&quot;
+
+&quot;这是些百里香，我从乡下带来的，就在我被抓之前。我把它们和面包屑和糖混在一起。你看，我是个草药医生，就像安达卢西亚人一样。来，张开嘴。尝尝这个小药丸。但别嚼，吞下去。它会让你的胃安静下来，你会看到。这是我祖母给我的配方。你要知道，要是我早点想到给你吃这个，也许你会好很多。该死！有时候我真是没脑子。&quot;
+
+草药的舒缓作用与尼娜的手抚慰着我的胃是分不开的。我在一种幸福的丧失自我的状态中，她令人安心的声音与记忆和未来交织在一起，让我忘记一切，甚至忘了我们的饥饿。
+
+&quot;谢谢你，尼娜。我感觉好些了。&quot;
+
+&quot;如果她们现在能给我们汤，你就会更强壮些。对我来说，那天你病倒时，我真以为会失去你！那该死的发烧！我什么都试过了。这儿只有一位医生，信天主教的，所以你不给他钱，即使是快死了，他也不来。我把所有的毛巾都打湿了，一条接一条。我知道发烧时就得这么做。你必须让身体凉下来。我用醋擦你……但你不记得了，对吧？&quot;
+
+&quot;我几乎不记得什么了。我只知道你给我按摩肚子的时候，我就像回到了童年。&quot;
+
+&quot;我的祖母是个草药医生，但她也会按摩。我母亲的子宫错位，就是我祖母按摩复位的。你知道我有一半西西里血统吗？我爸说的。他说西西里女人比罗马上层女人要好，因为她们不是空谈……&quot;
+
+&quot;尼娜。&quot;
+
+&quot;嗯？&quot;
+
+&quot;我爱你。&quot;
+
+&quot;我知道。是因为我按摩你的肚子吗？&quot;
+
+&quot;不是。是因为你的手在我身上比任何手都好。以前我从来没有这样过。你知道为什么吗，尼娜？&quot;
+
+&quot;嘿，小猫咪，别这么一本正经的！你让我也想哭了。来，靠着我。现在别出声。他们很快就会带汤来，那时候我会扶你起来。现在你睡吧。昨天和前天夜里你又一分钟都没睡，我都注意到了。因为饥饿，是的，也许是因为饿。你看他们现在连面包都不给我们了。他们说是因为轰炸。这些没心肝的人。睡吧，莫迪。睡吧，我的小猫咪。&quot;
+
+我不让自己睡着。我担心如果我不保持清醒，我会再也找不到我的手——那只放在尼娜腿上的手——一旦我睡着。它让我感觉那么安全。我在这儿，在他们中，在他们的肉与骨中。和尼娜在一起永远不会感到孤独，因为尼娜总是在那儿。她可以沉默不语，但她的肉体沿着我的身体伸展。&quot;如果我必须失去所有这些，因为我必须离开这里——有一天。&quot;我无声地对自己说。一种巨大的悲伤淹没了我。但哭泣会弄湿尼娜的衣服。必须坚强。&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>witness</b><span>见证者；目睹</span><em>bear witness to</em></div>
+<div><b>trauma</b><span>创伤</span><em>live with trauma</em></div>
+<div><b>custody</b><span>拘押；监护权</span><em>taken into custody</em></div>
+<div><b>resistance</b><span>抵抗；抵抗运动</span><em>join the resistance</em></div>
+<div><b>liberation</b><span>解放</span><em>after liberation</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch082.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch084.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

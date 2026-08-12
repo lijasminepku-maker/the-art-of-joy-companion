@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 60 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Three</div></div>
+<div class="nav-row">
+  <a href="ch059.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch058.html" >Chapter 58</option><option value="ch059.html" >Chapter 59</option><option value="ch060.html" selected>Chapter 60</option><option value="ch061.html" >Chapter 61</option><option value="ch062.html" >Chapter 62</option><option value="ch063.html" >Chapter 63</option><option value="ch064.html" >Chapter 64</option><option value="ch065.html" >Chapter 65</option><option value="ch066.html" >Chapter 66</option><option value="ch067.html" >Chapter 67</option><option value="ch068.html" >Chapter 68</option><option value="ch069.html" >Chapter 69</option><option value="ch070.html" >Chapter 70</option><option value="ch071.html" >Chapter 71</option><option value="ch072.html" >Chapter 72</option><option value="ch073.html" >Chapter 73</option><option value="ch074.html" >Chapter 74</option></select>
+  <a href="ch061.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART THREE</p>
+  <h2>Chapter 60<span>法西斯时期与新的思想</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1922 年后法西斯逐步建立一党统治。自由主义、社会主义、无政府主义与共产主义并存。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">60 
+
+I wasn’t surprised when I opened my
+				eyes and Stella told me that I had slept for nearly two days in a row; nor is she
+				any longer surprised by it. 
+
+‘It’s a blessing, Mody, a
+				blessing! Why get so upset? Even Carlo said that this sleep was good for you. What a
+				fright, the first time! I was afraid you’d starve to death! And he just
+				smiled … You know what he used to say when I got scared at something new?
+				He’d say: “Ignorance, Stella, ignorance!” He was so right! Oh! I
+				was forgetting Signora Joyce … she asked me just now if she could come up
+				and see you.’ 
+
+‘Signora Joyce?’ 
+
+‘Yes, I found out. She’s
+				married, and widowed: she told me so. She also said that she doesn’t always
+				wear her wedding band because sometimes looking at it reminds her of the sorrow
+				that … Oh, the poor thing, the way she talks! She talks like a schoolmarm,
+				but she’s not as horrible as she seemed, Mody! Recently she came to the
+				kitchen to have coffee, like you always do, and you know what she said? “Do
+				you mind if I steal Modesta’s place for a little while, Stella?” If only
+				she would take off that hat! Why does she always keep it on? Oh, you know what Bambù
+				said? That maybe she’s bald! … Oh, dear God! Bambù is waiting for
+				me! … I have to go … So should I let her come up or
+				not?’ 
+
+I had been racking my brain for weeks
+				trying to find an excuse to get her to come up here. Was I now going to let Stella
+				leave without seizing that rare
+				opportunity? Gripping the covers, I almost shouted as the door was already
+				closing. 
+
+‘No, Stella, let her come up.
+				She’ll be offended otherwise.’ 
+
+Had Stella heard me or not? Did I have
+				time to run to the bathroom and at least brush my teeth and comb my hair? Suddenly I
+				was aware of my condition. Stella had managed to put me to bed, take off my skirt
+				and whatever was too binding, as Carlo had taught her. But I had been under the
+				covers with that sweater for two days … Touching my hair, I found it
+				sweaty and sticky. I was already inelegant and awkward when I was washed and wearing
+				a clean cardigan; imagine what I must be like after two days in bed. I almost prayed
+				to any god at all that Stella hadn’t heard me. But Stella had a very fine ear,
+				and already the door was opening. Too late! I pulled the covers up so she would see
+				as little of me as possible, and closed my eyes. In the dark ‘the voice’
+				– that’s what I now privately called the only voice worthy of the name –
+				washed warmly over my wretched body. 
+
+‘Oh God, Stella! She’s
+				asleep again. Are you sure there’s nothing wrong with such a prolonged sleep,
+				Stella? Does it happen often? I’m worried about her!’ 
+
+‘No, she’s not sleeping; my
+				Mody likes to do this. Either she runs around like a spinning top all the blessed
+				day, or she snuggles up in bed … please be kind enough to sit down and
+				wait. Oh, I’ll leave the tray.’ 
+
+The ‘voice’ was worried
+				about me. This revelation dissolved my hunger completely. And here I am, unworthy of
+				her, awkward and filthy, with that awful sweater and my badly trimmed nails! As soon
+				as Stella left the room, I opened my eyes to see her again. I stare at her as if I
+				haven’t seen her in years. But just like after a long absence, when the desire
+				to see the beloved face becomes so strong that it blinds you, so I, blinded, stare
+				at her but do not see her. 
+
+Is she smoking? The pale hands emerge
+				slowly from a hazy curtain. No, they don’t emerge; rather, they seem to be
+				resting on a velvet cushion. Long, tapered hands, severed, with the perfect nails of
+				a saint’s statue. What the devil is that saint’s name? Agatha? No –
+				Saint Agatha had had her breasts lopped off, not her hands. Yet Mother Leonora had
+				often recounted the story of those strong, transparent hands, strong enough to endure all the torture without the
+				knuckles being marred or the nails broken. Mine, clutching the blanket, must be
+				filthy … 
+
+‘I shouldn’t have been so
+				persistent with Stella. I can see I’m disturbing you, Modesta. I apologize,
+				but I was a bit sad. I’ll see you later on.’ 
+
+The cushion was already moving before my
+				eyes … Two black infidels, blacker than hell, were raising it to carry it
+				to the Great Khan, 68 blacker than his minions, who with his brutish, pitch-black paws,
+				would rip those chaste fingers to pieces. 
+
+Forgetting my dirty nails, I quickly
+				hastened to grab the cushion. 
+
+‘Oh God, Modesta! You’re not
+				well and you don’t want to say so. Are you afraid of worrying Stella? But if
+				it comforts you to grip my skirt, I’ll stay here. Don’t worry! Still,
+				forgive me for insisting, but I think I should call a doctor.’ 
+
+What was she talking about? I had never
+				heard anything so silly! Since when have doctors been able to help someone who is in
+				love? Even Mimmo used to say that there is no cure for that pernicious plague that –
+				to make it seem less frightening – we call love. I could hear Mela practising bass
+				chords up and down the keyboard. The sharp clarity of those notes and a deep gentle
+				laugh from the ‘voice’ dispelled the fog in front of me. And I saw her.
+				How foolish, Stella! Not only wasn’t she bald – though even bald she would
+				have been beautiful – but she was laughing, brushing back a soft mass of black hair
+				from her face. So that was it: the ‘voice’s’ hair was lovelier and
+				blacker than Stella’s, and Stella was envious. 
+
+‘But of course, of course
+				I’ll stay, Modesta! Now that I see you’re joking, I feel reassured. How
+				right you are! No doctor, no science, has the ability to cure that monstrous illness
+				that fools, as you said, call love.’ 
+
+Stella is not only jealous of her hair,
+				but also of the fact that, without those trousers, a pair of smooth, slender calves
+				led to two ankles so slight they seemed made of glass. Letting go of her skirt, I
+				was about to grab one to see if it really was glass when that envious Stella came
+				in, calling me back to reality. She was envious, but she cared about me. And her
+				words – ‘Would you ladies like me to bring up some coffee?’ – saved me
+				from doing one silly thing after another. 
+
+The proof was
+				that, once I regained control of myself, simply by holding that tangible, hot cup in
+				my hands, I noticed a tender, compassionate smile I’d never seen before
+				hovering on Joyce’s lips, now serious again. As if that new smile
+				weren’t enough, she added: 
+
+‘Forgive me, Modesta, but since
+				I’ve known you an indiscreet curiosity has made me want to ask you something.
+				It’s all Jose’s fault, given his total inability to grasp the real core
+				of a person, a country, an object. Everything becomes abstract when Jose tells it.
+				To give you an example: you ask him about a given individual who’s impressed
+				him, what her hair is like, the colour of her eyes, and he says: “How should I
+				know! I’m not interested in those useless details. I told you that she’s
+				beautiful and intelligent. Isn’t that enough? Always looking for
+				gossip!” And that’s how he spoke of you. He only told me about your
+				strength, your intelligence. And I was expecting a woman if not old, very mature,
+				and not a young girl. Forgive me, Modesta, but how old are you?’ 
+
+I felt ashamed. It was clear by now:
+				everything I’d said and done had been gauche. I heard my voice – or was it
+				Carlo’s voice? – uncertain and confused: 
+
+‘I was born on the first of
+				January, 1900. With me it’s easy to figure it out, like the nun in the convent
+				kept saying.’ 
+
+It was so easy that Joyce, wide-eyed
+				with surprise as though seeing a dwarf or the Bearded Lady, exclaimed: 
+
+‘No, Modesta! Go on, you’re
+				kidding! I’m glad, because if you’re joking it means you feel all right.
+				But you can’t be thirty-three years old.’ 
+
+My shame vanished. I wasn’t Carlo,
+				who never got angry and always put up with being teased about how absurd it was to
+				be twenty-eight and look nineteen at the most. No, I wasn’t like Carlo.
+				Angrily, I insisted: 
+
+‘I’m not joking. I’m
+				thirty-three years old and I’m not kidding!’ 
+
+‘But it’s incredible! You
+				don’t look more than twenty! Or when you turn serious, like you are now,
+				twenty-five at most.’ 
+
+Fortunately, she went straight from
+				being astonished to telling me what Jose had said about me, staring, as usual when
+				she spoke, at something extremely important to her that hovered over my head. Fortunately! Because I was unable to
+				silence the eight-year-old Modesta whom ‘the voice’ reawakened in me,
+				and who now – what was that little girl doing? – who now began crying at the
+				humiliation of not being big enough for that Tuzzu who, since he had started
+				smoking, had got taller and more arrogant. I try to hush Modesta, but she continues
+				crying like Bambù – all the same, these picciriddi – when her Prando leaves
+				her to go bike riding with his friends: 
+
+‘I’m not crying because
+					he’s leaving, Stella, I’m crying because since his mother bought him
+					a racing bike, even when he’s here he treats me like a
+				nobody .’ 
+
+‘But he loves you, Bambolina.
+					Prando always says so .’ 
+
+‘Maybe, but not as much as I
+					love him .’ 
+
+‘What does that mean? What, are we in a grocery store weighing sugar and
+					coffee? You know what Jacopo told that silly cook who was teasing him, telling
+					him that you, yes, you, loved Prando more than him?’ 
+
+‘No, what did he say?’ 
+
+‘He said: “Leave me
+					alone! The important thing is how much I love Bambolina.” These picciriddi nowadays, Modesta, it’s scary how they talk! They sound like
+					grown men !’ 
+
+‘And what was Bambolina’s reaction, Stella?’ 
+
+‘She quieted down right away
+					and went to look for Jacopo .’ 
+
+Jacopo was right, and now Modesta is no
+				longer crying either. She’s decided to take pleasure in her love for that
+				woman even though she knows that Joyce can never love her back, captivated as she is
+				by her friend Nazim, a Turkish poet and hero; by Silone, a writer and great
+				anti-fascist; by Jose … All she does is talk about him. Could she be in
+				love with that beanpole with the crooked nose? 
+
+Mela has resumed her practising. That
+				girl has the power to turn the piano’s mechanical keys into the live strings
+				of a harp. Joyce laughs for the second time, removing the cigarette from her lips
+				for a moment. 
+
+‘Jose, married? In love? Please,
+				Modesta! He dislikes these words even more than you and I do. And whereas you
+				described love as an illness, he actually says it’s a drug more powerful than
+				religion. Oh God! I remember Angelica’s irritated look when
+				he …’ 
+
+‘Who is Angelica?’ 
+
+If the idea of
+				all those male friends of hers drove me crazy, I nearly jumped out of bed and ran
+				when I heard that female name. Thank goodness I had only raised my head from the
+				pillow, and to justify leaping up I turned on the lamp. She was still smiling, but
+				she moved her head away from the cone of light that turned the sheet a dazzling
+				white, and stared at the sunset. Was she hiding? What was she hiding when she
+				said: 
+
+‘You don’t know Angelica
+				Balabanoff? I thought you knew her. She’s a good friend of Maria
+					Giudice.’ 69 
+
+‘No, I haven’t met her. Is
+				she beautiful like Maria?’ 
+
+‘Oh no, rather homely I’d
+				say, but very interesting, with an intelligence that’s terrifying in a woman,
+				as Jose says.’ 
+
+Consoled by that ‘rather
+				homely’, I fell back against the pillow. 
+
+‘Indeed, especially when she gets
+				angry, and Jose is always able to make her angry.’ 
+
+‘How?’ 
+
+‘Provoking her prudishness. You
+				know Maria, so you can understand. They are extraordinary women, but of another
+				generation. So that day – dear God, how much time has passed! – when Angelica
+				discreetly asked him something like: “So young man, don’t you have
+				anything new to tell your Angelica, who doesn’t like thinking of you all
+				alone? You seem more and more rumpled. Is it possible that you haven’t yet
+				found a comrade who can sew your buttons back on?”, Jose bluntly replied:
+				“Come on, Angelica, it’s not my buttons that worry you. You’re
+				worried about my manly equipment, which might rust like all machines do if not
+				used.” And she – you should have seen her, Modesta – flustered and blushing
+				like a girl: “I was talking about love, Jose!” “Never mind love,
+				Angelica! Luckily there are our precious hetaerae , the only real women, the
+				only rebels, the only women who know how to give and take from a man without
+				sentimentalism and simpering.” Poor Jose! He uses humour to fend off
+				Angelica’s free love, or legitimate bourgeois love, as best he can, but in the
+				end he too falls for it: I’ve seen him, I know it for a fact!’ 
+
+There, she was admitting it. Even though
+				she wasn’t in love with him, he was with her! Who could know Joyce without
+				falling in love with her? 
+
+For the first
+				time in my life, I slept with the worm of jealousy gnawing at me, and it kept me
+				awake even in my sleep, making me toss and turn until morning, when for better or
+				worse I could count the hours that kept me apart from her.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">60
+
+當我睜開眼睛，斯特拉告訴我，我已經幾乎連續睡了兩天，我並不驚訝；她也不再對此感到驚訝了。
+
+「這是種福氣，莫迪，一種福氣！為什麼要這麼煩惱呢？連卡洛都說這種睡眠對你有好處。第一次的時候，可真嚇人！我怕你會餓死！而他只是微笑……你知道每當我對新鮮事感到害怕的時候，他會說什麼嗎？他會說：『是無知，斯特拉，無知！』他說得太對了！哦！我忘了喬伊斯夫人……她剛剛問我能不能上來看你。」
+
+「喬伊斯夫人？」
+
+「是的，我弄清楚了。她結過婚，而且寡居：她自己告訴我的。她還說她不總是戴著她的結婚戒指，因為有時候看到它會讓她想起那悲傷……哦，可憐的人，她說話的樣子！她說話像個女教師，但她不像她最初看起來那麼可怕，莫迪！最近她來廚房喝咖啡了，就像你一直做的那樣，你知道她說了什麼嗎？『你介意我偷一下莫德斯塔的位置嗎，斯特拉？』但願她能脫掉那頂帽子！她為什麼總是戴著它？哦，你知道班布說什麼嗎？說她可能是禿頭！……哦，天哪！班布在等我！……我得走了……那麼，要我讓她上來嗎？」
+
+我已經絞盡腦汁好幾個星期，試圖找一個藉口讓她上樓來。現在斯特拉就要走了，而我竟然要錯過那個罕見的機會嗎？我抓緊被單，在門已經關上的時候幾乎喊了出來。
+
+「不，斯特拉，讓她上來吧。不然她會不高興的。」
+
+斯特拉有沒有聽到我的話？我來得及跑去浴室，至少刷刷牙、梳梳頭嗎？突然我意識到自己的狀態。斯特拉已經設法給我換了睡衣——是什麼時候？——但我看起來肯定糟透了。兩天睡覺，頭髮亂成一團，嘴裡那味道……
+
+她沒有敲門。或者她敲了，而我沒有聽到。她就在那裡，在門口，她的帽子像往常一樣戴著，她的表情和往常一樣嚴肅。但她的眼睛——那雙綠色的眼睛，我現在可以看到了，在房間更好的光線下——充滿了某種溫柔，某種我不習慣在別人眼中看到的東西。
+
+「我不想打擾你。斯特拉說你睡了兩天。你很累嗎？」
+
+「不。我是說，是的。但現在我醒了。進來吧。」
+
+她走進來，坐在我床邊的椅子上——一把我從來不用的扶手椅，上面堆滿了書。她把書移開了——小心翼翼地，彷彿它們是聖物——然後坐下來。
+
+「你在看《奧德賽》，」她說。「哪種翻譯？」
+
+「我不知道。很舊的。是我從這裡的一個英國人那裡得到的。」
+
+「我能看看嗎？」
+
+我把書遞給她。她翻著書頁，她的手指修長而敏感。我看著她，試圖讀懂她的表情。但她的臉像往常一樣是個謎。
+
+「這是一本美麗的書，」她說。「即使是一本糟糕的翻譯。你想讓我為你讀一段嗎？」
+
+「你會希臘語？」
+
+「一點點。足夠了。」
+
+她讀了大約兩行。這些詞語對我來說毫無意義，但她聲音的音樂讓我的眼睛充滿了淚水。我不明白為什麼。我從來不會因為詩歌而哭。
+
+「你哭了，」她說。
+
+「不，我沒有。」
+
+「有。沒關係的。我也哭過——很多次。」
+
+沉默在我們之間延續了好幾分鐘。然後她傾身靠近我。她的嘴唇碰了我的額頭——一個輕柔的、幾乎是母性的吻。但我的皮膚在燃燒，好像被烙鐵碰過一樣。
+
+「謝謝你，」她說。「為了回來。為了醒來。我開始想你永遠不會了。」
+
+「我只不過睡了兩天。」
+
+「是的。兩天。但有時，兩天就足夠改變一切了。」
+
+「你是什麼意思？」
+
+「我的意思是，也許我應該在來這裡之前告訴你更多關於我自己的事。但我沒有。我不知道為什麼。害怕，大概吧。」
+
+「像所有人一樣。」
+
+「是的。像所有人一樣。但現在——我明天就要走了。我必須去倫敦。有事務。但在走之前，我想告訴你一件事。」
+
+我等待著。
+
+「我從來沒有遇到過像你這樣的人。你的文字——它們找到了我，在我甚至不知道我需要它們的時候。你的生活——它在你的文字中燃燒。我讀了又讀，每一頁，每一個詞。我知道你所有的秘密，莫德斯塔。或者說大多數。」
+
+「我的秘密？」
+
+「是的。卡米。還有馬蒂亞。還有卡洛。還有——還有昨晚，我們在海裡的時候。」
+
+「那不是一個秘密。只是游泳。」
+
+「不僅僅是游泳。你知道的。」
+
+「也許吧。你想從我這裡得到什麼，喬伊斯？」
+
+「不要叫我喬伊斯。叫我喬伊。這是我的朋友們叫我的。」
+
+「你有朋友嗎？」
+
+「很少。你是其中之一——如果你願意的話。」
+
+「我不知道如何成為任何人的朋友。我從來不擅長那個。」
+
+「我也不擅長。這就是為什麼這可能行得通。」
+
+她站起來，再次親吻我的額頭。然後她走到窗邊，望著大海。
+
+「我會回來的，」她說。「一兩個月。如果你想要我回來的話。」
+
+「你會回來嗎？」
+
+她轉向我，那雙綠色的眼睛閃爍著。那頂帽子不知怎的歪到了一邊，讓她看起來年輕些了，不那麼令人生畏了。
+
+「是的，」她說。「我會回來的。事實上——我可能回來很多次。很多很多次。你會對此有問題嗎？」
+
+「為什麼我會有問題？」
+
+「我不知道。也許因為——也許因為我不是一個男人。而你習慣了男人。」
+
+「習慣了，是的。滿意嗎？不一定。」
+
+她笑了。一個真正的、響亮的笑聲，充滿了房間。
+
+「哦，莫德斯塔，」她說，「你真的非同尋常。」
+
+「這是我一直被告訴的。」
+
+「我相信。」
+
+在她離開之後——因為她必須離開，去趕她的火車——我躺在床上，凝視著天花板。睡意已經過去了。我的思緒在我的頭腦中飛奔，太快了，無法抓住。
+
+當她回來的時候——如果她回來——會發生什麼？我不知道。我從來不知道會發生什麼。這就是生活。這就是喜悅。你不知道，而你繼續往前走。你游泳。你寫作。你愛。你失去。你又愛上了。
+
+但有些事情不同了。我第一次感覺到，有一個人可能真正理解我——不是作為一個女人，不是作為一個公主，不是作為一個情人，甚至不是作為一個朋友。只是作為我：那個複雜的、矛盾的、不可能的我。
+
+這是愛嗎？我不知道。我不在乎。愛這個詞用得太多了。無論它是什麼，它都是新的。它是我的。
+
+而在窗外，大海一如既往地召喚著——永恆的，不變的，永遠在變化。明天，我會再次游泳。後天也一樣。而且之後的日子也一樣。因為這就是我所知道的。這就是我所是的。一個游泳者。一個作家。一個倖存者。
+
+一個快樂的女人——也許，終於是了。」</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>defy</b><span>违抗，挑战</span><em>defy an order</em></div>
+<div><b>regime</b><span>政权，统治体制</span><em>an authoritarian regime</em></div>
+<div><b>dissent</b><span>异议</span><em>voice dissent</em></div>
+<div><b>allegiance</b><span>忠诚，拥护</span><em>pledge allegiance</em></div>
+<div><b>propaganda</b><span>宣传</span><em>state propaganda</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch059.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch061.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

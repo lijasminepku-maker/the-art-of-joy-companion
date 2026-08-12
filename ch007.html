@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 7 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch006.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" selected>Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch008.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 7<span>修道院、教育与规训</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">convent 不只是宗教场所，也是教育、慈善和纪律机构。理解称谓背后的等级，比记住全部宗教词更重要。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">7 
+
+The cool air, smelling of sugared
+				almonds, made me fly through dim corridors, the darkness barely relieved by numerous
+				small whitewashed doors that were always kept closed. Behind them, no doubt, were
+				many small cubicles like mine which the swarm of tall, white-robed women sometimes
+				entered, and sometimes left, their swift, cautious tread so light that it was easier
+				to hear the rustle of their skirts than the sound of their footsteps. Those women
+				were always sighing. Maybe because they never spoke? Or because they didn’t
+				stroke themselves and never saw any men? How long had it been since I myself had
+				seen a man? There was the gardener, but talking to him was forbidden. Sometimes
+				another man came, but he wore a long skirt like the women did, though his was black.
+				I later learned that in addition to a host of women who laboured – as Mother Leonora
+				said – to spread the word of God on earth, there was also a host of men who, again
+				in Mother Leonora’s words, were mankind’s blessing. Afterwards I
+				realized that these men who wore skirts were the priests of whom my mother always
+				spoke so lovingly, the ones Tuzzu’s father hated, often calling them
+				‘filthy priests, fucking priests, asshole priests’. Such wicked words!
+				Mother Leonora had been right to scold me that time, but I had just arrived then and
+				didn’t know any better. What was it I had said? Oh, yes: ‘damn
+				it’. From that day on, I abandoned all those bad words without any regret. It
+				wasn’t easy – even though I tried to forget them, I couldn’t get them out of my head – but I devised a system, a
+				discipline, to use Mother Leonora’s word (such a beautiful word, though,
+				‘discipline’). Every time I felt them rising in my throat, I bit my
+				tongue. The pain made me forget them. I had no regrets. From Mother Leonora’s
+				tender, rosy lips – sometimes she let me touch them – I learned so many beautiful
+				new words that at first, listening closely so I could catch them all, my head would
+				spin and I felt breathless. Tomorrow morning, too, who knows how many I will
+				learn? … I must sleep, that way it will soon be light. And with the light,
+				in that room lined with cupboards as high as the ceiling, with windows so clean that
+				it seemed there was no glass, Mother Leonora would begin to speak, standing upright,
+				pointer in hand in front of those immense cupboards. Except that instead of cups and
+				plates and glasses, like in Mama’s cupboard, Mother Leonora’s shelves
+				were full of books. And those books were full of all those words and stories that
+				Mother Leonora taught me. I wonder if she’s read them all? 
+
+‘So many books, Mother! Have you
+				read them all?’ 
+
+‘What are you saying, you silly
+				little thing! I’ve studied, yes, I know some things, but I’m not a
+				learned scholar. Only the doctors of the Church hold all the world’s knowledge
+				in their hands.’ 
+
+‘I’m going to become a
+				scholar too!’ 
+
+‘What a silly creature you are!
+				What good would it do you, being a female? A woman can never attain the wisdom of a
+				man.’ 
+
+‘What about Saint Teresa
+				then?’ 
+
+‘But Saint Teresa, as the word
+				“saint” tells you, was one of God’s chosen, you silly little
+				thing! Be careful not to fall into the sin of conceit. It pleases me to see how much
+				you like to study and I certainly have to admit that your memory and determination
+				are uncommon. But be careful, because intelligence can lead you to fall into the
+				dark web of sin. Pray and embroider, besides studying! Embroider and pray.
+				Embroidery accustoms you to humility and obedience, which are the only sure defences
+				against sin. And while we’re on the subject: Sister Angelica has complained.
+				She says you’re not as attentive at the embroidery hoop as you are with me and
+				at the piano. She was very resentful about this apathy of yours. Try to make her happy in the future. Sister
+				Angelica knows much more about humility than we do, and only from her patient hands
+				can you learn it. I worry about your intelligence … you’re a
+				female … a woman … Sister Angelica …’ 
+
+When she spoke like that her voice rose
+				shrilly, almost like Mama’s voice. But it was pointless to contradict her; she
+				didn’t understand. How could I apply myself with Sister Angelica? She was so
+				homely that she almost reminded me of Tina. At the piano it was different. Sister
+				Teresa, though she was neither beautiful nor homely, spoke through her hands. She
+				made such sweet sounds come from the keyboard that it was like listening to Mother
+				Leonora’s voice … 
+
+‘Modesta! You weren’t
+				listening to me! You mustn’t let your mind wander like that when you are being
+				scolded. It’s a sign that the devil is flirting with you, making it hopeless
+				for us to try to straighten your young branches, which are inclined toward darkness
+				rather than the light. A child is a fragile plant that tends to be weak-willed and
+				playful. Only by securing it tightly with the cords of discipline can you make it
+				grow straight, its body and soul free of deformities. This distraction of yours is
+				indeed a sin. Go to the chapel after class and recite ten Hail Marys and ten Our
+				Fathers! That way you’ll learn to listen when you are scolded.’ 
+
+Sinfulness! The devil! She was truly
+				tiresome when she acted like that and even her face changed: it got withered and
+				twisted. That was why Modesta looked away, not to see her that way. She only wanted
+				to see her beautiful. 
+
+‘Modesta! What are you looking at?
+				Did you hear me?’ 
+
+‘I heard.’ 
+
+She had to be patient, and besides,
+				those awful words like ‘evil’, ‘hell’,
+				‘obedience’, ‘sin’, didn’t go on for long. She knew
+				how to put a stop to those protests: all she had to do was lower her eyes and start
+				crying. It was a bit taxing. But afterwards, Mother Leonora’s voice, composed
+				again and sweet as always, would once more start murmuring beautiful words, like
+				‘infinity’, ‘blue’, ‘gentle’,
+				‘celestial’, ‘magnolias’ … How beautiful the names
+				of flowers were: ‘geraniums’, ‘hydrangeas’,
+				‘jasmine’ … what marvellous sounds! Now once she wrote the
+				words down on the blank page, in black and
+				white, she would never lose them, never again forget them. They were hers, hers
+				alone. She had stolen them, stolen them from all those books, through Mother
+				Leonora’s mouth.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">7
+
+凉爽的空气，带着糖杏仁的香味，让我在昏暗的走廊里飞翔，黑暗被许多总是关着的白色小门勉强打破。门后无疑有很多像我一样的小隔间，那群高挑的、穿白袍的女人有时进去，有时出来，她们步履轻快而谨慎，轻得几乎听不到脚步声，只有裙子的窸窣声。那些女人总是在叹气。也许因为她们从不说话？还是因为她们不抚摸自己，也从未见过任何男人？我自己有多久没见过男人了？有一个园丁，但跟他说活是禁止的。有时另一个男人会来，但他像那些女人一样穿长裙，只是他的长裙是黑色的。我后来才知道，除了那群劳碌的女人——用莱奥诺拉嬷嬷的话说，她们在世上传播上帝之言——还有一群男人，同样是莱奥诺拉嬷嬷的话说，他们是人类的祝福。后来我明白了，这些穿裙子的男人就是我母亲总是那样深情地提起的神父，也是图祖的父亲所憎恨的人，他常叫他们&quot;肮脏的神父，操蛋的神父，狗娘养的神父&quot;。多么恶毒的话！莱奥诺拉嬷嬷那一次训斥我是对的，但我那时刚来，不懂事。我说的是什么来着？哦对：&quot;该死的&quot;。从那天起，我毫不后悔地抛弃了所有那些脏话。这并不容易——尽管我试着忘记它们，却无法把它们从脑子里赶出去——但我想出了一个办法，一套纪律，用莱奥诺拉嬷嬷的话说（多美的词啊，&quot;纪律&quot;）。每次我感觉那些话涌到喉咙口，我就咬自己的舌头。疼痛让我忘记它们。我毫不后悔。从莱奥诺拉嬷嬷那温柔红润的双唇——有时她让我抚摸它们——我学到了那么多漂亮的新词，起初为了全都记住而仔细倾听时，我的头会发晕，感到喘不过气来。明天早上，谁知道我还会学到多少呢？……我得睡了，这样天很快就亮了。天一亮，在那间天花板那么高的橱柜排满墙壁的房间里，窗户干净得好像没有玻璃一样，莱奥诺拉嬷嬷就会开始讲话，站在那些巨大的橱柜前，手里拿着教鞭。只不过莱奥诺拉嬷嬷的架子上不是妈妈橱柜里的杯子、盘子和玻璃杯，而是满满的书。那些书里满是莱奥诺拉嬷嬷教给我的词语和故事。不知道她是不是全都读过？
+
+&quot;这么多书啊，嬷嬷！您全都读过吗？&quot;
+
+&quot;你在说什么呢，你这个傻孩子！我学习过，是的，我知道一些东西，但我不是博学的学者。只有教会的博士才掌握世上所有的知识。&quot;
+
+&quot;我也要成为学者！&quot;
+
+&quot;你真是个傻孩子！你一个女子，这有什么用呢？一个女人永远达不到男人的智慧。&quot;
+
+&quot;那圣特蕾莎呢？&quot;
+
+&quot;但圣特蕾莎，正如&#x27;圣&#x27;这个字告诉你的，是上帝的选民，你这傻孩子！小心不要陷入骄傲之罪。看到你这么喜欢学习我很高兴，我确实不得不承认你的记忆力和决心非同寻常。但要小心，因为聪明会让你堕入罪恶的黑暗之网。除了学习，还要祈祷和刺绣！刺绣和祈祷。刺绣让你习惯于谦卑和顺从，这是抵御罪恶唯一可靠的防线。说到这个：安杰莉卡修女抱怨了。她说你在绣架前不像跟我在一起和弹钢琴时那么专心。她对你的这种冷漠非常不满。以后要尽量让她高兴。安杰莉卡修女比我们更懂得谦卑，只有从她那双耐心的手中你才能学会谦卑。我担心你的聪明……你是女子……女人……安杰莉卡修女……&quot;
+
+她那样说话时声音变得尖利，几乎像妈妈的声音。但反驳她是没用的；她不明白。我怎么能专心跟安杰莉卡修女学呢？她长得那么丑，几乎让我想起蒂娜。弹钢琴就不一样了。特蕾莎修女虽然既不美也不丑，却用双手说话。她从键盘上弹出那么甜美的声音，就像在听莱奥诺拉嬷嬷的声音……
+
+&quot;莫德斯塔！你没有在听我说话！你不能在受训诫时那样走神。这是魔鬼在引诱你的迹象，让我们无法纠正你那些倾向黑暗而非光明的幼枝。孩子是一棵脆弱的植物，容易意志薄弱又贪玩。只有用纪律的绳索紧紧捆住，才能让它笔直生长，身心没有畸形。你这样走神确实是一种罪过。课后去小教堂念十遍圣母经和十遍天主经！这样你就能学会在受训诫时聆听了。&quot;
+
+罪过！魔鬼！她那样的时候真的很烦人，连脸都变了：变得枯槁扭曲。所以莫德斯塔才转过目光，不想看到她那个样子。她只想看到她美丽的样子。
+
+&quot;莫德斯塔！你在看什么？你听见了吗？&quot;
+
+&quot;听见了。&quot;
+
+她得有耐心，再说，那些可怕的字眼像&quot;邪恶&quot;、&quot;地狱&quot;、&quot;顺从&quot;、&quot;罪过&quot;，不会持续太久。她知道如何制止那些抗议：只需垂下眼睛，开始哭泣。这有点费劲。但过后，莱奥诺拉嬷嬷的声音，重新变得平静如常、甜美如初，又会开始低语那些美丽的词语，像&quot;无限&quot;、&quot;蓝色&quot;、&quot;温柔&quot;、&quot;天国的&quot;、&quot;玉兰&quot;……花的名字多美啊：&quot;天竺葵&quot;、&quot;绣球花&quot;、&quot;茉莉花&quot;……多么奇妙的声音！现在，一旦她把那些词写在空白页上，白纸黑字，她就再也不会失去它们，再也不会忘记它们。它们是她的，只属于她。她偷了它们，从所有那些书里偷来的，通过莱奥诺拉嬷嬷的嘴。
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>convent</b><span>女修道院</span><em>life in a convent</em></div>
+<div><b>devotion</b><span>虔诚；投入</span><em>show devotion to</em></div>
+<div><b>confess</b><span>忏悔；坦白</span><em>confess a fear</em></div>
+<div><b>obedience</b><span>服从</span><em>demand obedience</em></div>
+<div><b>mercy</b><span>仁慈，宽恕</span><em>ask for mercy</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch006.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch008.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

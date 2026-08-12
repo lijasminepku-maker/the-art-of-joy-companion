@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 15 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch014.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" selected>Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch016.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 15<span>修道院、教育与规训</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">convent 不只是宗教场所，也是教育、慈善和纪律机构。理解称谓背后的等级，比记住全部宗教词更重要。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">15 
+
+No lightning struck my head while outside
+				the rain continued beating against the window panes. My naked body, flushed with
+				pleasure, felt it falling faintly. A gentle April rain between my breasts, hips wide
+				open to welcome spring&#x27;s freshness. I had rediscovered my body. During those
+				months of exile, locked up in that armour of despair, I had stopped stroking myself.
+				Blinded by terror, I had forgotten that I had breasts, a belly, legs. So sorrow,
+				humiliation and fear were not, as they said, a source of purification and beatitude.
+				They were slimy thieves that took advantage of sleep to creep to your bedside in the
+				night and rob you of the joy of being alive. Those women didn&#x27;t make a sound
+				when they passed you or went in and out of their cells: they had no body. I
+				didn&#x27;t want to become insubstantial like them. And now that I had rediscovered
+				the intensity of my pleasure, I would never again surrender to the renunciation and
+				humiliation that they preached so much. I had those words to fight back with. And my
+				physical exercise – that&#x27;s how I thought of it now. In the chapel, a rosary
+				between my fingers, I kept repeating: I hate . Bent over the embroidery
+				frame under Sister Angelica&#x27;s dull gaze, I said over and over again: I
+					hate . At night before going to sleep: I hate . From that day on,
+				this was my new prayer. 
+
+Along with praying, I studied. I
+				searched for the meaning of those words in books. But other than God&#x27;s wrath
+				and Lucifer&#x27;s envy, I didn&#x27;t find anything. Maybe all those people who
+				hated the Church had different books.
+				Mimmo had talked about them with respect and fear: &#x27;I don&#x27;t agree with
+				them, but I have to admit that since Giovanni made contact with those people, he
+				seems like a different man: confident, forceful …&#x27; 
+
+So they, too, were people, not
+				devils. And for them hatred was the source of such strength. As it also was for me.
+				That word, that exercise, became a balm of strength. I felt stronger. And since form
+				always accompanies substance, I began to find that along with strength, my body was
+				growing. Legs, arms, shoulders were becoming more robust, shapely! But my waist was
+				getting thicker and thicker. I found a piece of glass and looked at myself:
+				What a sight! My breasts were swelling like balloons! I tried to press them down as
+				usual with the binding strips that the sisters used for this purpose, but they
+				overflowed from the bands. That sight frightened me: my body had not only
+				rediscovered its joy in living, but was reproducing it. 
+
+Mother Leonora confirmed my worst fears.
+				One morning, seeing me at the back of the chapel, which I tried to reach as late as
+				possible, she called me to her with a gesture. The more time passed, the more Mother
+				Leonora seemed weak and pallid. Yet her face had regained its softness and the voice
+				that said, &#x27;Come, sit here beside me, my daughter,&#x27; was her voice of long
+				ago. Maybe she had been sick with grief, I thought, and now she&#x27;s recovering.
+				I was happy about it, obviously. But would this new state of hers last? Had the
+				hatred perhaps been a wasteful, useless exercise? 
+
+&#x27;What are you thinking about with
+				your head bowed like that? Don&#x27;t you like to sit beside
+				me?&#x27; 
+
+&#x27;Oh yes, Mother, very much,&#x27; I
+				answered immediately, &#x27;but I don&#x27;t deserve it, and my unworthiness
+				mortifies me.&#x27; Damn! How easily that word mortify slipped out. But
+				Mother Leonora didn&#x27;t seem to notice. 
+
+&#x27;What&#x27;s important is that you
+				recognize it, daughter. And do you know why it&#x27;s important?&#x27; 
+
+Without waiting for my answer,
+				she went on: &#x27;Because whoever knows her own worthlessness no longer depends on
+				her own judgement but only on the judgement of those who, knowing her faults, still
+				continue to love her. For this reason alone, modesty is the greatest of the
+				virtues. But you are no longer that bold, haughty child who made gestures of
+				bravado at everyone all the time. Now you are a woman. Modesta, and a woman only has
+				value to the degree that she knows how to submit.&#x27; 
+
+This wasn&#x27;t good. What could I say?
+				Nothing. Better to stay quiet and just raise my head and look at her with an air
+				that was at once attentive and submissive. It seemed the right answer, because her
+				voice took on the tone of a confidence shared. 
+
+&#x27;You should know, Modesta, that I
+				am ill. I am very ill, and my days are numbered.
+				But don&#x27;t cry! It&#x27;s as God wills. I myself have asked Him over and over
+				again to shorten my time on this earth, to spare it for you – so you might grow up
+				and mature here, in this house, far from the perils of the world. But it&#x27;s
+				God&#x27;s will to call me to Him, and my last days on this earth must be spent in
+				peace, so that I may present myself to the Lord purged of all earthly concerns. You
+				can help me to die in peace, Modesta, if you will promise me – but listen,
+				without crying like that! – you must promise me that when I am no longer here, you
+				will abide by my advice and entrust yourself to Sister Costanza. She loves you and
+				will guide you on the path that leads to God. Promise me, Modesta.&#x27; 
+
+But I went on crying, my face in my
+				hands. I could hardly breathe. Was it joy, sorrow, or terror? It was terror. I was
+				terrified at that &#x27;when I am no longer here&#x27;, at the thought that I, who
+				was barely fourteen, would have to remain alone in that convent with Sister
+				Costanza. Someone was shaking my shoulder. I lifted my head, it was she. She had
+				gotten up from her stall and was standing in front of me. I hadn&#x27;t noticed,
+				and seeing her there, upright before me, seemed like a miracle. Maybe she
+				wasn&#x27;t dying after all. But her face had regained that stiff, alarming
+				expression that threw me back in time. 
+
+&#x27;Now stop it, Modesta. Look at me
+				and listen. My illness is such that our doctor gives me no more than five or six
+				years. And God, in His wisdom, could even grant me more. So you see, you
+				shouldn&#x27;t have gotten upset like that! Now listen to me: you have a small
+				annuity that – don&#x27;t interrupt me by telling me you didn&#x27;t know it – an
+				annuity from the late baroness, my sister, but it is
+				administered by me and by me alone. You will continue to benefit from this only as
+				long as you remain in the convent, which must become your true home. You should also
+				know that my entire trousseau as
+				Christ&#x27;s bride will go to you when I die. A costly trousseau, which fits you
+				perfectly, as though it were a sign from God. When I was your age, I was the same
+				size as you.&#x27; 
+
+Did you hear that? There&#x27;s
+				more: 
+
+&#x27;Don&#x27;t be frightened,
+				Modesta. You&#x27;re frightened because you don&#x27;t yet know the blissful
+				sweetness of renunciation and humility. Your youthful fibre is still too full of
+				animal vitality, of physical well-being.
+				In fact, I spoke to Sister Costanza about it. We would like you, please, to decrease
+				your food intake, at least in the evening. By now you are all grown up and healthy.
+				Any denial at the table can only help you pray. Starting tomorrow, your supper will
+				be bread and milk like the lay sisters. But, as I said, don&#x27;t be frightened. I
+				won&#x27;t force you, and to prove it to you, I would like you to read a copy of my
+				will. The original has been entrusted to a notary in Modica, for
+				safekeeping … You see? It says that you will receive this annuity even if
+				God does not grant you the grace to become part of His ranks. And so sincere is my
+				desire to do nothing but honour your wishes that, here, attached to the will, is a
+				document signed by the doctor confirming that you lost your virginity due to
+				causes … but never mind. I don&#x27;t want to remind you of all those
+				terrible things, that infernal suffering. The important thing is that if after my
+				death you would prefer to re-enter the world, this document will be of help to you,
+				since you must know that no man will wed a girl unless he is assured of her physical
+				and moral integrity.&#x27; 
+
+And on and on for days, for months.
+				Here&#x27;s more, even if you no longer care to listen: 
+
+&#x27;Don&#x27;t be afraid, these
+				documents are proof that I do not wish to force you to do anything, and that,
+				whether I am dead or alive, you will only take your vows when and if you are ready.
+				But I also know that God will not call me to Him before I have carried out this
+				charge. Perhaps all my suffering had only this as its purpose: to lead you to
+				Him.&#x27; 
+
+Whether because of this steady stream
+				day after day, or the supper of bread and milk that made me wake up hungry and
+				tired, the effect of that hatred deserted me. The doctor had given her five or six
+				years, at least. And what if the illness that was buoying her up was so powerful
+				that it might actually sustain her until she completed her mission? Oh, no! That was
+				too many years, even if I had achieved the power of hate and the cunning of
+				prudence. Indeed, it was precisely because of these achievements that I now
+				recognized the fragility of my nature and all natures. I was afraid I would not be
+				able to keep up the lie for such a long time. No! Even just five or six years were too many. I
+				either had to run away from here or be fortunate enough to have her God call her
+				back to His eternal side as soon as possible.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">15
+
+没有闪电击中我的头，外面的雨继续敲打着窗玻璃。我赤裸的身体因欢愉而潮红，隐约感受着雨的飘落。一场温存的四月细雨落在双乳之间，髋部敞开迎接春天的清新。我重新发现了自己的身体。在被放逐的那几个月里，囚于绝望的铠甲之中，我停止了抚摸自己。恐惧蒙蔽了双眼，我竟忘记了自己有乳房、肚子、双腿。原来悲伤、羞辱与恐惧并非如她们所言是净化与至福之源。它们不过是黏滑的窃贼，趁你熟睡时在夜里爬至床畔，窃走你活着的喜悦。那些女人经过你身旁或进出静室时不发出任何声响：她们没有身体。我不愿变得如她们一般虚无缥缈。如今我既已重新发现欢愉的强度，便永不再屈服于她们所频频宣扬的弃绝与羞辱。我有了那些词语来反击。还有我的身体锻炼——如今我这般看待它。在小堂里，手指间捻着念珠，我不停默念：我恨。俯身刺绣架前，在安杰莉卡修女呆滞的目光下，我一遍遍念着：我恨。夜晚入睡前：我恨。从那天起，这便是我的新祷词。
+
+祈祷之余，我研读。我在书中寻找那些词语的含义。但除了上帝的愤怒与路西法的嫉妒，我一无所获。也许所有那些憎恨教会的人有不同的书。米莫曾以敬畏之心谈起他们：&quot;我不同意他们，但我不得不承认，自从乔瓦尼与那些人接触后，他仿佛变了个人：自信、有力……&quot;
+
+那么他们也是人，而非魔鬼。于他们而言，仇恨是力量的源泉。于我也是如此。那个词、那项锻炼，成了力量的香膏。我感到自己更强了。既然形式总是伴随着内容，我开始发现随着力量增长，我的身体也在生长。双腿、手臂、肩膀愈发结实、匀称！但我的腰肢也越来越粗。我找了一片玻璃片端详自己：多么壮观！我的乳房像气球般膨胀！我试着像往常那样用修女们为此备下的束胸带压住它们，但它们从带子中溢了出来。那景象令我恐惧：我的身体不仅重新发现了生的喜悦，而且正在复制这喜悦。
+
+莱奥诺拉院长证实了我最坏的恐惧。一天早晨，见我在小堂最后排——我尽量拖到最晚才到——她打个手势唤我过去。时光流逝，莱奥诺拉院长愈发显得虚弱苍白。然而她的面容重获了温柔，那声音——&quot;来，坐我身边，我的女儿&quot;——是她久违的声音。或许她因悲伤而病倒，我暗想，如今正在康复。我自然为此高兴。但她这新的状态能持久吗？仇恨或许不过是一场浪费而无用的练习？
+
+&quot;你低着头在想什么？不愿坐我身边吗？&quot;
+
+&quot;哦不，院长，非常愿意，&quot;我立即答道，&quot;但我不配，我的不配令我羞愧。&quot;该死！&quot;羞愧&quot;这个词怎么如此轻易就溜出口。但莱奥诺拉院长似乎并未留意。
+
+&quot;重要的是你认识到这一点，女儿。你知道为何重要吗？&quot;
+
+不等我回答，她继续道：&quot;因为认识自己毫无价值的人，便不再依赖自己的判断，而只依赖那些明知她缺点却仍继续爱她之人的判断。仅此一点，谦逊便是诸德之首。但你已不再是那个大胆傲慢、动辄对所有人逞能的孩子。如今你是一个女人了，莫黛斯塔，而一个女人的价值，仅在于她懂得顺从。&quot;
+
+这可不妙。我能说什么？无话可说。最好保持沉默，只需抬起头，以一种既专注又顺从的神态望着她。这似乎是对的回应，因为她的声音带上了一种推心置腹的语气。
+
+&quot;你该知道，莫黛斯塔，我病了。我病得很重，时日无多了。但别哭！这是上帝的旨意。我自己也一再请求祂缩短我在世上的时日，将这时间留给你——好让你在这屋宇中长大成熟，远离世俗的险恶。但上帝的旨意是召我去祂身边，而我在这世上的最后日子必须在平安中度过，好让我涤除一切尘世牵挂，坦然面见主。你可以帮我安然离世，莫黛斯塔，只要你答应我——但听着，别这样哭了！——你必须答应我，当我不在时，你将遵从我的劝告，将自己托付给科斯坦扎修女。她爱你，将引导你走上通往上帝之路。答应我，莫黛斯塔。&quot;
+
+但我继续哭着，双手掩面。我几乎无法呼吸。是喜悦、悲伤，还是恐惧？是恐惧。我害怕那个&quot;当我不在时&quot;，害怕想到年仅十四岁的我将独自留在修道院中，与科斯坦扎修女相伴。有人摇我的肩膀。我抬起头，是她。她从座位上起身，站在我面前。我没有注意到，看见她直直地立在面前，仿佛是个奇迹。也许她毕竟不是垂死之人。但她的面容恢复了那种僵硬、令人警觉的表情，将我猛然掷回往昔。
+
+&quot;好了，莫黛斯塔。看着我，听着。我的病，据我们医生说最多还有五六年。而上帝以祂的智慧，甚至可能予我更多时日。所以你瞧，你不该如此激动！现在听我说：你有一小笔年金——别打断我，说你还不知道——一笔年金，来自我已故的姐姐，即那位男爵夫人，但这笔年金由我、且仅由我管理。你只有留在修道院中才能继续享有它，这修道院必须成为你真正的家。你还应知道，我作为基督新娘的全部嫁妆，我去世时都将归你。一套价值不菲的嫁妆，完全合你身量，仿佛是来自上帝的征兆。我在你这个年纪时，身材与你一般。&quot;
+
+你听到了吗？还有更多：
+
+&quot;别害怕，莫黛斯塔。你害怕是因为你还不知弃绝与谦卑的至福甘甜。你年轻的血气仍充满太多动物的活力与肉身的安乐。事实上，我与科斯坦扎修女谈过此事。我们希望你能减少进食，至少晚间如此。如今你已长大成人，身体健康。餐桌上的任何克制只会助你祈祷。从明日起，你的晚餐将与世俗修女一样，只有面包和牛奶。但，如我所说，别害怕。我不会强迫你，为证明这点，我想请你读一份我的遗嘱副本。原件已委托莫迪卡的一位公证人保管……看到了吗？上面写明，即便上帝不赐你恩典成为祂队伍中的一员，你仍将获得这笔年金。而我除尊重你的意愿外别无所求之心如此真诚，因此，在遗嘱上附有一份由医生签署的文件，证明你失去童贞乃是由于……罢了。我不想提醒你那些可怕的事，那地狱般的痛苦。重要的是，若我去世后你宁愿重返世俗，这份文件将对你有帮助，因为你必须知道，没有一个男人愿意娶一个姑娘，除非他确信她的身体与道德之完整。&quot;
+
+如此日复一日，月复一月。还有更多，哪怕你已无心再听：
+
+&quot;别怕，这些文件证明我不愿强迫你做任何事，且无论我活着还是死去，你只在你准备妥当、且唯有当你准备妥当时才会宣誓。但我也知道，在完成这项使命之前，上帝不会召我去祂身边。或许我所遭受的一切苦难，其唯一目的便是如此：引领你走向祂。&quot;
+
+不知是因这日复一日的绵绵细语，还是那让我饿着醒来、疲惫不堪的面包牛奶晚餐，仇恨的效应弃我而去。医生给她至少五六年的时间。而倘若那支撑着她的病症如此强大，竟能让她维持到完成使命呢？哦，不！那太多年了，即便我已然获得了仇恨的力量与审慎的机巧。事实上，正是由于这些成就，我如今才认识到自己天性与一切天性的脆弱。我害怕自己无法在如此漫长的时间里维持这谎言。不！哪怕只是五六年也太久了。我要么逃离此地，要么幸运地让她那位上帝尽快将她召回到祂永恒的身边。</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>confess</b><span>忏悔；坦白</span><em>confess a fear</em></div>
+<div><b>obedience</b><span>服从</span><em>demand obedience</em></div>
+<div><b>mercy</b><span>仁慈，宽恕</span><em>ask for mercy</em></div>
+<div><b>stern</b><span>严厉的</span><em>a stern voice</em></div>
+<div><b>convent</b><span>女修道院</span><em>life in a convent</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch014.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch016.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

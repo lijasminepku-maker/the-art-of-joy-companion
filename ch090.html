@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 90 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch089.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" selected>Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch091.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 90<span>解放后、政治与记忆</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1943 年政权垮台、1945 年解放后，重建并不等于问题消失。战后左翼政党、工会、家庭代际冲突与政治幻灭共同构成新的环境。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">90 
+
+‘What do you plan to do,
+				Mama?’ 
+
+‘Enjoy the sunshine, can’t
+				you see? I feel like I’ve been away from this sun for a hundred
+				years!’ 
+
+‘Do you think it’s fair to
+				keep me in the dark? Make me look bad?’ 
+
+‘Bad how, Prando?’ 
+
+‘Like a fool, down in Catania and
+				in Rome. Is it possible that I always have to hear about things from other people,
+				from strangers?’ 
+
+‘Did Lucio phone you?’ 
+
+‘He was desperate! You left
+				without even calling him, and he wanted to know from your know-nothing, idiot of a
+				son if it’s true that you intend to drop everything.’ 
+
+‘Nonsense, Prando; an excuse to
+				call you. I cancelled all my engagements properly. I spent an additional week in
+				Rome, in that bogus peace, to call off all my commitments. A nightmarish week!
+				Gilded clouds, celebrations! And to make matters worse, Via Veneto, with those
+				“happy few” who feign a grim cheerfulness when they meet one
+				another.’ 
+
+‘Never mind Rome! Why won’t
+				you answer me? What’s the story about the article?’ 
+
+‘Why are you bothering to ask,
+				Prando, when you know everything?’ 
+
+‘All because of ten lines in an
+				article!’ 
+
+‘For that matter, twelve lines and
+				a title. And even if it were only one
+				line, I don’t accept censorship of any kind. You people are young, but for me
+				twenty years was enough. I feel all censored out, as Nina would say.’ 
+
+‘Nina this, Nina that! Forget
+				about her! It’s she and that spineless existentialist Libero who gave you a
+				swollen head.’ 
+
+‘I can tell you that Libero is one
+				of the few genuine Marxists I met in Rome.’ 
+
+‘A beaten individualist,
+				that’s what he is!’ 
+
+‘Naturally, compared to your
+				absolute triumphalism. Drop it, Prando; I’m tired of controversy. Who would
+				have said that after only four years – imagine! – I’d have to agree with that
+				warped Jesuit, Sartre!’ 113 
+
+‘What does Sartre have to do with
+				it?’ 
+
+‘It’s related, listen. In
+				Milan, in 1946, I think, it was summer and everyone was suffocating … such
+				heat in that sunless northern city, you wouldn’t believe it!’ 
+
+‘Spare me the poetic descriptions,
+				Mama!’ 
+
+‘I’ll spare you. Sartre said
+				that a little angst wouldn’t hurt against your triumphalism, and he attracted
+				all the young people to him.’ 
+
+‘All the spineless young people
+				you know! I know other young people, like me …’ 
+
+‘You, Prando, young? You’re
+				as old as the power of this island, and you’re handsome too, like its ancient
+				beauty. I like looking at you. You remind me of an old man, as wise as the sea and
+				as calm as the Mountain, who enchanted me as a little girl.’ 
+
+‘If one could talk rationally with
+				you women. Judas Priest!’ 
+
+‘I talk rationally, Prando, if you
+				speak to me clearly and don’t beat around the bush like you’ve been
+				doing for an hour. What is it you want? Spit it out.’ 
+
+‘Lucio wants to …’ 
+
+‘Marry me, you mean?’ 
+
+‘Because he’s a man of
+				honour.’ 
+
+‘A man of order, you
+				mean?’ 
+
+‘What is it you don’t like
+				about Lucio?’ 
+
+‘A small detail that today is no
+				longer in fashion: I’m not in love with him, my darling Prando.’ 
+
+‘In love!
+				Haven’t the years, experience taught you anything? Yet they say you’re
+				supposed to grow calmer with age.’ 
+
+‘That’s what they told me
+				too.’ 
+
+‘Aren’t we enough for you?
+				Me, your shitty Jacopo, Carluzzu, Bambù? All the women envy you. Carluzzu wants no
+				one but you. He’s always pestering me! Amalia is dying of jealousy because she
+				can’t win over Carluzzu, no matter what.’ 
+
+‘She’ll get over it, Prando.
+				As soon as your little bride has her baby – I’m certain it’s another boy
+				– she’ll calm down, you’ll see. Amalia is sweet. She just needs to have
+				a child of her own.’ 
+
+‘I don’t give a damn about
+				Amalia. I want to know what you’ve decided.’ 
+
+‘Decided? About what?’ 
+
+‘Lucio is going to call tomorrow.
+				What the hell should I say to him, do you mind telling me?’ 
+
+‘That he should phone me.
+				I’ll see to Lucio.’ 
+
+‘Look, if you don’t marry
+				him, you’re coming to live with me in Catania.’ 
+
+‘And why should I do
+				that?’ 
+
+‘Why, she says! Villa Suvarita has
+				been sold, right? In three months you have to leave. Where do you intend to go? You
+				don’t have a red cent, Mama, can you get it through your head?’ 
+
+‘You really want to put me out to
+				pasture, right, Prando? That’s how it is: an old man wants to force you to be
+				eternally young and a young man wants to see you old before your time, out of his
+				way.’ 
+
+‘What are you talking about?
+				Everyone adores you!’ 
+
+‘Exactly. You pamper a child, you
+				adore the old man in a corner. You tempt me, Prando! To grow old among books, my
+				grandchildren, taking pride in your beauty and strength. You’re successful in
+				court, right! Not like Lucio or Libero!’ 
+
+‘Don’t say that
+				name!’ 
+
+‘Why not surrender to the sublime
+				love a son can give you? I could lord it over your meek Amalia and when your baby is
+				born, effortlessly steal him away from her like I did with Carluzzu.’ 
+
+‘You’re crazy, Mama,
+				crazy!’ 
+
+‘Of course, and like all crazy
+				people I’ll repeat what I told you many years ago: just as I did not tolerate being pressured by my elders, so I will
+				never stand for being pressured by you young people. Now go away. I’m going
+				back inside. I need a nice hot bath! It’s incredible, but I will never cease
+				to be amazed at how by effortlessly turning a small tap with two fingers, you can
+				have streams of hot water ready and waiting for you. Do you know that at one time
+				you had to heat water and fill tiny little tubs? That’s if there was any
+				water! Awful times, Prando! The smell of sweat, bedbugs, itching.’ 
+
+‘Oh no, Mama!’ 
+
+‘No, what?’ 
+
+‘No, I know you! When you start
+				digressing, it means you have a specific idea in mind, and I’m not moving
+				until you give me an answer. Judas Priest! I can’t stand this constant
+				worrying! What do you plan to do?’ 
+
+‘Take a hot bath, Prando. I told
+				you.’ 
+
+‘What now? Are you smoking,
+				too?’ 
+
+‘Well yes, to make up
+				for …’ 
+
+‘Make up for what? That’s
+				all we needed, a cigarette in her mouth …’ 
+
+‘I started smoking the morning
+				they arrested me and I loved it! Then I realized that it was better not to continue.
+				And it was just as well, because in prison and on the island it would have been an
+				added torment. Now here on the big island with these Americans we have plenty of
+				cigarettes … a cigarette lets you dream and keeps you company.’ 
+
+‘But it’s not good for
+				you!’ 
+
+‘When I feel it’s harming
+				me, I’ll quit. Nina is right: acquiring and breaking habits, that’s how
+				we should live. All right, I see you won’t desist. “ The wife would
+					not desist. ” Such amusing language you lawyers use! And to think you
+				got your degree on a whim.’ 
+
+‘Well, I had to do
+				something!’ 
+
+‘Yet you’re content and
+				proud of your profession. It shows. That’s the beauty of life. The best things
+				can come to you out of the darkest corner where you never thought to look. So then,
+				dear son, will you let me take my bath or not?’ 
+
+‘I’m not letting go of you,
+				Mama.’ 
+
+‘Fine, let’s go in
+				then … Oh, look, Mattia’s here! Come on now, let go of my arm. Will you let me
+				welcome him or not? Mattia, you’re back at last! Give me a hug! I
+				haven’t seen you in a year, you old man! It’s hard to hear ’sta camurria di parola , 114 that horror of a word, isn’t it?
+				Who would have said we’d grow old together!’ 
+
+‘I knew we would,
+				Mody … Hello, Prando … Is it true you’re staying here with
+				us, Mody? Nina told me, and I can’t tell you how happy this makes me. Is it
+				true?’ 
+
+‘Of course! And you, are you done
+				travelling?’ 
+
+‘Yes, everything is settled. I
+				sold all those frozen houses … Bambù is right: not much money, but liquid,
+				to use for seed, fertilizer and machinery. We’re better off bolstering what
+				little land we have. I was a little reluctant because of the girls. But Bambù is
+				right: they’ll make their own life. Fortunately, this at least has changed:
+				having two daughters is no longer as worrisome as it was before.’ 
+
+‘That much at least,
+				Mattia! … How nice the shade is! Beatrice had that wisteria planted. The
+				building foreman didn’t want to. He said that over time the roots, voracious
+				as beasts, would eat away the walls of the terrace and the house, but Beatrice kept
+				telling him: “This house will live even longer than we will, and I want a
+				plant that will get out of the way like a theatre curtain in winter, and in summer
+				will give me shade: a violet and green canopy.” You won’t believe me,
+				but Beatrice’s eyes were violet in the summer … Thank you, Nina; by
+				now you make tea just like Beatrice did.’ 
+
+‘Well, by associating with the
+				rich you grow refined and decadent. But how sweet this decadence is!’ 
+
+‘How come you’re still here?
+				I thought you’d gone to the shop.’ 
+
+‘It’s Sunday, Mody! Shit, I
+				can tell you’ve never worked!’ 
+
+‘True. You’ll teach me all
+				about it, won’t you, Nina?’ 
+
+‘Teach you what, Mama?
+				You’re exasperating! Do you mind telling me what you two have
+				concocted?’ 
+
+‘What do you say, Mody, shall we
+				tell him? Your mother is opening a shop next door to mine, and since she knows more
+				about books than yarns, it’s a bookshop!’ 
+
+‘I want to create a bookshop that
+				is also a gathering place, like the one in Rome on Via Veneto. A few select books
+				and someone you can ask for recommendations. At least my reading will be put to some
+				use.’ 
+
+‘You,
+				behind a counter? Not on your life!’ 
+
+‘What’s wrong with it,
+				Prando? I told you, Nina: we would have been better off not saying anything to
+				him.’ 
+
+‘You, a Brandiforti, working as a
+				shopkeeper?’ 
+
+‘You know, Mattia, sometimes I
+				really feel like creating a domestic revolution and saying what should be said to
+				this caruso .’ 
+
+‘Drop it, Prando. Leave your
+				mother alone! She knows what she wants to do.’ 
+
+‘You always side together, you
+				two! But what need is there to work? I earn well, Bambolina is wealthy. With the
+				proceeds …’ 
+
+‘No, Prando! The proceeds from the
+				sale of this villa have already been invested in books and in the small shop
+				adjacent to Nina’s.’ 
+
+‘And where will you
+				live?’ 
+
+‘I’ve paid the Brunos a
+				deposit. I’ll live above the shop.’ 
+
+‘In that rats’ nest? In that
+				shady neighbourhood? Are you crazy?’ 
+
+‘Nina lives there, doesn’t
+				she? And if she’s there …’ 
+
+‘Nina, always Nina! I won’t
+				allow it. Never! I’ll never consent to seeing you behind a counter!’ 
+
+‘I have to earn a living, and in
+				the least unpleasant way. At a guess, we’ll have roughly twenty years of white
+					Fascism.’ 115 
+
+‘What are you talking about? The
+				gradual revolution …’ 
+
+‘The reformist shambles, you mean?
+				Like the joke about agrarian reform, right, Mattia?’ 
+
+‘I don’t know much about
+				politics, Prando, but it’s true that agrarian reform was all smoke and
+				mirrors, a sop: a few feet of stony ground improperly allocated and no money for
+				seed or machinery. So to cultivate those few feet of soil, farmers went into debt.
+				They fell into the hands of loan sharks everywhere, and already the young people are
+				leaving the land.’ 
+
+‘You’re all crazy, Mattia!
+				What can you expect overnight? I’ve had enough. You with the land, this one
+				with the women’s issue!’ 
+
+‘All right, Prando, I’ve
+				told you before and I’ll say it again: I want to be independent from men like
+				Lucio. And watch out, because at this rate when women realize how you leftist men
+				smile smugly and paternalistically at what they say, when your Amalia realizes she
+				isn’t being heard and that she’s wearing herself out doing two jobs, at the stove and in the laboratory –
+				how come you never speak to me about Amalia’s work, huh? why do I only hear
+				how sweet, or pretty or jealous she is? – when they realize all this, their
+				vengeance will be awesome, Prando, like in America. They will turn their backs on
+				you and …’ 
+
+‘That’s enough!’ 
+
+‘Exactly! I don’t want to
+				hate you. I love men like Jacopo, Mattia …’ 
+
+‘Sappy fools, Mama!’ 
+
+‘Careful, Prando! Because I might
+				break your neck if you say that again.’ 
+
+‘Calm down, Mattia. Don’t
+				take offence. It’s not his fault; he grew up in the Duce’s breeding
+				ground.’ 
+
+‘You’ll never see me again,
+				Mama. One more word and you’ll never see me again!’ 
+
+‘It was to be expected, Prando.
+				The last time, too, our brothers, our children deserted us. It’s a time for
+				big decisions. Think about it. I’ve made mine … What did your
+					Malatesta 116 do when Fascism arose, Nina? And he was seventy-one years old. I’m a young
+				girl by comparison.’ 
+
+‘He went back to his work as an
+				electrician in a small shop in San Lorenzo.’ 
+
+‘There you are. I’ll take
+				advantage of it to read Bakunin and so many others. What did your Arminio rightly
+				say, Nina?’ 
+
+‘He said that a Leninist
+				doesn’t read out of self-censorship. It’s incredible, but that’s
+				how it is!’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">九十
+
+&quot;你打算做什么，妈妈？&quot;
+
+&quot;享受阳光，你看不到吗？我觉得我好像远离这太阳有一百年了！&quot;
+
+&quot;你觉得瞒着我公平吗？让我难堪？&quot;
+
+&quot;怎么难堪了，普兰多？&quot;
+
+&quot;像个傻瓜，在卡塔尼亚，在罗马。我怎么可能总从别人口中、从陌生人那里听说你的事？&quot;
+
+&quot;是卢西奥给你打电话了？&quot;
+
+&quot;他绝望了！你走时甚至没给他打电话，他想从你那什么都不知道的白痴儿子这里打听，你是不是真打算放弃一切。&quot;
+
+&quot;胡说，普兰多；一个给你打电话的借口罢了。我适当地取消了所有约定。我在罗马多待了一星期，在那虚假的和平里，一个个取消我所有的承诺。噩梦般的一周！镀金的云彩，庆祝活动！更糟的是，威尼托大道上那些&#x27;幸运少数&#x27;，他们相遇时假装露出一种狰狞的快乐。&quot;
+
+&quot;别管罗马了！你为什么不回答我？关于那篇文章是怎么回事？&quot;
+
+&quot;既然你什么都知道，还来问我，普兰多？&quot;
+
+&quot;全都因为一篇文章里的十行字！&quot;
+
+&quot;事实上，是十二行字和一个标题。即使只有一行字，我也不接受任何形式的审查。你们年轻，但我，二十年足够了。我觉得受够了审查，就像尼娜会说的那样。&quot;
+
+&quot;尼娜这个，尼娜那个！忘了她吧！是她和那个没骨气的存在主义者利贝罗给你灌了迷魂汤。&quot;
+
+&quot;我可以告诉你，利贝罗是我在罗马遇到的少数几个真正的马克思主义者之一。&quot;
+
+&quot;一个被击败的个人主义者，这就是他！&quot;
+
+&quot;自然了，比起你绝对的必胜主义。别说了，普兰多；我厌倦了争论。谁能想到仅仅四年之后——想象一下！——我就会被指责为异端？我，一个即使对共产主义者也一直显得太模糊不清的人。现在却被指责为异端。&quot;
+
+&quot;那是因为你拒绝加入党派。你以为你能永远两头下注吗？&quot;
+
+&quot;我没有两头下注。我只是拒绝把自己的思想交给任何人。不是交给他们，不是交给党派，不是交给你。&quot;
+
+普兰多沉默了。潮水在涨，遮盖住了先知的胡须。远处，有人在唱歌。岛上总有人在唱歌。&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>reconcile</b><span>和解；调和</span><em>reconcile with</em></div>
+<div><b>rebuild</b><span>重建</span><em>rebuild a life</em></div>
+<div><b>disillusionment</b><span>幻灭</span><em>political disillusionment</em></div>
+<div><b>compromise</b><span>妥协</span><em>reach a compromise</em></div>
+<div><b>solidarity</b><span>团结</span><em>act in solidarity</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch089.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch091.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

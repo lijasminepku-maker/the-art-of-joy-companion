@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 2 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch001.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" selected>Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch003.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 2<span>西西里乡村与童年</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1900 年前后的西西里：贫困、佃农关系与父权家庭塑造了一个孩子可拥有的选择。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">2 
+
+The light makes my eyes burn. Whenever I
+				leave the room, the light always burns my eyes; when I go inside though, the
+				darkness blinds me. The heat has let up and the mountains have turned black as
+				Mama’s hair again. The mountains always turn black as her hair when the heat
+				lets up, but when the heat intensifies they turn blue, like the Sunday dress that
+				Mama is sewing for Tina. Dresses for her all the time, and ribbons too! Even white
+				shoes, she bought her. For me, nothing. ‘You have your health, figlia
+					mia , my dresses are good enough for you if I shorten them. What do you need
+				dresses for, when you have your health? Give thanks to God, instead of complaining,
+				give thanks to God!’ She’s always talking about this God, but if you ask
+				her to explain, not a word: ‘Pray to Him to protect you and that’s that!
+				What else do you want to know? Pray to Him, that’s all.’ 
+
+The heat has really lessened and the air
+				is fresh. In a short time the mud has dried up and the wind has died down; the reed
+				bed is still, and isn’t screeching like it was yesterday. I have to look
+				closely: wherever the reeds are stirring, that’s where Tuzzu is. 
+
+‘What are you doing there like a
+				silly ninny? Catching flies?’ 
+
+‘I was looking for you, and
+				I’m not a silly ninny! I came looking for you. Are you finished?’ 
+
+‘No, I’m not done. I’m
+				taking a rest. And smoking a cigarette. Are you blind, besides being a halfwit like
+				your sister? Can’t you see I’m lying in the shade with a cigarette in my
+				mouth?’ 
+
+‘So now you
+				smoke? I never saw you smoke before.’ 
+
+‘Of course I smoke. I started two
+				days ago. It was about time, right?’ 
+
+He shut up and took the cigarette out of
+				his mouth. He wouldn’t talk anymore now. Whenever Tuzzu shut his mouth he
+				wouldn’t open it again for hours, so his father said. And if he used to do
+				that before, imagine, now that he smoked! How grown up he looked lying there like
+				that! Had he gotten bigger, or was it the cigarette that made him look older? How
+				can I talk to him now that he’s so grown up? He’ll laugh in my face and
+				say I’m a silly little baby, like he always does. All I could do was sit near
+				him and keep quiet. At least I could look at him. I looked at him a long time and
+				I’m looking at him now: his sun-darkened face was scored by two huge, limpid
+				wounds – certainly not eyes – which wept a deep, cool blue water. I watched the
+				assured way he brought the cigarette to his mouth and then took it out, the way his
+				father did. 
+
+That self-assurance made me shiver. 
+
+No, he wouldn’t talk to me
+				anymore, and maybe he wouldn’t even let me watch him anymore. The thought made
+				me feel so cold that I had to close my eyes and lie down, because my head was
+				spinning like the time I had a fever. I closed my eyes and waited for him to pass
+				sentence. He wouldn’t even let me watch him anymore. 
+
+‘What are you doing, scimuzza , falling asleep, you little silly?’ 
+
+‘No, I’m not sleeping. I was
+				thinking.’ 
+
+‘Oh, you mean you think too? A
+				silly scimuzza who thinks, huh! What were you thinking about? May I have
+				the honour of knowing?’ 
+
+‘I was thinking of asking
+				you …’ 
+
+‘What? Come on, tell me! A chicken
+				about to have its neck wrung – that’s what you look like! What is it?
+				Talk!’ 
+
+‘Oh, nothing … nothing.
+				I wanted to ask you what the sea is.’ 
+
+‘Not again! Enough about this sea!
+				Thick-headed, you are! I’ve explained it to you a hundred times. A hundred
+				times! The sea is a vast stretch of water as deep as the water in the well between
+				our farm and that hovel you live in. Only it’s blue, and no matter where you
+				look you can’t see where it ends. What more do you want to know! Locca , a crazy fool, that’s what you are! And even if you
+				weren’t locca , females, as my
+				father says, have never understood a thing, not since the world began. 
+
+‘But I do understand: water deep
+				as the one in the well, only blue.’ 
+
+‘Brava! Congratulations!
+				So, stand up and look around! Do you see the chiana , the plain around
+					us? 1 What’s the name of this plain, huh? Let’s see if you’re capable of
+				learning.’ 
+
+‘This plain is the Chiana del
+				Bove.’ 
+
+‘Well then, the sea is a plain of
+				blue water, but without the mountains of lava that we see out there. When we look at
+				the sea’s expanse, we don’t see anything out there, nothing that limits
+				our view, or rather, we see a thin line that is nothing more than the sea merging
+				with the sky. And that line is called the horizon.’ 
+
+‘What’s a
+				horizon?’ 
+
+‘I just told you: it’s where
+				the vast stretch of blue water ends there at the sky. Way out there, where the eye
+				can’t reach.’ 
+
+‘A stretch of water blue as your
+				eyes that meet the sky of your forehead.’ 
+
+‘Just look at that, what a
+				thought! A troubadour, that’s you. I swear to God, you’re like a
+				troubadour! What happened? Did you tumble out of bed this morning? Is that why
+				you’re having such poetic thoughts?’ 
+
+‘And you, did you tumble out of
+				bed this morning, is that why you’re smoking like a grown-up? You smoke and
+				I’ll … can I look at your eyes? If I look at them, I’ll have a
+				better idea of what the sea is like.’ 
+
+‘Go ahead! Who said you
+				couldn’t? If it gives you so much pleasure to know what the sea is like, go
+				right ahead. It must give you a lot of pleasure, seeing how you’re blushing.
+				You’re cute, even if you’re locca . Really cute! Who knows who
+				knocked up your mother?’ 
+
+‘A man of course, and a seaman
+				too, from what she says.’ 
+
+‘So, now we’re being funny.
+				What happened? The last time you were like a mummy! What happened? Did you wake up
+				all of a sudden last night?’ 
+
+‘Yes, I woke up, and not last
+				night. I wanted to ask you about that too …’ 
+
+‘What? How should I know about
+				your waking up! Go ask your mother. The
+				sea is one thing but … Hey, you’re red as a beet. Have you been
+				drinking? What else did you want to ask? Tell me, and stop staring at me! Enough!
+				I’m tired of this. So help me God, all this staring is making my head spin.
+				You have beautiful eyes up close like this. I hadn’t noticed before. Honey,
+				that’s what they look like … who knows who knocked up your mother?
+				I’m going back to work now. Enough of this! Hey! Why are you holding me like
+				that? Are you out of your head?’ 
+
+The heat was rising again, the earth was
+				steaming and the mountains receded, blue again. I couldn’t let him get away, I
+				had to ask him why – when I was watching him before, and now that I was holding his
+				arm – why I felt that urge to touch myself in the spot where … 
+
+‘What kind of question is that to
+				ask! At your age! You’re a scourge! My father is right: a scourge!
+				Aren’t you ashamed of yourself?’ 
+
+‘Why should I be ashamed? I
+				discovered it myself. Nobody told me, so it must mean that everyone knows about
+				it.’ 
+
+‘Good for you! What logic! Watch
+				out, picciridda ! Let go of my arm, little girl, or you’ll be sorry.
+				You’re making me lose my temper, watch it!’ 
+
+‘Why should I watch out? I’m
+				not scared of you, and you have to answer me. So answer me, did you know about
+				it?’ 
+
+‘Of course I knew about it! What
+				do you take me for, a dunce? I’m a man and if you don’t let me go,
+				I’ll touch you myself and we’ll make a frittata .’ 
+
+‘So let’s make this frittata . I’m not scared! You’re the one who’s
+				scared. Some man you are! You’re all shaky.’ 
+
+He had pulled away and was getting up.
+				Strangely, I had no strength left in my arms, but when I saw him standing there
+				picking up his coppola 2 without looking at me, I rolled on the
+				ground, unable to get up, and grabbed his ankles with both my arms. I was afraid he
+				might kick me but instead, cap in hand, he first leaned down with his hands out as
+				if to push me aside, then dropped to his knees and fell on top of me. His eyes were
+				closed. Had he hurt himself falling? Had he fainted? An eternity went by. I
+				didn’t dare say anything. I was afraid he would get off of me. Besides, even
+				if I had wanted to, I didn’t have the energy even to move my lips now. That
+				strange languor was unfamiliar to me, a
+				sweet lassitude, awash with shivers that kept me afloat. Behind my back a precipice
+				had surely opened up, making me dizzy, but those shivers kept me suspended in space.
+				I opened my eyes and heard my voice saying, ‘Now I know what the sea is
+				like.’ 
+
+He didn’t answer. Staring at me
+				without moving, he pulled down my skirt, lifted my petticoat and tore off my
+				panties. He didn’t move, but with his fingers, continuing to stare at me, he
+				began to stroke me just like I did when Tina screamed. Abruptly he turned his face
+				away with a shudder. Was he leaving? 
+
+‘No, I’m here. Where do you
+				think I’m going? This is where I should be now.’ 
+
+Reassured, I closed my eyes. Tina was
+				screaming, and my whole body was shaken by those tremors I knew so well. Then the
+				stroking went so deep that … what was he doing? I looked at him. He had
+				spread my legs, and he sank his face between my thighs, caressing me with his
+				tongue. Of course I wouldn’t have known if I hadn’t looked at him. That
+				was something I couldn’t do by myself. This thought made me shudder so deeply
+				that Tina’s screams were silenced, and I was the one screaming loudly, louder
+				than she cried out when Mama locked her in the toilet … Had I fainted or
+				had I fallen asleep? When I opened my eyes there was a profound silence in the chiana . 
+
+‘We have to stop here now, bambinella . Even though you’re a naughty little girl, I
+				don’t want to ruin you. Put on your panties and scram. Just be thankful I
+				managed to get my head straight after you made me lose control. Oh, you really made
+				me lose my head, so help me God. Who would have thought it? You’re tempting,
+				really tempting, but I don’t want to ruin you. On your feet, beat
+				it!’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">2
+
+光线灼痛我的眼睛。每次从屋里出来，光线总是灼痛我的眼睛；可回到屋里，黑暗又让我什么也看不见。暑气消退了，山峦又变得像妈妈的头发一样黑。暑气消退时，山峦总是变得像她的头发一样黑；但暑气加剧时，它们变成蓝色，像妈妈正在给蒂娜缝的那条星期天穿的裙子。总给她做裙子，还有缎带！甚至白鞋子也给她买了。我呢，什么都没有。&quot;你有健康啊，我的女儿，我的裙子改短了给你穿就够了。你要裙子做什么，你有健康还不够吗？感谢上帝吧，别抱怨了，感谢上帝！&quot;她总是说这个上帝，可你要是让她解释，一个字也说不出：&quot;向他祈祷保佑你就行了！你还要知道什么？向他祈祷，就这样。&quot;
+
+暑气确实消散了很多，空气很清新。没多久泥浆就干了，风也停了；芦苇丛静静的，不再像昨天那样嘎吱作响。我得仔细看：哪里芦苇在动，图祖就在哪里。
+
+&quot;你像个傻丫头似的在那儿干什么？捉苍蝇吗？&quot;
+
+&quot;我在找你，而且我不是傻丫头！我来找你。你干完了吗？&quot;
+
+&quot;没，我没干完。我在休息。还抽根烟。除了跟你姐姐一样是个笨蛋，你还眼瞎了吗？你没看见我躺在树荫下，嘴里叼着烟吗？&quot;
+
+&quot;那你现在抽烟了？我以前从没见过你抽烟。&quot;
+
+&quot;我当然抽烟。两天前开始的。也差不多是时候了，对吧？&quot;
+
+他闭嘴了，把烟从嘴里拿出来。他不会再说话了。图祖一闭上嘴，就像他父亲说的，好几个钟头都不会再张开。要是以前他就这样，那现在抽上烟了更可想而知！他那样躺着，看起来多像个大人啊！是他真长大了，还是那支烟让他显得更老了？他现在这么大人样了，我怎么跟他说话呢？他会当面笑话我，说我是个傻乎乎的小娃娃，像他平时那样。我唯一能做的就是坐到他旁边，保持安静。至少我能看着他。我看了他很久，现在也在看他：他那被太阳晒黑的脸庞上，刻着两道巨大清澈的伤口——绝不是眼睛——从中涌出深邃清凉的蓝色水光。我看着他把烟送到嘴边又拿开的那份从容，就像他父亲那样。
+
+那份从容让我浑身发抖。
+
+不，他不会再跟我说话了，说不定连看都不让我看了。这个念头让我浑身发冷，只得闭上眼睛躺下，因为我的头像发烧时那样天旋地转。我闭上眼睛，等着他宣判。他连看都不让我看了。
+
+&quot;你在干什么，小傻瓜，睡着了吗，你这个小笨蛋？&quot;
+
+&quot;没，我没睡。我在想事情。&quot;
+
+&quot;哦，这么说你也会想事情？一个会想事情的小傻瓜，哼！你在想什么？我能有幸知道吗？&quot;
+
+&quot;我在想问你……&quot;
+
+&quot;什么？说啊，告诉我！你活像一只快要被拧断脖子的鸡！什么事？说啊！&quot;
+
+&quot;哦，没什么……没什么。我想问你海是什么。&quot;
+
+&quot;又来！没完没了了这海！你可真是一根筋！我给你解释过一百遍了。一百遍！海是一片广阔的水域，深得像咱们农场和你们住的那个破窝之间的那口井里的水。只不过海水是蓝色的，而且无论往哪边看，你都看不到它的尽头。你还要知道什么！你是个疯子，你就疯吧！就算你不疯，女人嘛，像我父亲说的，自开天辟地以来就没弄明白过一件事。&quot;
+
+&quot;可我明白：水深得像井水，不过是蓝色的。&quot;
+
+&quot;好样的！恭喜！那么，站起来，看看四周！你看见这片契亚纳平原了吗？这片平原叫什么名字，嗯？让我看看你能不能学点东西。&quot;
+
+&quot;这片平原叫博韦的契亚纳。&quot;
+
+&quot;那么，海就是一片蓝色水域的平原，只是没有我们看见的那些熔岩山。我们眺望海面时，远处什么都看不见，没有任何东西限制我们的视线，或者说，我们只看见一条细细的线，那不过是海与天融为一体的地方。那条线叫做地平线。&quot;
+
+&quot;地平线是什么？&quot;
+
+&quot;我刚告诉你了：就是那片广阔的蓝色水域终止于天际的地方。在那遥远的地方，眼睛抵达不到的地方。&quot;
+
+&quot;一片蓝色的水域，像你的眼睛一样蓝，与你的额头那片天空相接。&quot;
+
+&quot;瞧瞧，这想法！你真是个行吟诗人。我对天发誓，你就像一个行吟诗人！怎么回事？你今天早上从床上摔下来了吗？所以你才有这么诗意的想法？&quot;
+
+&quot;那你呢，你今天早上也从床上摔下来了吗，所以你才像大人一样抽烟？你抽烟，那我就……我能看看你的眼睛吗？我要是看着它们，就能更明白海是什么样了。&quot;
+
+&quot;看吧！谁说不能了？如果你这么高兴知道海是什么样，尽管看好了。你一定很高兴，看你脸都红了。你很可爱，就算你是疯子。真的很可爱！谁知道是谁把你妈的肚子搞大的？&quot;
+
+&quot;当然是一个男人，而且据她说，是个水手。&quot;
+
+&quot;哟，还会说笑话了。怎么回事？上次你还像个木乃伊！怎么回事？你昨晚突然开窍了？&quot;
+
+&quot;是，我开窍了，而且不是昨晚。我还想问你那件事……&quot;
+
+&quot;什么事？我怎么知道你开窍的事！去问你妈。海是一回事，可是……喂，你脸红得像甜菜。你喝酒了吗？你还要问什么？告诉我，别盯着我了！够了！我烦了。老天作证，你这样盯着看我头都晕了。你这双眼睛近看真美。我以前没注意到。蜜糖，它们看起来就像蜜糖……谁知道是谁把你妈的肚子搞大的？我现在回去干活了。够了！喂！你抓着我干什么？你脑子坏掉了吗？&quot;
+
+暑气又升起来了，大地蒸腾着水汽，群山退远了，又变成了蓝色。我不能让他走掉，我必须问他为什么——我先前看他的时候，还有现在抓着他胳膊的时候——为什么我会有那种冲动，想抚摸那个……
+
+&quot;这叫什么问题！你这年纪！你真是个祸害！我父亲说得对：祸害！你不害臊吗？&quot;
+
+&quot;我为什么要害臊？这是我自己发现的。没人告诉过我，那一定说明人人都知道这事。&quot;
+
+&quot;好哇你！什么逻辑！小心点，小姑娘！放开我的胳膊，小姑娘，不然你会后悔的。你让我发脾气了，小心！&quot;
+
+&quot;我为什么要小心？我不怕你，你必须回答我。那就回答我，你知道这事吗？&quot;
+
+&quot;我当然知道！你把我当什么，笨蛋吗？我是男人，你要是不放手，我亲自来摸你，咱们煎个蛋饼。&quot;
+
+&quot;那咱们就煎这个蛋饼。我不怕！你才怕呢。你还算男人！你浑身在抖。&quot;
+
+他挣脱开了，站了起来。奇怪的是，我胳膊上一点力气都没有了，但看到他在那里站着，捡起他的便帽，看都不看我一眼，我便在地上打滚，站不起来，用两只胳膊抱住他的脚踝。我怕他会踢我，但他却手里拿着帽子，先弯下腰伸出双手好像要把我推开，然后跪倒在地，趴在了我身上。他闭着眼睛。他摔倒的时候伤着了吗？他昏过去了吗？仿佛过了一个世纪。我不敢说一句话。我怕他会从我身上离开。再说，就算我想，我现在连嘴唇都动不了。那种奇怪的慵懒是我从未感受过的，一种甜蜜的倦怠，伴随着让我漂浮在空中的颤栗。我背后一定裂开了一道深渊，让我眩晕，但那些颤栗让我悬停在了空中。我睁开眼睛，听到自己的声音说：&quot;现在我知道海是什么样了。&quot;
+
+他没有回答。一动不动地盯着我，他拉下我的裙子，撩起我的衬裙，撕掉了我的内裤。他没有动，但手指继续盯着我，一边开始抚摸我，就像蒂娜尖叫时我抚摸自己一样。突然，他猛地转过头去，浑身一颤。他要走了吗？
+
+&quot;不，我在这儿。你以为什么，我要去哪儿？我眼下就应该在这里。&quot;
+
+放下心来，我闭上了眼睛。蒂娜在尖叫，我的整个身体被那种我熟悉的颤栗所震撼。然后那抚摸深入到了……他在做什么？我看着他。他分开了我的双腿，把脸埋在我的大腿之间，用舌头爱抚我。当然，要不是我看着他，我是不会知道的。那是我自己无法做到的事。这个念头让我如此剧烈地颤抖，以至于蒂娜的尖叫声被淹没了，是我自己在大声尖叫，比她被妈妈锁在厕所里时叫得还要响……我是昏过去了还是睡着了？当我睁开眼睛时，契亚纳平原一片深沉的寂静。
+
+&quot;我们现在就到此为止吧，小姑娘。虽然你是个调皮的女孩，但我不想毁了你。穿上你的内裤，赶紧走。算你走运，在你让我失控之后我还把持住了自己。哦，你真的让我昏了头，老天作证。谁会想到呢？你很诱人，真的很诱人，但我不想毁了你。站起来，快走！&quot;
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>splinter</b><span>碎木片；裂开</span><em>a splinter of light</em></div>
+<div><b>hovel</b><span>破旧小屋</span><em>a cramped hovel</em></div>
+<div><b>stifle</b><span>压抑，窒息</span><em>stifle a cry</em></div>
+<div><b>linger</b><span>徘徊；迟迟不散</span><em>a smell lingered</em></div>
+<div><b>bleak</b><span>凄凉的，黯淡的</span><em>a bleak room</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch001.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch003.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

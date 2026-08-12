@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 26 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch025.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" selected>Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch027.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 26<span>庄园、贵族与社会流动</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">estate、title、inheritance 和 marriage 构成贵族权力的语言。西西里的土地租佃链也让佣人、管理者和地主之间的关系很复杂。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">26 
+
+‘Good morning, signorina .
+				Did you sleep well? The Principessina woke up fresh as a daisy this
+				morning, fresh as a daisy! She wants you to know that the music teacher will be here
+				after breakfast. You should see how excited she is about taking a lesson with you!
+				Oh, since you’ve been here, the Principessina has flourished!
+				Flourished, there’s no other word for it! … Did you make up your
+				mind about the mirror? She told me about the mirror, too.’ 
+
+‘No, no mirrors.’ 
+
+‘So be it. The Princess will be
+				happy, but the Principessina will be sorry about it. She’s truly so
+				disconsolate that she can’t take dance lessons with you too! Well! No mirrors.
+				No dance lessons. Dancing isn’t appropriate for a nun. The Princess says
+				it’s better that way!’ 
+
+I had been right to be prudent. Imagine
+				marrying a servant! Better a nun. Imagine becoming like that one ! Now that
+				I knew, that cheerful exuberance of hers could be seen as raging envy obliged to
+				masquerade behind humble words and jolly remarks. Those stubby fingers, the forced
+				smile stuck onto the corners of her mouth, that body stuffed into that shapeless
+				smock … Oh, no! She would keep her vocation. At least she could continue
+				to study history, maths, the piano … The piano! Beatrice had said that her
+				teacher had been a great Russian concert performer. And if she said he was good, it
+				was definitely so. The tutor, too, had such a wealth of learning that Mother Leonora
+				seemed ignorant by comparison. Philosophy … that she might not be able to study in the
+				convent … She should find out. Such a rich, mysterious world ‘the
+				world of ideas’ was; that’s what the tutor had said. He had also
+				said: 
+
+‘Excellent, signorina ,
+				you associate concepts just like a man!’ 
+
+Of course she had heard something about
+				Plato from Mother Leonora, but the Sophists, the Epicureans … And that
+				Greek philosopher who said that everything happened by chance … what was
+				his name? She had to ask. The tutor would tell her. 
+
+To be able to ask without fear. This
+				would not be possible in the convent. But at least she could read. In those few
+				months she had to ask, ask that gentle, smiling old man. Too bad the tutor
+				wasn’t young. She had been so hopeful, but by now she knew that the music
+				teacher too would be an old man. In that house there were only women and old men.
+				Who knows why Mother Leonora had fled this rich convent to retreat within those lava
+				walls on the Mountain? In the end, it was the same thing … 
+
+‘What are you doing there in a
+				daze? Thinking? Maybe you were praying. Sorry! I’m so eager to introduce you
+				to maestro Beliajev. You’ll see, he’ll be thrilled about you!’ 
+
+Beatrice swayed in the partly open
+				doorway, one hand resting on the doorjamb, her fragile torso hidden by soft white
+				folds. She almost always wore white. 
+
+‘Do you know, you look just like
+				Doré’s Beatrice?’ 
+
+‘You think so? I don’t
+				remember her; what is it, a painting?’ 
+
+‘No! The illustrations in the book
+				down in the library.’ 
+
+‘Oh, yes. That huge tome belonged
+				to Papa. You notice everything. You think I look like her? You’ll have to show
+				it to me later. Come on, give me your hand. You don’t want to? How
+				come?’ 
+
+How could I, after having held her in my
+				arms? Just the thought of feeling her palms put me in peril of losing both prudence
+				and my vocation. But it didn’t stop her. There she goes, grabbing my wrist
+				with her quick hand. Good thing I tied the bands on properly this morning. 
+
+‘What is it, Beatrice?
+				What’s wrong?’ 
+
+‘Oh God! He’s here,
+				he’s coming. Don’t you hear him stomping up the stairs?’ 
+
+Indeed, a heavy
+				stride – the tread of someone wearing hobnailed boots or wooden shoes – was making
+				the stairs rumble. 
+
+‘Close the door. I’m
+				scared.’ 
+
+‘Yes, but what’s
+				wrong?’ 
+
+Now safely inside the room, clinging to
+				me, she slowly opened the door again, and mutely pointed to a huge man, a giant who
+				was tramping down the corridor, coming toward us. He had to be over six feet tall,
+				solid as a door, with broad shoulders and a small, round, bald head on a neck that
+				looked like a column. That round knob seemed more like a continuation of his thick,
+				muscular neck than a head. The neck had two bulging eyes, so pale they seemed
+				colourless. 
+
+‘Who is he?’ 
+
+‘Come, I’ll go speak to him.
+				With you, I’m not afraid of anything … Good day, Pietro.’ 
+
+‘My respects, Principessina .’ 
+
+‘How is Ippolito?’ 
+
+‘Fine, Principessina ,
+				everything is fine.’ 
+
+From his great height, he stared down at
+				us blankly. Although you couldn’t tell from his face, his surprise at being
+				spoken to completely froze him. Rigid like that, he looked like a metal statue. 
+
+‘Does Voscenza require
+				some service, Principessina ?’ 
+
+The slow voice was equally
+				expressionless. 
+
+‘No, thank you, Pietro. I merely
+				wanted to ask about Ippolito.’ 
+
+‘He is well, thank God, he is
+				well. May I go now? Bacio le mani a Vossignoria , my respects to your
+				ladyship.’ 
+
+Rigid, he turned to the right and
+				continued climbing the stairs with his iron tread. So that was the noise I heard
+				every morning. 
+
+‘He’s scary, isn’t he,
+				Modesta?’ 
+
+‘Of course he’s scary. But
+				who is he?’ 
+
+‘He’s the one who takes care
+				of Ippolito. See, he’s going to the top floor. He’s the only one who can
+				deal with “the thing”, as Maman says. How scary! Make sure you close the
+				door. I had never spoken to him before, brrr … what a dreadful voice! This
+				wing of the house is awful: “the thing”, Papa’s
+				room … brrr! …’ 
+
+‘You’ve shown me all the
+				rooms, but not the Prince’s room, your father’s.’ 
+
+‘That
+				room frightens me. It’s not nice, perhaps, to talk about a dead person like
+				that, but I can’t hide anything from you. The fact is that I … I
+				don’t remember when … oh, yes, when he began to make me go to him
+				each afternoon to read aloud and study astronomy. I must have been ten years old. Of
+				course, I’m not as intelligent as Maman, or you. Even the tutor – have you
+				noticed how he always addresses you when he’s explaining something? Well,
+				so … I didn’t understand astronomy and he would get angry. So when I
+				went to his room I would start shaking … You see, just talking about it
+				makes my hands shake. I didn’t know what was happening. Ignazio said I read
+				well, whereas with Grandfather, I got flustered.’ 
+
+‘Did you say Grandfather?
+				Wasn’t the Prince your father?’ 
+
+‘Yes, yes, I made a mistake. I got
+				flustered, like with him … I, I …’ 
+
+As if cowering in trepidation, she
+				huddled in my arms. How could she seem so tall from a distance, yet so small in my
+				arms? How did she manage to go from tears to laughter so quickly it made you
+				dizzy? 
+
+‘May I ask how old you are,
+				Beatrice?’ 
+
+‘You noticed, didn’t you,
+				Modesta? You see and notice everything.’ 
+
+‘No, I don’t see. As a
+				matter of fact, I’m beginning to feel really confused with all these names,
+				these aunts and uncles, grandparents … Really, I’m sorry to ask you
+				so many questions, it’s just to …’ 
+
+‘But I like it when you ask
+				questions! You seem less like a nun … Oh, sorry! I meant less serious,
+				more like me. Your hair, is it thick? You wear it so tightly pulled back, I
+				can’t tell. Let me undo this bun, this tuppo is just like the one my tata had … Let me, just this once!’ 
+
+‘Of course, go ahead if it makes
+				you happy. I see you’re smiling again.’ 
+
+‘Come over here, beside the
+				window. Dear God, all those hairpins! You’ll damage your hair this way.
+				It’s harmful to pull it so tight.’ 
+
+‘I won’t need it where
+				I’m going. After the novitiate they’ll cut it.’ 
+
+‘Don’t say that! You
+				mustn’t say that! I can’t bear to think about it … Two more
+				months and … do you realize we’ve known each other for a month?
+				Don’t go away! Don’t leave!’ 
+
+She was crying now, in the farthest
+				corner of the room. It was her way of distancing me. But by now I knew how to get
+				her to come back and how to make her smile. All I had to do was distract her with something new. I finished removing
+				all my hairpins, and with my heavy braids thumping behind me at each
+				step … how long had it been since I felt that vital weight? like when I
+				would go and look for Tuzzu … 
+
+‘If you don’t keep quiet I’ll cut off your braids and go and
+					sell them in the village. Nice and thick they are, sturdy. So help me God, if I
+					can make even a lira I’ll do it!’ 
+
+‘Are they worth that much?’ 
+
+‘Of course!’ 
+
+‘What do they do with them?’ 
+
+‘Make wigs for old people.’ 
+
+‘What are wigs?’ 
+
+‘Uffa! What a nuisance! Always questions and more questions! I don’t have time and I don’t
+					feel like answering you . Be quiet, I have work to do!’ 
+
+‘Be quiet, Beatrice! Hush! Look,
+				look what a surprise. Hold the hairpins, come on, look!’ 
+
+‘How thick they are! One of yours
+				would make braids for me and two others … What’s wrong? You have
+				tears in your eyes. Oh God, I’ve never seen you cry! Oh God! No one will tell
+				Maman. Have you lost your vocation?’ 
+
+‘No, I haven’t lost it.
+				Mother Leonora gave it to me and …’ 
+
+‘So then you’re crying
+				because, even though you haven’t lost your vocation, you’re sorry to
+				leave me, right? Tell me, are you sorry?’ 
+
+‘Yes, I’m sorry.’ 
+
+‘That makes me feel better. I was
+				afraid, because they say that people in the convent love no one but God.
+				That’s what Aunt Leonora used to say … How strange; with your braids
+				you look even younger. And you, how old are you?’ 
+
+‘I was born on 1 January 1900.
+				That’s what the archivist at the convent told me. She said that with me it was
+				easy to keep count.’ 
+
+‘So that makes you seventeen,
+				like …’ 
+
+‘Like who?’ 
+
+‘Like me.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">26
+
+「早上好，小姐。您睡得好吗？小公主殿下今早醒来像雏菊一样鲜嫩，像雏菊一样鲜嫩！她想让您知道，音乐老师早餐后就到。您该看看她有多兴奋，要和您一起上课了！哦，自从您来了，小公主殿下焕发了光彩！焕发了，没有别的词可以形容！……您决定了那镜子的事吗？她也跟我说了镜子的事。」
+
+「不，不要镜子。」
+
+「那就这样吧。公主会高兴的，但小公主殿下会遗憾。她真的很沮丧，不能也跟您一起上舞蹈课了！好吧！不要镜子。不要舞蹈课。跳舞对修女不合适。公主说这样更好！」
+
+我谨慎是对的。想象一下嫁给一个仆人！还不如当修女。想象一下变成那个样子！现在既然我知道了，她那欢快的热情便可以看作是强压的嫉妒，不得不用谦卑的言辞和快活的言语来掩饰。那些粗短的手指，粘在嘴角的勉强的微笑，塞进那件毫无形状的罩衫里的身体……哦，不！她会守住她的圣召。至少她可以继续学习历史、数学、钢琴……钢琴！贝阿特丽切说过她的老师曾是一位伟大的俄罗斯音乐会演奏家。如果她说他好，那肯定是真的。那位家庭教师也是，学识如此渊博，相比之下莱奥诺拉修女都显得无知了。哲学……她在修道院里可能学不到……她得弄清楚。&#x27;理念的世界&#x27;——家庭教师这样说过——这样一个丰富而神秘的世界。他还说过：
+
+「好极了，小姐，你像男人一样联想概念！」
+
+当然，她从莱奥诺拉修女那里听说过一些柏拉图，但是智者学派，伊壁鸠鲁学派……还有那个说万事皆由偶然的希腊哲学家……他的名字是什么？她得问。家庭教师会告诉她的。
+
+能够毫无畏惧地提问。这在修道院里是不可能的。但至少她可以读书。在那短暂的几个月里，她必须问，问那个温和微笑的老人。可惜家庭教师不是年轻人。她曾那么期待，但现在她知道，音乐老师也会是个老人。在这栋宅子里，只有女人和老人。谁知道莱奥诺拉修女为什么要逃离这座富有的修道院，退回到大山上那些熔岩墙里去？说到底，是一回事……
+
+「你站在那里发什么呆？在想事情？也许是在祈祷。对不起！我太急切地想把你介绍给别利亚耶夫大师了。你等着瞧，他会为你而欣喜若狂的！」
+
+贝阿特丽切在半开的门口摇曳着，一只手搭在门框上，她纤弱的身躯藏在柔软的白色褶裥后面。她几乎总是穿白色。
+
+「你知道吗，你看起来活脱脱就是多雷画的贝阿特丽切？」
+
+「你这样觉得？我不记得她了；是什么，一幅画吗？」
+
+「不是！是楼下藏书室里那本书的插图。」
+
+「哦，对。那本巨大的书是爸爸的。你什么都注意到。你觉得我像她？你得等会儿指给我看。来，把手给我。你不愿意？为什么？」
+
+我怎么能，在抱过她之后？仅仅想到感受她掌心的触感，就足以让我面临失去谨慎和圣召的危险。但这并没有阻止她。看，她用敏捷的手抓住了我的手腕。幸好今天早上我把束带绑好了。
+
+「怎么了，贝阿特丽切？出什么事了？」
+
+「哦天哪！他来了，他过来了。你听不见他咚咚咚上楼的声音吗？」
+
+果然，一个沉重的脚步——像是穿着钉靴或木鞋的人——让楼梯都在轰隆作响。
+
+「关上门。我害怕。」
+
+「好，可是出什么事了？」
+
+现在安全地待在房间里，她紧紧抓住我，慢慢又把门打开，无声地指向一个巨人般的男人，他正沿着走廊大步走来，朝我们这边来。他肯定有六英尺多高，结实得像一扇门，肩膀宽阔，小小的、圆圆的、光秃秃的头安在一根像柱子一样的脖子上。那个圆圆的脑袋看起来更像是他粗壮肌肉发达的脖子的延续，而不像一个头。脖子上长着两只凸出的眼睛，颜色淡得几乎没有颜色。
+
+「他是谁？」
+
+「来，我去跟他说话。和你在一起，我什么也不怕……日安，皮埃特罗。」
+
+「向您致敬，小公主殿下。」
+
+「伊波利托怎么样？」
+
+「很好，小公主殿下，一切都好。」
+
+从他那巨大的高度上，他面无表情地俯视着我们。虽然从他脸上看不出来，但被搭话的惊讶让他完全僵住了。那样僵硬地立着，他看起来像一座金属雕像。
+
+「您是否需要什么服务，小公主殿下？」
+
+那缓慢的声音同样毫无表情。
+
+「不，谢谢你，皮埃特罗。我只想问问伊波利托的情况。」
+
+「他很好，感谢上帝，他很好。我能走了吗？吻您的手，向您致敬。」
+
+僵硬地，他向右转身，继续以他铁一般的步伐上楼。原来那就是我每天早上听到的声音。
+
+「他很吓人，是不是，莫德斯塔？」
+
+「当然吓人。但他到底是谁？」
+
+「他是照顾伊波利托的人。看，他正走向顶楼。他是唯一能对付&#x27;那个东西&#x27;的人，如妈妈所说。太可怕了！记住一定要关上门。我以前从没跟他说过话，呸……多么可怕的声音！这栋宅子的这一侧真可怕：&#x27;那个东西&#x27;，爸爸的房间……呸！……」
+
+「你带我看了所有房间，但没看你父亲——亲王——的房间。」
+
+「那个房间让我害怕。也许不该这样说一个死去的人，但我无法对你隐藏任何事。事实是，我……我不记得何时……哦，对，当他开始让我每天下午去他那儿给他朗读和学习天文学时。我那时大概十岁。当然，我不像妈妈或者你那么聪明。就连家庭教师——你有没有注意到他讲解时总是对着你说话？嗯，所以……我不懂天文学，他就会生气。所以当我走进他的房间时我就开始发抖……你看，只是说这些就让我的手发抖。我不知道发生了什么。伊尼亚齐奥说我朗读得很好，而和祖父在一起，我就慌了。」
+
+「你说祖父？亲王不是你父亲吗？」
+
+「是，是，我说错了。我慌了，就像和他在一起时那样……我，我……」
+
+仿佛在惊惧中蜷缩，她依偎在我怀里。她怎么能从远处看起来那么高，而在我怀里又那么小？她怎么能从泪水到欢笑如此迅速地转换，让人头晕目眩？
+
+「我可以问你多大了吗，贝阿特丽切？」
+
+「你注意到了，是不是，莫德斯塔？你什么都看到，什么都注意到。」
+
+「不，我没看到。实际上，我被所有这些名字、这些姨妈舅舅、祖父母搞糊涂了……真的，很抱歉问你这么多问题，只是……」
+
+「可我喜欢你问问题！你看起来不那么像个修女了……哦，对不起！我意思是没那么严肃了，更像我了。你的头发，浓密吗？你把它扎得那么紧，我看不出来。让我解开这个发髻，这个发髻简直跟我奶妈的一样……让我解开，就这一次！」
+
+「当然，如果你高兴的话。我看到你又笑了。」
+
+「过来这边，窗边。天哪，这么多发夹！你这样会损伤头发的。扎这么紧是有害的。」
+
+「我去的地方用不着它了。见习结束后他们会剪掉的。」
+
+「别说这话！你不该说这个！我一想到就受不了……还有两个月就……你意识到我们已经认识一个月了吗？别走！别离开！」
+
+她此刻在房间最远的角落哭泣。这是她疏远我的方式。但如今我已经知道怎样让她回来，怎样让她微笑。我只需用新东西来分散她的注意力。我拔掉了所有发夹，沉重的辫子每走一步都在身后拍打着……多久没有感受到那充满活力的重量了？就像当年我去找图佐时一样……
+
+「要是你再不安静下来，我就剪掉你的辫子，拿到村里去卖。又粗又密，结实着呢。上帝作证，要是我能赚到哪怕一里拉，我也要这么干！」
+
+「它们值那么多钱吗？」
+
+「当然！」
+
+「他们拿它做什么用？」
+
+「给老人做假发。」
+
+「假发是什么？」
+
+「哎呀！真烦人！老是问个没完！我没时间，也不想回答你。安静，我有活要干！」
+
+「安静，贝阿特丽切！嘘！看，看这是什么惊喜。拿着发夹，来，看！」
+
+「多浓密啊！你的一条辫子可以编成我和另外两个人的……怎么了？你眼里有泪水。哦天哪，我从没见过你哭！哦天哪！谁也不会告诉妈妈。你失去了你的圣召吗？」
+
+「不，我没有失去它。莱奥诺拉修女把它给了我……」
+
+「那么你哭是因为，即使你没有失去圣召，你也舍不得离开我，对不对？告诉我，你舍不得吗？」
+
+「是的，我舍不得。」
+
+「这让我好受些了。我刚才害怕，因为人们说修道院里的人只爱上帝不爱任何人。莱奥诺拉姨妈以前常这么说……真奇怪；梳着辫子你看起来更年轻了。你呢，你多大了？」
+
+「我生于一九零零年一月一日。修道院的档案管理员告诉我的。她说按我的情况很容易记。」
+
+「那么你是十七岁，就像……」
+
+「像谁？」
+
+「像我。」
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>inherit</b><span>继承</span><em>inherit a name</em></div>
+<div><b>privilege</b><span>特权</span><em>a privilege to</em></div>
+<div><b>servant</b><span>仆人</span><em>a household servant</em></div>
+<div><b>summon</b><span>召唤；传唤</span><em>summon someone</em></div>
+<div><b>bargain</b><span>交易；讨价还价</span><em>strike a bargain</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch025.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch027.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

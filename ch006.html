@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 6 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch005.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" selected>Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch007.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 6<span>修道院、教育与规训</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">convent 不只是宗教场所，也是教育、慈善和纪律机构。理解称谓背后的等级，比记住全部宗教词更重要。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">6 
+
+‘Oh Jesus and Mary, don’t you
+				know? The things one sees in this pitiable country of ours! They haven’t
+				taught you a thing, not a thing. Nothing but misery and suffering. If you promise me
+				you’ll do what Dr Milazzo said …’ 
+
+‘What did he say?’ 
+
+‘He told you to forget, forget
+				everything. If you do that, I will teach you …’ 
+
+The voice promised a warm, gentle
+				lullaby of fragrant sheets and daring adventures of queens and regents, sieges, wars
+				and exploits. In Mother Leonora’s sweet lilting voice, armies advanced with
+				gold and silver breastplates. Enemy troops and savage hordes fled, driven off by her
+				hand, rising toward the sun like the wing of a dove. Dreadful, wicked men,
+				multitudes of godless individuals to be subjugated by the righteous law dictated by
+				the Cross. The small room smelling of sugared almonds was populated with knights and
+				paladins, saints and virgins consecrated to God, who could not be turned against
+				their faith by anyone, despite snares and persecutions. Saint Agatha was very
+				beautiful. I was right to ask who she was. Her severed breasts on a tray made me
+				shudder even more than Mother Leonora’s delicate, gentle hands, which caressed
+				me whenever I had an epileptic seizure. 
+
+And I had these seizures often. At least
+				every two or three days. Not more often, or she might become suspicious. Something
+				in her gestures, her voice, told me that she did not touch herself, and that if she found out about me she would
+				surely send me to hell. The story about hell and heaven was really boring, but every
+				so often I had to put up with it; it didn’t last long, after all. And soon
+				enough Saint Agatha would be evoked by Mother Leonora’s raised finger. Tall
+				and fair, she would appear with her wavy, long blond hair falling softly down her
+				garment of blue and silver brocade. Through the gossamer hair, fine as gold dust,
+				her small rosy breasts could be glimpsed. 
+
+There was Saint Agatha, coming through
+				the door; and nearby, in a dark corner of the room, before our eyes, two men, black
+				as sin, ripped out those small breasts with red-hot forceps and arranged them, still
+				warm and tremulous, on a silver tray … At that point in the story, Mother
+				Leonora always looked into my eyes and asked: ‘It scared you, didn’t it?
+				Were you scared?’ 
+
+I understood what her eyes were trying
+				to suggest – eyes blue as the sky illuminated by numerous tiny gold stars – and I
+				began to tremble, but only a little, just enough to make her take me in her arms. In
+				those arms I rested my head on her bosom, feeling its fullness and warmth beneath
+				the white fabric. Mine was still no bigger than two small bumps. ‘How thin and
+				undernourished you are, poor creature! Such a skimpy chest!’ she’d told
+				me. ‘Let’s hope this chest develops, that it grows and develops, since
+				tuberculosis is quick to strike!’ 
+
+I didn’t like that word,
+				‘tuberculosis’, or those little bumps: I shuddered at the thought that
+				those bumps might not develop like hers. I trembled, my cheeks buried in that warm,
+				fragrant swelling. 
+
+And as the red-hot forceps tore the
+				white fabric and ripped out the tender flesh of her breasts, a thrill of pleasure
+				started up inside me. And when she, seeing me continue to tremble and fearing that I
+				might fall, held me even closer, the thrill became so intense and protracted that I
+				had to clamp my teeth so I wouldn’t scream. Unfortunately this never happened
+				to me again, that is, without even touching myself, as I’d had to do until
+				then.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">6
+
+&quot;哦耶稣和圣母玛利亚，你不知道吗？在我们这个可怜的国家，你什么都能看到！他们什么都没教你，什么都没教。只有苦难和折磨。如果你答应我照米拉佐医生说的做……&quot;
+
+&quot;他说了什么？&quot;
+
+&quot;他让你忘记，忘记一切。如果你做到，我就教你……&quot;
+
+那声音许诺了一首温暖温柔的摇篮曲，有芬芳的床单、女王和摄政者的大胆冒险、围城、战争和功勋。在莱奥诺拉嬷嬷甜美悠扬的声音里，军队披着金银胸甲向前推进。敌军和野蛮部落被她的手驱散，如鸽子的翅膀般飞向太阳。那些可怕的恶人，成群结队不信神的家伙，将被十字架所昭示的公义律法征服。这间弥漫着糖杏仁香味的小屋里，住满了骑士和游侠、圣徒和献身于上帝的贞女，她们面对任何人的陷阱和迫害都不会背离信仰。圣阿加莎非常美丽。我问她是谁是对的。她那被放在托盘上的割下的乳房，比莱奥诺拉嬷嬷在我癫痫发作时抚摸我的那双纤细温柔的手更让我颤抖。
+
+而且我经常发作。至少每隔两三天一次。不能更频繁，否则她会起疑心。她举止声音中的某种东西告诉我，她不抚摸自己，如果她发现我的事，一定会把我打入地狱。关于天堂地狱的故事真的很无聊，但隔三差五我不得不忍受它；毕竟时间不长。很快，莱奥诺拉嬷嬷竖起的手指就会召唤出圣阿加莎。她高大白皙，一头长长的金色卷发柔顺地垂在她蓝色的长袍上……我明白了她的眼睛在暗示什么——那双蓝得像被无数金星照亮的天空的眼睛——于是我开始颤抖，但只是一点点，刚好足以让她把我拥入怀中。在她怀中，我把头靠在她胸前，感受着白色布料下那丰满和温暖。我的胸还只是两个小小的凸起。&quot;你多瘦弱啊，可怜的孩子！胸这么平！&quot;她对我说。&quot;但愿这胸能发育，长起来、发育起来，因为肺结核可是来势汹汹！&quot;
+
+我不喜欢&quot;肺结核&quot;那个词，也不喜欢那两个小凸起：一想到它们可能不会像她的那样发育，我就发抖。我颤抖着，脸颊埋在那温暖芬芳的隆起中。
+
+当烧红的钳子撕开白色布料、扯出她娇嫩乳房的血肉时，一阵快感的战栗在我体内升起。她看到我继续颤抖，怕我会跌倒，便将我抱得更紧，那战栗变得如此强烈持久，我不得不用牙咬紧才不会叫出声来。不幸的是，这种事再也没有在我身上发生过，也就是说，不用像之前那样抚摸自己就达到了。
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>stern</b><span>严厉的</span><em>a stern voice</em></div>
+<div><b>convent</b><span>女修道院</span><em>life in a convent</em></div>
+<div><b>devotion</b><span>虔诚；投入</span><em>show devotion to</em></div>
+<div><b>confess</b><span>忏悔；坦白</span><em>confess a fear</em></div>
+<div><b>obedience</b><span>服从</span><em>demand obedience</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch005.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch007.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

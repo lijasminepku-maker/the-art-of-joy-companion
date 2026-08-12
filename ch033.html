@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 33 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch032.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" selected>Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch034.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 33<span>战争前夕与家族秩序</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1915 年意大利参加第一次世界大战。乡村生活与国家大事并不同步，但战争、价格、劳动力和家族荣誉会逐步进入私人生活。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">33 
+
+I slept so deeply, under Mimmo’s
+				watchful eye, that when I opened my eyes I was afraid the Princess’s visit had
+				been only a dream. Especially since someone was crying in the room. 
+
+‘It’s horrible, horrible! I
+				can’t even think about it, Modesta. You shouldn’t have agreed. You
+				can’t sacrifice yourself like that! It’s all the fault of that crazy
+				doctor and Don Antonio. It’s dreadful! Why must your goodness be repaid this
+				way?’ 
+
+Beatrice never understood a thing. If
+				she were more intelligent, as Jacopo had wanted her to be, I would have made her my
+				accomplice. It’s hard to do battle by yourself. But there was no other way. I
+				had to continue embroidering that canvas alone, to protect myself and to protect
+				her. 
+
+‘It’s my destiny,
+				Beatrice.’ 
+
+‘But you’ll sleep with
+				him!’ 
+
+‘It’s my destiny.
+				Don’t be upset. Think about the fact that this pious sacrifice will allow us
+				to be together for ever. Have you thought about that?’ 
+
+I was sure she hadn’t thought
+				about it, and in fact: 
+
+‘It’s true! I hadn’t
+				thought about it.’ 
+
+‘Darling Beatrice, why don’t
+				you try and think of the bright side of whatever happens? Nothing is completely
+				negative in life.’ 
+
+‘God, Modesta, you talk like Uncle
+				Jacopo! I’ve noticed it for months now. I didn’t say anything because I
+				was afraid you might get mad.’ 
+
+Beatrice was
+				scatterbrained, yet at times discerning. The similarity that her little head had
+				grasped was dangerous; best to change the subject. 
+
+‘Will you come to the
+				wedding?’ 
+
+‘Modesta, no! Don’t ask that
+				of me. I could never. I’ve never seen the “thing”, and besides
+				Nonna said that no one must see him, even if he’s getting married.’ 
+
+So much the better. If they had seen
+				Ippolito they would have realized that he wasn’t as monstrous as their
+				imagination had drawn him. Never refuse to see the unpleasant aspects of life; by
+				remaining unseen, they are actually magnified in the imagination, transformed into
+				irrepressible demons. 
+
+‘There, you see, you withdraw from
+				me, just like Uncle Jacopo, following who knows what thoughts. You’ve changed
+				a lot, Modesta.’ 
+
+Luckily she always warned me. This
+				inability to keep her mouth shut, as the Princess said, was convenient. 
+
+‘It’s not that I’ve
+				changed, Beatrice, it’s that soon I will have yet another cross to bear and
+				I’m preparing for it. And please, don’t go on crying like that. How
+				would I manage to bear all this if you were far away?’ 
+
+‘Far away? What do you
+				mean?’ 
+
+‘The Princess told me that if you
+				continue crying, she’ll send you off to some boarding school in Switzerland.
+				You know that when she says she’ll do something, she does it.’ 
+
+Thanks to the Princess, the crying
+				stopped. It was unbearable for me, too, to see her that way. Now she dried her tears
+				and tried to smile. 
+
+‘Oh God, Modesta, for God’s
+				sake, I won’t cry anymore. I promise you! Tell her I won’t cry
+				anymore!’ 
+
+She appealed to me. I was the one who
+				maintained contact with the Princess, now, and in just one year! Careful, Modesta,
+				one must be cautious with power. Above all, never lose old friends, as Shakespeare
+					says. 24 Beatrice’s humble way of imploring me could signal disaffection on her
+				part. 
+
+‘My darling Beatrice, let’s
+				not think about unpleasant things. Come now, smile. When you smile, everything becomes beautiful for me.’ Where had
+				I read that nonsense that young girls are so fond of? Still, it came in handy. 
+
+‘When you smile, the sun shines
+				for me even if the sky is cloudy. Come, hold me close. In your arms I will find the
+				courage to face the painful task that awaits me.’ 
+
+‘Oh, Modesta, how gentle you are
+				with me again, and what sweet things you say! You’ve been so serious these
+				three weeks that I was beginning to be afraid of you.’ 
+
+There, she’d said it. I had to rid
+				her of that fear to have her as an ally, even an unsuspecting one. Fear and
+				humiliation are the seeds of hatred and antagonism. And even envy, so they said. It
+				would be difficult, but now that I was beginning to have some power, I had to find a
+				way, like a wise old monarch, not to attract too much envy, even from the
+				servants. 
+
+After allowing myself to be comforted by
+				Beatrice’s embrace, I got up. 
+
+‘Now leave me, Beatrice. I have to
+				pray and find strength.’ 
+
+Those of you who are reading are surely
+				already thinking that my triumph would necessarily require something very
+				distasteful: sleeping with an individual who was disabled, if not monstrously ugly.
+				The fact is that you are reading this story, and you are ahead of me, whereas
+				I’m living it. I am still living it. 
+
+All at once I realize what’s in
+				store for me. What did that monster do with all the girls who had been brought to
+				his room? And whom could I ask? Certainly not Pietro. The doctor? How could I? He
+				too was a little goody-goody. My saintly reputation did not allow me even to graze
+				certain subjects. A cold sweat began sliding down my back and for a moment I began
+				to have doubts about what had earlier seemed to be a victory. Instinctively, old
+				habit made me fall to my knees with my head in my hands. I wasn’t praying –
+				don’t worry – I was just trying to overcome the wave of disgust that clouded
+				my brain. I must not give in to that disgust. Besides, if so many girls had been in
+				that room and had survived, I too could do it. I tried to remember one of those
+				names. Carmela, that’s it, the one who was Ippolito’s favourite,
+				according to the doctor … 
+
+‘Forgive
+				me for disturbing you, signorina . The Princess has asked me to tell you
+				that for the ceremony you must wear the dress that Mother Leonora wore when she
+				became the bride of Christ. If you please, I have come to take it, to freshen
+				it.’ 
+
+Argentovivo had never been so
+				respectful. She spoke more slowly now, keeping her eyes lowered, and didn’t
+				bustle about the room like a madwoman anymore. 
+
+‘May I take the dress, signorina ?’ 
+
+Of course. She was waiting for my order.
+				That waiting restored the self-confidence I had lost. I was part of the family now.
+				And to bolster that self-confidence I let her wait a few minutes. Her respectful
+				stillness and bowed head completely calmed my tremors. And with composure, my ideas
+				began to flow clearly again. At least I no longer had to fear the walls, the drapes,
+				the servants of that house, as I had in the past. 
+
+‘One moment, Argentovivo – I have
+				a question to ask you. Do you know a certain Carmela Licari?’ 
+
+‘No, I don’t know her.
+				She’s just a peasant who lives down in the shanties. As you know, we in this
+				house have no contact with those kinds of people.’ 
+
+‘You may take the
+				dress.’ 
+
+Curtsying – before making a move she
+				even curtsied now – she ventured to say, ‘But the signorina mustn’t think about that one. Those women were paid to come
+				and …’ 
+
+‘I didn’t ask for your
+				opinion.’ 
+
+The Princess would have replied that
+				way, and the effect was immediate. 
+
+‘Oh, I’m sorry! I
+				didn’t mean … Forgive me if I disturbed you. Riverisco , my
+				respects, signorina .’ 
+
+* 
+
+It was risky, but I had to know.
+				Luckily I hadn’t spent a single penny of the money the Princess had given me
+				each month since I’d taken over the management of the house. 
+
+When the sun was high, thereby ensuring
+				that all the men were in the fields and
+				that everyone in the villa was shut in to escape the intense heat, I put on an old
+				smock, covered my head, like the farm women, with the least conspicuous kerchief I
+				could find, and ran down to the white walls behind the trees. There was an opening
+				guarded only by the dog Menelik, who knew me, and in a moment I was out. I had never
+				been outside, and a sloping expanse of wheat, swaying in the wind as far as the eye
+				could see, lashed my legs and brow. The wind was strong, and I couldn’t move.
+				I wasn’t used to walking without a wall to mark the boundaries of the outside
+				world. And to think that as a child all I did was wander through the lava plain, the chiana … Those years in the convent and in the villa had weakened
+				me. I couldn’t even look at that dancing expanse of gold. For a moment I
+				thought of turning back. No! I had to get over it. And lowering my head, eyes fixed
+				only on the white shanties that could be seen down at the bottom, I started running
+				as though pursued, pausing only when my hands found a wall where I could regain the
+				equilibrium I had lost. It was a drinking trough, teeming with donkeys and
+				children. 
+
+‘Ma chi dici chista
+					’cca! Iu nun la capisciu, e tu? What is she saying? I don’t understand her,
+				do you?’ 
+
+As I knew from the time I was with the
+				nuns, outside the wall they spoke another language. 
+
+‘Ma chi dici? ’Na straniera havi a essiri, e chi voli? What is she saying? She must
+				be a foreigner. What does she want?’ 
+
+It was a good thing I hadn’t run
+				away from the convent back then. But now I had money, and without another word,
+				repeating only the name Carmela Licari, I handed out coins. 
+
+‘Ah, Carmela, she’s looking
+				for Carmela, chidda ca parra comu ’na signura , the one who talks like
+				a grand lady.’ 
+
+One of them gestured with his head and,
+				without saying a word, took me to a doorway closed off by a black curtain. But
+				instead of letting me go in, he stood in front of the doorway, straightened his coppola like an adult and, spreading his legs, held out his open hand.
+				I gave him more coins and he went back to the others shouting something that must
+				surely have been an insult. I called out and when the curtain parted I was plunged
+				back in time. A darkness smelling of mildew and sweat assailed me, making me feel like a little girl again. Flies
+				buzzed around, knocking against the walls. Three beds had been added to the big bed
+				where Mama slept with Tina. In back, the fire in the stove was out as usual. 
+
+‘What do you want?’ 
+
+The voice wasn’t shrill like
+				Mama’s. 
+
+‘Oh, holy God, it’s
+				Signorina Modesta! What are you doing here, signorina ? Is something wrong?
+				Have you run away? Oh God, signorina , this is no place for you! You
+				haven’t come to make trouble in this house, already so wretched, have
+				you?’ 
+
+Terrified in turn by her fear, I cried
+				out without meaning to,‘No, Carmela, no, I haven’t run away! I just want
+				some information …’ 
+
+‘Yes, yes, I understand. I too was
+				very frightened the first time they took me to him. And to think – we’re both
+				women after all – to think that I, due to poverty and bad luck, was experienced when
+				I set foot in there. And that experience saved me. I’m not telling you these
+				things for money, figghia . 25 It’s just that I wouldn’t
+				want anyone to go through what I did as I waited to enter that
+				room … I’ll take the money, but only half of it. And only because,
+				as you see, we are in great need. But I see that you are in a hurry. If they find
+				out that you ran off, woe to you and to me. Look, figghia , for me it
+				wasn’t hard, but you have to bear up. I’ll tell you. You should know
+				that I was the first female the poor soul had seen. Now, even though you’re a
+				woman, I don’t know where to begin … To make it brief and less
+				embarrassing for you and for me, I – and don’t look at me like that or
+				I’ll feel ashamed! – when I went there I thought he had been instructed. There
+				was a doctor there too, but that’s another story. What do I know! I thought
+				that the Prince had somehow been taught what a man does. And so, closing my eyes and
+				not taking off my clothes – there are some who like to undress you … so
+				then, closing my eyes – and to think I was ten years old when they put a man between
+				my legs – I waited. A century passed, and from him, not a move. I opened my eyes,
+				and that poor soul, fully clothed and with his … how can I say it? Well,
+				all right, with his thing out, was touching himself, in a frenzy. In short, I
+				learned that he didn’t know what to do with his thing, which, hard as a rock, must surely have been painful. And
+				so, may the Madonna forgive me! With blessed patience …’ 
+
+‘What?’ 
+
+‘Since he knew nothing, and since
+				it was convenient for me, I taught him to stroke himself up and down like men do. It
+				couldn’t hurt him, that much I knew. A seaman told me that men do this when
+				they are on ships, at sea for months and months. Even the ship’s doctor told
+				him that it was not harmful to one’s health. In fact, he even confided to me
+				that it gave him more satisfaction almost than doing it the regular way. Oh, figghia , how shameful to have to tell you these things. But you gave me
+				a lot of money. Now you know. There is only the uncertainty of all the young women
+				who came after me. That I can’t tell you. But now, tell me, what is it
+				that’s really bothering you? That he’s ugly? He’s ugly, true, but
+				he’s good, I can guarantee you that. Docile. Or since they are making him
+				marry you, maybe you’re worried about not having children? Of course, with
+				children your position would be stronger, but I wouldn’t have any with the
+				Prince. I’m not telling you anything, you’re young! Look around
+				you … I know these are vile things to say as far as religion goes, but
+				don’t do as I did, being too trusting … look around you! 
+
+‘Now go, I hear them coming back
+				from the fields. Go, figghia , my Michele is violently jealous. He is
+				overcome with raging jealousy toward everyone in the villa … No, I
+				don’t want all the money, it’s too much. No, no! All right, if you
+				insist, I’ll take it. I see that you have a good heart, and I’ll accept
+				the money, but only if you promise to think of me as being in your debt. Now run,
+				run home, and don’t come out again …’ 
+
+* 
+
+As I went out, the light blinded me as
+				it had many years before, but men were approaching and I mustn’t think about
+				the past. I had to run, as Carmela had told me. Going uphill, the endless gold of
+				the wheat was less intimidating. And without looking, head lowered, I raced toward
+				the dark patch of woods beyond which a high wall protected against the poverty which I had managed to escape, at
+				least up till now, but which awaited me, unchanged, with a child’s open mouth
+				and outstretched hand. I would never again go outside that wall. 
+
+‘My Padroncina , my young
+				mistress, has good legs! I swear to God, I would never have imagined it! From a
+				distance, if it weren’t for the colour of your hair, I would have taken you
+				for a field hand or a hare.’ 
+
+Riveted, I brought my hands to my head.
+				In my eagerness to run from poverty I had lost my kerchief. I cursed my past and my
+				cowardice. Now it was hopeless to try and get away. I clenched my fists and
+				confronted him, staring right at him. For months I hadn’t looked at him. Maybe
+				because from up there on his horse he seemed bigger, or because outdoors the
+				majolica blue of his eyes held red flames, or because he was laughing, but the
+				earlier terror gripped me even more sharply. 
+
+‘You must have run a long way, Padroncina ; you’re all flushed. If you will permit me, I can take
+				you back on Orlando. Going downhill, all the saints are there to assist, but uphill
+				is uphill. Whoa there, Orlando, easy now you rascal. Allow me to introduce my Padroncina . Orlando is the one who spotted you moving through the
+				wheat, and made me turn off. So, if you like, I’ll take you. Don’t
+				worry, not inside the wall. Carmine is a man of discretion. And if you don’t
+				cross him, he sees nothing and hears nothing. I’ll leave you at the spot where
+				you came out … I’ll follow along on foot.’ 
+
+‘But I—’ 
+
+‘You mean you don’t know how
+				to ride bareback?’ 
+
+‘I don’t know how to ride a
+				horse.’ 
+
+‘Well then, it’s
+				unavoidable: even if you don’t like it, you’ll have to climb up in front
+				of me … Here, put one foot there. Now leap up. Brava !
+				You’re nimble … I apologize for having to sit behind you.’ 
+
+That voice filled me with profound
+				terror. When I felt him bent over behind me holding the reins, it was as if I were
+				completely surrounded by chains. He had trapped me; that’s why he was
+				smiling. 
+
+‘Why are you trembling like that, Padroncina ? Maybe you’re afraid of the horse? It happens to
+				everyone the first time. But you must get used to it, because in the future, once you’re a princess, you will have to
+				oversee your lands not only on paper, but also in person.’ 
+
+‘Yes, of course,
+				but … he scares me a little. What’s his name?’ 
+
+‘Orlando, Padroncina . I
+				hope it’s only the animal who scares you and not its master.’ 
+
+His voice and the wind made me sway left
+				and right. From up there, the dancing immensity of gold began to make my head spin,
+				so that without meaning to I grabbed hold of his arms. 
+
+‘Oh, no, Padroncina , you
+				have to leave my arms free. Orlando is very jealous. And if he becomes too aware of
+				you, he’s apt to change his mood and make us break our necks. Lean back on me.
+				Naturally, with skirts it’s difficult. There, that’s it … can
+				you feel how I do it? Thighs and knees lightly gripping the flanks. Brava! That’s the way. I bet in a month you’ll be as upright as Principessina Beatrice and even better. When you want, I’ll teach
+				you.’ 
+
+The horse’s flanks were steaming.
+				By contrast, the arms and chest of that man gave off a dry heat, like when
+				you’re in front of a fireplace. I didn’t open my eyes for fear the
+				strange dizziness would return. I should have said something, but my mouth was
+				pasty. If only he had gone on talking … But now not a word from him. In
+				the silence, my dizziness increased with each slight tug he gave the reins, and I
+				was mortified to feel the sweat seep from my back onto his shirt. Soon I could no
+				longer distinguish my fabric from his. He did not speak again until the horse came
+				to a stop and he climbed down, offering me his arm. 
+
+‘Here we are, Padroncina .
+				If I may say so, you shouldn’t be so afraid of the animal. You gave me a bath,
+				sweating like that. He’s a good animal if you treat him right. Come now, down
+				you go.’ 
+
+His hands around my waist, before I
+				could open my eyes he swept me off; I was taken aback and to my shame heard myself
+				say, ‘Oh, forgive me for sweating like that!’ 
+
+‘No need to apologize for
+				sweating: it’s fragrant! I swear to God, I would never have believed that
+				sweat could smell like orange blossoms, not even if my mother had told me so! Baciamo le mani , my respects, Padroncina .’ 
+
+Laughing, he mounted his horse without
+				giving me another look. My legs were
+				shaking so much that I was barely able to watch him ride away before sagging to the
+				ground. Even seated, I was still shaking. And as the sweaty heat from the horse
+				gradually dissipated, a bitter chill began to creep over my body. Yet the sun was
+				still high … Look at him there, that white head of his racing
+				along … Goddamned old man! Outside the villa he could laugh. He was
+				master, there. Beatrice was right to hate her father. 
+
+The chill wouldn’t leave me. And
+				neither would my loathing for those powerful arms, that confident laugh. 
+
+* 
+
+Angrily I tore off my clothes and
+				washed myself, as if the water could erase the memory of that old man’s
+				magnetism. I mustn’t think about him anymore. 
+
+What was it that had disturbed me so?
+				His strength? The ease with which he had lifted me up as if I were a feather? If so,
+				then what I was feeling was not a healthy hatred, as I had imagined. No, that hatred
+				masked my fear of him. It was hard to acknowledge feeling weak and cowardly, but I
+				had to face that reality. My foray from the villa had been a real test. Within its
+				walls I felt strong and confident, but all it took was that hovel, that child at the
+				water trough to make the past return. That’s how the past came
+				back … not with the same characters, like in novels, but with new ones
+				that trigger the memory of fears that haven’t been expunged. And that was very
+				dangerous. I mustn’t try to forget the past, as I had thought while running
+				from Carmela’s house; instead I should remember it all, so I could keep it
+				under control and use it to strengthen myself against the new experiences that
+				surely lay in wait. Carmela had reminded me of my mother. It was the old fear that
+				had made me lose my kerchief. Carmine too scared me, but not like Mother Leonora
+				had. And the Princess, what kind of fear did she arouse? There, I was on the right
+				track: it was necessary to study the emotions that others awaken in us, just as we
+				study grammar or music. 
+
+The feeling of warmth and release that
+				filled me as a result of these thoughts confirmed to me that I had discovered
+				something meaningful. I closed my eyes and saw myself running through the wheat, trembling like a seven- or
+				eight-year-old child. That foray had helped me grow, provided I always keep in mind
+				that that child, with her foolish fears, could be reawakened in me by a look, a
+				wall, a certain light, a face. And that her fear could lead to the undoing of all my
+				present plans and prosperity. In a few months I would turn eighteen. In three days,
+				or rather two, I would be a princess, even if this meant … If only things
+				might still be as Carmela had described! 
+
+* 
+
+Things were still as Carmela had said.
+				And it wasn’t so terrible, because Pietro, instead of preparing the big bed,
+				had brought in another smaller one, separated by a night stand. A bell on the
+				headboard provided reassurance. It rang directly over Pietro’s head, as he
+				kept watch in the room next door. The first couple of weeks were hard, but only
+				because Ippolito, as soon as I took a step toward the door, would grab me gently by
+				the skirt. Carmela was right; he was docile. And so I always had to be there with
+				him, shut up in that room. But later on he began to settle down, and I was able to
+				resume my life. Life was wonderful with a little security underfoot. Now I could run
+				up and down through the bedrooms, the parlours, the gardens, without fearing – as I
+				had before – that someone would pull the rug out from under me. I was part of the
+				family. I could see it in the way the servants, the maids, the dance teacher, the
+				tutor stepped aside for me when I ran into them. Even Don Antonio – something I
+				would never have imagined – no longer addressed me directly as he used to, but
+				circumspectly, bowing his head slightly. As I had planned beforehand, I became a
+				kindly old monarch. I was very considerate with everyone, I bestowed gifts prudently
+				and at times I let them show sympathy for my misfortune. 
+
+‘Such a beautiful, saintly girl,
+				sacrificed to a monster for her entire life!’ 
+
+On this point I held firmly, both with
+				Father Antonio in the confessional, and with the others. They must not forget my
+				trial. That was the only way I could gain their full consent and appease their
+				potential jealousy. With Argentovivo, it was a real success. Whenever she saw me I made sure a slight sadness
+				crept into my eyes. Once she actually threw herself at my feet, weeping. 
+
+‘My poor signorina , how
+				good you are to be so cheerful and serene, given your great sacrifice!’ 
+
+Sacrifice! I had slept for years with
+				Tina. 
+
+And so, slowly but surely, my long
+				familiarity with monsters, and Pietro’s care – he kept his dear Prince neat
+				and clean – helped me overlook Ippolito’s ugliness. In fact, I felt a sort of
+				tenderness when he sat there very quietly, watching me like a dog. Seeing his
+				happiness when I let his big misshapen hands hold mine conveyed something sweet and
+				indistinct that aroused forgotten shivers in me. But I did not add anything new to
+				what Carmela had told me. I never undressed or appeared naked, and for bed I chose
+				the most high-necked nightshirts I could find. But of course, at that time they were
+				all quite high-necked. I nearly forgot …</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">33
+
+我在米莫的守护下睡得极沉，睁开眼时，竟怕公主的来访不过是一场梦。何况，房里有人在哭泣。
+
+&quot;太可怕了，太可怕了！我想都不敢想，莫德丝塔。你不该答应。你不能这样牺牲自己！全是那个疯医生和安东尼奥神父的错。太可怕了！为什么你的善心要换来这样的回报？&quot;
+
+贝亚特里切从来什么也不懂。若她再聪明些，如雅各布所希望的那样，我便能让她做我的同谋。独自作战何其艰难。然而别无他路。我唯有独自继续绣那幅画布，以保护自己，也保护她。
+
+&quot;这是我的宿命，贝亚特里切。&quot;
+
+&quot;可你得跟他同床共枕！&quot;
+
+&quot;这是我的宿命。别难过。你想想，这一虔诚的牺牲将使我们永世相守。你想过这一点吗？&quot;
+
+我断定她未曾想过，果然：
+
+&quot;确实！我没想到。&quot;
+
+&quot;亲爱的贝亚特里切，你为何不试着凡事往好处想呢？人生没有什么是全然负面的。&quot;
+
+&quot;天哪，莫德丝塔，你说话活像雅各布舅舅！我发现好几个月了。没说，是怕你生气。&quot;
+
+贝亚特里切虽心不在焉，却时有洞察。她那小脑袋捕捉到的相似之处颇为危险；最好转移话题。
+
+&quot;你会来参加婚礼吗？&quot;
+
+&quot;莫德丝塔，不！别让我去。我做不到。我从没见过那&#x27;东西&#x27;，再说奶奶说过，谁也不能见他，哪怕他要成婚。&quot;
+
+如此更好。若他们见了伊波利托，定会察觉他……</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>upheaval</b><span>剧变，动荡</span><em>social upheaval</em></div>
+<div><b>scarce</b><span>稀缺的</span><em>become scarce</em></div>
+<div><b>endure</b><span>忍受；持续</span><em>endure hardship</em></div>
+<div><b>aftermath</b><span>余波，后果</span><em>in the aftermath of</em></div>
+<div><b>enlist</b><span>参军；争取支持</span><em>enlist in the army</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch032.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch034.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

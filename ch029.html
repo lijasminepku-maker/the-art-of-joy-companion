@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 29 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch028.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" selected>Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch030.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 29<span>庄园、贵族与社会流动</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">estate、title、inheritance 和 marriage 构成贵族权力的语言。西西里的土地租佃链也让佣人、管理者和地主之间的关系很复杂。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">29 
+
+But the grass down in the meadow was damp
+				that morning. 
+
+‘Did you hear that storm we had
+				last night? The first thunderstorm this summer. Soon it will be autumn,
+				Modesta.’ 
+
+Huge clouds looming on the horizon shut
+				off our view, like a lofty wall of lava. I had forgotten that wall. 
+
+‘Soon you’ll have to
+				leave … Stay here with me, Modesta!’ By now she said it in a
+				whisper, like you say a prayer that will never be granted, or like a faint refrain:
+				‘Stay, stay.’ I hugged her so she wouldn’t see how much I wanted
+				to stay. Only by burying my face in her shoulder could I say: ‘God is calling
+				me.’ 
+
+I no longer wanted to go away, now that
+				Beatrice was kissing every inch of my naked body, and now that I too could kiss her
+				endlessly whenever I wanted. What did it matter if that house was essentially a
+				convent, and that there were no men? What did I care about men now that I had her?
+				All I would have in the place I had to go back to was that solitary love I now knew
+				was called masturbation. Such a sad thing, I thought, what nuns do, and I had to
+				laugh. 
+
+‘What are you doing,
+				laughing?’ 
+
+‘Yes.’ 
+
+‘Why?’ 
+
+‘I don’t know.’ 
+
+‘Do you know, you look like a
+				different person now that you’re laughing? If you would only take off those
+				bands and wear a corset! Or at least let
+				Argentovivo comb your hair to look softer, with a curl or two hanging down, like
+				mine. She’s very skilful.’ 
+
+‘I would never let Argentovivo
+				touch me!’ 
+
+‘If that’s the case, I can
+				comb your hair myself, and make a chignon.’ 
+
+‘I can’t, Beatrice. Besides,
+				what good is it for such a short time? Twenty more days and …’ 
+
+How could I not go back? How could I
+				lose my vocation so suddenly in the eyes of the Princess and Beatrice herself? And
+				what if Beatrice tired of me? I had no choice. 
+
+‘I told her, you know. I told
+				Nonna not to make you leave. Two days ago. But she didn’t answer. Then
+				yesterday she sent me this note. Look: “Leave that girl alone. You’re
+				just headstrong and thoughtless like your mother was. And you know
+				it!”’ 
+
+‘Does she mean your mother, Mother
+				Leonora? So you’ve spoken about her?’ 
+
+‘Once, many years ago. You can
+				understand, can’t you? It wasn’t just capriciousness; I wanted to know.
+				Here, and even in Catania, I had heard rumours. So I kept insisting until she sent
+				for me and said: “All right, since you must know, so much the worse for
+				you.” That much I remember, but I don’t remember anything else about
+				that conversation. It’s odd, but maybe because I was nervous I only remember
+				the beginning and the end … The end was: “And now that you know,
+				call me Nonna in private, face to face, because you are not my real daughter.”
+				But I don’t want you to think she said it hatefully. You know how she is; she
+				yells and shouts but then …’ 
+
+‘And did she also tell you about
+				Carmine?’ 
+
+‘Of course. She always says that
+				either you lie completely, or you tell everything.’ 
+
+Look at that! I was learning so many
+				things from that mute old woman. She was right. 
+
+‘What upset me the most
+				wasn’t learning the truth, which I had more or less guessed,
+				but …’ 
+
+‘What?’ 
+
+‘Well, Nonna said that when
+				Leonora found herself pregnant, she could easily have ended my life before I was
+				born – for me it would have been a blessing – and then married just the same, or she
+				could have kept me and passed me off as
+				her sister. Not exactly a tragedy! Even the Milazzos, neither rich nor noble as we
+				are, have a daughter whom they pass off as their youngest but who is actually the
+				child of their eldest daughter.’ 
+
+‘So why didn’t
+				she?’ 
+
+‘Who knows! She said either ending
+				my life or letting me live was a sin, and she chose the convent. What do I know?
+				Maybe you can understand; she had a vocation.’ 
+
+‘And Carmine? Why does he still
+				come here?’ 
+
+‘He was left a widower and never
+				remarried.’ 
+
+‘What has that got to do with
+				it?’ 
+
+‘I wonder why he never remarried.
+				Nonna pressed him to marry Agata three years ago …’ 
+
+‘I didn’t mean that, I meant
+				why …’ 
+
+‘Why what?’ 
+
+‘Well, if Carmine got a
+				Brandiforti woman in trouble, why didn’t your grandfather, your
+				uncles …’ 
+
+‘What do you mean! We’re
+				noble and he’s just a peasant. Do you expect someone in our family to dirty
+				his hands over a commoner? Of course, if he had been someone of our class, or an
+				officer maybe, a bourgeois, but a commoner … Imagine challenging a
+				commoner to a duel!’ 
+
+‘But he wasn’t thrown out or
+				anything …’ 
+
+‘Thrown out? What are you saying!
+				Nonno adored him and always said: “It’s one thing to lose a daughter,
+				who besides being a woman is foolish to boot, and another thing to lose a gabellotto like Carmine. Without a daughter you have fewer worries and
+				you’re spared a dowry, but without a gabellotto like Carmine,
+				who’s going to look after your lands?” Naturally! He manages everything
+				and has trained so many men with his shotgun that they protect the estates and are
+				as submissive as dogs. He frightens me!’ 
+
+‘But he’s your
+				father!’ 
+
+‘Some father! As my tata used to say, he’s a pedi ’ncritati , a coarse peasant. 20 I’ve never
+				looked at him directly. I don’t like him and he scares
+				me … I’m cold. Everything here scares me. Look how overcast the sky
+				is! It’s going to rain, Modesta. It’s a sign that you’re going
+				away.’ 
+
+‘Let’s go back inside, Beatrice. You’re shivering. I
+				wouldn’t want you to come down with something.’ 
+
+‘I wish I would get sick. That way
+				you’d have to …’ 
+
+‘Come now, Beatrice, come!
+				I’m responsible for your health.’ 
+
+I tried to pull her but she
+				wouldn’t budge. I didn’t think she was that strong; I couldn’t
+				make her take a step. And I wouldn’t have managed to if a gust of wind
+				hadn’t made her wobble. I grabbed her around the waist just in time to
+				withstand the second squall that hit us from behind. Drops as big as flintstones
+				battered our faces and made the villa’s white facade appear to waver. Beatrice
+				murmured, ‘Dear God! The rain, it’s a sign. You see? They closed all the
+				shutters. They closed everything up … Oh God! Modesta, look,
+				look! … The wind blew open the window on the second floor! God, I’m
+				scared. I’ve never seen it open!’ 
+
+It wasn’t the wind: two arms now
+				reached out, almost as if someone wanted to climb onto the windowsill and jump. 
+
+‘It’s Pietro, Modesta!
+				It’s Pietro shouting. What’s happened?’ 
+
+‘Don’t look, don’t
+				look!’ 
+
+I pressed her head against my shoulder,
+				so she wouldn’t see all that blood covering Pietro’s face. Only the
+				hands and arms could be distinguished. 
+
+‘Why wouldn’t you let me
+				look? What is it, Modesta? What’s wrong? You look like a ghost.’ 
+
+‘Never mind, Beatrice. Go dry
+				yourself off and find Argentovivo. Have her send for the doctor right
+				away.’ 
+
+‘The doctor? Where are you going,
+				Modesta? No!’ 
+
+Peeling off her hands, which were
+				clinging to my skirt, I raced up the stairs. I just had to get to my door and from
+				there climb the last flight of stairs. I knew the route Pietro took. Every morning I
+				had followed that iron tread. This was the corridor … It must be one of
+				those doors. I was running down a long hall similar to mine, when a door at the end
+				opened and Pietro slowly stepped out, blood trickling down his face. 
+
+‘Watch out, signorina ! Go
+				back downstairs. I have him under control. Go back down and have them send for the
+				doctor. This is no place for you, signorina !’ 
+
+He was calm, but
+				he must have been in a lot of pain because he slumped on a bench. His voice was loud
+				and threatening. Maybe he was right, but I wanted to know. So, holding my breath to
+				overcome my fear, I entered the room and saw the ‘thing’, his hands
+				tied. Hunched in a chair, he was writhing and biting, his mouth oozing saliva. The
+				‘thing’ was nothing but a stumpy, fat man with a round head who was
+				staring at me with Tina’s eyes. I stepped back, and for the first time I had
+				my doubts about whether the dead could return. Seeing me, that male Tina stopped
+				thrashing and whining, and gaped at me open-mouthed, just as if he recognized
+				me. 
+
+Drawn by the resemblance, I
+				couldn’t stop my legs from rigidly approaching him. He waited, his eyes
+				spellbound. Only when I was nearly close enough to touch him was I sure it
+				wasn’t Tina, and to overcome the fear that had seized me, I smiled and kept
+				telling myself: take a closer look, it’s a man. He probably just has the same
+				malady Tina had. Tina wasn’t a monster or a ‘thing’, she was just
+				sick. The doctor at the convent had told me about it: mongolism. I smile to make
+				sure it’s not Tina, and I start calling his name softly: Ippolito, Ippolito!
+				He screws up his face in what he must mean to be a smile, and with his big, bound
+				hands begins pushing at my skirt, but slowly, almost gently. It’s not
+				Tina. 
+
+‘It’s a miracle! A
+				miracle!’ 
+
+Pietro stares at me, ecstatic, wiping
+				off the blood. 
+
+‘You shouldn’t have done it, signorina , but it’s a miracle! Prince Ippolito has never done
+				that with anyone … only with me, twice in ten years. You are a saint, signorina . Just look at that, he’s quieted down. It’s a
+				miracle! And without pills or injections. He saw you and he calmed down.’ 
+
+There! That’s what would free me
+				from my vocation: that miracle. But to substantiate it I had to stay there, so
+				everyone could see me and know. 
+
+‘You see, Pietro, nothing is going
+				to happen. Go and treat your cuts or you’ll bleed to death. Go ahead, and if
+				you really want to put your mind at ease, send someone to stay outside. Nothing is
+				going to happen to me. The Madonna led me here. I myself will watch over this poor
+				soul!’ 
+
+And unafraid,
+				touched by Jesus, as they later said, I reached out and put my hand on that head.
+				What fear could I possibly have, having grown up with a ‘thing’ like
+				this? In fact, he had more hair than Tina. I began stroking it, and he lowered his
+				head delightedly just as Tina used to do with Mama. He had no other way to show that
+				he liked me. 
+
+In less than a quarter of an hour the
+				news had spread throughout the villa. They came running. I could hear them behind
+				the door, in the corridor, praying. Beatrice was there too. I could not retreat; the
+				victory had to be complete. I loosened his ties as he watched me docilely, his eyes
+				black and moist like a dog’s. After I untied him I knelt in front of him,
+				staring into his eyes. Then he lowered his eyes to my skirt and began to stroke it
+				shyly. I was beginning to understand. The ‘thing’ had never seen anyone
+				but Pietro, the doctor and maybe the priest. Probably my size or my gentle voice – I
+				continued calling his name and telling him ‘good boy, good boy’ – or
+				maybe the colour of my skirt amazed and captivated him. I let him go on until,
+				confident by now, I began saying: ‘Me Mama, me Mama …’ He must have
+				been breastfed by someone, the poor soul. Then I took his hand and placed it on my
+				breast, repeating: ‘Mama, Mama …’ Then, something that astounded
+				even me – I was beginning to sweat from the effort of repeating and looking into his
+				eyes – he said awkwardly between his teeth: ‘Mama, Mama, Mama.’ 
+
+I heard something like a shudder pass
+				through the corridor in response to the announcement someone had made: ‘He
+				called her Mama!’ And after a silence, the word ‘miracle’, loudly
+				shouted by everyone. 
+
+It was done. I held in my hand – a true
+				miracle indeed – something that would enable me not to lose my vocation, but to
+				change it as I pleased. 
+
+* 
+
+‘So, my dear girl, from what I
+				heard, your Mother Leonora appeared to you and you wish to sacrifice your vocation
+				to devote yourself to our family?’ 
+
+The voice that had been silent for so
+				long was now booming again, more terrifying than the thunder and rain that had
+				continued unabated outside. If only
+				Beatrice were there! This time I was alone with the Princess. Her mocking grey eyes
+				held my gaze, as mine tried vainly to look away. 
+
+‘Well, answer me! It’s true
+				you’re quite pretty when you get worked up! Too bad it only happens once in a
+				blue moon! Answer! Do you think I care about your vocation? If you must know: in
+				this house we believe in God, but very, very little in priests and nuns. Then too,
+				if this can reassure you, I’m glad to know that when I die – I’m old now
+				and although the idea of death doesn’t thrill me, every so often I have to
+				think about it. What a shame to have to die! What was I saying? Ah, yes, I’m
+				glad to know that Cavallina and that ‘thing’ up there will not end up in
+				the care of servants, but someone who, though taken in, is still part of the family,
+				for better or for worse. Can’t you speak? All right then! Answer me this at
+				least: have you meditated seriously about the decision you’ve made? This
+				isn’t just a passing storm, is it? You’re happy here? You won’t
+				regret leaving the convent, afterwards? You’re young! Think before you answer,
+				because you see, my girl, I won’t tolerate whining women. Afterwards, you
+				won’t be able to complain. Do you understand? It’s true you
+				haven’t complained these past months and you haven’t gone around
+				snivelling, but you never know with you women! It’s better to be clear up
+				front. Patti chiari e inimicizia eterna , clear understandings breed eternal
+					animosity. 21 Well, answer me!’ 
+
+‘I’ve meditated, madam
+				Princess. My place is here.’ 
+
+‘Fine. Tomorrow I shall write to
+				those withered old ladies who’ve lost you, and have them send back the dowry
+				and trousseau. I want to write a nice, polite letter and laugh, thinking of the
+				disappointment and rage each line will cause Mother Costanza. I’ll make them
+				send back every last thing. Then, with the trousseau we’ll have some ball
+				gowns made for you. Because, see here, my girl, let’s be clear: if you must
+				sacrifice yourself, don’t let it show. To begin with, tomorrow when the dance
+				teacher comes for Cavallina, you too will take lessons. The waltz, the mazurka, the
+				quadrille and all the rest! If you’ve made up your mind, you must learn to
+				dance and to smile, because sourpusses and graceless bumblers really get on my
+				nerves. Understood? Now off with you. I have to write a little line or two to Mother
+				Costanza.’ 
+
+Not expecting
+				anything further, I started to run off to Beatrice. But when I was at the door, she
+				added: ‘Oh! You’ll also have to learn to ride a horse … and we
+				must see to that damned name of yours, my girl!’ 
+
+* 
+
+My slim waist clinched by a corset, my
+				breasts free, clasped only by a flimsy lace brassiere, I advanced toward Beatrice
+				who was acting as my cavalier in that complicated quadrille of curtsies and glancing
+				embraces, twists and turns. Whether it was the magic of the corset that helped me
+				stand erect, or the patent-leather boots, glossier than the marble floor, I was
+				really much taller than Beatrice. And when she held me around the waist as the
+				teacher changed the rhythm at the piano – one-two-three, one-two-three for the waltz
+				– I went flying around the great hall, surrounded only by empty and waiting chairs
+				and sofas. ‘Now, counterpoint! Turn!’ Nimbly, Beatrice twirled around.
+				She was incredible: when she danced, her limp nearly disappeared, and her strong
+				hands held me firmly as I spun around the walls, the drapes, the chandeliers. 
+
+‘Oh, signorine , what a
+				delight it is to the eyes to look at you: two angels, I swear to God! Two angels
+				embracing as they soar up, up into the clouds! It was time the Principessina had a partner! No, no, it’s your turn now,
+				Signorina Modesta, you’re already proficient at being led. Come, it’s
+				your turn now to be the cavalier! Don’t be afraid. Beatrice will guide you by
+				letting herself be led. Don’t worry, that’s always the way. I swear to
+				God, the pattern never changes: the lady pretends she’s being led while
+				instead she leads, leads, leads … There, that’s it! Excellent! Turn,
+				twirl, twirl. Bravo! Bravo! Bravo! What more can I say …’ 
+
+That small instructor, smaller than
+				Beatrice, though not old, was slight and smiling and curiously honed. Maybe because
+				he had neither whiskers nor a moustache? On the other hand, he wore numerous rings
+				and his pink fingernails seemed polished. When he arrived, all the women whispered
+				and laughed together. If he approached to correct the placement of a hand, Beatrice
+				stroked the black curls, slick with
+				sweat and perfume, that tumbled over his temples when he ran over to us from the
+				piano. 
+
+‘Oh, come on, Modesta, don’t
+				you get it? It’s not because he’s a dancer or has to be able to dance
+				the part of a man or a woman … Or that may be partly it. How astute you
+				are! But be that as it may, it’s that he’s a woman like us. Can’t
+				you see that tiny waist? Just think! He doesn’t even wear a corset! What fun
+				it would be if we could put a corset on him …’ 
+
+By now we were laughing together, and
+				he, impassioned by our joy, instructed: 
+
+‘No, no, Signorina Modesta, not so
+				heavy! She’s the cavalier who’s leading now … Lightly,
+				lightly, lightness, femininity! There, that’s it, don’t cling to the Principessina ’s shoulders as if you were afraid of falling into a
+				ravine. A lady, believe me, is not afraid of her cavalier; she knows that with a
+				light touch … there, like that … such a lovely hand! it will be
+				she who leads her partner. How I envy him! Then up, up into paradise … in
+				three beats: one-two-three, one-two-three, one-two …’ 
+
+We laughed in three beats:
+				one-two-three … 
+
+‘Now, both of you, without missing
+				a beat, kindly take me round the waist … That’s the way. And now,
+				the grand finale, the galop. Ready? Go!’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">29
+
+然而那天早晨，草地上的青草是湿的。
+
+「你听到昨晚那场暴风雨了吗？今年夏天的第一场雷雨。很快就是秋天了，莫德斯塔。」
+
+天边涌起的巨大云层遮断了我们的视野，如同一堵高耸的熔岩墙。我早已忘记了那堵墙。
+
+「很快你就要离开了……留在这里和我在一起，莫德斯塔！」此时她已是在低语中说这话了，就像念诵一个永不会被应允的祷告，或像一段微弱的叠句：「留下，留下。」我拥抱她，这样她就看不见我有多想留下。只有把脸埋在她的肩头，我才能说出：「上帝在召唤我。」
+
+我不再想离开了，此刻贝阿特丽切正吻遍我赤裸的每一寸肌肤，而我也能随时尽情地吻她。这栋宅子本质上就是一座修道院，且没有男人，又有什么关系呢？有了她，我还关心什么男人？在我必须回去的地方，我所拥有的只是那种如今我知道叫作自慰的孤独的爱。多么可悲的事啊，我想，修女们所做的，我不禁笑了出来。
+
+「你在做什么，笑？」
+
+「是的。」
+
+「为什么？」
+
+「我不知道。」
+
+「你知道吗，你笑起来完全像变了一个人？要是你能脱掉那些束带，穿上束腰衣就好了！或者至少让阿真托维沃帮你把头发梳得柔软些，垂下几缕卷发，像我这样。她手艺很好。」
+
+「我绝不会让阿真托维沃碰我！」
+
+「这样的话，我可以自己给你梳头，盘一个发髻。」
+
+「我不能，贝阿特丽切。再说，这么短时间又有什么意义呢？只剩二十天了……」
+
+我怎能不回去？我怎能如此突然地在公主和贝阿特丽切本人面前失去我的圣召？而且，如果贝阿特丽切厌倦了我呢？我别无选择。
+
+「我跟她说了，你知道。我告诉奶奶不要让你走。两天前。但她没有回答。然后昨天她给了我这张便条。看：&#x27;别去打扰那个姑娘。你就是和你母亲一样任性而轻率。你自己清楚！&#x27;」
+
+「她是指你的母亲，莱奥诺拉修女？那么你跟她谈过了？」
+
+「谈过一次，很多年前。你能理解吧？这不只是任性；我想知道。在这里，甚至在卡塔尼亚，我都听到过传言。所以我一直追问，直到她把我叫去，说：&#x27;好吧，既然你非要知道，对你更糟。&#x27;这句话我记得，但我不记得那次谈话的其他内容了。很奇怪，但也许是因为我太紧张了，我只记得开头和结尾……结尾是：&#x27;现在你既然知道了，在私下面对面的时候，叫我奶奶，因为你不是我真正的女儿。&#x27;但我不希望你认为她说这话时是充满恨意的。你知道她是什么样的；她大喊大叫，但是之后……」
+
+「那她也告诉你卡尔米内的事了？」
+
+「当然。她总说，要么彻底说谎，要么就全都说出来。」
+
+瞧瞧！我从那个沉默的老妇人那里学到了这么多东西。她说得对。
+
+「最让我难过的不是知道真相——我已经差不多猜到了——而是……」
+
+「什么？」
+
+「嗯，奶奶说，当莱奥诺拉发现自己怀孕时，她完全可以在我出生前结束我的生命——对我来说这倒是一种福气——然后照样嫁人，或者她本可以留下我，把我当作她的妹妹。不算是悲剧！就连米拉佐家，既不像我们这么富有也不像我们这么高贵，也有个女儿，他们对外说是最小的女儿，其实是他们大女儿的孩子。」
+
+「那她为什么不这样做呢？」
+
+「谁知道呢！她说结束我的生命或让我活着都是罪过，于是她选择了修道院。我怎么知道？也许你能理解；她有圣召。」
+
+「那卡尔米内呢？他为什么还来这里？」
+
+「他丧妻后一直没有再娶。」
+
+「这有什么关系？」
+
+「我在想他为什么不再娶。奶奶三年前催他娶阿加塔……」
+
+「我不是那个意思，我是说为什么……」
+
+「为什么什么？」
+
+「嗯，如果卡尔米内让一个布兰迪福尔蒂家的女子怀了孕，那你的祖父、你的舅舅们……为什么不……」
+
+「你说什么！我们是贵族，而他只是个农民。你以为我们家族的人会为了一个平民脏了自己的手？当然，如果他是个贵族，或是军官，也许是个资产阶级，但是一个平民……想想看，向一个平民挑战决斗！」
+
+「可他也没有被赶出去或什么的……」
+
+「赶出去？你在说什么！祖父宠爱他，总是说：&#x27;失去一个女儿是一回事——她除了是个女人还愚蠢得要命——失去像卡尔米内这样的总管又是另一回事。没有女儿，你少操心，还省了嫁妆，但没有像卡尔米内这样的总管，谁来照管你的土地？&#x27;当然了！他管着所有事情，还用他的猎枪训练了那么多人，他们保护着庄园，像狗一样顺从。他让我害怕！」
+
+「可他是你父亲啊！」
+
+「什么父亲！正如我奶妈常说的，他是个粗鄙的农民。我从来没有正眼看过他。我不喜欢他，他让我害怕……我冷。这里的一切都让我害怕。看天空多阴沉！要下雨了，莫德斯塔。这是你要走的征兆。」
+
+「我们回屋里去吧，贝阿特丽切。你在发抖。我不想让你生病。」
+
+「我倒希望生病。那样你就不得不……」
+
+「来吧，贝阿特丽切，来！我要对你的健康负责。」
+
+我试图拉她，但她不肯动。我没想到她那么有力气；我没法让她迈出一步。要不是一阵狂风让她摇晃了一下，我真没办法。我刚好及时搂住她的腰，顶住了从背后吹来的第二阵狂风。如燧石般大的雨点砸在我们脸上，让别墅的白色立面看起来都在晃动。贝阿特丽切喃喃道：「天哪！下雨了，这是个征兆。你看？他们把所有的百叶窗都关了。他们把一切都关上了……哦上帝！莫德斯塔，看，看！……风把二楼那扇窗户吹开了！天哪，我害怕。我从没见过它开过！」
+
+不是风：两条手臂伸了出来，几乎像是有人想爬上窗台跳下来。
+
+「是皮埃特罗，莫德斯塔！是皮埃特罗在叫喊。出什么事了？」
+
+「别看，别看！」
+
+我把她的头压在我肩上，这样她就看不到皮埃特罗脸上满是鲜血。只有手和胳膊还能分辨出来。
+
+「你为什么不让我看？是什么，莫德斯塔？出什么事了？你看起来像个鬼。」
+
+「别管了，贝阿特丽切。去擦干自己，找到阿真托维沃。让她马上叫医生来。」
+
+「医生？你去哪儿，莫德斯塔？不！」
+
+我掰开她抓着我裙子的手，飞奔上楼。我只需要跑到我的房门口，然后从这里爬上最后一段楼梯。我知道皮埃特罗走的那条路。每天早上我都跟随过那铁一般的脚步声。这就是走廊……一定是那些门中的一扇。我正沿着一条和我的走廊相似的长廊奔跑，突然尽头的一扇门开了，皮埃特罗慢慢走出来，鲜血顺着他的脸往下淌。
+
+「小心，小姐！下楼去。我控制住他了。下去，让他们叫医生来。这不是您该来的地方，小姐！」
+
+他很平静，但一定很疼，因为他瘫在了一条长凳上。他的声音又大又吓人。也许他是对的，但我想知道。于是，我屏住呼吸，克服恐惧，走进了房间，看见了那个&#x27;东西&#x27;，他的双手被绑着。蜷缩在一把椅子上，他扭动着，咬着，嘴里流着口水。那&#x27;东西&#x27;不过是一个矮胖的男人，圆圆的脑袋，正用蒂娜的眼睛盯着我。我后退了一步，第一次对死者能否归来产生了怀疑。看见我，那个男性的蒂娜停止了挣扎和哀鸣，张大了嘴呆呆地看着我，就好像他认出了我。
+
+被那相似所吸引，我无法阻止自己的双腿僵硬地向他靠近。他等待着，眼睛被迷住了。只有当我很近、几乎能碰到他时，我才确定那不是蒂娜。为了克服攫住我的恐惧，我微笑着，不断告诉自己：仔细看，是个男人。他可能只是跟蒂娜有同样的病。蒂娜不是怪物也不是&#x27;东西&#x27;，她只是病了。修道院的医生告诉过我：先天愚型。我微笑着以确定这不是蒂娜，开始轻声呼唤他的名字：伊波利托，伊波利托！他皱起脸——他大概是想作出微笑的样子——然后他用他那双被绑着的大手开始推我的裙子，但是缓慢地，几乎是温柔地。不是蒂娜。
+
+「奇迹！一个奇迹！」
+
+皮埃特罗盯着我，欣喜若狂，擦着血。
+
+「您不该这么做，小姐，但这真是个奇迹！伊波利托亲王从没有对任何人这样做过……只对我有过，十年里只有两次。您是一位圣人，小姐。瞧瞧，他安静下来了。这是奇迹！没有药片也没有注射。他看到您就安静下来了。」
+
+有了！这就是让我摆脱圣召的东西：那个奇迹。但为了证实它，我必须留在那里，让每个人都能看到我、知道。
+
+「你看，皮埃特罗，不会有事的。去处理你的伤口吧，不然你会失血而死的。去吧，如果你真的想放心，叫个人守在外面。我不会有事。是圣母引领我来到这里的。我自己来照看这个可怜的灵魂！」
+
+毫不畏惧——被耶稣所触动，如他们后来所说——我伸出手，把手放在那个头上。我怎么可能害怕呢，我可是跟一个这样的&#x27;东西&#x27;一起长大的？事实上，他的头发比蒂娜还多些。我开始抚摸它，他愉悦地低下了头，就像蒂娜对妈妈做的那样。他没有别的方式来表达他喜欢我。
+
+不到一刻钟，消息已传遍了整栋别墅。他们跑来了。我能听见他们在门后、在走廊里祈祷。贝阿特丽切也在那里。我不能退缩；胜利必须彻底。我解开了他的绑绳，他温顺地看着我，眼睛黑而湿润，像狗的眼睛。解开他之后，我跪在他面前，凝视着他的眼睛。然后他垂下眼睛看着我裙子，开始害羞地抚摸它。我开始明白了。这个&#x27;东西&#x27;除了皮埃特罗、医生，也许还有神父，从未见过任何人。也许是我的身形，或是我温柔的声音——我继续叫他的名字，说着&#x27;好孩子，好孩子&#x27;——又或者是我裙子的颜色让他惊奇而着迷。我让他继续，直到我有了信心，开始说：「我妈妈，我妈妈……」一定有人曾给他喂过奶，可怜的魂灵。然后我拿起他的手，放在我的乳房上，重复着：「妈妈，妈妈……」接着，一件连我自己都震惊的事——由于不断重复和注视他的眼睛，我已开始出汗——他笨拙地从牙缝间挤出了：「妈妈，妈妈，妈妈。」
+
+我听到了一阵仿佛战栗般的声响穿过走廊，回应着某人的宣告：「他叫她妈妈了！」然后在一阵沉默之后，是「奇迹」这个词，所有人都大声喊着。
+
+事成了。我握在手里的——的确是一个真正的奇迹——是一件能让我不必失去圣召、却能随我心意改变它的事。
+
+*
+
+「那么，我亲爱的姑娘，据我所闻，你的莱奥诺拉修女向你显灵了，你希望牺牲你的圣召来献身于我们的家族？」
+
+沉默了那么久的声音此刻又轰鸣起来了，比外面持续不断的雷声和雨声更加骇人。要是贝阿特丽切在这里该多好！这次我独自与公主在一起。她那嘲讽的灰色眼睛捉住了我的目光，而我的目光徒劳地试图移开。
+
+「好吧，回答我！你激动起来还真是相当漂亮！只可惜千载难逢！回答！你以为我在乎你的圣召吗？老实告诉你：在这个家里我们信上帝，但对神父和修女却不怎么信。还有，如果这能让你安心，我很高兴知道，当我死后——我现在老了，虽然死亡的想法并不让我振奋，但时不时我也必须想一想。真遗憾还得死！我刚才说什么来着？哦，对，我很高兴知道卡瓦利娜和楼上那个&#x27;东西&#x27;不会落到仆人手里，而是会有人照看——这个人虽然被收养，却仍是这个家庭的一分子，无论好坏。你不能说话吗？那好吧！至少回答我这个问题：你对自己做的决定认真考虑过了吗？这不仅仅是一时的暴风雨，对吗？你在这里快乐吗？你不会后悔离开了修道院吧？你还年轻！想好了再回答，因为你看，我的姑娘，我可不忍受哭哭啼啼的女人。过后，你就不能抱怨了。明白吗？确实这几个月你没有抱怨，也没有到处哭哭啼啼，但你们这些女人谁也说不准！最好事先讲清楚。账目分明，仇恨永存。好了，回答我！」
+
+「我想过了，公主夫人。我的位置在这里。」
+
+「很好。明天我就给那些失去了你的干瘪老太婆写信，让她们把嫁妆和嫁衣送回来。我要写一封漂亮礼貌的信，然后笑着想象科斯坦扎修女读每一行时的失望和愤怒。我会让她们把每一样东西都送回来。然后，我们就用那些嫁衣给你做几件舞会礼服。因为，听着，我的姑娘，我们讲清楚：如果你必须牺牲，别让它显露出来。首先，明天舞蹈老师来教卡瓦利娜的时候，你也一起上课。华尔兹、玛祖卡、四方舞，所有那些！如果你已下了决心，你就必须学会跳舞，学会微笑，因为苦瓜脸和笨手笨脚的傻瓜实在让我烦透了。明白吗？现在去吧。我得给科斯坦扎修女写几行字。」
+
+没有期待更多，我已经开始跑去找贝阿特丽切了。但当我走到门口时，她又补了一句：「哦！你还得学会骑马……还有我们得处理一下你那该死的名字，我的姑娘！」
+
+*
+
+我的细腰被束腰衣收紧了，乳房自由了，只覆着一件薄薄的蕾丝胸罩，我朝着贝阿特丽切走去——她在这繁复的四方舞中扮演着我的男伴，屈膝礼、目光交汇式的拥抱、旋转和转身。不知是束腰衣的魔力让我站得笔直，还是那双比大理石地板还要光亮的漆皮靴子，我确实比贝阿特丽切高出许多。当她搂着我的腰——此时老师在钢琴上变换着节奏，一、二、三，一、二、三，跳华尔兹——我飞旋在大厅里，周围只有空荡荡的椅子和沙发在等待。「现在，反向！转！」轻盈地，贝阿特丽切转了一个圈。她真是不可思议：跳舞时，她的跛足几乎消失了，她有力的双手稳稳地扶着我，而我则绕着墙壁、帷幔、枝形吊灯旋转。
+
+「哦，小姐们，看着你们真是一种眼睛的享受：两个天使，我向上帝发誓！两个天使拥抱着，飞升，飞升，飞入云端！小公主殿下早该有个舞伴了！不，不，现在轮到您了，莫德斯塔小姐，您被领着跳已经很熟练了。来，现在轮到您来做男伴了！别害怕。贝阿特丽切会引导你的，她让自己被引导。别担心，总是这样的。我向上帝发誓，这个模式永远不会变：女士假装被引领，实际上却是她在引领、引领、引领……对，就是这样！好极了！转，转，转。好极了！好极了！好极了！我还能说什么呢……」
+
+那小小的老师——比贝阿特丽切还矮小——虽不年轻，却纤细、微笑、打磨得出奇地精致。也许是因为他既无胡须也无小胡子？另一方面，他戴着许多戒指，粉红色的指甲像是打磨过的。他刚到的时候，女人们都窃窃私语，一起笑。如果他走近来纠正一只手的摆放，贝阿特丽切就会抚摸他太阳穴上因汗水和发油而湿亮的黑色卷发——那是他从钢琴跑向我们时垂下来的。
+
+「哦，得了，莫德斯塔，你还不明白吗？不是因为他是舞者，必须能跳男性的部分也能跳女性的部分……可能部分是这原因。你多机灵！但无论如何，事实是，他是个跟我们一样的女人。你看不出那细腰吗？想想看！他连束腰衣都不穿！要是我们能给他穿上束腰衣，该多有趣……」
+
+此时我们一起笑着，而他，被我们的喜悦所感染，指导道：
+
+「不，不，莫德斯塔小姐，不要那么重！现在她才是引领的男伴……轻轻地，轻轻地，轻盈，女性化！对，就是这样，别紧紧抓住小公主殿下的肩膀，好像怕掉进深渊似的。相信我，一位女士不怕她的男伴；她知道只要轻轻一触……对，就这样……多么可爱的手！她就能引领她的舞伴。我多羡慕他啊！然后，飞升，飞升，升入天堂……三拍：一、二、三，一、二、三，一、二……」
+
+我们在三拍中笑着：一、二、三……
+
+「现在，你们两个，一个节拍也别漏掉，请搂住我的腰……对，就这样。现在，大结局，加洛普舞。准备好了吗？开始！」
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>summon</b><span>召唤；传唤</span><em>summon someone</em></div>
+<div><b>bargain</b><span>交易；讨价还价</span><em>strike a bargain</em></div>
+<div><b>estate</b><span>庄园；地产</span><em>manage an estate</em></div>
+<div><b>inherit</b><span>继承</span><em>inherit a name</em></div>
+<div><b>privilege</b><span>特权</span><em>a privilege to</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch028.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch030.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 54 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch053.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" selected>Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch055.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 54<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">54 
+
+‘This picciriddu never
+				cries, Princess. I’m amazed! He opens his eyes, sucks his milk, and sleeps
+				peacefully. Look at him! I can’t get over it: he seems like a grown man, this
+				Jacopo … I shouldn’t say it, but in just three months he’s
+				become more of a son to me than this ’Ntoni, who can never get
+				enough.’ 
+
+‘But your ’Ntoni is
+				beautiful, Stella!’ 
+
+‘Well … I don’t
+				know about beautiful, Princess! But he’s capricious and headstrong! Just like
+				his father. I sense that, like him, he’ll give me a lot of trouble.’ 
+
+‘Not necessarily, Stella, if you
+				raise him differently.’ 
+
+‘Do you mean that a person’s
+				destiny can be changed, Princess?’ 
+
+‘Everything can be changed,
+				Stella.’ 
+
+‘Still no rain! This summer never
+				seems to end! My father said that thirty years ago the heat and humidity went on
+				until the Day of the Dead. “It’s a bad sign!” he said. “The
+				dead are thirsty.” And there were great misfortunes that year. If only the
+				rain would come to cleanse people’s souls … Everyone seems to have
+				gone crazy, both on the island and on the continent, chasing after these carusi in black shirts. We can always expect misfortunes from the
+				continent!’ 
+
+‘Are you worried about your
+				brothers, Stella?’ 
+
+‘Not only them! Those Fascists
+				have captivated Melo, too, with their talk, and he went with them to Rome. I
+				don’t want to think about it. Not actually Rome, but nearby, a town called
+				Tivoli.’ 
+
+‘Melo?
+				But I thought he had gone to America.’ 
+
+‘Exactly! But he stopped in Rome
+				first … it’s raining up there, he wrote … and then
+				he’s going to sail from Naples. If only it would rain here too, at
+				least!’ 
+
+‘It will rain, Stella. And
+				don’t worry about the men. Beatrice’s husband also had to go to Rome.
+				Melo and Carlo will be back; don’t upset yourself. You don’t want your
+				milk to turn to water, do you?’ 
+
+‘You’re right. We women
+				shouldn’t worry too much about them. Who understands them, all that running
+				around they do? Stella is a woman, she’ll calm down, she knows she must simply
+				do her duty.’ 
+
+‘Good night, Stella.’ 
+
+‘To you as well, Voscenza , may you sleep well.’ 
+
+Stella smiles, and the dim light that
+				illuminates her face becomes brighter. One more glance around the big room in
+				shadow, at the two little cribs side by side back there, where Jacopo and
+				’Ntoni are lying, and Modesta – like every night – can return to the quiet of
+				her bedroom. 
+
+On the table, a small white pipe gleams
+				among the books; she fills it. And she sits at the window, smoking in the dark and
+				staring at the sky. ‘ Smoking collects the good thoughts of the day and
+					drives out those that are as insidious as the drone of ’u
+					marranzanu . ’ 55 Carmine’s voice coils round and
+				round the smoke without startling Modesta. The gentleness of that voice was a sign
+				of the fatal sentence she had sought in vain in his chest, in his eyes. And maybe,
+				Modesta thinks, maybe this peace that has accompanied my every move for months and
+				months is a sign that La Certa has decided to interrupt my journey
+				too … 
+
+A distant flash of lightning, followed
+				by muffled thunder, breaks through the heat’s defences, making the trees
+				flinch. The silent lightning unleashed on the night’s broad canvas performs
+				arabesques and Catherine wheels 56 as complicated as the fireworks that
+				enthral Eriprando at Pentecost. Mesmerized, like him, by the imaginary pyrotechnics,
+				I almost don’t hear the door opening softly behind me. It’s
+				him! … Can someone you’ve met as though in a nightmare reappear
+				before you, alive? Or have I been dreaming again? Slowly, Mattia stands before me in
+				the dark. I can’t see him but I recognize his silence … the ominous
+				silence of a hostile dog or animal. Or is it youth that breathes like that? Now he takes a step toward me and
+				I too am forced to move to the table that divides us and grab the pistol with one
+				hand while turning on the lamp with the other. 
+
+‘What are you doing here, you
+				madman? How did you get in? Stay away from me, Mattia! One more step and I’ll
+				blow your head off!’ 
+
+‘I won’t come any closer. I
+				only came to bring you back the keys. Here: there were three of them. I took them
+				from my father’s key ring. Here they are, Princess, all lined up: the key to
+				the gate, the front door and your room.’ 
+
+‘And you couldn’t have sent
+				them to me or come during the day?’ 
+
+‘That’s how Mattia is! He
+				likes to surprise people. Plus, I still had some hope.’ 
+
+‘What hope, you crazy
+				fool?’ 
+
+‘That you were lying. We Tudias
+				are jealous of our memories, almost more jealous of our memories of the dead than of
+				the living. But a memory shouldn’t be marred by doubt, and you made me have
+				doubts. So I wanted to follow “his” course through the locks with my own
+				hands, to be certain. You told the truth, and Carmine always lied to his
+				sons.’ 
+
+‘Let the dead rest in peace and
+				forget about it. Modesta has forgotten everything.’ 
+
+‘Brava! First she appears
+				in other people’s houses like a madwoman. Causes a turmoil of speculation with
+				her insinuations, and then she forgets! Why did you come to Carmelo? Did you come to
+				rob us? Why did you kiss him?’ 
+
+‘I took what your father owed
+				me.’ 
+
+‘You loved him that much? Well? Do
+				you still love him? I’ve watched you each day; I followed you from a distance.
+				You don’t have so many men as you made me think. You’re alone, and you
+				think about him.’ 
+
+‘Modesta has forgotten
+				him.’ 
+
+‘Have you forgotten me,
+				too?’ 
+
+‘You too. Now get out of here!
+				What do you want from me?’ 
+
+‘It’s you I want.’ 
+
+‘There are many women,
+				Mattia.’ 
+
+‘I’ve looked, but it’s
+				your eyes I saw in theirs. Look into my eyes and put down that gun.’ 
+
+On the table,
+				three keys in a row – the gate, the front door and my room – glint in the circle of
+				lamplight; they murmur a precise message to my mind, a course confronted in darkness
+				without hesitation. Nunzio is always on guard duty. Lupo and Selassié keep
+				watch. 
+
+‘The dogs, you mean? Well, Mattia
+				knows how to get around dogs and watchmen! You’re the only one he
+				doesn’t know how to get around, and believe me, Mody … that’s
+				what he called you, didn’t he?’ 
+
+‘How do you know that?’ 
+
+‘I know … and believe
+				me, I tried to forget that bone-chilling night as you called it, but the more I
+				tried the colder I felt and the more I yearned for your body’s
+				heat.’ 
+
+I can’t listen to that warm,
+				pleading voice and, as though hypnotized, my frigid hand sets the gun down by the
+				keys. 
+
+‘You’re more beautiful than
+				I remembered! I understand; I asked too much of you.’ 
+
+‘It won’t work, Mattia.
+				You’re too young, and you’ll start asking questions again and disturbing
+				the peace and quiet of this house.’ 
+
+‘Try me.’ 
+
+His hand on mine, in the circle of
+				light, shatters the wave of tranquillity that had lulled my senses for months.
+				There’s danger in the warmth of that hand. I stare into his eyes. 
+
+‘I lose myself in your eyes.
+				Don’t make me go … your gaze is like a wind that sweeps me
+				away.’ 
+
+There’s danger in those eyes,
+				golden like grain. The wind in his eyes sweeps me toward him, and though my frozen
+				body resists, my hand rebels and seeks his palm. In the circle of light, my hand
+				loses its strength in his, and I close my eyes. He picks me up, and with that
+				familiar touch a spell is once again cast over my senses, reawakening joy in my
+				nerves and veins. I wasn’t mistaken: La Certa was watching me from a
+				distance, but only to put me to the test. I must accept the danger, if that danger
+				is the only thing that can revive my senses – but taking my time, without the
+				tremors of youth. And when he, blinded by his young flesh, tries to enter me, I
+				gently stop him. 
+
+‘What’s wrong,
+				Modesta?’ 
+
+‘If you’re a man, Mattia,
+				and not an undependable carusu , you know what you must do.’ 
+
+‘You’re right, Modesta. But I’ve been wanting you for so long!
+				Squeeze your thighs at least and let me come.’ 
+
+I squeeze my legs tight and he comes. I
+				wipe up his semen with my palms, smear it over my stomach and breasts, and I come
+				too. He has the same smell as Carmine, the same sharp, salty tang of a life ripened
+				in the sun. La Certa smiles, waiting. She just wants to take away the grief
+				and the part of me, now dead, that I must leave behind. To do this I must accept my
+				youth, that young man with the firm cheeks, unseasoned by wind and rain. Without
+				hesitation, I grab hold of my youth in that bold, tender flesh. 
+
+‘Will you let me come
+				back?’ 
+
+‘Of course, Mattia. I like you
+				when you’re like this.’ 
+
+‘You like me! What a thing to
+				say … You should love me!’ 
+
+‘Hush, Mattia; don’t ruin
+				everything.’ 
+
+Slowly he slips the three keys in with
+				his, watching me and letting me watch him. I could be happy looking at him for ever,
+				at dawn, at dusk, holding him in my arms at night, that body young like mine. 
+
+‘Will you let me come
+				back?’ 
+
+‘You put my keys in with yours.
+				Why are you asking?’ 
+
+‘So you weren’t
+				asleep?’ 
+
+‘No, I was watching
+				you.’ 
+
+‘But your eyes were
+				closed.’ 
+
+‘I saw you anyway. You’re
+				beautiful naked.’ 
+
+‘Don’t say that; you make me
+				want you.’ 
+
+‘Tomorrow, Mattia. Now you have to
+				go.’ 
+
+‘You’re putting me to the
+				test?’ 
+
+‘You asked me to.’ 
+
+‘My hands are shaking;
+				that’s how much I still want you. But I’ll be able to pass the
+				test.’ 
+
+‘Let’s hope so,
+				Mattia.’ 
+
+‘You’ll see!’ 
+
+By now it was clear that a part of me
+				would always belong to them, to that language with its underlying passion that at
+				times made Stella’s voice clear and warm, and at other times darkened it like
+				a threatening sea awaiting a storm: 
+
+‘It doesn’t upset you,
+				Princess, if Prando calls me Mama? I tried every way I could to make him get over this habit, but Prando is
+				wilful and stubborn, if anything more so than ’Ntoni.’ 
+
+‘Why should I be upset, Stella?
+				Let him call you that. If he’s chosen you for a mother, what’s wrong
+				with that? So then, Prando, how many mothers do you have?’ 
+
+‘I have two mothers, and also two
+				aunts.’ 
+
+‘Listen to him! And who is this
+				second aunt?’ 
+
+‘Beautiful Elena!’ 
+
+‘And do you have brothers
+				too?’ 
+
+‘No!’ 
+
+‘What about that one who’s
+				watching you? Isn’t Jacopo your brother?’ 
+
+‘That one is yours!’ 
+
+‘’Ntoni is
+				mine … But Jacopo?’ 
+
+‘No!’ 
+
+‘Let him be, Stella; he’s
+				nearly asleep. Let him find his own way in his sleep. Tell me, Stella. I can see
+				you’re troubled – is your father causing you concern?’ 
+
+‘He hasn’t accepted the idea
+				that I’m better off here than at home. It’s Melo I’m worried
+				about. Why hasn’t he come back yet and why hasn’t he written? Signor
+				Carlo has been back from Rome for some time.’ 
+
+‘But Melo was supposed to go to
+				America after Rome. He must have boarded a ship.’ 
+
+‘Without dropping us a line?
+				People were killed and wounded in Rome. I heard it. I can’t read the
+				newspapers, but I heard it. Signor Carlo came back gaunt and dejected.’ 
+
+‘But Carlo is on the other side,
+				Stella, and he’s only disheartened over the success that these ideas of
+				Mussolini have had.’ 
+
+‘What does that man want, dividing
+				our men like that? Melo is my husband. I shouldn’t say so but he has a violent
+				temper, and I can’t rely on him. If, as Voscenza tells me, Signor
+				Carlo is on the other side, he must be right, since Signor Carlo is a reasonable
+				man. If only he could talk to Melo when he comes back!’ 
+
+‘Is that what’s bothering
+				you?’ 
+
+‘It is! If only Signor Carlo could
+				make him use his head!’ 
+
+‘When
+				Melo comes back, we’ll have him talk with Carlo, Stella.’ 
+
+‘I can’t stand any more of
+				this male frenzy! What need was there for him to rush off to Rome, and then to that
+				America, which is even farther away?’ 
+
+‘For his inheritance,
+				Stella.’ 
+
+‘But what need is there?
+				We’re not poor. Physical separation leads to true distance!’ 
+
+‘He’ll come back,
+				Stella.’ 
+
+‘Voscenza comforts me,
+				Princess, like these angelic tears that God decided to rain down on us from heaven.
+				Such blessed coolness! Jacopo has stopped sweating, the poor picciriddu !’ 
+
+Stella, her face faintly clouded with
+				anxiety. Stella, with her dark slanted eyes like slits of polished stone, two bright
+				stars even amid the din of the storm. The rain shakes the walls of the house,
+				violently at times, then softly. The corridors and stairs glide silently under my
+				steps. A few moments to reflect on the day, on how Prando has grown in just a few
+				weeks. ‘ Jacopo’s arrival made him the older one
+				overnight ’, and Mattia slowly opens the door, smiling. He’s always
+				smiling now. 
+
+‘I didn’t hear you, Mattia.
+				How did you get here?’ 
+
+‘On Orlando. I’m sick of the
+				motorcycle! My father was right: all that noise hurts the ears and doesn’t let
+				you hear an enemy approaching. It makes you an easy target for anyone who has it in
+				for you. In just three days, Orlando saved me from a well-planned ambush.’ 
+
+‘Who was it?’ 
+
+‘The same ones who earlier had
+				their sights set on Carmine. I’m the master now, and I have to be careful. Cancia la vita quannu ’u padri mori , your life changes when your
+				father dies. In just a short time, Mattia has aged, and now he must plant his own
+				roots in the land. You have to help me, Modesta, you have to teach me!’ 
+
+‘What do you want to know? If you
+				can fill your father’s shoes?’ 
+
+‘You’ve understood
+				me.’ 
+
+‘Carmine didn’t have
+				confidence in you.’ 
+
+‘And you?’ 
+
+‘I sense Carmine’s strength
+				in you, but I can’t erase his doubts about you from my mind.’ 
+
+‘And to
+				think that I was the one who wanted to make him doubt me!’ 
+
+‘Why?’ 
+
+‘Who knows! Maybe it was a way to
+				assert myself; what do I know? Make him have reservations about me at least, shake
+				that bossy self-assurance he had toward everyone. But now that he’s dead – who
+				could have imagined it? – I feel his misgivings hanging over me. Now I can only know
+				from you, and maybe not even from you. I have no one.’ 
+
+‘What about Vincenzo?’ 
+
+‘Vincenzo! If only Carmine were
+				alive to see his darling blue-eyed boy! The mild, obedient boy has become a
+				fury.’ 
+
+‘How can that be?’ 
+
+‘Clearly it was only fear that
+				made him respect him before. Since Carmine died, Vincenzo has done nothing but curse
+				his memory. He started drinking the day of the funeral. And now he’s left the
+				house. I’m cold, Modesta.’ 
+
+‘Hold me; I’ll warm you up.
+				What’s wrong, Mattia?’ 
+
+‘Don’t look at me. I
+				can’t hold back these tears. I’m not a man, Modesta. Don’t look at
+				me.’ 
+
+For the first time, I feel compassion
+				for his youth and mine, but only for a moment, because I quickly recognize the traps
+				that lie concealed by that tenderness. ‘ Youth is more astute than old age
+					and knows how to use every means. ’ Only a moment, and already he
+				presses his advantage. 
+
+‘Tell me you love me,
+				Modesta.’ 
+
+‘Be good, Mattia.’ 
+
+‘Say it!’ 
+
+‘The word you’re asking me
+				for, Mattia, is one that must be used cautiously.’ 
+
+‘But I love you.’ 
+
+‘You need me.’ 
+
+‘And that’s not
+				love?’ 
+
+‘In time you’ll see,
+				Mattia.’ 
+
+‘You’re driving me crazy,
+				Modesta! Say it: I’m not worthy of you.’ 
+
+‘I have two children and a
+				husband, Mattia. Don’t forget that.’ 
+
+‘A
+				husband! That animal! Just say the word, and I’ll rid you of that
+				cross.’ 
+
+‘What do you mean?’ 
+
+‘I’ll kill him for you and
+				I’ll marry you myself.’ 
+
+‘Try it and I’ll shoot your
+				hands off!’ 
+
+‘If you marry me, you’ll own
+				all the lands again, and with you by my side I could defy everyone. Marry me.
+				I’ve given you so many assurances these past few months.’ 
+
+It was true, but his youth was not my
+				future and I didn’t want land. People marry only out of need … Those
+				reassurances were only the usual silken ties to bind you more tightly, afterwards. I
+				sensed it in the force of his hands which, without meaning to, were nearly snapping
+				my wrists. Don’t lose your equilibrium, Modesta, don’t listen to the
+				warmth of those hands. Look him in the eye, where already a dark prison is outlined
+				in his honeyed gaze. And to escape the honey that nourished my senses, I run to
+				Carlo: 
+
+‘… And to think, Carlo, that
+				when I met you, I thought all young men were like you. Dreamer! I saw my future
+				among many Carlos, with whom I could talk, grow, make love.’ 
+
+‘Well, there are some: Jose, for
+				example. He and his companion are different. In Milan, they were an example for us,
+				our pride and admiration, so to speak. Just today, he wrote me a little note that
+				was half serious and half facetious, in which, between the lines, he calls me a
+				traitor because of my “Puccini-like” dream of marriage: “ Un
+					bel dì vedremo … ” He also says that between the two genuinely
+				“Italiot” evils, he always prefers D’Annunzio.’ 
+
+‘Jose, Jose! It sounds like the
+				same old story! And the others? Why don’t you talk to me about the other
+				comrades? Are they all like that Pasquale who is always following you around, though
+				you don’t want to tell me?’ 
+
+‘Pasquale is a good comrade,
+				Modesta. Let’s not lose sight of reality: we’re in Sicily!’ 
+
+‘But did you see him at home with
+				his wife? Did you see how he treats her? What am I saying? He doesn’t pay any
+				attention to her at all. During those few moments when she appears, poor Elisa seems
+				invisible!’ 
+
+‘Yes,
+				actually you pointed that out to me …’ 
+
+‘You’re frowning, Carlo.
+				Why?’ 
+
+‘Because I have to admit that
+				before I met you I hadn’t noticed these things … Thinking back,
+				you’re right. I must say that even in Milan he was like that, only I
+				wasn’t aware of it. There were so many more urgent things to think
+				about.’ 
+
+‘Do you think my concern is too
+				personal? Tell me the truth.’ 
+
+‘No. It’s just that now too
+				there are more important things to deal with.’ 
+
+‘You’re right.’ 
+
+‘What you’re after, Modesta,
+				will come later. When Bebel’s book replaces Cuore , 57 when, as Maria says,
+				instead of saints on the calendar, there will be the names of Marie Curie, Louis
+				Pasteur …’ 
+
+‘And if it doesn’t happen,
+				Carlo?’ 
+
+‘We will continue to cultivate our
+				garden, as Voltaire says, and wait for the seed to bear fruit. Look at that sunset,
+				Modesta! Let’s go for a walk before the divine Beatrice, followed by her
+				handmaiden – do you know that Argentovivo has become very charming? – comes out of
+				the kitchen and overwhelms us with delicious morsels. She’s learning how to
+				cook. She says she wants to be the one to cook for the baby when it’s born. I
+				remember my mother, too …’ 
+
+‘The wind has picked up, Carlo.
+				Let’s run! I love the wind. Up there with the nuns there was never any wind.
+				Everything was still, as though submerged in dense, grey water. Maybe we were
+				nothing more than lifeless fish in an aquarium.’ 
+
+‘There! the poet dozing beneath
+				the tough exterior of the pastoral carusa is emerging. Even your face
+				changes. How do you do it?’ 
+
+‘Carmine used to say that I was
+				like a troubadour, and Tuzzu too, I think … Memories fade, Carlo.
+				It’s terrible!’ 
+
+‘Aren’t troubadours
+				poets?’ 
+
+‘As soon as I get my degree,
+				I’ll do nothing but write poetry and run outside, drinking up all the wind
+				that stirs, enlivens, wakes – how beautiful words are, Carlo! – yes, well, that
+				impregnates this island and allows it to be reborn, ever new … except for
+				the attorneys, notaries and professors.’ 
+
+‘How are things going at the
+				university?’ 
+
+‘To be
+				truthful, Carlo, it’s horrible: they look at me as though I were a circus
+				freak.’ 
+
+‘Even the professors?’ 
+
+‘Of course! They’re so
+				astounded to see a female creature in those hallowed halls that they hardly question
+				me. Everything I say is fine with them. It won’t be difficult to get my
+				degree.’ 
+
+‘You’ve told me everything
+				about yourself but … why do you want to get this degree at all
+				costs?’ 
+
+‘When I was in the convent, it was
+				one of my dreams, and childhood dreams should be cherished. Then, if there is an
+				“afterwards”, I’ll go out and teach, like they do in Turkey.
+				Atatürk has sent everyone to teach in the rural areas.’ 
+
+‘For me, teaching was always
+				boring.’ 
+
+‘With children, it’s a
+				different matter! You should see how much fun it is with Eriprando! I can’t
+				wait to get back to the house and write him a delightful story I’ve thought up
+				for tomorrow.’ 
+
+‘What’s it about this
+				time?’ 
+
+‘The adventurous tale of a
+				gecko’s journey along the desert of a wall.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">54
+
+「這個小傢伙從來不哭，公主。我真驚訝！他睜開眼睛，吸他的奶，平靜地睡覺。看看他！我真不敢相信：他看起來像個成年人，這個雅各布……我不該這麼說，但才三個月，他已經比這個永遠吃不夠的恩托尼更像我兒子了。」
+
+「但你的恩托尼很漂亮，斯特拉！」
+
+「嗯……我不知道漂不漂亮，公主！但他任性又固執！就像他父親。我感覺，像他一樣，他會給我很多麻煩。」
+
+「不一定，斯特拉，如果你用不同的方式撫養他。」
+
+「您是說一個人的命運可以改變嗎，公主？」
+
+「一切都可以改變，斯特拉。」
+
+「還是不下雨！這個夏天似乎永遠不會結束！我父親說，三十年前，炎熱和潮濕一直持續到亡靈節。『這是個壞兆頭！』他說，『死者渴了。』那年就發生了大不幸。但願雨水來淨化人們的靈魂……每個人似乎都瘋了，無論是在島上還是在大陸上，都追著這些穿黑衫的小伙子們跑。大陸總會給我們帶來不幸！」
+
+「你在擔心你的兄弟們嗎，斯特拉？」
+
+「不只是他們！那些法西斯用他們的言論也迷住了梅洛，他跟他們去了羅馬。我連想都不願想。其實不是去羅馬，是去附近一個叫蒂沃利的小鎮。」
+
+「梅洛？我以為他去美國了。」
+
+「沒錯！但他先在羅馬停下來……那裡在下雨，他寫信說……然後他會從那不勒斯啟航。但願這裡也能下雨，至少！」
+
+「會下雨的，斯特拉。別擔心那些男人。貝雅特麗齊的丈夫也不得不去羅馬。梅洛和卡洛會回來的；別煩惱了。你不想讓你的奶水變成水吧？」
+
+「您是對的。我們女人不應該為他們太過擔心。誰理解他們呢，他們所有那些跑來跑去的勾當？斯特拉是個女人，她會冷靜下來，她知道她只需要盡她的本分。」
+
+「晚安，斯特拉。」
+
+「您也是，殿下，願您睡得好。」
+
+斯特拉微笑著，照亮她臉龐的朦朧燈光變得更明亮了。再瞥一眼陰影中的大房間，瞥一眼後面並排的兩張小搖籃，雅各布和恩托尼躺在那裡，莫德斯塔——像每個夜晚一樣——就可以回到她臥室的寧靜中去了。
+
+在桌上，一隻白色的小煙斗在書本間閃閃發光；她裝滿了它。她坐在窗前，在黑暗中抽著煙，凝視著天空。「抽煙可以收集一天中好的思緒，驅走那些像口簧琴嗡嗡聲一樣陰險的思緒。」卡米的聲音在煙霧中纏繞盤旋，沒有驚動莫德斯塔。那聲音的溫柔是那道她曾徒勞地在他的胸膛、他的眼睛中尋找的死刑判決的跡象。也許，莫德斯塔想，也許這幾個月來陪伴我每一步的寧靜，是死神決定打斷我的旅程的跡象……
+
+遠處一道閃電，接著是悶雷，突破了熱浪的防線，讓樹木微微一縮。在夜晚廣闊畫布上釋放的無聲閃電，表演著像五旬節讓埃里普蘭多著迷的煙火一樣複雜的蔓藤花紋和輪轉煙火。像他一樣，被那想像中的焰火迷住了，我幾乎沒有聽到門在我身後輕輕打開的聲音。是他！……一個你像在惡夢中遇見的人，可以活生生地重新出現在你面前嗎？還是我又在做夢了？慢慢地，馬蒂亞在黑暗中站在我面前。我看不見他，但我認得他的沉默……一隻敵意的狗或野獸的不祥沉默。還是青春就是那樣呼吸的？現在他朝我走了一步，我也不得不移動到把我們隔開的桌子旁，一手抓住手槍，另一手打開燈。
+
+「你在這兒做什麼，你這個瘋子？你是怎麼進來的？離我遠點，馬蒂亞！再往前一步，我就打爆你的頭！」
+
+「我不會再靠近了。我只是來還你鑰匙。這裡：有三把。我從我父親的鑰匙圈上取下來的。在這裡，公主，排成一排：大門的鑰匙、前門的鑰匙和你房間的鑰匙。」
+
+「你就不能寄給我，或者白天來嗎？」
+
+「馬蒂亞就這德性！他喜歡給人驚喜。再說，我還存有一點希望。」
+
+「什麼希望，你這個瘋子？」
+
+「希望你在說謊。我們圖迪亞家的人珍惜我們的記憶，對死者的記憶的嫉妒幾乎超過了對活人的。但一個記憶不應該被懷疑所玷污，而你讓我產生了懷疑。所以我想親手跟隨『他』穿過那些鎖的路線，以確定事實。你說了真話，而卡米總是對他的兒子們撒謊。」
+
+「讓死者安息吧，忘掉這些。莫德斯塔已經忘記了一切。」
+
+「好樣的！先是像瘋女人一樣出現在別人家裡，用她的暗示引起一片混亂的猜測，然後她就忘記了！你為什麼來卡梅洛？你是來搶我們的嗎？你為什麼吻他？」
+
+「我拿了你父親欠我的東西。」
+
+「你就那麼愛他？嗯？你還愛他嗎？我每天都在觀察你；我遠遠地跟蹤你。你沒有那麼多像你讓我以為的男人。你是一個人，你想著他。」
+
+「莫德斯塔已經忘了他了。」
+
+「你也忘了我的嗎？」
+
+「也忘了你。現在從這裡出去！你想從我這裡得到什麼？」
+
+「我想要你。」
+
+「有很多女人，馬蒂亞。」
+
+「我找過了，但我看到的是你的眼睛在她們的眼睛裡。看著我的眼睛，放下那支槍。」
+
+在桌上，三把鑰匙排成一排——大門的、前門的和我房間的——在燈光的圓圈中閃爍；它們向我心靈低語著一條精確的訊息，一條在黑暗中毫無猶豫地走過的路線。農齊奧總是在值班。盧波和塞拉西耶在守望。
+
+「你是說那些狗？嗯，馬蒂亞知道怎麼繞過狗和看守！你是他唯一不知道怎麼繞過的人，相信我，莫迪……他這麼叫你來著，是嗎？」
+
+「你怎麼知道？」
+
+「我知道……相信我，我試圖忘記你所說的那個冷徹骨髓的夜晚，但我越嘗試就越覺得冷，越渴望你身體的熱度。」
+
+我不能聽那溫暖、懇求的聲音，彷彿被催眠一般，我那隻冰冷的手把槍放在鑰匙旁邊。
+
+「你比我記憶中更美！我明白了；我對你要求太多了。」
+
+「這行不通的，馬蒂亞。你太年輕了，你會又開始問問題，打擾這棟房子的安寧和平靜。」
+
+「考驗我吧。」
+
+他的手——在光圈中——壓在我手上，粉碎了那幾個月來撫慰我感官的安寧之波。那隻手的溫暖中蘊藏著危險。我凝視著他的眼睛。
+
+「我在你的眼睛裡迷失了自己。別讓我走……你的目光像一陣風，把我席捲而去。」
+
+那雙眼睛裡有危險，金黃如穀粒。他眼中的風把我吹向他，雖然我冰冷的身體在抗拒，但我的手卻背叛了我，去尋找他的掌心。在光圈中，我的手在他的手中失去了力量，我閉上了眼睛。他把我抱起來，那股熟悉的觸碰再次對我的感官施下咒語，在我的神經和血管中重新喚醒快樂。我沒有弄錯：死神在遠處凝視著我，但只是為了考驗我。我必須接受危險，如果那危險是唯一能復甦我感官的東西——但要慢慢來，沒有青春時的那些顫抖。而當他，因他年輕的肉體而盲目，試圖進入我的時候，我輕輕地阻止了他。
+
+「怎麼了，莫德斯塔？」
+
+「馬蒂亞，如果你是男人，而不是一個靠不住的小伙子的話，你知道你該做什麼。」
+
+「你是對的，莫德斯塔。但我想要你想要了這麼久！至少夾緊你的大腿，讓我射出來。」
+
+我緊緊夾住雙腿，他射了。我用掌心擦去他的精液，把它抹在我的腹部和乳房上，我也達到了高潮。他有和卡米一樣的氣味，同樣的、在陽光下成熟的生命的那種辛辣鹹味。死神微笑著，等待著。她只想帶走悲傷和我必須留下的那已死的部分。要做到這一點，我必須接受我的青春，那個臉頰結實、還沒有被風雨磨礪過的年輕人。毫不猶豫地，我在那大膽而溫柔的肉體中抓住了我的青春。
+
+「你會讓我回來嗎？」
+
+「當然，馬蒂亞。我喜歡你現在這個樣子。」
+
+「你喜歡我！說得好像……你應該愛我！」
+
+「噓，馬蒂亞；別毀了一切。」
+
+他慢慢地把三把鑰匙和他的鑰匙穿在一起，一邊看著我，一邊讓我看著他。我可以永遠快樂地看著他，在黎明，在黃昏，夜晚把他摟在懷中，那身體像我的一樣年輕。
+
+「你會讓我回來嗎？」
+
+「你把我的鑰匙和你的穿在一起了。為什麼還問？」
+
+「所以你沒有睡著？」
+
+「不，我在看你。」
+
+「但你的眼睛是閉著的。」
+
+「我還是看見你了。你赤裸的樣子很美。」
+
+「別這麼說；你讓我想要你。」
+
+「明天，馬蒂亞。現在你得走了。」
+
+「你在考驗我嗎？」
+
+「是你要求我的。」
+
+「我的手在抖；證明我多麼還想要你。但我能通過考驗的。」
+
+「但願如此，馬蒂亞。」
+
+「你看著吧！」
+
+到此時已經很明顯了，我的一部分將永遠屬於他們，屬於那種語言，帶著其潛在的激情，有時讓斯特拉的聲音清晰而溫暖，有時則使它像等待暴風雨的兇險大海一樣變暗：
+
+「您不介意吧，公主，如果普蘭多叫我媽媽？我試過各種方法讓他改掉這個習慣，但普蘭多固執而任性，比恩托尼還厲害。」
+
+「為什麼會介意呢，斯特拉？讓他叫你好了。如果他選擇了你做母親，那又有什麼錯呢？那麼，普蘭多，你有幾個媽媽？」
+
+「我有兩個媽媽，還有兩個阿姨。」
+
+「聽聽他說的！那第二個阿姨是誰？」
+
+「美麗的埃萊娜！」
+
+「那你也有兄弟嗎？」
+
+「沒有！」
+
+「那個在看著你的呢？雅各布不是你的兄弟嗎？」
+
+「那個是你的！」
+
+「恩托尼是我的……但雅各布呢？」
+
+「不是！」
+
+「隨他去吧，斯特拉；他快睡著了。讓他在睡夢中找自己的路吧。告訴我，斯特拉。我看得出你有心事——是你父親讓你擔心嗎？」
+
+「他一直沒有接受我在這兒比在家裡更好的想法。我擔心的是梅洛。為什麼他還沒回來，為什麼他還沒寫信？卡洛先生從羅馬回來已經有些日子了。」
+
+「但梅洛在羅馬之後本來應該去美國的。他一定已經上了船了。」
+
+「連一句話都不給我們捎？羅馬有人被殺、有人受傷了。我聽說了。我看不懂報紙，但我聽說了。卡洛先生回來時又消瘦又沮喪。」
+
+「但卡洛是在另一邊，斯特拉，他只是對墨索里尼這些想法所取得的成功感到沮喪。」
+
+「那個人想要什麼，這樣分裂我們的男人？梅洛是我的丈夫。我不該這麼說，但他脾氣暴躁，我指望不了他。如果像殿下告訴我的那樣，卡洛先生是在另一邊，那他一定是對的，因為卡洛先生是個明事理的人。但願他回來的時候能和梅洛談談！」
+
+「這就是你煩惱的事嗎？」
+
+「是的！但願卡洛先生能讓他用用腦子！」
+
+「梅洛回來的時候，我們會讓他跟卡洛談談的，斯特拉。」
+
+「我再也受不了這種男性的狂熱了！他有必要跑到羅馬去，然後又去那個更遠的美國嗎？」
+
+「為他的遺產，斯特拉。」
+
+「但有什麼必要呢？我們又不窮。身體的分離會導致真正的疏遠！」
+
+「他會回來的，斯特拉。」
+
+「殿下的話安慰了我，公主，就像這些上帝決定從天堂降下給我們的天使般的眼淚。多麼有福的清涼啊！雅各布不再出汗了，可憐的小傢伙！」
+
+斯特拉，她的臉微微籠罩著憂慮。斯特拉，她那雙像打磨過的石頭般的、深色斜挑的眼睛，即使在暴風雨的喧囂中也是兩顆明亮的星星。雨水搖撼著房子的牆壁，時而猛烈，時而輕柔。走廊和樓梯在我的腳步下無聲地滑過。片刻時間來反思這一天，反思普蘭多在短短幾週內長了多少。「雅各布的到來讓他一夜之間成了大孩子」，而馬蒂亞慢慢地推開門，微笑著。他現在總是微笑著。
+
+「我沒有聽到你，馬蒂亞。你是怎麼到這裡的？」
+
+「騎奧蘭多。我對摩托車厭倦了！我父親說得對：所有那些噪音傷耳朵，還讓敵人靠近時你聽不見。它讓任何想害你的人都能輕而易舉地找到目標。才三天，奧蘭多就救了我免於一場精心策劃的伏擊。」
+
+「是誰？」
+
+「那些之前盯上卡米的人。我現在是主人了，必須小心。父親死後，你的生活就變了。才短短時間，馬蒂亞已經老了，現在他必須在土地上紮自己的根。你必須幫助我，莫德斯塔，你必須教我！」
+
+「你想知道什麼？你能不能接替你父親的位置？」
+
+「你明白我了。」
+
+「卡米對你沒有信心。」
+
+「那你呢？」
+
+「我在你身上感受到卡米的力量，但我無法從腦海中抹去他對你的懷疑。」
+
+「而想到是我自己讓他懷疑我的！」
+
+「為什麼？」
+
+「誰知道呢！也許是一種自我主張的方式；我怎麼知道？至少讓他對我有保留意見，動搖他對所有人都有的那種專橫的自信。但現在他死了——誰能想像得到呢？——我感覺他的疑慮像烏雲一樣懸在我頭上。現在我只能從你那裡知道，也許甚至從你那裡也無法知道。我沒有人可以依靠。」
+
+「溫琴佐呢？」
+
+「溫琴佐！但願卡米還活著，能看到他親愛的那個藍眼睛的寶貝兒子！那個溫順、聽話的男孩已經變成了一團怒火。」
+
+「怎麼可能呢？」
+
+「很明顯，以前只是恐懼讓他尊重他。自從卡米死後，溫琴佐除了詛咒他的記憶什麼也不做。他在葬禮那天就開始酗酒了。現在他已經離家了。我冷，莫德斯塔。」
+
+「抱緊我；我會讓你暖和起來。怎麼了，馬蒂亞？」
+
+「別看我。我忍不住這些眼淚。我不是個男人，莫德斯塔。別看我。」
+
+第一次，我對他的青春和我的青春感到了同情，但只有一瞬間，因為我很快就認出了那種溫柔所隱藏的陷阱。「青春比老年更狡猾，知道如何利用一切手段。」只有一瞬間，而他已經抓住了他的優勢。
+
+「告訴我，你愛我，莫德斯塔。」
+
+「乖一點，馬蒂亞。」
+
+「說啊！」
+
+「你要求我說的這個詞，馬蒂亞，必須謹慎使用。」
+
+「但我愛你。」
+
+「你需要我。」
+
+「那不就是愛嗎？」
+
+「隨著時間，你會明白的，馬蒂亞。」
+
+「你把我逼瘋了，莫德斯塔！說吧：我配不上你。」
+
+「我有兩個孩子和一個丈夫，馬蒂亞。別忘了。」
+
+「一個丈夫！那頭畜生！只要你說一句話，我就替你除掉那個十字架。」
+
+「你什麼意思？」
+
+「我替你殺了他，我自己娶你。」
+
+「試試看，我就轟掉你的手！」
+
+「如果你嫁給我，你就會重新擁有所有的土地，有你在我身邊，我可以對抗所有人。嫁給我。這幾個月我給了你那麼多保證。」
+
+這是真的，但他的青春不是我的未來，我也不想要土地。人們結婚只是出於需要……那些保證不過是慣常的絲綢繩索，用來事後把你綁得更緊。我從他雙手的力量中感覺到了這一點，那雙手，無意識中，幾乎快折斷我的手腕了。不要失去平衡，莫德斯塔，不要聽那雙手的溫暖。直視他的眼睛，在他蜜色的目光中，一座黑暗的監獄已經隱約成形。為了逃離那滋養我感官的蜜糖，我跑向卡洛：
+
+「……想想看，卡洛，當我遇見你的時候，我以為所有年輕人都像你。真是做夢！我看到了我的未來，在許多個像卡洛那樣的人中間，和他們在一起我可以交談、成長、做愛。」
+
+「嗯，有一些的：比如說何塞。他和他的伴侶就不同。在米蘭，他們是我們的榜樣，可以說是我們的驕傲和仰慕。就在今天，他給我寫了一張半認真半玩笑的便條，在字裡行間，他因我那『普契尼式』的婚姻夢想而稱我為叛徒：『晴朗的一天，我們將看到……』他還說，在兩種真正的『意大利人』式邪惡之間，他總是更喜歡鄧南遮。」
+
+「何塞，何塞！聽起來還是老一套！那其他人呢？你為什麼不跟我談談其他的同志？」
+
+「因為我不認識任何人。只有米蘭的那些人，還有我們的佛朗哥和瑪麗亞。」
+
+「那你的意思是，未來就是這樣？」
+
+「當然。如果我永遠不改變主意，你就嫁給我。當貝雅特麗齊不再需要我的時候，等那個小女孩長大一點……我們可以去印度，去土耳其。」
+
+「貝雅特麗齊需要你，卡洛。」
+
+「也許吧。」
+
+「而且我，我不能在一個男人身邊生活。你知道的。那個老女人，你們叫她死神，把她的巢安在我裡面了，像對卡米一樣。我看到她了。有時她是一個人，赤裸的；有時她和她的烏鴉在一起。不管什麼時候，她都在那裡，在我裡面。她微笑著，她注視著我，她等待著。只要有一點點疲倦或一點點太多的平靜，我就完了。他們用愛來網住你；對男人來說甚至更容易：一切都結合在一起來俘虜一個女人，她的情感。你呢，你能想像我像其他所有女人一樣被馴服在一個家裡嗎？」
+
+「一個女人真的能被馴服嗎？你就像森林裡的野兔，總是警覺著，稍有危險的跡象就隨時準備逃跑。」
+
+「這是一個承諾，卡洛。」
+
+「什麼承諾？」
+
+「永遠不要試圖馴服我。無論如何，在我心中留一個特殊的位置。即使當那個跟我同住的女人不再吸引我的時候——正如你所說，因為我聽了你說的話——即使那個時候，對你的記憶也會一直與我同在。而且如果有『之後』，我會出去教書，像他們在土耳其做的那樣。阿塔圖爾克把每個人都派到農村地區去教書了。」
+
+「對我來說，教書總是很無聊。」
+
+「和孩子們在一起就不一樣了！你應該看看和埃里普蘭多在一起多有趣！我迫不及待想回家，給他寫一個我為明天想出來的可愛故事。」
+
+「這次是什麼故事？」
+
+「關於一隻壁虎沿著一面牆的沙漠旅行的冒險故事。」</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>burden</b><span>负担</span><em>carry a burden</em></div>
+<div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div>
+<div><b>jealous</b><span>嫉妒的</span><em>be jealous of</em></div>
+<div><b>longing</b><span>渴望，思念</span><em>a longing for</em></div>
+<div><b>vow</b><span>誓言</span><em>make a vow</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch053.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch055.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

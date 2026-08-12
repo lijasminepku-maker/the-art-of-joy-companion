@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 24 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch023.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" selected>Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch025.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 24<span>庄园、贵族与社会流动</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">estate、title、inheritance 和 marriage 构成贵族权力的语言。西西里的土地租佃链也让佣人、管理者和地主之间的关系很复杂。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">24 
+
+‘This morning I’ll take you
+				to the other side of the villa. Come on, let’s go. But what’s wrong?
+				Have you been crying? You have dark shadows under your eyes. I’ll bet you were
+				crying over Aunt Leonora. I don’t want you to cry! I won’t let you. Come
+				on …’ 
+
+The memory of that sonata and its
+				sweetness had kept me from sleeping a wink: scales and scales played together,
+				Clementi’s Sonatina s – my fingers as shaky and uncertain as hers! –
+				her rolling step through the empty corridors, the golden mass of her hair that
+				shimmered with light at every window … Cavallina was dangerous. That
+				silent old woman, shut up in some room, was following us. Argentovivo was right: the
+				Princess knew everything. Plus, she was Mother Leonora’s sister. I must never
+				forget that. 
+
+‘Here we are. This is Uncle
+				Jacopo’s room. Close your eyes for a few seconds so you’ll get used to
+				the dimness. “Only at sunset is that malevolent lamp acceptable,” he
+				used to tell me. At other times he joked: “Would you mind turning off this
+				shitty sun!” He always said merde , maybe because he had studied in
+				Paris and was a republican. Uncle Jacopo was Maman’s favourite brother, only
+				they argued all the time. That’s because he was also a heretic. In this room
+				there are only scandalous books. Reading them is forbidden. I’ve always been
+				very curious, but I never dared take one, even though the key is right there in the
+				vase where he left it … 
+
+‘What is it, why are you so pale?
+				Is it because he was a heretic? Yes, I
+				know, they’re against God and they read all those books against God, but he
+				was a good man, believe me. Or is it the skeleton and all these strange contraptions
+				that scare you? They scared me too when I was little. But then, hearing them talk
+				about him, I got over my fear. If you only knew what a gentle voice he had! I always
+				came here to help him with his collections of butterflies, shells and minerals. He
+				kept live things in these little jars. I don’t know why … he did
+				experiments. He wrote and published many books, in Rome and in France. Maman says
+				you can’t understand a word of what he wrote. He was a physician and also a
+				chemist, did you know? Complicated things … I loved him very much, even
+				though he swore against God and the priests. Besides, he did me a great favour. By
+				yelling and shouting he convinced Maman not to make me embroider anymore. It was
+				torture for me. He said that embroidering made women stupid. Only once did I manage
+				to get him to tell me why he didn’t believe in God. He said that the invention
+				of God is too simple an explanation – or maybe he said convenient, I don’t
+				recall – to account for the beauty and mystery of butterflies. He also said that
+				ugliness and beauty are one and the same thing, and cannot be separated,
+				that … wait, how did he put it? Oh yes, that beauty is born from ugliness,
+				ugliness from beauty, and so on. It’s very tricky. When he spoke like that it
+				was difficult to understand him and … All this was the reason he wanted to
+				be cremated. Don’t ever let it slip out of your mouth. See that vase on the
+				mantelpiece? That’s where his ashes are. Come on, let’s go. Why are you
+				standing there like a statue? He wasn’t a bad man, Modesta, really, even
+				though …’ 
+
+At last I had found another heretic.
+				Those books flirting with me in the dim light attracted me more than
+				Beatrice’s brisk, caressing voice. If she hadn’t been there I would
+				promptly have taken one of those books, at least one … but she was tugging
+				at me now, and I had to be prudent. I let myself be led away by her warm little
+				hand, down the stairs to the last room on the right overlooking the small lake. The
+				room was so different that I didn’t dare go in. Windows took up all the walls,
+				from floor to ceiling, allowing the light and the trees to spill onto long, pale
+				wood tables, their strange lamps like slender snakes with large bent heads. In
+				addition to the tables, there were bookcases along a single wall. In front of them was a cot with a grey-green
+				blanket, sheets and a pillow neatly straightened, waiting … 
+
+‘Yes, that’s where he slept.
+				It’s lovely here, isn’t it? But it was lovelier when Ignazio was alive.
+				Too bad you didn’t get to know him. He died the very day you arrived. How come
+				I’m not wearing mourning? Maman doesn’t want me to. She says her brother
+				Jacopo was right, at least on this issue. Uncle Jacopo said that wearing mourning is
+				barbaric … that if someone is truly grieving he bears his sorrow in his
+				heart, without the need for pointless exhibitionism. And I am truly grieving. 
+
+‘Come, look how handsome Ignazio
+				was. This is where he kept the things that were most dear to him. Look: a receipt
+				from the London Underground … here’s a ticket from the Paris Opera;
+				a postcard from Weimar. He studied in London and in Germany … And here,
+				his photograph in civilian clothes: that’s me he’s holding, when I was
+				little. But come, look at this one above the cot, in uniform. He was even more
+				handsome, wasn’t he? It’s from when he entered the air force. He also
+				designed airplanes, did you know? He always said that the world’s future would
+				be decided in the sky, on these wings. See, these are his drawings. He was always
+				working, even at night, under these big lamps. The large windows too, he had them
+				put in. He needed a lot of light, before. Later, he no longer wanted to look out and
+				he had those dark drapes hung. When he died I opened them, because I only want to
+				remember when he was handsome and fit. These bookcases too are full of his designs
+				and calculations. 
+
+‘You’re amazed at all those
+				photos of airplanes, aren’t you? The photo above the cot, the one with him in
+				it, I put it there myself, afterwards … All he wanted on the walls were
+				airplanes. That’s why Maman used to say that he didn’t love anyone, only
+				his infernal machines. But it’s not true; he loved me. I was the only one he
+				wanted around after the tragedy. A year he lay paralysed on this cot. He was wounded
+				just three months after the war began. He had enlisted voluntarily. He said the war
+				would end quickly because of the airplanes, and instead … this war is
+				never ending. Why won’t it ever end? … Every afternoon I would come
+				and find him increasingly thinner and paler on this cot, and he would talk to me
+				about the war, about the Socialists, about
+				a certain Mussolini whom he greatly admired: he said he was a man who believed in
+				youth, not in those old men in parliament who pretend they’re taking care of
+				Italy, while instead they’re digging her grave. He loved Italy very much. He
+				smoked constantly, and when he fell silent he would make smoke
+				rings … like men do. But of course, you have no experience with these
+				things. I can tell, you know, that when I talk about men you become distracted, and
+				maybe I shouldn’t speak about them. Still, it’s too bad you didn’t
+				get to know him.’ 
+
+Dazzled by Ignazio’s good looks as
+				he stared at me from the photograph, I heard my voice say: ‘Too
+				bad …’ 
+
+Terrified, I glanced at Beatrice, but,
+				captivated by her Ignazio, she hadn’t understood. 
+
+‘Yes, unfortunately, because now
+				the family will die out. He was the only male left, the youngest of the Brandiforti.
+				And if he hadn’t let himself get caught up in politics, as Maman
+				says … she’s right about that. What do we Sicilians care about a war
+				that the King of Italy is waging for his own gain? On this point Maman and Uncle
+				Jacopo were in agreement. But Ignazio, up in Rome at the university, got carried
+				away and so he enlisted. He was shot down after only three months. But I already
+				told you that. Sorry. It’s just that I loved him so much. I would read to him.
+				I was the only one he wanted to see. Sometimes he got tired. He turned his head to
+				the wall and I kept silent. Once I was getting up to leave, but he said: “No,
+				stay here, little one. It’s just that I’m tired, but I like knowing
+				you’re there, as long as you aren’t bored.” Bored! I lived for
+				those hours in the afternoon when I came here. After a while, maybe half an hour,
+				twenty minutes, he would turn his head back and I continued reading. I was happy
+				with him …’ 
+
+At the word ‘happy’, perhaps
+				because she was smiling, her unexpected, desperate tears blinded me. Or had the sun
+				gone down? There was darkness all around. How long had I been listening to her
+				voice? In the dark, in response to her sobbing, I embrace her. She’s trembling
+				all over. I feel her silky hair against my neck and cheek and, what surprises me
+				even more, I begin cradling her, singing something I didn’t know I knew: 15 
+
+‘Si Beatrice nun voli durmiri coppa nno’ culu sa quantu n’ha
+					aviri …’. If Beatrice won’t go to sleep, whack goes the ladle on her little
+					behind … 
+
+And, seeing that a few giggles began to
+				be heard amid the tremors and tears, I continued cradling her, my hands encircling
+				the slimmest, dearest little body that I could ever imagine existed on earth.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">24
+
+「今天早上我带你去别墅的另一侧。来吧，我们走。可是你怎么了？你哭过了？你眼睛下面有黑眼圈。我打赌你是在为莱奥诺拉姨妈哭。我不要你哭！我不许你哭。来吧……」
+
+那支奏鸣曲及其甜美的回忆让我彻夜未眠：一起弹奏的音阶和音阶，克莱门蒂的小奏鸣曲——我的手指和她的一样颤抖而不确定！——她穿过空旷走廊时的滚转步伐，那头金色的发瀑在每一扇窗前闪耀着光芒……卡瓦利娜是危险的。那个沉默的老妇人，关在某个房间里，一直在跟踪我们。阿真托维沃说得对：公主什么都知道。更何况，她是莱奥诺拉修女的姐姐。我绝不能忘记这一点。
+
+「我们到了。这是雅各布舅舅的房间。闭上眼睛几秒钟，好适应这昏暗。&#x27;只有日落时，那恶毒的灯才可接受，&#x27;他常对我说。其他时候他开玩笑说：&#x27;劳驾你把这该死的太阳关掉行不行！&#x27;他总是说法语脏话，也许因为他在巴黎读书，是个共和派。雅各布舅舅是妈妈最疼爱的哥哥，只不过他们老是吵架。那是因为他还是个异教徒。这个房间里全是离经叛道的书。读这些书是被禁止的。我一直很好奇，但从不敢拿一本，尽管钥匙就在他留下的那个花瓶里……
+
+「怎么了，你的脸色为什么这么苍白？是因为他是异教徒吗？是的，我知道，他们反对上帝，读那些反上帝的书，但他是个好人，相信我。还是这具骷髅和这些奇怪的装置吓到你了？我小时候也被吓到过。但后来，听他们谈论他，我就不再害怕了。你要是知道他说话的声音有多温柔就好了！我总到这里来帮他收集蝴蝶、贝壳和矿石。他在这些小罐子里养活物。我不知道为什么……他做实验。他在罗马和法国写了许多书并出版了。妈妈说，他写的东西一个字都看不懂。他是个医生，也是化学家，你知道吗？很复杂的东西……我很爱他，尽管他咒骂上帝和神父。而且，他帮了我一个大忙。他大喊大叫地说服了妈妈，不再让我刺绣了。那对我来说是折磨。他说刺绣让女人变蠢。只有一次，我设法让他告诉我为什么不信上帝。他说，用上帝的发明来解释蝴蝶的美丽与神秘，这个解释太简单了——也许他说的是太方便了，我记不清了。他还说，丑陋与美丽是同一回事，不可分离，……等等，他是怎么说的？哦对了，美丽生于丑陋，丑陋生于美丽，如此往复。非常玄妙。他这样说话时很难听懂，而且……这一切就是他想要火化的原因。千万不要说漏嘴。看见壁炉架上那个花瓶了吗？里面就是他的骨灰。来吧，我们走吧。你为什么像座雕像一样站在那里？他不是坏人，莫德斯塔，真的，尽管……」
+
+我终于找到了另一个异教徒。那些在昏暗光线中向我招手的书，比贝阿特丽切轻快而温柔的声音更吸引我。如果她不在，我会立刻拿起一本，至少一本……但她正在拽我，而我必须谨慎。我任由她温暖的小手牵着我，走下楼梯，来到右侧最后一间俯瞰小湖的房间。这个房间如此不同，我鼓不起勇气进去。从地板到天花板的窗户占据了所有墙壁，让光线和树木倾泻在长长的浅色木桌上，桌上摆着奇特的灯，如同细长的蛇，有着巨大弯曲的灯头。除了桌子，只有一面墙边摆着书柜。书柜前是一张小床，铺着灰绿色的毯子，床单和枕头整齐地理好，等待着……
+
+「是的，他就在那儿睡的。这里很美，对吧？但伊尼亚齐奥活着的时候更美。可惜你没机会认识他。他就在你来的那天去世了。我怎么没戴孝？妈妈不让我戴。她说她哥哥雅各布是对的，至少在这件事上。雅各布舅舅说戴孝是野蛮的……如果一个人真正哀伤，他会把悲伤放在心里，无需无谓的炫耀。而我是真正地在哀伤。
+
+「来，看看伊尼亚齐奥有多英俊。这是他放最珍爱的东西的地方。看：一张伦敦地铁的车票……这是一张巴黎歌剧院的票；一张魏玛的明信片。他在伦敦和德国读过书……还有这里，他穿便装的照片：他抱着的那个是我，我小时候。不过来看这张，小床上方那张，穿军装的。他更英俊了，不是吗？这是他加入空军时拍的。他还设计飞机，你知道吗？他总说世界的未来将由天空、由这些翅膀来决定。看，这些是他的图纸。他总是在工作，甚至夜里，在这些大灯下。那些大窗户也是他让人装的。以前他需要很多光。后来，他不想再往外看了，就让人挂上了那些深色帷幔。他死后我把它们拉开了，因为我只想记住他英俊健康时的样子。这些书柜里也全是他设计的图纸和计算。
+
+「你看到这么多飞机的照片很惊讶吧？小床上方那张，有他在里面的那一张，是我后来自己挂上去的……他只想在墙上挂飞机。所以妈妈常说他不爱任何人，只爱他那地狱般的机器。但这不是真的；他爱我。悲剧发生后，他只愿我陪在他身边。他在这张小床上瘫痪了整整一年。战争开始才三个月他就受了伤。他是自愿入伍的。他说有了飞机，战争很快就会结束，可是……这场战争永远不会结束。为什么它永远不会结束？……每天下午我来找他，看见他在小床上越来越瘦，越来越苍白，他会跟我谈战争，谈社会党人，谈一个叫墨索里尼的人，他非常钦佩他：他说那是一个相信青春的人，而不是那些在议会里假装关心意大利、其实在为她掘墓的老头子。他非常爱意大利。他不停地抽烟，沉默时就吐烟圈……像男人那样。当然，你对这些事情没有经验。你知道，我能看出，每当我谈起男人，你就会走神，也许我不该谈他们。不过，你没机会认识他真是太可惜了。」
+
+被伊尼亚齐奥从照片中凝视着我的英俊面庞所眩惑，我听见自己的声音说：「太可惜了……」
+
+我惊恐地瞥了贝阿特丽切一眼，但，被她自己的伊尼亚齐奥所迷住，她并未察觉。
+
+「是的，很不幸，因为这个家族将要灭绝了。他是剩下的唯一男丁，布兰迪福尔蒂家最小的一个。如果他没让自己卷入政治，就像妈妈说的……她在这点上是对的。意大利国王为了私利打这场仗，关我们西西里人什么事？在这一点上，妈妈和雅各布舅舅意见一致。但伊尼亚齐奥，在罗马的大学里，热血上头，于是应征入伍。仅仅三个月后就被击落了。不过我已经跟你说过这个了。对不起。只是我太爱他了。我给他念书。我是他唯一想见的人。有时他累了，把头转向墙壁，我就保持沉默。有一次我起身要走，但他说：&#x27;不，留在这里，小家伙。只是我累了，但知道你在那儿我就高兴，只要你不觉得无聊。&#x27;无聊！我活着就是为了下午来这里的那几个小时。过了一会儿，也许是半小时，二十分钟，他会把头转回来，我继续念。和他在一起我是快乐的……」
+
+「快乐」这两个字——也许是因为她在微笑——让她意想不到的绝望泪水模糊了我的视线。还是太阳落下去了？四周一片黑暗。我听了她的声音有多久了？黑暗中，回应着她的抽泣，我拥抱了她。她浑身颤抖。我感觉到她柔滑的头发贴着我的脖子和脸颊，更令我惊讶的是，我开始摇着她，唱起了一首我不知自己会唱的歌：
+
+「要是贝阿特丽切不肯睡觉，屁股上就要挨勺子……」
+
+而且，看到在颤抖和泪水之间开始响起几声咯咯的笑声，我继续摇着她，双手环绕着这世上我能想象得到的最纤细、最可爱的小小身躯。
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>bargain</b><span>交易；讨价还价</span><em>strike a bargain</em></div>
+<div><b>estate</b><span>庄园；地产</span><em>manage an estate</em></div>
+<div><b>inherit</b><span>继承</span><em>inherit a name</em></div>
+<div><b>privilege</b><span>特权</span><em>a privilege to</em></div>
+<div><b>servant</b><span>仆人</span><em>a household servant</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch023.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch025.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 59 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Three</div></div>
+<div class="nav-row">
+  <a href="ch058.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch058.html" >Chapter 58</option><option value="ch059.html" selected>Chapter 59</option><option value="ch060.html" >Chapter 60</option><option value="ch061.html" >Chapter 61</option><option value="ch062.html" >Chapter 62</option><option value="ch063.html" >Chapter 63</option><option value="ch064.html" >Chapter 64</option><option value="ch065.html" >Chapter 65</option><option value="ch066.html" >Chapter 66</option><option value="ch067.html" >Chapter 67</option><option value="ch068.html" >Chapter 68</option><option value="ch069.html" >Chapter 69</option><option value="ch070.html" >Chapter 70</option><option value="ch071.html" >Chapter 71</option><option value="ch072.html" >Chapter 72</option><option value="ch073.html" >Chapter 73</option><option value="ch074.html" >Chapter 74</option></select>
+  <a href="ch060.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART THREE</p>
+  <h2>Chapter 59<span>法西斯时期与新的思想</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1922 年后法西斯逐步建立一党统治。自由主义、社会主义、无政府主义与共产主义并存。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">59 
+
+Was it the pearl-grey pant suit with its
+				white pinstripes, paired with an elegant white silk cravat, that cowed Stella? Or
+				the big Robin Hood style hat which, seen from a distance like this, hid her eyes,
+				her expression? 
+
+‘If it were only the hat, Modesta,
+				but she’s wearing trousers!’ 
+
+In the shadow of the heavy brown felt
+				brim, the eyes – two large, slanted eyes – sloped up toward the dark blur of the
+				temples. Those eyes weren’t smiling, either as she came toward me, or as she
+				displaced Stella who, ignored, quickly rushes off. In a split second, it was as if
+				there had materialized before me one of those pretentious figures found in Parisian
+				salons where our political exiles, between one drink and another, affected a
+				restrained, polite disillusionment before the excited gaze of ladies delighted to
+				have finally found a distraction from their perpetual boredom … I try to
+				make out the sound those lips are surely producing, but I can only perceive their
+				slow, elegantly composed movements. Either she is speaking very softly, or a distant
+				storm is interfering with the imaginary cable, stretching for miles, that brings me
+				the tremulous voice of Bambolina, somewhat breathless over the novelty of having a
+				telephone … ‘You’re in Rome! Oh, Zia, I can’t believe
+				that you’re talking to me from so far away! It’s a miracle! It’s
+				almost scary. Jacopo and ’Ntoni are here tugging at me; they want to talk to
+				you too. Come home, come back soon, we get bored without you!’ Soon, in ten
+				years, maybe twenty … we will surely see the face too, flying thousands of miles, on a small screen sitting on
+				the nightstand between an ashtray and a lamp … The earth was shrinking
+				into a fist while the acrid, sweetish scent of that Turkish tobacco obliterated the
+				large unfinished wooden table and the copper splendour of Stella’s pots as she
+				now fled. I could run after Stella and forget that salon full of small naked ladies
+				who, extending shapely arms, listlessly supported Liberty style lampshades of
+				stained-glass, or the ladies who – crossing their long, slender, adolescent-like
+				legs – listened, captivated and moved, to the misfortunes of our troubled country,
+				recounted in the melancholy voice of some pale Jacopo Ortis … 
+
+‘Who brought you there? Who sets
+				foot in those places? Just some fake anti-fascist lackey of the bourgeoisie.
+				You’re right, they play at being heroes without taking any risks. But
+				don’t be misled, Modesta, resistance to Fascism does exist! It’s here,
+				in the factories, in our barber shops, in our bakeries! Listen to comrade
+				Reggiani.’ 
+
+I could have run to comrade Reggiani,
+				but it was useless. I would never meet Jose. And anyway, Jose was telling me that I
+				should respond to that woman, even though the smell of her long cigarettes was
+				stupefying. The ashtray Stella had improvised from a flower-pot saucer held three
+				white and gold cigarette butts. And already the long fingers were slowly fingering
+				another one, almost gratefully. What was her name? Jose’s letter, left lying
+				on the table, told the woman’s name, but it would have been rude to reopen it
+				in front of her. 
+
+‘You, Princess, are exactly as
+				Jose described you. And I see that he did so for my own good. Always provident,
+				Jose!’ 
+
+‘For your own good?’ 
+
+‘A concise though exceedingly
+				useful warning: “Don’t pay any attention to Modesta’s sudden
+				absences, Joyce, or you might slip into the pool of indifference which the little
+				princess, when you least expect it, always manages to place between her and whomever
+				she’s speaking to.” Forgive me for persisting, Princess, but you
+				haven’t answered, and this makes me unbearably anxious. Is it perhaps because
+				you think it’s now impossible to find passage to South America, as it was for
+				comrade Alessandro Giudice two years ago? Do you think that by now …’ 
+
+‘If it
+				was possible once, it will be so a second time. Don’t worry! Provided of
+				course that you have a lot of money. Back then, I was able to meet
+				Alessandro’s needs, but now that’s impossible for me. Everything is in
+				decline and I have to be prudent.’ 
+
+‘Oh, as far as that goes, for me
+				it’s different. Alessandro is poor and he was in Italy on a mission. In my
+				case, the situation is less edifying: I’m wealthy, and my coming to Italy was
+				simply a sentimental choice, and as such, a mistake.’ 
+
+‘If you have money, consider it
+				done! It’s only a matter of waiting for the right ship.’ 
+
+‘Will we have to wait long?
+				I’m on pins and needles, and although I appreciate your discretion, Princess,
+				my sense of guilt – which is huge, believe me – compels me to make my position
+				clear: despite Jose’s warnings, I had been under the illusion that I could
+				travel unnoticed. The fact that I didn’t have a political record in
+				Italy … I’ll explain: I live in Paris and I only joined the Party
+				two years ago. I deluded myself into thinking that I could rush off to my dying
+				sister’s bedside. Certainly, had I left soon afterwards, as Jose had advised
+				me … but Joland’s death … Forgive me, Princess, I’m
+				not used to talking about myself, but I must do so to apologize for having somehow
+				placed you at risk with my presence here.’ 
+
+‘Calm down, Joyce! As Jose knows –
+				he didn’t send you to me by chance – here in Sicily, things are less
+				severe.’ 
+
+‘That doesn’t mean I
+				shouldn’t have left as soon as Joland died! But seeing her agonizing death,
+				knowing that, in the last year, she had had to endure illness and loneliness, all by
+				herself … Or maybe, I don’t know … it all gripped me like
+				a vice, and for three months I’ve been almost crazy with grief and remorse. I
+				couldn’t think straight anymore! Only the news that they were looking for me
+				brought me to my senses, that – and fear of my weakness. I realized that if they
+				were to capture me I wouldn’t be able to withstand the methods they use. And
+				unfortunately, I know many names and facts. I managed to make OVRA 65 lose track of me, but
+				only because I was afraid. I’ll be honest with you. It’s only thanks to
+				fear that I’ve emerged from a state of prostration that was about to ruin me,
+				while implicating many valiant individuals.’ 
+
+‘But fear
+				and terror, which you seem to spurn so, Joyce, carry within them the seed of
+				courage.’ 
+
+‘That thought, though it
+				doesn’t convince me, calms me, Princess. I’m grateful to you.’ 
+
+‘I didn’t say it to calm
+				you; consoling people is not my calling. Only, I don’t believe in
+				heroes.’ 
+
+‘Just what Jose said.’ 
+
+The shadow and hat brim were now about
+				to blend, when suddenly those lips parted in an unexpected smile that lit up the
+				darkness of the felt, the eyes, the shadows. Stella was right: that woman flustered
+				you. I should have run off after Stella and got away from that deep voice whose
+				intense pauses, underscored by long, distracted looks, made me all too aware of my
+				awkward gestures and way of speaking. When she said again: ‘Do you think,
+				Princess …’, the incongruence of my title with her elegance upset me to
+				the point that, grabbing the chair, I heard myself say in a strident voice: 
+
+‘For heaven’s sake, Joyce,
+				don’t call me Princess! I can barely stand it at the bank and with the
+				lawyers.’ 
+
+‘I understand … It
+				sounded jarring to me too, when Jose talked about you. But as Jose told me:
+				“In her, the title loses the hateful connotation custom and tradition have
+				given the word, and revives all the fabulous legends of childhood.”’ 
+
+Was she making fun of me? Or, influenced
+				by her Jose – suddenly I felt I hated him for the power you could see he had over
+				her – did she perhaps not notice my careless dress, my neglected mop of hair, my
+				odious voice? Indignant, I deliberately looked her in the eye. No, she wasn’t
+				making fun of me; rather, she was studying me like a curious plaything. 
+
+Full of hate for her and her Jose, I
+				didn’t answer. Rising, I dismissed her with a nod, not smiling that foolish
+				smile, which has lingered on my lips for hours. ‘I advise you to smile
+					less, Mody. You have a beautiful smile, but when you overdo it and ladle it out
+					on every occasion, your plebeian origins show . Be
+				careful!’ 
+
+* 
+
+‘It’s true, Modesta. It was the same for me too. From the first day I
+				had the feeling that we had known each other for ever.’ 
+
+She had called me Modesta for the first
+				time and, spoken by her, that ugly name seemed almost beautiful to me. Well, dear
+				Carmine, I followed your advice to flee a face by looking the other way, or avoiding
+				a back street where a partly open window proffers alluring shadows. In Palermo, at
+				the hotel, I had managed to shun those persistent roses that offered up their red
+				song to the sun each morning . In Paris, with that Michel and his emerald eyes it
+				was easy to move my departure up a few days. Even now, all I would have had to do
+				was give her Pietro’s ticket, which was lying on my desk, and a ship’s
+				name and date would have silenced that voice which, day after day, filled the house
+				with fairy tales, landscapes, stories even more exciting than the adventures of
+				Saint Agatha and Santa Rosalia. But how could I interrupt the description of that
+				immense, dazzling villa, its pale wood carved in tracery, whose reflection – on
+				returning from long rowboat rides at sunset – glittered on the leaden water of the
+				Bosporus? 
+
+‘… to frighten us, Nazim
+				would whisper that it was the ghost of our house that rose from the sea at that hour
+				to greet the dying sun.’ 
+
+No, I would not confirm with Pietro.
+				Maybe later on, the next ship. 
+
+‘You seem lost in thought,
+				Modesta. Am I perhaps boring you with my childhood tales?’ 
+
+Besides, she doesn’t ask me about
+				leaving either. She doesn’t even ask Stella anymore. Without waiting for my
+				reply she adds: 
+
+‘It’s curious, Modesta, but
+				since I’ve been here – I don’t know whether it’s thanks to your
+				serenity or because of Stella, or this house – all my anxiety has vanished.
+				I’m ashamed to say it, but I’m as content here as I was with Nazim, back
+				then, in what was our childhood home.’ 
+
+You see? She doesn’t want to go
+				either. I mentally tear up Pietro’s ticket with the name of the ship, the
+				captain and so on. 
+
+‘Yes, content as I was then! And
+				maybe talking with you, I’m beginning to see why. I had never been to Sicily
+				and I could never imagine …’ 
+
+‘Imagine what, Joyce?’ 
+
+‘How similar your region is to
+				mine. The light, the harsh faces of the peasants, the ghosts!’ 
+
+‘Ghosts?’ 
+
+‘Yes. Here, every back street,
+				every building – perhaps it’s your austere, white Baroque, though that may
+				seem like a contradiction – your fountains, your ancient melodies … I
+				don’t know, everything evokes ghosts and familiar voices. Often, while
+				walking, I have the precise sensation that I’m hearing the wail of the
+				muezzin, and I find myself gazing up, scanning for that stone cry raised to the sky,
+				which for the pious in Turkey is the minaret. To me those cries are nothing but
+				petrified screams, terrified of the merciless sky that crushes the frightened soul
+				into the ground … How I would love to take a ship, Modesta, and show you
+				Anatolia!’ 
+
+You see? She even said the word ship,
+				but without the slightest reference to the San Giovanni Decollato , which,
+				as I’ve mentioned to her, definitely leaves for South America at dawn on
+				Saturday. 
+
+‘Help you get to know Istanbul!
+				Allow me to dream, Modesta. It’s been a long time since I’ve done so,
+				and besides, as I told you, it’s your trees that are to blame, your sky, your
+				light. Twenty days in Istanbul, with a brief side trip to Edirne, where the most
+				beautiful mosques in Turkey are found. And then months and months through the
+				rugged, epic heart of the Anatolian plateau. Anatolia! A land devoid of
+				sentimentalism. Istanbul? No, Istanbul, like all capitals, betrays the true essence
+				of the country it represents. Capitals – only now do I understand what Nazim used to
+				tell me – are destined to a different life, which alienates them, if you will, from
+				the rural countryside, from the country’s mountains and rivers. Perhaps
+				that’s why Atatürk, after the revolution of 1923, made Ankara the
+				capital … perhaps. I never spoke about it with Nazim, and now it’s
+				too late. He’s in and out of those terrible Turkish prisons, like all the
+				comrades, for that matter. We can’t take a ship to Istanbul, Modesta! At least
+				I can’t, exiled not only from Italy, but also from my second
+				homeland.’ 
+
+The voice fades out along with the
+				light, leaving a sadness that makes me cry like Bambù when she listens to
+				Stella’s sad, sweet stories in the evening. But like Bambù, I decide to sleep
+				a little and in my dreams change the doleful fate of my hero Giufà-Joyce 66 … Like
+				Bambù, I’ll be the one to go into the woods and get back the fox skin that the
+				bad men stole from Giufà when he dozed off. Without the fox skin that camouflages him in the woods, Giufà can’t
+				procure food by catching the flies, mosquitoes and small worms that are his
+				sustenance … 
+
+‘Bambù has two lives, Mama, a daytime one and a nighttime one.
+					That’s why I always obey her … if you only knew the things she
+					does at night! She solves every problem: it’s only right that she give the
+					orders. I sleep at night! If it weren’t for her, I’d be forever
+					looking at pictures or reading. I can’t think of anything else to do, not
+					one game. Whereas she’s always up to something!’ 
+
+Jacopo is right. Bambolina is like her
+				mother. I wonder what Cavallina thinks of this Mela who plays all the pieces that I
+				played for her at Carmelo? She’s talented, this carusa ! All I did was
+				tell Stella she plays well, and overnight her touch has become more confident and
+				commanding. What should I do, Beatrice? Should I send her to a boarding school?
+				It’s time to economize. Attorney Santangelo is right. 
+
+‘You, Modesta, agreeing with
+					the sound judgement of an old bourgeois? You surprise me!’ Feigning
+				indignation, Cavallina embraces me from behind and whispers in my ear: ‘We
+					have the attics and corridors full of Uncle Jacopo’s paintings.
+					Don’t you know they’re worth a fortune, Mody? That’s why I kept them back then.’ 
+
+‘I know, I know, Cavallina, but we’d have to take them abroad and we
+					need someone who is astute, sophisticated and familiar at the same time. In
+					short, an expert.’ 
+
+‘Who could that be, Attorney? Find
+				me a man.’ 
+
+‘But it’s contraband,
+				Modesta! I don’t see why you should risk trouble with the law when there is
+				all the land that Carlo left to Ida.’ 
+
+‘No, Bambolina’s money
+				won’t be touched! A woman is helpless without money!’ 
+
+‘Judas Priest! But why? She too
+				has contributed to eating up your money, it seems to me, and stills does, am I
+				right? Besides what are you worried about? Ida is a real beauty. She’ll make a
+				good match!’ 
+
+‘Oh, no! She won’t marry for
+				that reason, my dear old liberal.’ 
+
+‘She’ll work then! It was
+				you who claimed that women should work, if I’m not mistaken!’ 
+
+‘Before, my dear man, before, when
+				we believed the revolution was around the corner. But the way things stand now, no!
+				Bambolina will work only if she wants to.’ 
+
+‘Ah,
+				well! That’s news to me. What is it, the idea of some anarchist in your house?
+				You want her to become a lazy, idle woman?’ 
+
+‘Put it however you want.
+				Bambolina will be lazy and idle!’ 
+
+‘In any case, I can’t help
+				you. Find him yourself, this expert!’ 
+
+An expert! It has to be an expert! Or
+				shall I go myself? An adventure like any other. But first I must find out how one
+				goes about smuggling … the techniques … the
+				skills … Piano technique, smuggling technique, the technique of falling
+				asleep … Unless I resume my technique of counting – not sheep, of course!
+				– the beautiful sights encountered during the day: clouds at sunset, furious waves
+				crashing on the rocks … Stella’s and Bambolina’s
+				expressions … Bambolina has so many quirky gestures! And Stella, who pulls
+				her hair up because of the heat, unknowingly imitating her ancient sisters on the
+				Syracusan coins. 67 Those coins, too … indeed, they alone are worth a fortune.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">59
+
+是那套珍珠灰的褲裝，配著白色細條紋，搭著一條優雅的白色絲綢領巾，把斯特拉嚇住了嗎？還是那頂羅賓漢風格的大帽子，像這樣從遠處看，藏住了她的眼睛、她的表情？
+
+「要是只有帽子的話，莫德斯塔，但她穿了褲子！」
+
+在那厚重的棕色毛氈帽簷的陰影下，那雙眼睛——兩隻大大的、斜挑的眼睛——向上斜向太陽穴處深色的模糊中。那雙眼睛沒有在笑，無論是朝我走來的時候，還是取代斯特拉——斯特拉被無視，匆匆地跑掉了——的時候。剎那間，彷彿在我面前顯現出了那些在巴黎沙龍裡裝模作樣的人物中的一個，在那裡，我們的政治流亡者們，一杯又一杯之間，在那些因終於找到了擺脫永恆無聊的消遣而雀躍的女士們興奮的目光前，表現出一種克制的、有禮的幻滅……我試著辨別出那雙嘴唇肯定正在發出的聲音，但我只能感知到它們緩慢、優雅而從容的動作。要嘛是她說得非常輕，要嘛是一場遠處的暴風雨正在干擾那根想像的電纜，那根綿延數英里的電纜，給我帶來洋娃娃那顫抖的聲音，因有了電話這件新鮮事而有些喘不過氣來……「你在羅馬！哦，阿姨，我不敢相信你從那麼遠的地方對我說話！這是個奇蹟！這幾乎令人害怕。雅各布和恩托尼在這兒拉著我；他們也想跟你說話。回家吧，快回來吧，沒有你我們很無聊！」很快，十年之後，也許二十年……我們肯定也會看到臉了，飛躍數千英里，在一個小小的屏幕上，放在床頭櫃上，在煙灰缸和燈之間……地球正在縮成一個拳頭，而那種土耳其煙草的辛辣甜香，湮沒了那幅巨大的未完成的畫的細節。
+
+她一定終於跟我說話了，因為我現在看到她閉上了那雙薄薄的嘴唇。但我沒有聽到她的話。我迷失了自己——像往常一樣，像一個農民第一次進城——在細節中：那條白色絲綢領巾，那雙沒有戒指的細長的手（沒有結婚戒指？），那雙靴子，黑色的，有光澤的，幾乎是軍人式的。
+
+「……如果你不想的話，我明天再來。你可能想家了。我理解。這個城市需要時間去適應。」
+
+「不，不，我沒有想家。我只是在想……」
+
+「想什麼，如果你不介意我問的話？」
+
+「在想你是怎麼找到我的。在想你為什麼來了。」
+
+「我讀了你寫的東西。你的一個朋友把它們給了我——那個在米蘭的醫生。他說也許我有興趣見你。我當時不知道為什麼，現在也不知道。只是——我讀了你的文字，我覺得我認識你。也許在另一世。」
+
+「你相信另一世嗎？」
+
+「我以前不信。現在——我不知道。來這裡看你是某種朝聖之旅，也許吧。不要覺得被冒犯了。我知道這聽起來很荒謬。」
+
+「沒有被冒犯。只是——沒有人因為我的文字來看過我。甚至連卡洛也沒有。或者也許他看過，但他從來沒有告訴我。」
+
+「卡洛——那位醫生？」
+
+「是的。你認識他嗎？」
+
+「不太認識。但你的朋友……何塞，我想是他的名字？他談到他時帶著極大的感情。那感動了我。我通常不會被感動。我沒有那麼容易。」
+
+「何塞跟他一起在米蘭。他是一個我在卡洛被法西斯毆打後庇護的年輕人。」
+
+「我知道那件事。何塞告訴我了。他說你拿著槍，你對一個男人說，如果你不把鑰匙放在桌子上，你就會開槍——你自己的情人，如果我理解得對的話。」
+
+「你理解得對。」
+
+「那需要勇氣。」
+
+「那不是勇氣。那是憤怒。」
+
+「有時候是一樣的。」
+
+「你為什麼來這裡？你真的想知道關於我的事情嗎？」
+
+「我想知道一個能夠寫出你所寫的東西的女人。關於孩子、海洋、死亡。有些段落——我不太懂意大利語，但這些詞語有一種力量，超越了所有語言。我是個翻譯者。那是我的職業。但你的文字——沒有什麼可以翻譯它們而不失去一些東西。這就是為什麼我會在這裡。來聽你用你自己的語言。」
+
+「你想翻譯我？」
+
+「也許。但你必須教我。教我你的西西里，你的海，你的天空。因為沒有這些，我的翻譯將是空洞的。」
+
+「你會待多久？」
+
+「直到你厭倦了我。或者直到我厭倦了你。我這方面是有風險的。我很容易厭倦。」
+
+「你穿褲子。」
+
+「這困擾你嗎？」
+
+「不。你讓我感興趣。我從來沒有見過一個穿褲子的女人。」
+
+「在巴黎，到處都是。」
+
+「我不在巴黎。我在西西里。」
+
+「是的，我知道。」
+
+她微笑了——第一次，真正的微笑，不是那種禮貌的、克制的東西。她的眼睛變了，變得更溫暖。我於是知道，一切都不會再相同了。
+
+「你想游泳嗎？」我問。
+
+「游泳？現在？我沒有帶合適的衣服。」
+
+「我也不穿衣服游。在這裡，沒有人看。」
+
+「你瘋了。」
+
+「是的。這就是為什麼我很快樂。」
+
+她猶豫了一會兒。然後我看到她的手移向那條白色絲綢領巾。慢慢地，她解開了它。解開了那件清爽的白襯衫的釦子。
+
+斯特拉會說什麼？洋娃娃會說什麼？海浪撞擊在岩石上……斯特拉和洋娃娃的表情……洋娃娃有那麼多古怪的手勢！還有斯特拉，因為炎熱把頭髮盤起來，不知不覺地模仿著她在敘拉古錢幣上的古老姐妹。那些錢幣，也是……確實，僅僅它們就值一大筆財富。」</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>refuge</b><span>避难处；庇护</span><em>seek refuge</em></div>
+<div><b>defy</b><span>违抗，挑战</span><em>defy an order</em></div>
+<div><b>regime</b><span>政权，统治体制</span><em>an authoritarian regime</em></div>
+<div><b>dissent</b><span>异议</span><em>voice dissent</em></div>
+<div><b>allegiance</b><span>忠诚，拥护</span><em>pledge allegiance</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch058.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch060.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

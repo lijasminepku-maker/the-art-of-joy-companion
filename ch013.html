@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 13 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch012.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" selected>Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch014.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 13<span>修道院、教育与规训</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">convent 不只是宗教场所，也是教育、慈善和纪律机构。理解称谓背后的等级，比记住全部宗教词更重要。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">13 
+
+But acting did not turn out to be as easy
+				as I&#x27;d thought. For days and days, masses of clouds raced over the convent
+				like the immense wings of crazed birds, and I was afraid. I went to the well, I
+				stared into its depths, but there too, the cloud masses flapped their dark wings
+				against the slippery walls, only to end up being sucked under by the stagnant water
+				at the bottom. I was shivering with cold. Mimmo was certainly always around now,
+				like a sentinel, and this assured me that his concern was ever vigilant. But he did
+				not approach me again. Surely his apprehension had overcome his relish for chatting
+				with someone, which always did him good. He himself had once told me: 
+
+&#x27;Forgive me, Voscenza , if
+				I don&#x27;t talk today, princess. It&#x27;s just that I&#x27;m gripped by
+				thoughts that kill my appetite and my desire to talk.&#x27; 
+
+And coward that I am, I couldn&#x27;t
+				make up my mind to take the leap that would have liberated both him and me. How
+				could I? I didn&#x27;t even dare think of those lava walls that slid round and
+				round all the way down to the invisible depths. By day I pounded my head and chest,
+				accusing myself of being cowardly. At night the well&#x27;s eye never left me,
+				staring at me from the dark corners of the cell, keeping me awake and clinging to
+				the sheets for fear of falling in. I could never do it. It was hopeless. If only
+				I&#x27;d known how to swim! If only Tuzzu had taken me to see the sea and taught me
+				to swim! He said it was easy even for a silly ninny, a scemuzza , like
+				me. 
+
+&#x27;First you have to learn to do the dead-man&#x27;s float: you just lie on the water like you lie on the grass, on your back, confident,
+					and spread your arms and legs. If you&#x27;re not afraid, then the water holds
+					you up just like the earth does now.&#x27; 
+
+The dark grass parted under the weight
+				of my back and I let myself go, disappearing inside the well, that eye of water
+				circling, sinking to the depths. Arms and legs splayed like Tuzzu taught me, I
+				gazed fixedly at the sky. But now the black walls were closing in on it, choking
+				it, and the sky was a distant, spinning disc. My head was spinning too 
+				… A roar 
+				… A
+				thunderous noise … The water, deafened by that roar, sucked me under
+				… I panic, I thrash about, but just as I&#x27;m sinking, a hand grabs me by
+				the hair. The shock of the pain rips a short, sharp cry from me that sounds like a
+				laugh. And I want to laugh. Yes, I really want to laugh even if I can&#x27;t. They
+				were right to be afraid of thunder and lightning striking the lava wall and
+				reverberating inside the well. Mimmo was right: the well had called me and now it
+				was keeping me. But in the end, laughter triumphs over everything – if not mine,
+				that of the gods, which explodes in a thunderous, deafening roar as the lava wall,
+				crumbling and thundering, carries me with it and lets me slip away. Oh, the
+				wonderful slime! Down, all the way down, I slip. Not even in my dreams as a child
+				in the chiana, when Tuzzu would throw me down into the hay from the top of the
+				stack, did I ever slide like this. Down the lava wall, slick with rain dissolved
+				in that very slime, polished by centuries of patient, meticulous work, more
+				polished than the waxed floor of the music room, I slid down without even having to summon the
+				courage I had so anxiously sought for so long.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">13
+
+然而表演并不如我想象那般容易。日复一日，大团大团的云朵如疯鸟巨翼般掠过修道院上空，我心中恐惧。我走到井边，凝视深处，但那里亦然，云团在滑腻的井壁上扑动黑翼，最终被底部的死水吞没。我冷得发抖。米莫此刻无疑总在附近，如同哨兵，这让我确信他的关切时时警觉。但他不再靠近我。想必他的忧虑已压倒了他与人闲聊的兴致——闲聊向来对他有益。他曾亲口告诉我：
+
+&quot;恕罪，阁下，若我今日不言不语，公主。只是我被思绪攫住，它们扼杀了我的食欲和谈话的欲望。&quot;
+
+而我这个懦夫，竟下不了决心纵身一跃——那一跃本可解脱他，也解脱我。我怎能做到？我甚至不敢去想那些熔岩壁，它们一圈圈旋转着向下通往不可见的深渊。白日里我捶打自己的头和胸，责备自己胆怯。夜里那口井的眼睛从不离开我，从静室的黑暗角落凝视着我，让我无法入眠，紧抓着床单唯恐坠入其中。我永不能做到。一切都无望了。要是我会游泳该多好！要是图祖曾带我去看海，教我游泳该多好！他说即便是我这样愚蠢的小笨蛋也很容易学会。
+
+&quot;首先你得学会浮尸漂：你只需躺在水面上，就像躺在草地上一样，仰面朝天，充满信心，伸展四肢。如果你不害怕，水就会托住你，就像现在大地托住你一样。&quot;
+
+深色的草在我背脊的重量下分开，我任自己沉落，消失在井中——那圈圈转动的水之眼，沉向深处。四肢如照着图祖所教那般张开，我凝视天空。但此刻黑色的井壁正朝天空合拢，扼住它，天空成了一个遥远旋转的圆盘。我的头也在旋转……一声轰鸣……雷霆般的巨响……那水，被轰鸣震聋，将我吸入……我惊慌失措，拼命挣扎，但就在我下沉之际，一只手揪住我的头发。疼痛的冲击令我发出一声短促尖锐的叫喊，听来却似笑声。而我想笑。是的，就算笑不出声，我也真的想笑。她们害怕雷电击中熔岩壁、在井中回荡是有道理的。米莫是对的：这口井召唤了我，如今它留住了我。但最终，笑声战胜一切——即便不是我的笑声，也是众神的笑声，在雷霆般震耳欲聋的轰鸣中炸开，熔岩壁崩塌、轰然作响，携我一同坠落，又让我滑脱而去。哦，那美妙的淤泥！向下，一路向下，我滑行着。即便童年时在基亚纳的梦中，图祖将我从干草垛顶抛下，我亦从未如此滑行过。沿着熔岩壁，雨水融于那淤泥之中，使之滑腻，经数个世纪的耐心精细打磨，比音乐室打过蜡的地板还要光滑——我滑下去了，甚至无需鼓起那般我长久以来焦灼寻求的勇气。</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>convent</b><span>女修道院</span><em>life in a convent</em></div>
+<div><b>devotion</b><span>虔诚；投入</span><em>show devotion to</em></div>
+<div><b>confess</b><span>忏悔；坦白</span><em>confess a fear</em></div>
+<div><b>obedience</b><span>服从</span><em>demand obedience</em></div>
+<div><b>mercy</b><span>仁慈，宽恕</span><em>ask for mercy</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch012.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch014.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

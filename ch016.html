@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 16 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch015.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" selected>Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch017.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 16<span>修道院、教育与规训</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">convent 不只是宗教场所，也是教育、慈善和纪律机构。理解称谓背后的等级，比记住全部宗教词更重要。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">16 
+
+Running away was unthinkable. Where could
+				she go? Even if she were able to get across the lava wall that surrounded the
+				convent, which wouldn&#x27;t be easy, Mimmo said it took five or six hours to reach
+				the town on foot … what was its name? To her dismay, she realized that in
+				all those years she had studied French, even Latin, but she had not spoken to anyone
+				who wasn&#x27;t a nun or a priest. She sensed that their language was different
+				from the one she would have to speak outside, in the world. With Mimmo it was
+				different. Like it or not, he was part of the convent. 
+
+Thinking about these things, the hatred
+				left her, giving way to a lassitude that spread through her chest and arms, forcing
+				her to lie down on the sun-warmed bench. Was hate deserting her? Or was all that
+				milk they made her drink in the evening diluting the strong feeling that had earlier
+				sustained her? Even if she wanted to dream, like in a novel, once she reached the
+				town, would she be able to elude the carabinieri ? Could she find a position
+				as a maid – how charming she would look with her apron and starched white cap – in a
+				house where she would meet an officer, a friend of the family – or better yet, why
+				not? the son himself – who, beguiled by her charm, would ask her to marry him? Where
+				had she read all this? Ah yes! It was that pathetic Annina, the lay sister, who was
+				punished endlessly for reading that drivel. But even if that officer asked her to be
+				his wife, she wouldn&#x27;t be able to marry him. Men don&#x27;t marry women who
+				have lost their virginity. Mother Leonora
+				had me in her grip. There was no way out. If only I had that certificate! Then too,
+				if I ran away I would lose the inheritance I had worked so hard to come by. Maybe it
+				was better to stay. On the whole, Mother Leonora was kind to me; she had forgiven
+				me, after all. And perhaps in time she would become gentle again, like
+				before … 
+
+Mimmo&#x27;s face, blurred by the sun,
+				appears against the sky, up there among the vine leaves … 
+
+&#x27;You shouldn&#x27;t give in
+					to the lure of the sun like that, princess. Being poor is a venom that weakens
+					us; the lack of food muddles the brain. I have to agree with Giovanni on this.
+					He says that the poor fancy the rich as being kind and generous so that they
+					won&#x27;t feel even more humiliated at having to kowtow and revere
+				them .&#x27; 
+
+Mimmo was right, that sun was harmful.
+				It had muddled my thinking. It was only my awareness of being poor that made Mother
+				Leonora seem kind and beautiful to me … I shouldn&#x27;t fall asleep in
+				the sun; it had happened once before and I fell into the well. My eyes snapped open.
+				How long had I slept? Mimmo wasn&#x27;t there, yet I had heard his voice. Had I
+				been dreaming? I was about to get up – the bench beneath me had lost its warmth and
+				shivers were running down my arms – when Mimmo&#x27;s voice once more pinned me to
+				the chilly surface. Mimmo had spoken, but not to me, and now his lilting voice was
+				trying to persuade someone there behind the hedge. Something told me I should
+				listen. You could tell from the way they spoke that they hadn&#x27;t seen me. Plus,
+				the hedge that separated us was tall and dense. I closed my eyes again, pretending
+				to be asleep. 
+
+&#x27;Voscenza will forgive
+					me , Mother Leonora, for being so bold as to contradict you. For once,
+				listen to an old man who, though ignorant, knows about these things. That balustrade
+				you lean on at night is rotted. It should be replaced.&#x27; 
+
+&#x27;But it&#x27;s made of iron, and
+				besides it&#x27;s very old. As long as I&#x27;m alive I won&#x27;t allow that
+				masterpiece to be replaced by that horrible railing the village blacksmith
+				made.&#x27; 
+
+&#x27;But the blacksmith is a fine
+				craftsman, Mother, if I may say so, and he made it to look like the other one in
+				every detail.&#x27; 
+
+&#x27;How can you say that! You can
+				tell it&#x27;s an imitation, and a poor one at that.&#x27; 
+
+&#x27;True,
+				Mother. But what harm is there? We&#x27;re only going to remove it; it&#x27;s not
+				like we&#x27;re discarding it. We&#x27;ll remove it carefully and put it someplace
+				else, where you can see it whenever you like. But do me this favour, Mother. I
+				don&#x27;t like to think of you going around that tower, leaning here and
+				there.&#x27; 
+
+&#x27;But it&#x27;s made of iron,
+				Mimmo!&#x27; 
+
+&#x27;Iron, yes, but corroded, eaten
+				away by age and bad weather. In some places – just yesterday I went to check – there
+				are spots that look like they&#x27;ve been sawn. Sawn, I swear to God! With all due
+				respect, Voscenza, I wouldn&#x27;t want to see you go tumbling down some
+				night …&#x27; 
+
+The voice went on imploring, but
+				I&#x27;d stopped listening. That sawn reinspired the lost hate that had
+				been drowned in all that milk they made me drink in the evening. Besides, I never
+				liked milk.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">16
+
+逃跑是无法想象的。她能去哪儿？即便她能越过环绕修道院的熔岩墙——这绝非易事——米莫说步行到镇上需要五六个小时……那镇叫什么名字？她沮丧地意识到，这些年来她学了法语，甚至拉丁语，却从未与修女或神父之外的人说过话。她感到她们的语言与她在外面世界必须说的语言截然不同。与米莫在一起则不同。无论喜欢与否，他是修道院的一部分。
+
+想着这些事，仇恨离她而去，取而代之的是一种倦怠，弥漫于胸膛和双臂之间，迫使她躺在被太阳晒暖的长椅上。仇恨是在抛弃她吗？抑或是晚间她们逼她喝下的那些牛奶稀释了此前支撑她的强烈情感？即便她想如小说中那般幻想，一旦抵达镇上，她能躲过宪兵吗？她能找到一份女佣的工作吗——她系着围裙、戴着浆硬白帽的样子该多么迷人——在那户人家遇见一位军官，家族的友人——或者更好的，何不呢？——那家的儿子本人——他为她的魅力所倾倒，向她求婚？这些她是在哪里读到的？啊，对了！是那个可怜的安尼娜，那位世俗修女，因读那些无聊读物而屡受惩罚。但即便那位军官向她求婚，她也无法嫁给他。男人不娶失去童贞的女人。莱奥诺拉院长将我牢牢控制。没有出路。要是我有那份证明该多好！再者，若我逃走，便会失去我费尽心机才得到的遗产。也许留下更好。总的来说，莱奥诺拉院长待我不薄；她毕竟宽恕了我。或许假以时日，她会再度变得温和，一如从前……
+
+米莫的面孔，被阳光模糊了，在天空中、在葡萄叶间浮现……
+
+&quot;您不该这样屈服于阳光的诱惑，公主。贫穷是一种毒药，削弱我们；食物匮乏使人头脑混沌。在这一点上我不得不同意乔瓦尼。他说穷人幻想富人仁慈慷慨，这样他们向富人叩头膜拜时便不至于感到更加屈辱。&quot;
+
+米莫是对的，那阳光有害。它搅乱了我的思绪。只因意识到自己的贫穷，才让我觉得莱奥诺拉院长仁慈而美丽……我不该在阳光下入睡；从前有过一次，我便坠入了井中。我的眼睛猛然睁开。我睡了多久？米莫不在那里，但我听到了他的声音。我是在做梦吗？我正要起身——身下的长椅已失去温度，寒意沿手臂而下——米莫的声音再次将我钉在冰冷的长椅上。米莫在说话，但不是对我，此时他悠扬的嗓音正试图说服树篱后的某人。直觉告诉我应当倾听。从他们说话的方式可以判断他们没有看见我。而且，隔开我们的树篱又高又密。我再次闭上眼睛，假装睡着。
+
+&quot;请阁下宽恕我，莱奥诺拉院长，我竟如此大胆反驳您。就这一次，请听一位老人之言，他虽然无知，却懂这些事。您夜间倚靠的那道栏杆已经朽坏。应当更换了。&quot;
+
+&quot;但那是铁制的，况且年代非常久远。只要我活着，就不允许用那村中铁匠打造的可怖栏杆替换那件杰作。&quot;
+
+&quot;但那位铁匠是位好工匠，院长，恕我直言，他打造得处处与另一个一模一样。&quot;
+
+&quot;你怎么能这样说！看得出是仿制品，而且是拙劣的仿制品。&quot;
+
+&quot;确实如此，院长。但这有什么害处呢？我们只是把它取下来，又不是扔掉。我们会小心取下，放在别处，您随时可以看到。但请赏我这个脸，院长。我不愿想到您绕着那座塔，这儿靠靠那儿倚倚的。&quot;
+
+&quot;但那是铁做的，米莫！&quot;
+
+&quot;是铁，是的，但被岁月和恶劣天气腐蚀、侵蚀了。有些地方——昨天我刚去查看过——有些地方看起来像是被锯过了。锯过的，我向上帝发誓！恕我直言，阁下，我不愿看到您某夜摔下去……&quot;
+
+那声音继续恳求着，但我已不再倾听。那个&quot;锯过&quot;重新激发了我那已被晚间牛奶淹没的仇恨。况且，我从来就不喜欢牛奶。</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>obedience</b><span>服从</span><em>demand obedience</em></div>
+<div><b>mercy</b><span>仁慈，宽恕</span><em>ask for mercy</em></div>
+<div><b>stern</b><span>严厉的</span><em>a stern voice</em></div>
+<div><b>convent</b><span>女修道院</span><em>life in a convent</em></div>
+<div><b>devotion</b><span>虔诚；投入</span><em>show devotion to</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch015.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch017.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

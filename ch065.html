@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 65 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Three</div></div>
+<div class="nav-row">
+  <a href="ch064.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch058.html" >Chapter 58</option><option value="ch059.html" >Chapter 59</option><option value="ch060.html" >Chapter 60</option><option value="ch061.html" >Chapter 61</option><option value="ch062.html" >Chapter 62</option><option value="ch063.html" >Chapter 63</option><option value="ch064.html" >Chapter 64</option><option value="ch065.html" selected>Chapter 65</option><option value="ch066.html" >Chapter 66</option><option value="ch067.html" >Chapter 67</option><option value="ch068.html" >Chapter 68</option><option value="ch069.html" >Chapter 69</option><option value="ch070.html" >Chapter 70</option><option value="ch071.html" >Chapter 71</option><option value="ch072.html" >Chapter 72</option><option value="ch073.html" >Chapter 73</option><option value="ch074.html" >Chapter 74</option></select>
+  <a href="ch066.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART THREE</p>
+  <h2>Chapter 65<span>法西斯时期与新的思想</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1922 年后法西斯逐步建立一党统治。自由主义、社会主义、无政府主义与共产主义并存。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">65 
+
+G IUFÀ- &#x27;N TONI Oh! Such a misfortune, a			misfortune! As if the first one wasn&#x27;t bad enough, now this second misfortune.			And then, when it rains it pours. 
+
+T REE- B AMBÙ What misfortune are you talking about, Giufà? You seem hale and hearty, very elegant			in that cow-dung-coloured outfit with yellow sparrow&#x27;s vomit touches on your			hat. 
+
+G IUFÀ The hat was the			greenest of greens: spotless. It&#x27;s just that a cow shat on me. Never mind a			sparrow or canary … a cow! 
+
+T REE How could a cow shit			on your head, Giufà? Since the world began, cows stay flat on the ground. 
+
+G IUFÀ It&#x27;s because			I&#x27;m distressed! I&#x27;m distressed! And earlier I was even more distressed			and while I was distressed, I fell asleep near the cowshed, and with this green hat			on my head the cow mistook me for a meadow. 
+
+T REE And is this the			misfortune that&#x27;s troubling you, Giufà? 
+
+G IUFÀ If only that were			all! A good many other painful events are troubling Giufà&#x27;s soul. And they are			so troubling that I now realize to my great horror that I&#x27;ve gone blind. 
+
+T REE You&#x27;re not			blind, Giufà. It&#x27;s just that night has fallen. 
+
+G IUFÀ You&#x27;re making			fun of me, stranger! I&#x27;m blind, I tell you! And the proof is that you&#x27;re			talking to me but I can&#x27;t see you. There! Giufà&#x27;s logic is sharp! And			logic tells me that if you can see me the sun must be up. 
+
+T REE It&#x27;s night Giufà, believe			me. 
+
+G IUFÀ You don&#x27;t			say? It&#x27;s night, is it? And how could Giufà, distressed, have slept for ten			hours? 
+
+T REE Young man of little			faith and little intelligence. You see me and don&#x27;t recognize me. I&#x27;m			Tree, and I have the power to console, like all forms of greenery and stone. I			belong to the race of those who stand and observe, not the human race, which fumes			and frets, farts and kno...</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">65
+
+朱法-恩托尼：哦！何等不幸，不幸啊！仿佛第一次还不够糟，现在又来了这第二桩不幸。真是祸不单行哪。
+
+树-班布：你说的是哪门子不幸，朱法？你看上去健壮结实，那身牛粪色的行头配你帽子上黄雀呕吐物般的点缀，可真够雅致的。
+
+朱法：那帽子本是绿中之绿：一尘不染。只不过一头母牛拉在了我身上。别说什么麻雀金丝雀了……是一头牛！
+
+树：母牛怎么会拉到你头上，朱法？开天辟地以来，母牛从没离开过地面。
+
+朱法：那是因为我心烦意乱！心烦意乱啊！方才我更烦，烦着烦着就在牛棚边睡着了，戴着这顶绿帽子，母牛把我当成一片草地了。
+
+树：这就是让你忧心的不幸吗，朱法？
+
+朱法：要是仅此而已倒好了！还有许许多多痛苦的事折磨着朱法的心灵。折磨得如此厉害，以至于我现在惊恐地发现自己已经瞎了。
+
+树：你没有瞎，朱法。不过是夜幕降临了。
+
+朱法：你在取笑我，陌生人！我告诉你，我瞎了！证据就是你在跟我说话，我却看不见你。瞧！朱法的逻辑多么犀利！逻辑告诉我，既然你能看见我，太阳一定还在天上。
+
+树：是夜晚了，朱法，相信我。
+
+朱法：你是说？是夜晚了？心烦意乱的朱法怎么可能一觉睡了十个钟头？
+
+树：你这缺乏信仰又缺乏智慧的小伙子啊。你看见我，却不认得我。我是树，我拥有抚慰的力量，一如一切草木与石头。我属于静立观察的族类，不属于那躁动不安、怨天尤人的人类种族……</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>refuge</b><span>避难处；庇护</span><em>seek refuge</em></div>
+<div><b>defy</b><span>违抗，挑战</span><em>defy an order</em></div>
+<div><b>regime</b><span>政权，统治体制</span><em>an authoritarian regime</em></div>
+<div><b>dissent</b><span>异议</span><em>voice dissent</em></div>
+<div><b>allegiance</b><span>忠诚，拥护</span><em>pledge allegiance</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch064.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch066.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

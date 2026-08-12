@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 53 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch052.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" selected>Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch054.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 53<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">53 
+
+Carlo, eyes carefully on the road, drove
+				slowly, like last time, to avoid the bumps and holes, the sharp turns, the sudden
+				appearance of a dog or a bicycle. He accelerated cautiously to pass a wagon, a laden
+				donkey or a flock of sheep that turned the air into a cloud of dust. It hadn’t
+				rained in months. But soon, at some invisible signal, the great white clouds
+				suspended over the arid dunes would burst into cool tears marking summer’s
+				end. 
+
+Every so often, like last time, his eyes
+				hold mine in the rearview mirror and help me carry a living being in my arms. For
+				the first time in my life, I found myself talking about a heavy log that I had to
+				drag, about a hovel lost in a sea of mud, about the flames of a lamp hurled against
+				a door by my own hand … 
+
+‘You taught me to swim, Carlo, to
+				speak; teach me to think like you. The future lies in men like you.’ 
+
+In the mirror, his soft gaze is like a
+				gentle kiss on my forehead, but a new sadness drifted over his eyes, like a
+				late-summer rain cloud. 
+
+‘Are you sad because you see that
+				I can never be like you, Carlo?’ 
+
+‘No, Modesta, I’m sad
+				because I fear that some irreparable mistake has been committed by us men of the
+				future, as you call us. I listen to you and I no longer dare speak to you of
+				certainties, as I would have done only a year ago. Look over there, in front of that
+				flock. Here, too, pennants like in Rome, with that slogan: “ Me ne frego ”, I don’t
+				give a damn. 54 In
+				one year, this abnormal burgeoning of skulls and crossbones … He seized
+				the opportunity, the Honourable Benito Mussolini. No platform for his party:
+					‘ We are about action rather than words! ’ The coal crisis,
+				England’s defaulting debtors … to save the situation, a loan from
+				the United States must be obtained. Only to reach the point of blackmail:
+					“ The Fascist revolt against the intolerable Bolshevik
+				regime ”.’ 
+
+‘Is that why you’re
+				sad?’ 
+
+‘No, I’m not worried. They
+				won’t succeed … I’m sad because of the mistakes we made in the
+				past, and your faith in me scares me a little. You, on the other hand, should never
+				change. Don’t try to imitate men. I have the vague sensation that there is a
+				new strength in you and in Beatrice.’ 
+
+‘Before, you used to say I was
+				immoral, and I …’ 
+
+‘Before, I didn’t understand
+				a thing … Now what, Modesta? Why are you laughing again?’ 
+
+‘I’m laughing because this
+				Jacopo is incredibly strong. He’s really hearty! We won’t have problems
+				like we did with Eriprando.’ 
+
+‘What problems,
+				Modesta?’ 
+
+‘Well, he didn’t want to
+				suckle!’ 
+
+‘And this makes you
+				laugh?’ 
+
+‘I wish this ride would never end,
+				Carlo! It’s nice to be driven by you like this. Beatrice told me that you two
+				often go walking on the slopes of the Mountain.’ 
+
+‘Yes, often.’ 
+
+‘That, too, has made her become so
+				strong and composed. Does she lean on your arm when you walk?’ 
+
+‘Of course.’ 
+
+‘I envy her, Carlo.’ 
+
+‘And I envy your being able to say
+				“I envy her.” Don’t ever change, Modesta. Don’t imitate us
+				men!’ 
+
+‘Why didn’t she come with
+				you?’ 
+
+‘As if you didn’t know her!
+				You got her off your hands, and now you ask! Shameless!’ 
+
+‘I enjoy hearing you tell me what
+				I know. She’s your wife, and you have to take care of her. She gave you a hard
+				time, did she?’ 
+
+‘I’ll say! For months, she wouldn’t even accept the idea of having
+				a niece or nephew by that commoner, Inès.’ 
+
+‘I can just hear her!’ 
+
+‘Then, more because of concern for
+				you, at least we were able to talk about it. But she wouldn’t come. About
+				that, there was nothing I could do to make her budge. “Me in a hospital ward
+				like any ordinary commoner? Never!”’ 
+
+‘And where is she now?’ 
+
+‘At your house. Didn’t
+				Pietro tell you? The poor man! She chased him off rudely when he came with the news.
+				“Only so as not to offend Modesta, I’ll go to her house and see her. But
+				never, ever will I set eyes on a bastard child!”’ 
+
+‘Oh, Carlo, how well you imitate
+				her! You make me die laughing. Do it again, please!’ 
+
+‘“Never ever, Modesta! You
+				can’t ask me to imitate her, ever! Uffa , never!”’ 
+
+* 
+
+In front of the gate 
+
+Pietro is pacing up and down with an
+				alacrity unthinkable for that immense body. From time to time he wipes his
+				perspiring cranium under the bewildered eyes of Signorina Elena who, silent and
+				motionless, is struggling to contain an unusual trembling in her lips and hands: 
+
+‘Oh. Princess, thank God
+				you’re here! I can’t take it! Forgive me, but I can’t stand it. I
+				cannot stand this tension! Look at him; he isn’t even aware of your presence.
+				He’s beside himself; it’s frightening!’ 
+
+‘What’s wrong, Pietro? Tell
+				me, what is it?’ 
+
+‘Oh, Mody, Beatrice chased me away
+				again! It’s a sign that she really doesn’t want him! She doesn’t
+				want my dear Prince’s baby.’ 
+
+‘Who’s the mistress in this
+				house, Pietro?’ 
+
+‘Voscenza ,
+				Princess.’ 
+
+‘Then calm down. Here we do what I
+				say.’ 
+
+‘Yes, yes, Mody, but with bad
+				blood, if Beatrice doesn’t want him, with bad blood! There has never been bad
+				blood in the Brandiforti family!’ 
+
+‘What is he saying, Princess?
+				He’s been moaning and groaning for the past hour. I should point out that all this tension is upsetting
+				Eriprando. I sent him to play on the beach with Nunzio just in
+				time …’ 
+
+‘That’s just what Pietro is
+				saying, in other words, Elena.’ 
+
+‘But he’s the one who
+				started shouting at Argentovivo.’ 
+
+‘Why at Argentovivo?’ 
+
+‘I’ll tell you why, Mody:
+				that woman from the continent doesn’t understand a thing! It’s because
+				she, Argentovivo, instead of soothing the troubled waters and calming Beatrice,
+				backs her up. It’s unfair! In God’s truth, she and Beatrice are unfair!
+				Beatrice: what can you expect! But her, why fan the flames?’ 
+
+‘Then we’ll extinguish the
+				flames. Don’t worry, Pietro, calm down! … Here, you take him,
+				he’s heavy. Don’t you see I’m holding him? There, bring him to
+				Stella, before he starves to death.’ 
+
+‘But I … I don’t
+				know how to hold him! What if I drop him and he breaks? Signorina Elena, you take
+				him …’ 
+
+‘Go on, Pietro, don’t make a
+				fuss!’ 
+
+‘Forgive me, Princess, and you
+				too, signorina , but I was upset because I had decided to leave if the right
+				thing wasn’t done. And going away and leaving my Mody and my Beatrice would
+				have been a terrible step for Pietro.’ 
+
+‘As you can see, you won’t
+				have to take that step. Now go on!’ 
+
+‘Oh! He’s crying, Mody! I
+				didn’t hurt him, did I?’ 
+
+‘No, Pietro, I told you he’s
+				crying because he’s hungry.’ 
+
+In the parlour 
+
+In the parlour’s shadows, Beatrice
+				stood waiting, with Argentovivo nearby. The drawn drapes brought back the dimness
+				and feelings of a much earlier time. 
+
+‘This house has become a barracks,
+				Modesta! The drapes wide open, the furniture unpolished, not one vase of flowers! I
+				don’t like that Signorina Elena; she seems like a carabiniere . I took
+				the liberty of telling her so, and I’m telling you as well.’ 
+
+‘Signorina Elena is not at fault,
+				Beatrice. I’m the one who ordered her to open the drapes.’ 
+
+‘What do you mean, she’s not
+				at fault? I reminded her many times! She’s a woman, isn’t she? And
+				it’s clear that you, like Carlo, have so many things to think about that it’s up to us women to look
+				after your well-being and everything that concerns the home.’ 
+
+‘If this bothers you so much,
+				Beatrice, we’ll talk about it.’ 
+
+‘Of course it bothers me! I had to
+				follow my husband, and I feel responsible seeing all this.’ 
+
+Under Carlo’s terrified eyes I
+				rushed to support her. In the soft gloom of an earlier time, she clings to me and
+				weeps. And like then, I find my hands circling her slender waist. 
+
+‘Oh, Modesta, hold me close!
+				You’re not angry at me, are you? I’m so awful! I left you all alone. I
+				was horrid to Pietro, too. I saw him looking at me hatefully. He’s never
+				looked at me that way, and he’s right because I was unfair. And you, too, were
+				bad, Argentovivo. Go away, get out of my sight!’ 
+
+‘Go, Argentovivo. Leave us
+				alone.’ 
+
+‘Yes, that’s right, chase
+				her out! She, too, was horrid. Instead of calming me down … I was awful to
+				Carmine as well. It’s dreadful, Modesta. He’s dead! I didn’t know
+				he was going to die.’ 
+
+‘No one could have known,
+				Beatrice.’ 
+
+‘I should have gone to see him, at
+				least one last time.’ 
+
+‘I went for you as
+				well.’ 
+
+‘You’re so good. You
+				went … I … I was afraid … And the one … the
+				one who was born? You didn’t keep him, did you, Modesta? Tell me you
+				didn’t keep him.’ 
+
+‘On the contrary, I had to keep
+				him. I was compelled to.’ 
+
+‘You, compelled? Don’t make
+				me laugh! Who can compel you to do anything?’ 
+
+‘Uncle Jacopo.’ 
+
+‘What?’ 
+
+‘Yes, he’s come back, but
+				not in a dream like before. In flesh and blood, a little baby, with his eyes.
+				He’s been reborn.’ 
+
+‘And how do you know
+				that?’ 
+
+‘I saw him. And I’ll bet
+				that if you see him, you will recognize him too.’ 
+
+‘Oh, let’s go see. It seems
+				incredible! Where is he? Where is he? I want to see him!’ 
+
+* 
+
+In the room with Stella 
+
+‘You’re right, Modesta,
+				he’s his exact likeness. But not the colour of his eyes. There’s no way
+				you could know this. Uncle Jacopo had blue eyes, whereas this Jacopo has grey eyes,
+				like Nonna Gaia. Will you let me hold him, Stella, now that he’s been fed? Oh,
+				how long he is! But will you have enough milk for both of them?’ 
+
+‘Oh, Princess, this picciriddu is a blessing! Look here, my breasts are
+				bursting.’ 
+
+‘Just look at his tiny hands,
+				Modesta: such long fingers, and with oval nails! His hands, Modesta. Thank
+				God you recognized him right away, thank God! And you, Argentovivo, stop crying and
+				go and tell Pietro you’re sorry. It’s all your fault! But of course,
+				everyone knows that you people from the continent don’t understand a thing!
+				How happy Nonna Gaia will be over this return. You have no idea how much she loved
+				Uncle Jacopo. They were always bickering, but they loved each other very
+				much.’ 
+
+Argentovivo and Pietro were arguing in
+				the corner, or rather, Pietro was repeatedly nodding his head under the flood of
+				words Argentovivo was spewing out. 
+
+* 
+
+‘Well! Did you two make up? Oh,
+				Modesta, those two argue so much that I get the impression they might be in love.
+				What a couple! I’m only sorry we lost Carmelo, because now we could have
+				filled Uncle Jacopo’s room, like Nonna always wanted, and not only that
+				one … What if we were to buy the villa back again now that Carmine is
+				dead, Modesta? What do you say? Think how happy Nonna would be! Eriprando in the
+				room upstairs, Jacopo in his own room. And God willing! … here,
+				haven’t you noticed anything? Put your hand on my belly. Feel it?’ 
+
+‘How far along,
+				Beatrice?’ 
+
+‘It’s been two months since
+				I’ve bled.’ 
+
+‘Does Carlo know?’ 
+
+‘No. In keeping with tradition,
+				you had to be the first to know. Place your palms, like that, and bless this child
+				for me.’ 
+
+‘I bless
+				you, Beatrice.’ 
+
+‘Oh, if only God grants me a boy!
+				Ignazio must come back. Ignazio was so handsome, the best looking of all!’ 
+
+‘Ignazio will return, Beatrice,
+				but the villa at Carmelo must remain the Tudias’.’ 
+
+‘Why do you say that,
+				Modesta?’ 
+
+‘Because we can’t wrong
+				Carmine when he’s dead, and you know that.’ 
+
+‘I know. Carmine, dead, must be
+				respected.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">53
+
+卡洛的雙眼小心地盯著路面，像上次一樣緩慢地駕駛著，避開顛簸和坑洞、急轉彎，以及突然出現的狗或自行車。他謹慎地加速，以超越一輛馬車、一頭滿載的驢子或一群把空氣變成塵雲的羊。已經好幾個月沒下雨了。但很快，在某個看不見的信號下，那些懸在乾旱沙丘上的巨大白雲就會爆發出涼爽的眼淚，標誌著夏天的結束。
+
+時不時地，像上次一樣，他的眼睛在後視鏡中與我的相遇，幫助我用雙臂承載一個活著的生命。有生以來第一次，我發現自己在談論一根我必須拖動的沉重木頭，一間迷失在泥海中的陋屋，一盞由我親手擲向一扇門的燈的火焰……
+
+「你教會了我游泳，卡洛，教會了我說話；教我像你一樣思考。未來在你這樣的人身上。」
+
+在鏡中，他溫柔的目光像輕輕一個吻落在我的額頭上，但一片新的悲傷飄進了他的眼裡，像一朵夏末的雨雲。
+
+「你悲傷是因為你看到我永遠無法像你一樣嗎，卡洛？」
+
+「不，莫德斯塔，我悲傷是因為我擔心，我們這些你所謂的未來之人犯下了某個不可彌補的錯誤。我聽你說話，而我再也不敢對你談論確定性了，就像一年前我會做的那樣。看那邊，在那群羊的前面。這裡也是，跟羅馬一樣的小旗，帶著那條標語：『我不在乎。』短短一年內，這種骷髏和交叉骨頭標誌的不正常氾濫……他抓住了機會，那位尊敬的貝尼托·墨索里尼。他的政黨沒有綱領：『我們重行動而不重言辭！』煤炭危機，英格蘭的違約債務人……為了挽救局面，必須從美國獲得一筆貸款。不過是為了達到敲詐的地步：『法西斯對不可容忍的布爾什維克政權的反抗。』」
+
+「這就是你悲傷的原因嗎？」
+
+「不，我不擔心。他們不會成功的……我悲傷是因為我們過去所犯的錯誤，而你對我的信任讓我有些害怕。你呢，永遠不要改變。不要試圖模仿男人。我隱約感覺到，在你和貝雅特麗齊身上有一種新的力量。」
+
+「以前，你說我是不道德的，而我……」
+
+「以前，我什麼也不懂……現在怎麼了，莫德斯塔？你為什麼又笑了？」
+
+「我在笑因為這個雅各布太強壯了。他真的好結實！我們不會像對埃里普蘭多那樣遇到問題了。」
+
+「什麼問題，莫德斯塔？」
+
+「嗯，他以前不肯吃奶！」
+
+「這讓你笑？」
+
+「我希望這段車程永遠不要結束，卡洛！像這樣被你載著真好。貝雅特麗齊告訴我，你們倆經常在山坡上散步。」
+
+「是的，經常。」
+
+「這也讓她變得這麼堅強和沉穩。她走路的時候挽著你的手臂嗎？」
+
+「當然。」
+
+「我羨慕她，卡洛。」
+
+「而我羨慕你能說出『我羨慕她』這句話。永遠不要改變，莫德斯塔。不要模仿我們這些男人！」
+
+「她為什麼沒跟你一起來？」
+
+「好像你不了解她似的！你把她打發走了，現在你倒問！真不害臊！」
+
+「我喜歡聽你告訴我那些我已經知道的事。她是你的妻子，你得照顧她。她給你找麻煩了，是嗎？」
+
+「可不是嘛！好幾個月了，她甚至不肯接受她會有一個由那個平民伊內斯所生的侄子或侄女。」
+
+「我完全能想像她怎麼說的！」
+
+「後來，更多是出於對你的關心，我們至少能夠談論這件事了。但她不肯來。關於這點，我怎麼做也無法讓她動搖。『我，在醫院病房裡，像任何一個普通平民一樣？永遠不會！』」
+
+「那她現在在哪裡？」
+
+「在你家。彼得羅沒告訴你嗎？可憐的人！他來報信的時候，她粗魯地把他趕走了。『只是為了不得罪莫德斯塔，我才去她家看她。但我永遠、永遠不會看一眼一個私生子！』」
+
+「哦，卡洛，你模仿她模仿得太好了！你讓我笑死了。再來一次，求你了！」
+
+「『永遠永遠，莫德斯塔！你不能要求我模仿她，永遠！唉，永遠！』」
+
+* 
+
+在大門前
+
+彼得羅以一種對那龐大身軀來說不可想像的敏捷踱來踱去。他不時擦拭著汗濕的頭頂，而埃萊娜小姐則沉默而靜止地站在一旁，努力控制著她嘴唇和雙手上不尋常的顫抖，滿臉困惑：
+
+「哦，公主，感謝上帝您回來了！我受不了了！原諒我，但我實在受不了。我無法忍受這種緊張！看看他；他甚至沒有意識到您的存在。他已經忘乎所以了；太嚇人了！」
+
+「怎麼了，彼得羅？告訴我，是什麼？」
+
+「哦，莫迪，貝雅特麗齊又把我趕走了！這表明她真的不想要他！她不想要我親愛的王子的孩子。」
+
+「誰是這個家的女主人，彼得羅？」
+
+「是殿下，公主。」
+
+「那就冷靜下來。在這個家裡，聽我的。」
+
+「是的，是的，莫迪，但帶著怨恨，如果貝雅特麗齊不想要他，就帶著怨恨！布蘭迪福爾蒂家族裡從來沒有過怨恨！」
+
+「他在說什麼，公主？他已經呻吟抱怨了一個小時了。我應該指出，所有這些緊張氣氛都在影響埃里普蘭多。我及時把他打發去和農齊奧在海灘上玩了……」
+
+「埃萊娜，彼得羅說的就是這個，換句話說而已。」
+
+「但他是那個開始對阿爾真托維沃大喊大叫的人。」
+
+「為什麼對阿爾真托維沃？」
+
+「我告訴您為什麼，莫迪：那個從大陸來的女人什麼也不懂！因為她，阿爾真托維沃，不但不平息風波、讓貝雅特麗齊冷靜下來，反而站在她那邊。這不公平！上帝作證，她和貝雅特麗齊是不公平的！貝雅特麗齊：你能指望什麼呢！但她呢，為什麼要煽風點火？」
+
+「那我們就滅火。別擔心，彼得羅，冷靜下來！……來，你抱著他，他好重。你沒看到我在抱著他嗎？來，把他帶到斯特拉那裡去，免得他餓死。」
+
+「可是我……我不知道怎麼抱他！要是我把他摔了、碎了怎麼辦？埃萊娜小姐，您來抱他……」
+
+「去吧，彼得羅，別大驚小怪的！」
+
+「原諒我，公主，還有您，小姐，但我是因為太難過了，因為我已經決定，如果正確的事情沒有被做到，我就離開。離開我的莫迪和我的貝雅特麗齊，對彼得羅來說本來是可怕的一步。」
+
+「如你所見，你不需要走那一步。現在去吧！」
+
+「哦！他在哭，莫迪！我沒有弄傷他吧？」
+
+「不，彼得羅，我告訴過你，他哭是因為餓了。」
+
+在客廳裡
+
+在客廳的陰影中，貝雅特麗齊站著等待，阿爾真托維沃在旁邊。拉下的窗簾帶回了更早時期的昏暗和感覺。
+
+「這棟房子已經變成軍營了，莫德斯塔！窗簾大敞開著，家具沒有打蠟，連一個花瓶都沒有！我不喜歡那位埃萊娜小姐；她看起來像憲兵。我冒昧地告訴了她，也告訴你。」
+
+「埃萊娜小姐沒有錯，貝雅特麗齊。是我命令她打開窗簾的。」
+
+「你什麼意思，她沒有錯？我提醒過她很多次了！她是個女人，不是嗎？顯然，你和卡洛一樣，有太多事情要操心，所以應該由我們女人來照顧你的福祉和一切與家庭有關的事。」
+
+「如果這讓你這麼困擾，貝雅特麗齊，我們會談談的。」
+
+「當然困擾我！我不得不跟隨我的丈夫，看到這一切，我感到有責任。」
+
+在卡洛驚恐的目光下，我衝過去扶住她。在更早時期的溫柔陰暗中，她緊緊抓住我，哭泣著。像那時一樣，我發現自己的雙手環繞著她纖細的腰。
+
+「哦，莫德斯塔，抱緊我！你沒有生我的氣吧？我太糟糕了！我把你一個人留下。我對彼得羅也很惡劣。我看到他憎恨地看著我。他從來沒有那樣看過我，他是對的，因為我不公平。你也是，你很壞，阿爾真托維沃。走開，從我眼前消失！」
+
+「去吧，阿爾真托維沃。讓我們單獨待著。」
+
+「是的，這就對了，把她趕出去！她也很惡劣。她不但沒有讓我冷靜下來……我對卡米也很糟糕。太可怕了，莫德斯塔。他死了！我不知道他會死。」
+
+「沒有人能知道，貝雅特麗齊。」
+
+「我應該去看他的，至少最後一次。」
+
+「我也替你去了。」
+
+「你真好。你去了……我……我害怕……還有那個……那個剛出生的？你沒有留下他，是吧，莫德斯塔？告訴我你沒有留下他。」
+
+「恰恰相反，我不得不留下他。我是被迫的。」
+
+「你，被迫？別讓我笑了！誰能強迫你做任何事？」
+
+「雅各布叔叔。」
+
+「什麼？」
+
+「是的，他回來了，但不是像以前那樣在夢中。以血肉之軀，一個小嬰兒，帶著他的眼睛。他重生了。」
+
+「你怎麼知道？」
+
+「我看到他了。我敢打賭，如果你看到他，你也會認出他的。」
+
+「哦，我們去看看。太難以置信了！他在哪裡？他在哪裡？我想見他！」
+
+* 
+
+在斯特拉的房間裡
+
+「你是對的，莫德斯塔，他跟他一模一樣。但不是眼睛的顏色。你不可能知道這個。雅各布叔叔有藍色的眼睛，而這個雅各布有灰色的眼睛，像蓋婭奶奶。你現在餵完他了，讓我抱抱他好嗎，斯特拉？哦，他好長啊！但你會有足夠的奶水給兩個孩子嗎？」
+
+「哦，公主，這個小傢伙是個福氣！看這裡，我的乳房都快脹破了。」
+
+「看看他的小手，莫德斯塔：這麼修長的手指，還是橢圓形的指甲！他的手，莫德斯塔。感謝上帝，你馬上認出了他，感謝上帝！還有你，阿爾真托維沃，別哭了，去跟彼得羅說對不起。這都是你的錯！但當然，誰都知道你們這些從大陸來的人什麼都不懂！蓋婭奶奶對這次回歸會多開心啊。你不知道她多麼愛雅各布叔叔。他們總是鬥嘴，但他們彼此非常相愛。」
+
+阿爾真托維沃和彼得羅在角落裡爭論著，或者更確切地說，彼得羅在阿爾真托維沃滔滔不絕的話語中不斷點頭。
+
+* 
+
+「好了！你們倆和好了嗎？哦，莫德斯塔，那兩個人吵得那麼兇，我感覺他們可能是在戀愛了。多好的一對！我只是遺憾我們失去了卡梅洛，因為現在我們本可以像奶奶一直想要的那樣，填滿雅各布叔叔的房間，而且不只那一間……既然卡米死了，我們把別墅買回來怎麼樣，莫德斯塔？你覺得呢？想想奶奶會多高興！埃里普蘭多在樓上的房間，雅各布在他自己的房間。而且上帝保佑！……來，你沒有注意到什麼嗎？把你的手放在我的肚子上。感覺到了嗎？」
+
+「幾個月了，貝雅特麗齊？」
+
+「我已經兩個月沒有流血了。」
+
+「卡洛知道嗎？」
+
+「不。依照傳統，你必須是第一個知道的。把你的手掌放上來，像這樣，替我祝福這個孩子。」
+
+「我祝福你，貝雅特麗齊。」
+
+「哦，但願上帝賜我一個男孩！伊尼亞齊奧必須回來。伊尼亞齊奧那麼英俊，是所有人中最好看的！」
+
+「伊尼亞齊奧會回來的，貝雅特麗齊，但卡梅洛的別墅必須仍屬圖迪亞家。」
+
+「你為什麼這麼說，莫德斯塔？」
+
+「因為我們不能在卡米死後還虧待他，你知道的。」
+
+「我知道。卡米，死後，必須被尊重。」</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>conceal</b><span>隐瞒，掩藏</span><em>conceal the truth</em></div>
+<div><b>burden</b><span>负担</span><em>carry a burden</em></div>
+<div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div>
+<div><b>jealous</b><span>嫉妒的</span><em>be jealous of</em></div>
+<div><b>longing</b><span>渴望，思念</span><em>a longing for</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch052.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch054.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

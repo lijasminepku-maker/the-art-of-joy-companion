@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 11 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch010.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" selected>Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch012.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 11<span>修道院、教育与规训</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">convent 不只是宗教场所，也是教育、慈善和纪律机构。理解称谓背后的等级，比记住全部宗教词更重要。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">11 
+
+Everyone was moved, but Mother Leonora
+				did not appear. She sent word via Sister Costanza&#x27;s sour, toothless mouth that
+				she had forgiven me, but that she was waiting for God to give me a sign of His
+				forgiveness before she could consider seeing me again. 
+
+How will I know when God has forgiven
+				me? 
+
+As if she had read my thoughts, Sister
+				Costanza added: &#x27;Don&#x27;t worry. If this sign manifests itself, Mother
+				Leonora will know about it. We were not deaf to your intention to repent. But
+				intention cannot yet be called repentance. There was too much passion in your tears.
+				Nevertheless, given the state of your health and your good resolve, we accepted Dr
+				Milazzo&#x27;s suggestion that starting tomorrow, you may go out for a few hours
+				during the day. But take care not to disturb our quiet in the corridors and in the
+				garden with your tears and sighs. This is a great favour that you have been granted;
+				remember that. And pray for the doctor as well, since he interceded for you with
+				such great affection.&#x27; 
+
+While waiting for God to give me a sign
+				of His forgiveness, I began roaming through the corridors, the colonnade, the
+				garden. That garden had seemed enormous to me when I raced across it so as not to
+				miss a single new word, an adjective, a musical note. Now, like in dreams, it had
+				grown smaller, a shrunken, crowded space. All those women knew but, as if by tacit
+				agreement, they pretended not to see me even when I brushed by them. Exiled from
+				their severe, impassive faces, I felt
+				transparent: only my hands and shoulders felt heavy, forcing me to bend my head
+				toward the ground. I had no appetite anymore. All I longed for was Mother
+				Leonora&#x27;s smile in the morning, there in the room with the bookshelves that I
+				thought were cupboards when I was little. How Mother Leonora had laughed once when I
+				told her that. 
+
+Can such longing weigh you down even if
+				you no longer love her as you did before? Having nothing better to do, I began
+				trying to understand what that longing was. Never mind repenting. What I had to do
+				was study myself and others like you study grammar and music, and stop indulging in
+				my emotions. Such a beautiful word, &#x27;emotions&#x27;! But I had no time for
+				words now. I had to think about what that longing was. 
+
+After days and days of meditation, I
+				understood. It wasn&#x27;t Mother Leonora I missed, but all the privileges and
+				attention those women had heaped on me solely for fear of Mother Leonora. Indeed,
+				she gave the orders. Those tears and sighs were nothing but anger over no longer
+				being the darling of the mistress of those handmaidens. Once I realized this, I
+				stopped crying. Because affection, once it&#x27;s gone, doesn&#x27;t return. 
+
+It had been that way with the lay sister
+				Annina as well. She had seemed so sweet, Annina! We had become such close friends
+				and then she, too, had proved to be a coward. No, affection no longer returns, but
+				favour, yes. You could win back favour. 
+
+To do this she had to continue studying
+				her actions and those of others and not forget anything. Forgetting had also been a
+				mistake. Mother Leonora had urged her to forget the past as if it could never
+				return. Instead, a few misguided words were all it took to cast her back into an
+				isolation marked by dry bread and a few bland soups identical to those when, as a
+				child, she would wander about the chiana looking for Tuzzu. 
+
+Tuzzu was the only thing she
+				remembered … why him? Maybe it was natural to try to remember only
+				pleasant times. But if that was so, maybe it wasn&#x27;t a good thing. Because you
+				learn more from your enemies – she had read that somewhere – and from the bad things
+				of the past that … Yes, that must be so. And I decided that from that day on I would always remember everything
+				about the past – both the good things and the bad – in order to bear it in mind and
+				at least avoid repeating the mistakes that had already been made. 
+
+&#x27;Don&#x27;t worry about it,
+				princess! There&#x27;s a cure for everything, except for La Certa ,
+					Death!&#x27; 8 
+
+Mimmo&#x27;s voice! It had been more
+				than a month since anyone had spoken to me and I looked at him, startled. As usual,
+				he was leaning against a tree, smoking and smiling. From afar his body, clad in dark
+				brown velvet, looked like another trunk, which by some quirk of nature had sprung up
+				from the oak. 
+
+&#x27;For those like me who work among
+				the trees, it&#x27;s an ancient custom to wear nature&#x27;s colours, to satisfy
+				her whims and be protected by that lady. Nature is a woman and capricious. Take
+				these nuns … Oh, not to speak ill of anyone, but with such a small plot of
+				land, who would think they&#x27;d have me planting geraniums and
+				hydrangeas …&#x27; 
+
+We had chatted together many times there
+				where the woods were so dense that you couldn&#x27;t see anything from half a yard
+				away. But given my situation, I couldn&#x27;t take the chance. Too bad. Not
+				answering, I lowered my head and turned away from him. Truly a pity. Mimmo always
+				had nice things to say to me and hundreds of names for me when I used to run about
+				without a care and would hardly listen to him. He called me sunflower, little missy,
+				princess … 
+
+&#x27;Why princess, Mimmo? I&#x27;m
+				not a princess.&#x27; 
+
+&#x27;But you are, you are! A princess
+				by a caprice of Nature, who sometimes enjoys making a royal princess bowlegged while
+				giving a willowy, regal bearing to a nobody. Ah, little princess, my heart aches at
+				the thought that this lily-white skin of yours is destined to wither away among
+				these four walls. Last night at sunset, may God strike me if I&#x27;m lying, you
+				looked like a pale rose gilded by the sun. And if I were a bee I would have no other
+				desire than to alight upon the rosebud of your sweet lips.&#x27; 
+
+Rising on tiptoe, facing him, I
+				responded by closing my eyes: 
+
+&#x27;Go on Mimmo, make believe
+				you&#x27;re that bee and alight on me.&#x27; But he didn&#x27;t move. Only when I
+				opened my eyes did he say: 
+
+&#x27;With your eyes closed, no,
+				princess. The flower and the bee kiss with their eyes open.&#x27; 
+
+And moving close
+				he placed his large hand between my shoulder and my neck with a touch lighter than I
+				ever thought an oak could possess. 
+
+&#x27;Besides, my attentions
+				aren&#x27;t self-serving, princess. Or rather, their only interest is feeling this
+				silky, swanlike neck beneath my fingers. Once I was in Catania, a large city that is
+				far, far away from here, down by the sea. In this city there was an immense park
+				called Villa Bellini – who knows if it&#x27;s still there? I&#x27;m talking about
+				many years ago. They told me that this Bellini had been a great local figure, one of
+				the men whose statues are all around amid the trees. So many statues! And there are
+				not only statues. There&#x27;s also a kind of platform, where the band plays, not
+				like in theatres where you have to pay, but free for everybody. And then there are a
+				lot of old men sitting under the trees near the statues, ready to tell ancient
+				stories of adventure to those who stop. These old men make you pay, but not much,
+				just a few cents. The best thing in the park is a big lake, full of swans that you
+				can pet if you&#x27;re polite. And I can assure you, princess, that your skin is as
+				delicate and smooth as …&#x27; 
+
+Incredible. It was true that he had good
+				manners and showed no self-interest. In fact, without finishing the sentence he
+				removed his hand from my neck and touched his cap, departing with a &#x27;Good day,
+				princess&#x27;. So not all men were interested in only one thing, as my mother and
+				the nuns insisted. Especially now that I had fallen into disgrace, what interest
+				could he have in talking to me? 
+
+&#x27;Don&#x27;t you feel well,
+				princess? Collapsing on the ground like a frightened little chick?&#x27; 
+
+A voice, after more than a month!
+				I&#x27;d like to run away, but he goes on: &#x27;It&#x27;s damp here, my little
+				chick, extremely damp.&#x27; 
+
+&#x27;That&#x27;s true, Mimmo, thank
+				you. Now I have to go.&#x27; 
+
+&#x27;Go where? From riches to rags,
+				eh, princess? But don&#x27;t take it to heart. It happens to everyone at least
+				once. If only it were just once in a lifetime! But you certainly caused a stir! Who
+				would have thought so, a little thing like you! You caused such an uproar that the
+				whole convent is still reeling from it!&#x27; 
+
+&#x27;So you think when someone falls,
+				Mimmo, she can choose whether to fall down hard or gently?&#x27; 
+
+&#x27; Brava , princess! I see you haven&#x27;t lost your sense of
+				humour! A good sign. To tell you the truth, I was a little worried seeing you
+				wandering around like a sleepwalker, all bent over. I said to myself: don&#x27;t
+				tell me she&#x27;s becoming hunchbacked from all that praying and penance! You
+				wouldn&#x27;t be the first young girl I&#x27;ve seen enter these walls nice and
+				straight as a ramrod, who little by little becomes stooped like a beast of burden
+				until she withers away and goes out feet first, pardon the expression, without ever
+				experiencing the rewards of a long, happy old age. My wife and my sister-in-law have
+				white hair, yet they&#x27;re content, having escaped hunger and illness. But these
+				nuns … who can understand them? They say they live chastely, yet
+				they&#x27;re bowed down as though bearing the most grievous sins.&#x27; 
+
+Before, when Mimmo started talking that
+				way about the sisters and the convent, I would run away, but now his remarks entered
+				my blood like a soothing balm. I felt the need to straighten up and raise my
+				head. 
+
+&#x27;There, that&#x27;s better, brava , princess, brava : stand straight like you did
+				before.&#x27; 
+
+&#x27;It&#x27;s just that my hands and
+				arms feel so heavy.&#x27; 
+
+&#x27;Of course. When the body loses
+				its vital spirit, whether due to grief or disgrace or lack of food, the hands and
+				arms sag lifelessly. But that&#x27;s a bad sign. It means the soul is tired of the
+				body and wants to die. It happened to me when I got the notice that my oldest son,
+				Nunziato, had died in the war in Libya. My arms felt heavy; they were pulling me
+				toward him. And to keep going – six children, flesh of my flesh, were depending on
+				me for bread – to keep going, I had to cut off those arms. Now they work, they move,
+				but I don&#x27;t feel them anymore. They&#x27;re gone along with him,
+				princess.&#x27; 
+
+&#x27;I have to go now, Mimmo; they
+				might come.&#x27; 
+
+&#x27;No, for now no one is coming: the
+				oak is silent. But if you feel uneasy, go. But nice and straight, eh! Grab yourself
+				by the hair and pull your spirit up. Because all they&#x27;re waiting for, even if
+				they don&#x27;t know it, is to see you stoop so far over that you&#x27;ll find
+				yourself six feet under.&#x27; 
+
+&#x27;No, don&#x27;t say that, Mimmo.
+				You&#x27;re such a good man, why do you talk like that?&#x27; 
+
+&#x27;Because
+				it&#x27;s the truth. What do you think? That a good person can&#x27;t see the
+				truth? You know who you have to thank for at least being able to go
+				outside?&#x27; 
+
+&#x27;Of course I know: the
+				doctor.&#x27; 
+
+&#x27;That&#x27;s right, the doctor.
+				But the doctor alone wouldn&#x27;t have been able to do it if a novice hadn&#x27;t
+				died eight or ten years ago. She was your age more or less and, like you, she too
+				was a protégée of Mother Leonora.&#x27; 
+
+&#x27;How did she die?&#x27; 
+
+&#x27;She killed herself, dear child.
+				And who could blame her? Locked up in that room for more than a month, she became
+				despondent and jumped from the window. See, that one over there. I found her
+				splattered on the ground at daybreak. No one had heard a thing. These convents have
+				thick walls, bomb-proof walls, so as not to hear either the tears or the joys of
+				this world. Look, that&#x27;s the window.&#x27; 
+
+&#x27;That&#x27;s the room I&#x27;m
+				in.&#x27; 
+
+&#x27;Of course! Because it&#x27;s the
+				cell adjacent to Mother Leonora&#x27;s. That&#x27;s where her protégées end
+				up.&#x27; 
+
+&#x27;But how did she do it? There are
+				iron grilles …&#x27; 
+
+&#x27;No, they put those in afterwards.
+				As they say in Catania, Saint Agatha&#x27;s sanctuary was robbed first, then later
+				they put in a gate … Anyway, as I was telling you, the doctor – who just
+				so you know is a man of pure mind and heart, who knows the law besides medicine –
+				the doctor was able to obtain approval for you to have a breath of fresh air and
+				some recreation by reminding them of that suicide which everybody here, apart from
+				me, had forgotten. Of course, now they&#x27;ve sent him away. But he is a man of
+				true conviction, and he went away untroubled. I&#x27;ll say goodbye now, princess.
+				The oak tree is telling me that the troops are on the move and that you and I had
+				better go our separate ways.&#x27; 
+
+The oak is telling me … It was
+				actually true. All he had to do was lean his head against the gnarled trunk to know
+				if there was any movement in the woods. I tried it too, but the tree said nothing to
+				me. Yet after a few minutes the white skirts of the novices began to appear amidst
+				the low-growing shrubbery. They came toward me and then pretended to be startled,
+				scampering away in exaggerated terror punctuated by shrieks and laughter. The oak did not speak to me, but it had been
+				right to warn Mimmo. That&#x27;s it, come and laugh as much as you please. Now I
+				know how to put a stop to all this fun you&#x27;re having. Enjoy yourselves while
+				the farce lasts since, as Mimmo says, &#x27;he who laughs last laughs
+				best&#x27;.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">11
+
+众人无不动容，然莱奥诺拉院长却未现身。她遣科斯坦扎修女——那位面容酸涩、口中无牙之人——传话来，说她已宽恕于我，但需等候上帝赐我祂宽恕之征兆，方可考虑再见我面。
+
+我如何能知上帝何时宽恕于我？
+
+仿佛读透我心，科斯坦扎修女又言：&quot;莫忧。若此征兆显现，莱奥诺拉院长自会知晓。我等并非未闻你悔过之心。然心意尚不可谓悔改。你泪水中情欲太重。尽管如此，念及你身体状况与向善之志，我等接受米拉佐医生之建议，自明日起你可白日外出数时。但切勿以涕泣叹息扰我等于廊间园中之清净。此乃予你之大恩典，切记。亦当为医生祈祷，因他以深情厚谊为你说情。&quot;
+
+等候上帝赐我宽恕之征兆时，我始徘徊于廊间、柱廊、花园之中。昔日飞奔穿行此园，唯恐错过一个新词、一个形容词、一个音符，彼时花园于我何其广阔。而今，如梦中一般，它已缩小，成了一方局促拥挤之地。所有那些女人俱已知晓，却仿佛达成默契，即便我擦身而过，亦佯装不见。被放逐于她们严峻漠然的面容之外，我自觉通体透明——唯双手与双肩沉重，迫我俯首向地。我再无食欲。我唯一渴望的，是清晨莱奥诺拉院长在书房里的微笑——那书房里的书架，年幼时我以为是碗柜呢。我曾以此告知院长，她笑得何等开怀。
+
+此般渴望能压垮你么，即便你已不复如往昔那般爱她？百无聊赖之际，我开始试图理解那渴望为何物。莫谈悔改。我该做的乃是研究自己与他人，如同研究文法与音乐一般，而不再沉溺于情感之中。&quot;情感&quot;一词何其美妙！然此刻我已无暇顾及词语。我得思索那渴望到底为何。
+
+数日数夜冥想之后，我明白了。我思念的并非莱奥诺拉院长，而是那些女人仅因畏惧院长才倾注于我的一切特权与关注。诚然，她才是发号施令之人。那些涕泣叹息不过是因我不再是那群婢女主人的宠儿而生的愤怒罢了。一旦悟明此理，我便不再哭泣。因为情谊一旦逝去，便不复回返。
+
+与那位世俗修女安尼娜之间亦是如此。安尼娜何其温柔可亲！我们曾是那般亲密的朋友，而后来，她亦不过是懦夫。是的，情谊不复回返，然而恩宠——恩宠却可赢回。
+
+为此，她须继续研究自己与他人的行为，不可遗忘任何事。遗忘亦曾是一桩错事。莱奥诺拉院长曾敦促她忘记过去，仿佛过去永不会重来。然而，几句失言便足以将她掷回那干面包与淡汤相伴的孤绝之中，一如童年时在基亚纳寻觅图祖那般。
+
+图祖是她唯一记得的……为何偏是他？或许试图只忆欢愉时光乃是天性。但若真如此，或许这并非好事。因为从敌人身上——她曾在某处读到——以及从过往的坏事中学到的更多……是的，必是如此。于是我决定，自那日起，我将永远记得过往的一切——无论善恶——铭记于心，至少避免重蹈覆辙。
+
+&quot;莫忧此事，公主！万事皆可治，唯有拉·切尔塔——死亡——不可治！&quot;
+
+米莫的声音！已逾一月无人与我言语，我惊愕地望着他。一如往昔，他倚树而立，抽着烟，微笑着。远远望去，他那裹在深棕丝绒中的身躯，宛如另一根树干，仿佛造化弄人，从橡树上生出一般。
+
+&quot;对于我这般在林中劳作之人，穿着自然之色乃是古俗，以顺其性情，受那位夫人庇护。自然乃女子，任性无常。就说这些修女吧……哦，并非要说谁的坏话，但只有这么一小块地，谁能想到她们竟要我栽天竺葵和绣球花……&quot;
+
+我们曾多次在这林木茂密之处闲聊，此地相隔半码便不见人影。但以我之处境，我不敢冒险。可惜了。不答话，我低下头，转过身去。真是遗憾。米莫总是对我讲些动听的话，在我无忧无虑四处奔跑、几乎不听他说话时，他给我取了成百上千个名字。他叫我向日葵、小姐、公主……
+
+&quot;米莫，为何叫我公主？我并非公主。&quot;
+
+&quot;可你就是，你就是！造化任性的公主——造化有时乐得让皇家公主生成罗圈腿，却将柳条般挺拔的尊贵气度赋予一个无名之辈。啊，小公主，想到你这百合般洁白的肌肤注定要在四壁之中枯萎，我的心便隐隐作痛。昨夜日落时分，若我撒谎，愿上帝击我——你宛如一朵被太阳镀金的苍白玫瑰。倘若我是只蜜蜂，我别无他愿，只求停驻在你甜唇的花蕾之上。&quot;
+
+踮起脚尖，面对着他，我闭上双眼答道：
+
+&quot;来吧，米莫，假装你是那只蜜蜂，停驻在我身上吧。&quot;然而他没有动。直到我睁开眼，他才说：
+
+&quot;闭着眼睛不行，公主。花儿与蜜蜂睁着眼睛亲吻。&quot;
+
+说着他靠近前来，将他宽厚的手掌放在我肩颈之间，那力道之轻，胜过我料想一棵橡树所能拥有。
+
+&quot;况且，我的关注并非为己，公主。或者不如说，其唯一的兴趣便是感受这丝般柔滑、天鹅般修长的颈项在指下。我曾到过卡塔尼亚，一座远离此地的大城市，在海边。城中有一巨园，名曰贝利尼别墅——不知是否尚在？我所说的是许多年前的事了。他们告诉我，这位贝利尼是当地一位伟人，那些散布于林木之间的雕像所纪念的人物之一。雕像何其多也！且不止雕像。还有一座平台，乐队在那里演奏，不像剧院里那般须付钱，人人皆可免费聆听。还有许多老人坐在树下雕像旁，随时准备为驻足之人讲述古老的冒险故事。这些老人是要收钱的，但不多，不过几分钱而已。园中最妙之物乃一大湖，满是天鹅，若你彬彬有礼，便可抚摸它们。我可以向你保证，公主，你的肌肤如……一般细腻柔滑。&quot;
+
+令人难以置信。他果然举止有礼，毫无私心。事实上，他话未说完便从我的颈上移开了手，轻触帽檐，道一声&quot;日安，公主&quot;便离去了。原来并非所有男人都只对一件事感兴趣，如我母亲和修女们所坚称的那样。更何况如今我已失宠，他与我交谈又有何利可图？
+
+&quot;公主，您不舒服吗？像只受惊的小鸡般瘫倒在地上？&quot;
+
+一个声音，一个月之后的声音！我想逃开，但他接着说：&quot;此地潮湿，我的小鸡，极其潮湿。&quot;
+
+&quot;不错，米莫，谢谢你。现在我得走了。&quot;
+
+&quot;去哪儿？从富贵到贫贱，嗯，公主？但莫放在心上。每人一生中至少有一次。若一生只有一次倒好了！但你确实引起了一场轩然大波！谁能想到，像你这样一个小人儿！你闹得天翻地覆，整个修道院至今仍未平息！&quot;
+
+&quot;那么，米莫，你认为当一个人坠落后，她可以选择是重重摔下还是轻轻落下吗？&quot;
+
+&quot;好样的，公主！看来你并未失掉幽默感！好兆头。说实话，见你像梦游者般弓着身子四处游荡，我有些担心。我自言自语：别告诉我她因祈祷和苦修要变成驼背了！你不是我见过的第一个好端端直如箭杆般踏入这些墙内的年轻姑娘，却渐渐弯下腰背如同负重的牲口，直到枯萎凋零，脚先出去——恕我直言——从不曾享受长久幸福晚年的回报。我的妻子和嫂子已是白发苍苍，却心满意足，只因她们躲过了饥饿与疾病。但这些修女……谁能理解她们？她们说自己贞洁度日，却弯腰驼背仿佛背负着最沉重的罪孽。&quot;
+
+从前，米莫这样议论修女和修道院时，我会跑开，但如今他的话如舒缓的香膏渗入我的血液。我感到有必要挺直身子，昂起头来。
+
+&quot;对，这样好多了，好样的，公主，好样的：像从前那样挺直腰板。&quot;
+
+&quot;只是我的手和臂膀感觉沉重。&quot;
+
+&quot;自然。当身体失去其生命之元气，无论是因悲伤、失宠还是缺食，手臂便会无力地垂落。但那是不祥之兆。它意味着灵魂厌倦了身体，想要死去。我就曾如此——当我接到通知说我长子农齐亚托在利比亚战争中阵亡时。我的双臂沉重；它们将我拉向他。为了继续前行——六个孩子，我的骨肉，等着我挣面包——为了继续前行，我不得不斩断这双臂膀。如今它们劳作，它们活动，但我已感觉不到它们。它们随他一起去了，公主。&quot;
+
+&quot;我现在得走了，米莫；她们可能来了。&quot;
+
+&quot;不，此刻无人来：橡树是沉默的。但你若不安，便去吧。但要挺直腰板，嗯！揪住头发，提起精神。因为她们都在等着的——即便她们自己并不知晓——便是看你弯下腰去，直到你发现自己埋入六尺黄土之下。&quot;
+
+&quot;不，莫说此话，米莫。你是个好人，为何说这样的话？&quot;
+
+&quot;因为这是实情。你以为好人便看不见真相吗？你知道你至少能走到外面，该感谢谁吗？&quot;
+
+&quot;我当然知道：医生。&quot;
+
+&quot;不错，医生。但仅医生一人也无能为力，若非八九年前有个见习修女死了。她与你年纪相仿，和你一样，也是莱奥诺拉院长的宠儿。&quot;
+
+&quot;她怎么死的？&quot;
+
+&quot;她自尽了，亲爱的孩子。谁能怪她呢？被锁在那房间里一个多月，她绝望了，从窗口跳下。瞧，那边那扇窗。天亮时我发现她摔在地上，血肉模糊。无人听到任何声响。这些修道院的墙厚实，防弹的墙，为的是听不见这世界的眼泪与欢笑。看，就是那扇窗。&quot;
+
+&quot;那是我住的房间。&quot;
+
+&quot;当然！因为那是紧邻莱奥诺拉院长房间的静室。她的宠儿都归宿于此。&quot;
+
+&quot;但她是怎么做到的？有铁栅栏……&quot;
+
+&quot;不，那是后来装的。正如卡塔尼亚人所说——先偷了圣阿加莎圣殿，后来才装了门……总之，如我方才所说，医生——你可知他乃心地纯正之人，除医学外还通晓法律——医生之所以能获准让你呼吸新鲜空气、稍作消遣，便是以那桩自杀提醒她们——此事在此处除我之外，人人皆已忘记。当然，如今她们把他打发走了。但他是个真正有信念的人，泰然自若地离去了。我现在告辞了，公主。橡树告诉我，队伍已行动，你我最好各走各路。&quot;
+
+橡树告诉我……这竟是真的。他只需将头倚在那疙瘩满布的树干上，便知道林中是否有动静。我也试了，但那棵树什么也没对我说。然而几分钟后，见习修女们的白色裙摆在低矮灌木丛中开始显现。她们向我走来，然后佯装惊骇，夸张地尖叫着、笑着四散奔逃。橡树虽不与我言语，但它提醒米莫却是对的。罢了，尽管来笑吧，尽情地笑吧。如今我已知如何制止你们这出闹剧。在这出滑稽戏尚未落幕之际，尽情享乐吧，因为如米莫所言——&quot;笑到最后的人，笑得最好。&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>mercy</b><span>仁慈，宽恕</span><em>ask for mercy</em></div>
+<div><b>stern</b><span>严厉的</span><em>a stern voice</em></div>
+<div><b>convent</b><span>女修道院</span><em>life in a convent</em></div>
+<div><b>devotion</b><span>虔诚；投入</span><em>show devotion to</em></div>
+<div><b>confess</b><span>忏悔；坦白</span><em>confess a fear</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch010.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch012.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

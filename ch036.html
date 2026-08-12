@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 36 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch035.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" selected>Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch037.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 36<span>战争前夕与家族秩序</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1915 年意大利参加第一次世界大战。乡村生活与国家大事并不同步，但战争、价格、劳动力和家族荣誉会逐步进入私人生活。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">36 
+
+Gaia was not crazy, nor had she ever
+				been. By now I was beginning to understand the human animal, and I knew that any
+				intent others have seems like madness to us if it is contrary to our wishes, while
+				that which serves our purposes and leaves us content with our way of thinking
+				appears reasonable. It wasn’t madness. She was determined to die, taking us
+				all with her. And she was firmly determined! I trembled before another
+				individual’s resolve, which I was facing once again, but I was no longer
+				panic-stricken. And since I had my own objective, or plan, or intent, call it what
+				you will, which might seem crazy to others, I would deal with this madness with the
+				same firm hand as that grand old woman whom I so admired. I admired her, but she had
+				to die. How? There was time. Both Beatrice and I were only eighteen years old. We
+				had to be patient and go along with her without making her suspicious. The
+				opportunity would come. The first thing I had to do was reassure Beatrice, then see
+				to the will. Find out where she kept it, at least. Not lose sight of it. 
+
+‘I see, Mody, that I did well to
+				place my trust in you. You’re the only one in recent months who hasn’t
+				regarded me as insane, and whose disposition hasn’t changed. Yesterday I
+				tossed out Don Antonio. He started acting crafty – like an elephant in a china shop,
+				though! – asking me about my will: whether my wishes are in a safe place, whether I
+				deposited the will with a notary, if it was here, if it was there, and on and on. As
+				if I needed anyone besides myself. The will is here … As if I needed a notary or a doctor, or
+				whatever. What that old fool was really trying to say is that I’m crazy,
+				right, Mody?’ 
+
+‘You aren’t crazy,
+				Princess.’ 
+
+‘Is that really what you
+				think?’ 
+
+‘Really. You’ve decided
+				what’s best for you, and it’s only right to do it.’ 
+
+‘Brava , Mody! But
+				I’m selfish, is that what you think?’ 
+
+‘Of course I think so.’ 
+
+‘Indeed. I never said I was
+				altruistic … Now get to work! And you, Carmine, tell me what’s new,
+				given this insidious peace that has fallen upon us.’ 
+
+‘What’s new, Princess, is
+				that everything is going up. Naturally, increases were expected, but costs are
+				rising sky-high, and unless we take steps …’ 
+
+As he spoke, Carmine looked at me with
+				admiration. It was the first time. I had managed to gain the respect of that man of
+				honour. Two victories in one morning. Now I knew for certain that the will was in
+				the house. I bided my time, and in just three months Gaia told me so in her own
+				words. Until that moment I had searched the study and her bedroom, but only very
+				perfunctorily. Because it’s one thing to hope and another thing to be certain.
+				And now I was certain: the will was not far off. I went back to rummaging through
+				the study and the bedroom more meticulously than before. I discovered the secret
+				drawers in the study. I leafed through her personal books, page by page, and
+				carefully examined the bindings. In so doing, I learned the type of reading she
+				preferred; there weren’t many volumes and they were all poetry. It took me
+				about a month to complete this operation, until I was certain that it could not be
+				in those two rooms. It would take me an entire year to search the whole house as
+				thoroughly as I had the study and the bedroom. The only solution was to study her,
+				hoping to find some small hint that would lead me to uncover the hiding place. Using
+				the pretext of not understanding poetry, I asked her permission to borrow some of
+				her books. 
+
+As I read all those French and English
+				poets, I realized that I had never understood poetry, not really. Of course, I had
+				read Dante, Petrarch, Leopardi, but without grasping the secret of their verse.
+				Truthfully, I had preferred reading philosophical essays, historical and political texts, and biographies. I
+				was so struck by that discovery that I almost forgot about the will. I must have
+				shown such persistence in my reading that even the Princess noticed it. 
+
+‘Look, Mody, reading all that
+				poetry isn’t making you unfocused, is it? I won’t lend you anything
+				anymore if you keep staring into space with those big wide eyes. It’s like
+				you’re searching for something …’ 
+
+It was curious, however, that in the
+				midst of all those books of exceptional poetry there were two prose works:
+				Manzoni’s I promessi sposi and the Tales of Edgar Allan Poe.
+				This made me very suspicious. Leaving aside I promessi sposi , with which I
+				was familiar, I began reading Poe’s Tales . That night I came across
+				the finest stories I had ever read. I couldn’t stop reading, not even at dawn,
+				when lack of sleep made my eyes burn a little. Those mysterious lines, in which the
+				even more mysterious faces of young women appeared in magical settings and
+				underground gardens, had so captured my emotions that I failed to understand a
+				sentence in ‘The Purloined Letter’ which was the key to my feverish
+				search: ‘Perhaps it is the very simplicity of the thing which puts you at
+				fault …’ I was about to go on to ‘The Gold-Bug’ when I jumped
+				up in bed, turned off the light – by now it was broad daylight – and began leafing
+				through the pages of that story, until I realized that the will, like the famous
+				purloined letter, might be somewhere in plain view where I had never thought to
+				look. I quickly checked the desk in the study – I confess I had been hoping – as
+				well as the tables and bookcases in the library, the musical scores … 
+
+I found it on Ignazio’s
+				nightstand, in a folder of sketches. Our destiny lay there, among those drawings
+				signed by Ignazio, who stared at me, troubled, from the photograph above. Not a
+				speck of dust on that night table which, like everything else, was dusted each day.
+				Who would ever think of rummaging through those drawings made by the hand of a dead
+				man? In fact, my fingers were shaking when I picked up the document. Ignazio’s
+				eyes froze me. That gaze wanted to live on, to pin us all in place by his death. But
+				I too wanted to live, and though shaking, I put the will back in place. Slowly,
+				Modesta: make sure no one suspects that anything has been touched. The venom of fear
+				can make us slip up. 
+
+* 
+
+The next
+				morning, buoyed by my discovery and by sleep, the last thing I would imagine was
+				that Ignazio’s wrath would show itself so soon. A thunderbolt had struck in
+				the night, shattering the large window in her room, and all of Aunt Adelaide’s
+				birds were found dead. Terrified, I went with Beatrice to verify that what
+				Argentovivo said was true. In the large cage, all of her remaining little birds lay
+				stone-dead, or dying. To make matters worse, at the sight of them Beatrice doubled
+				over, pressing her mouth with clenched fists. I held her in my arms as she vomited a
+				dark liquid mixed with blood. Argentovivo began screaming so loudly that I had to
+				slap her as best I could, still holding Beatrice in my arms, in order to bring her
+				to her senses. 
+
+‘Run, instead of screaming! Go and
+				find the doctor while I lay her on the bed.’ 
+
+Even there on the bed, the vomiting
+				continued. I got a basin and with a damp towel, one of Aunt Adelaide’s, I
+				tried to wipe her brow which, once the vomiting stopped, had suddenly turned yellow
+				and cold as marble. Then the vomiting resumed and with it her face started burning
+				up, covered with red spots. An eternity passed in that spasmodic seesawing before
+				the doctor arrived. I too felt like vomiting, due to fear and the sour odour of
+				decay that had filled the room. 
+
+‘It’s started! Just
+				yesterday I got word that Catania has been infected by it. All the hospitals are
+				full, corridors, stairwells, every available space … If you feel like
+				vomiting, don’t hold back. Better to throw up and release the
+				poison.’ 
+
+‘But what is it?’ 
+
+‘The spagnola , Modesta,
+				the Spanish flu.’ 26 
+
+‘The Spanish flu?’ 
+
+‘It appears that the soldiers
+				returning from the front are carriers. Forgive my bluntness, but I must be frank
+				with someone: it’s quite serious. It hasn’t been a week since the
+				outbreak began in Catania and already there are countless dead. I was hoping it
+				wouldn’t reach here, so far from the populated areas and with all this clean,
+				fresh air. I didn’t say anything, so as not to scare you
+				unnecessarily … No, no, don’t worry. Beatrice can’t understand
+				me; she has other things to worry about. Her fever is high. Help me lift her so I
+				can listen to her lungs. Now go and give orders that no one should approach. Everyone’s in quarantine.
+				Don’t let the Princess come here. We need to get Lysoform. Boil everything in
+				the kitchens. All the bed linens must be boiled. Good, Modesta, I see you’ve
+				recovered. May I feel your pulse? Your tongue? Normal … Has the nausea
+				passed?’ 
+
+‘Yes, it’s gone. It was just
+				the power of suggestion. Tell me what else I must do.’ 
+
+* 
+
+In a week’s time the villa became
+				a hospital. The stink of disinfectant and vomit was everywhere. And everyone,
+				dragged down by the sickly sweet, sour stench of death, sprawled in beds that had to
+				be changed three or four times a day. Except for me, Pietro and Carmine, who was
+				assigned to maintain contact with the outside world, they were all burning up with
+				fever. Two nurses arrived from Catania, but within days they, too, took to their
+				beds. In the servants’ wing only Argentovivo and two others were still
+				standing. The doctor, also ill, sent orders from his home. Don Antonio, from his
+				bed, sent word telling us to pray. The small dance instructor no longer came, but he
+				hadn’t died like so many others in the area. 
+
+Carmine brought us news every evening
+				when he returned from his rounds, and if it hadn’t been for him we
+				wouldn’t even have had any salt, sugar or medicines. He said that all the
+				shops were closed, many draped in mourning. The hospitals were overflowing with the
+				sick and dying. In the province of Messina, all the prisoners had managed to escape.
+				In the larger towns, these criminals and other impromptu thieves looted houses while
+				sick people watched, powerless to stop them. Every doctor had been pressed into
+				service, along with students with only one or two years of medical school. The
+				battle against the rats had begun. Even there, in the villa, they began to appear,
+				big as cats and ravenous. For weeks we struggled with exhaustion, filth and fear. My
+				only consolation throughout this nightmare was a small hope: in addition to
+				children, the virulent disease they called the spagnola – to make it seem
+				less frightening – killed older people in particular. Yet when the Princess sent for
+				me, and I saw the strength of spirit as well as the physical power of that grand old woman, who sat up in bed as firm and
+				proud as if she were on a throne, I was almost happy to hear her shouting in her
+				usual voice. 
+
+‘Well then, how is
+				Cavallina?’ 
+
+‘Better. The danger is
+				past.’ 
+
+Beatrice, who was the first to fall ill,
+				had been out of danger for just a few days. And so thin and shaky that my throat
+				tightened at the thought that, instead of the Princess, it was she I had almost
+				lost. 
+
+‘And Argentovivo?’ 
+
+‘Fine, just fine.’ 
+
+‘She was a big help to you,
+				wasn’t she?’ 
+
+‘An enormous help.’ 
+
+‘I will repay her. That’s
+				not why I called you, but rather to tell you that I cannot move my legs, and this
+				arm as well. To make a long story short, I am unable to move my entire left side.
+				Not a word! Don’t betray my trust. Not a tear, not a word to anyone. I
+				don’t want anyone to know! No one must see me like this, except for the
+				doctor, of course. Therefore, given that, as I said, I do not wish to be seen by
+				anyone, from now on you will be in the room next door at all times and you will look
+				after me. But not a word to anyone. Not even after I am dead. I don’t want to
+				be pitied, either alive or dead. Now off with you. Go get your things, your books,
+				and come back here immediately. Here, because in case of an attack you must
+				immediately run to the doctor after giving me these pills, even if you have to pry
+				open my mouth with pliers.’ 
+
+In the three weeks we spent together, my
+				admiration for her only grew. Not one complaint, not when the attacks came, nor when
+				she laboured to rest or talk to me. She talked about everything, but especially
+				poetry. She asked me who my favourite poet was, now that I understood poetry, and
+				had me read her something. The more I admired her, the more I waited for the moment
+				of her death. One reason was that now, no matter how much I tightened my corset, my
+				waist was swelling, and she, though ill, stared at my hips with increasing
+				suspicion. 
+
+‘How come you’ve put on so
+				much weight, Mody? You’re not playing tricks on me, are you? I told you that I
+				don’t want any children from that “thing”! Tell me if that’s
+				the case, since in the early months, with a good doctor, it’s child’s
+				play to get rid of it.’ 
+
+‘Don’t worry, Princess, there’s nothing
+				to tell. It’s just that I’ve been eating too much lately.’ 
+
+‘So then, eat less. I don’t
+				like you this way. You lose your gracefulness, and your peasant origins show in
+				those puffy cheeks.’ 
+
+She had to die. My insane will to live
+				against her insane will to die. 
+
+‘Oh, Mody, this letter here on the
+				nightstand is for Don Carmine. If anything final happens to me, you are to give it
+				to him immediately. Understood?’ 
+
+She had to die. I had waited too long.
+				And when another attack came, instead of giving her the pills and running to the
+				doctor, as I had always done, I stood behind the closed door and waited until the
+				last moan fell silent in that room. Then I went back in. Were the bulging eyes
+				looking at me? No, they were staring at the door. I looked away; that wasn’t
+				what I had come back for. After closing her eyes I took the letter and read it. It
+				was not a new will. The letter told Carmine that the will was where he knew it was,
+				and so on and so forth. 
+
+With the letter in hand, I ran to get
+				the will, which I slipped into a large Chinese vase at the foot of the staircase,
+				along with the letter. I would burn them afterwards. Now I had to run to the doctor.
+				Ten or fifteen minutes could go unnoticed, but any longer would strain even the
+				credulity of that myopic old man with his fine, flyaway hair like a
+				child’s.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">36
+
+盖娅并不疯，她从未疯过。如今我已开始懂得人类的兽性了，我知道他人任何意图，若与我们的愿望相左，在我们看来便是疯狂；但凡合乎我们的目的、令我们安于自身想法的，便显得合理。那不是疯狂。她决意赴死，拉着我们所有人陪葬。而且她意志坚决！面对另一个人的决心——我再次遭遇这样的决心——我颤抖了，却不再惊慌失措。既然我自己也有目标、计划或意图——怎么称呼都行——在别人看来或许同样疯狂，我便要用同样坚定的手来应对这份疯狂，如同我深深敬佩的那位伟大的老太太一般。我敬佩她，但她必须死。怎么死？还有时间。我和贝亚特里切都只有十八岁。我们必须耐心，顺从她，不让她起疑。机会自会到来。我首先要做的，是安抚贝亚特里切，然后盯住遗嘱。至少找出她把它藏在何处。绝不放松警惕。
+
+&quot;我看出来了，莫迪，我信任你是对的。这几个月来，只有你没把我当疯子，态度始终如一。昨天我把安东尼奥神父赶了出去。他耍起了花招——虽然是笨手笨脚！——追问我遗嘱的事：我的意愿是否安放在安全之处，是否把遗嘱存放在了公证人那里，是在这儿，还是在那儿，没完没了。好像我需要别人似的。遗嘱就在这里……好像我需要公证人或医生，随便什么人似的。那老傻瓜真正想说的是我疯了，对吧，莫迪？&quot;
+
+&quot;您没疯，公主。&quot;
+
+&quot;你真这么想？&quot;
+
+&quot;千真万确。您已经决定……&quot; </div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>aftermath</b><span>余波，后果</span><em>in the aftermath of</em></div>
+<div><b>enlist</b><span>参军；争取支持</span><em>enlist in the army</em></div>
+<div><b>ration</b><span>配给；限量</span><em>food rationing</em></div>
+<div><b>upheaval</b><span>剧变，动荡</span><em>social upheaval</em></div>
+<div><b>scarce</b><span>稀缺的</span><em>become scarce</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch035.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch037.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

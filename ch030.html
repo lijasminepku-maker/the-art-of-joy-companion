@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 30 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch029.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" selected>Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch031.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 30<span>战争前夕与家族秩序</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1915 年意大利参加第一次世界大战。乡村生活与国家大事并不同步，但战争、价格、劳动力和家族荣誉会逐步进入私人生活。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">30 
+
+We were so good – according to
+				Argentovivo – that often one of the legion of maids would come to watch us from
+				behind the glass doors. One day even the Princess deigned to attend a lesson to
+				observe my progress. After ten minutes she stood up, and going through the door
+				shouted, ‘Fine, fine. Excellent, girls! Just look at that: three Graces
+				without a cavalier! I’m going. The accounts await me. You three, make the best
+				of it.’ 
+
+She spoke so loudly that all three of us
+				stopped, not daring even to look at each other. The thud of the door made us jump.
+				The Princess was always slamming the door. The instructor, white as a sheet, was
+				moving toward the piano where the young lady had stopped playing, when the door
+				opened again. 
+
+‘You made me lose my train of
+				thought. I had come for a specific reason and you three with those leaps and
+				twirls … Oh, yes! Mody, when you’re done with this little party,
+				I’ll expect you in my study. I have a thing or two to tell you. And you, why
+				are you standing there? Do you or do you not intend to make this lesson productive?
+				Note that I pay you handsomely and I don’t like to have my girls’ time
+				wasted. Go on, hop to it!’ 
+
+The instructor hastily gave orders to
+				restart the waltz, and Beatrice had already taken hold of my waist, but my legs
+				wouldn’t support me and I let myself be pulled along by her … She
+				had a thing or two to tell me. What could be wrong? Had I been laughing too much?
+				Had I shown too much interest in the
+				dressmaker? Had I spent too much time with Ippolito? Or was it the accounts? Had I
+				bungled the accounts? Dragging my legs, which did not want to move, I knocked on the
+				door. 
+
+‘Come in, come in, Mody. Please,
+				close the door softly. I can’t stand the slamming of doors. Why are you
+				standing there frozen? Come, sit down. Carmine and I have a couple of little things
+				to make clear to you … Have you met her, Carmine?’ 
+
+I sat down just in time because my legs
+				were no longer working. The man was staring at me with a blue gaze as opaque as
+				majolica. 
+
+‘I haven’t yet had the
+				honour of meeting Signorina Modesta.’ 
+
+‘Mody, Carmine, Mody!’ 
+
+‘Voscenza will pardon me,
+				Princess, but I don’t like these foreign names.’ 
+
+‘And yet, in my presence at least,
+				you’ll have to get used to it.’ 
+
+‘With all due respect, what
+				nationality would this “Mody” be?’ 
+
+‘English. First I thought of
+				Modesty, but it’s almost as ugly as the Italian, so I shortened it to suit me.
+				I have no idea if it’s correct. But the British, a grand people, are very
+				permissive when it comes to names. Do you know what the mother of my consort, the
+				Prince, God rest his soul, used to say, Mody? Yes, that bourgeoise commoner whom we
+				robbed. And don’t blush, of course that chatterbox Beatrice must have told you
+				all about it! The Englishwoman used to say that to keep a horse happy all you have
+				to do is tie him with a longer rope. So the British are firmly tied but with a rope
+				so long they’re not even aware of it and think they’re free. Oh, yes, I
+				learned quite a few things from that bourgeoise lady. She was clever! She read,
+				instead of wearing herself out by having babies. But why are you letting me go on!
+				This isn’t why we’re here. Listen, Carmine, to finish our discussion
+				I’m telling you that this girl is skilful and gifted. For two months now
+				she’s been keeping all the household accounts, and never one mistake.
+				Everything balances better than when I kept them, and she’s even saved me some
+				money.’ 
+
+‘I don’t doubt it. But the
+				house is one thing, it’s another thing to …’ 
+
+‘And what about me? It seems to me
+				I’ve been taking care of everything for ten years, haven’t I?’ 
+
+‘Forgive
+				me for what may seem like an impropriety, but Voscenza , Princess, are an
+				exception: you were born to be a man!’ 
+
+‘And I’m telling you that
+				Mody is like me! I’ve been watching her for months! Besides I can use a hand;
+				my eyesight is worsening. I have to train someone who will be able to look after
+				things when I am gone. Leonora of course was impetuous like Beatrice, but she had
+				good taste and intelligence. It’s as if she found the girl and raised her just
+				to relieve me during these final years. Yes, I admit it: I’m tired, and
+				someone must take my place.’ 
+
+‘But …’ 
+
+‘We’ve talked too much about
+				it today. Mody is here. Leonora sent her to us and starting tomorrow, 3 November
+				1917, she will meet with us every Monday to learn to manage everything. You see her
+				speechless because she’s afraid of me, but the tutor told me that she has
+				quite a glib tongue! I will teach her to deal with those thieving attorneys and
+				notaries and you will instruct her about the lands and the tenants.
+				Understood?’ 
+
+‘But, if I may say so, the signorina is young.’ 
+
+‘Young or not, that’s my
+				decision … You don’t agree?’ 
+
+‘I’d rather not answer
+				that.’ 
+
+‘You – when you were a boy, who
+				taught you?’ 
+
+‘The Prince, God rest his soul,
+				and Voscenza , Princess.’ 
+
+‘So then, why won’t you
+				respond about the girl?’ 
+
+‘Because, with your permission, I
+				prefer not to.’ 
+
+‘Don’t respond then, given
+				how obstinate you are. But starting today, here, in my presence, you must call her Padrona . Understood, Carmine? Mistress. Say it.’ 
+
+‘I have to call the signorina Mistress?’ 
+
+‘Mistress.’ 
+
+‘Since Voscenza insists,
+				but given that she’s just a little slip of a girl, ’na scazzidda di
+					carusa , can I at least call her Padroncina ?’ 
+
+‘Oh, all right. Now go. I’m
+				tired. And you, girl, why are you still standing there? I said you may go,
+				didn’t I? I’m sure you understood everything. And try to command the
+				respect of that man of honour.’ 22</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">30
+
+我们跳得太好了——据阿真托维沃说——以至于常常有众多女仆中的一人会从玻璃门后偷偷看我们。有一天，甚至公主殿下也屈尊出席了一堂课，来观察我的进步。十分钟后她站起来，走到门口时喊道：「好，好。好极了，姑娘们！瞧瞧：没有男伴的三位美惠女神！我走了。账本在等我。你们三个，好好利用。」她说得如此响亮，我们三个都停了下来，甚至不敢看彼此。门砰的一声让我们跳了起来。公主总是摔门。老师脸色白得像纸，正朝那个年轻女士停止弹奏的钢琴走去，这时门又开了。
+
+「你们让我忘了想说什么。我来是有个特别的原因，你们三个又是跳又是转的……哦，对了！莫迪，等你这个小派对结束了，我在书房等你。我有几件事要跟你说。你呢，站在那儿干什么？你到底打不打算让这堂课有收获？注意，我付你的酬劳可不低，我不喜欢我的姑娘们的时间被浪费掉。继续，跳起来！」
+
+老师慌忙下令重新开始华尔兹，贝阿特丽切已经搂住了我的腰，但我的腿支撑不住，我任由她拖着我走……她有几件事要跟我说。会是什么问题呢？我笑得太多了？我对裁缝表现得过于感兴趣？我跟伊波利托待的时间太长了？还是账本的事？我把账搞砸了？拖着不听使唤的腿，我敲了门。
+
+「进来，进来，莫迪。请轻轻关上门。我受不了摔门的声音。你为什么僵在那儿？来，坐下。卡尔米内，我们俩有几件小事要跟你讲清楚……你见过她吗，卡尔米内？」
+
+我刚好及时坐下，因为我的腿已经不管用了。那个男人正用一双如锡釉陶般不透明的蓝眼睛盯着我。
+
+「我还没有荣幸见过莫德斯塔小姐。」
+
+「莫迪，卡尔米内，莫迪！」
+
+「恕我冒昧，公主殿下，但我不喜欢这些外国名字。」
+
+「然而，至少在我面前，你得习惯。」
+
+「恕我直言，这个&#x27;莫迪&#x27;是哪国的？」
+
+「英语。一开始我想用莫德斯蒂，但几乎和意大利语一样丑，所以我就按我的喜好缩短了。我不知道对不对。但英国人，一个伟大的民族，在名字方面非常宽容。你知道我的驸马殿下——那位亲王，愿他安息——的母亲常说什么吗，莫迪？是的，那个被我们打劫的资产阶级平民。别脸红，当然那个话匣子贝阿特丽切一定已经全都告诉你了！那个英国女人常说，要让一匹马高兴，你只需给他系上更长的缰绳。所以英国人被牢牢地拴着，但缰绳如此之长，他们甚至意识不到，还觉得自己是自由的。哦，是的，我从那个资产阶级女士那里学到了不少东西。她很聪明！她读书，而不是靠生孩子把自己累垮。可是我为什么让你说下去了！这不是我们来这里的原因。听着，卡尔米内，为了结束我们的讨论，我告诉你，这个姑娘既灵巧又有天赋。两个月来她一直在管所有的家用账目，从没出过一个错。每一笔都比我自己管的时候还平衡，她甚至还给我省了钱。」
+
+「我不怀疑。但家务是一回事，另一方面……」
+
+「那我呢？我觉得我这十年来一直在照管一切，不是吗？」
+
+「请原谅，可能听起来有些不敬，但您，公主殿下，是个例外：您生来就该是个男人！」
+
+「而我告诉你，莫迪就像我！我观察她好几个月了！再说我需要帮手；我的视力在变差。我必须培养一个人，在我走后能照管事务。莱奥诺拉当然像贝阿特丽切一样冲动，但她有品味，也聪明。就像是她找到了这个姑娘，把她培养起来，就是为了在这最后几年里让我轻松些。是的，我承认：我累了，必须有人接替我。」
+
+「可是……」
+
+「今天我们谈得够多了。莫迪在这里。是莱奥诺拉把她送到我们身边的，从明天开始，一九一七年十一月三日，她每周一与我们会面，学习管理一切。你看她吓得说不出话，是因为怕我，但家庭教师告诉我，她有一张相当利落的嘴！我会教她对付那些偷奸耍滑的律师和公证人，你来指导她土地和佃农的事。明白了？」
+
+「但是，如果可以的话，这位小姐太年轻了。」
+
+「年轻不年轻，这是我的决定……你不同意？」
+
+「我宁愿不回答。」
+
+「你——你小时候，是谁教你的？」
+
+「亲王，愿他安息，还有您，公主殿下。」
+
+「那么，为什么你不回答关于这姑娘的事？」
+
+「因为，请允许，我宁愿不回答。」
+
+「那就别回答了，既然你这么固执。但从今天起，在这里，在我面前，你必须称她为女主人。明白了吗，卡尔米内？女主人。说出来。」
+
+「我得叫这位小姐女主人？」
+
+「女主人。」
+
+「既然殿下坚持，但毕竟她只是个小丫头片子，我能不能至少叫她小主人？」
+
+「哦，好吧。现在走吧。我累了。你呢，姑娘，还站在那儿做什么？我说你们可以走了，不是吗？我相信你全都听明白了。试着赢得那个荣誉男人的尊重吧。」
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>aftermath</b><span>余波，后果</span><em>in the aftermath of</em></div>
+<div><b>enlist</b><span>参军；争取支持</span><em>enlist in the army</em></div>
+<div><b>ration</b><span>配给；限量</span><em>food rationing</em></div>
+<div><b>upheaval</b><span>剧变，动荡</span><em>social upheaval</em></div>
+<div><b>scarce</b><span>稀缺的</span><em>become scarce</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch029.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch031.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

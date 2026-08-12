@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 89 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch088.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" selected>Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch090.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 89<span>解放后、政治与记忆</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1943 年政权垮台、1945 年解放后，重建并不等于问题消失。战后左翼政党、工会、家庭代际冲突与政治幻灭共同构成新的环境。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">89 
+
+So it was that Modesta had to decide to
+				leave the most exciting pursuit that she had ever experienced. There was no sweeter
+				liqueur, no freshly baked bread, no lover’s saliva that could compare with
+				that breath of life, that intensity, which for years had sent her flying through the
+				country, sweeping away every memory, every sorrow. Determined not to collaborate
+				with the enemy, which, though disguised in a hundred modern ways – what was the face
+				of that new power, which unfolded in the many silent tentacles of an octopus
+				camouflaged in the various colours of science, the arts, the professions? – was
+				still the same power in every respect, wearing the elegant uniform of an arrogant
+				warrior. 
+
+Determined, Modesta managed to get up
+				from her chair and stand up straight, but she still had to cross the hall and go
+				down the grand marble staircase. And though in Joyce’s presence irony had
+				helped conceal the emptiness that slowly rose from her chest to her head, once she
+				was outside in that broad, marmoreal avenue, in a Rome that stood intact among the
+				wasteland of rubble throughout the peninsula, a Rome protected by the vast, roseate
+				wings of the papacy, she could not help giving in to despondency. So as not to fall,
+				she groped around for a seat in a bar crammed with people from many different
+				regions who continually flowed through those streets seeking refuge, hope, among the
+				untouched walls … The unsettling crowd milled around her as in a dream:
+				starving Italians side by side with the plump, rosy faces of Americans looking for business. Men from
+				East-Central Europe shoulder to shoulder with former inmates of concentration camps:
+				emaciated Jews followed by the barely more secure steps of
+				ex-prisoners … Starting a year or two ago, women have been walking in the
+				streets without hats or stockings. Back there, a small blond woman, timid perhaps,
+				still wears a kerchief on her head and hugs the wall, trying to pass unnoticed: a
+				new treasure is clutched to her chest, the glossy American magazine Grand
+					Hotel , which is all the rage. On the tables are gelati, espressos, and a
+				jungle of slim bottles of Coca-Cola. 
+
+‘What would you like, signora ?’ 
+
+‘An espresso, please.’ 
+
+The round, smiling eyes, still rimmed by
+				hunger’s dark circles, cast rapid glances in search of opportunities, the
+				darting eyes of a former shoeshine boy skilled in picking out the big, blond prey:
+				an American. For those of us who were deprived of it for so many years, coffee is
+				still a miracle, of course, and fills the emptiness of confusion. I have to hurry to
+				the hotel before the stench of our soldiers’ wretched bodies, mixed with the
+				scent of hundreds of American bath soaps and musty French fragrances, suffocate me.
+				But I don’t have the strength to walk. Drained, Modesta stares at her image in
+				a shop window. For years she hasn’t had time to look at herself in the mirror.
+				Does she look older, maybe? Is her weariness merely the first sign of old age,
+				perhaps? All in all, it was time: she’s fifty years old. Look at her there,
+				Modesta: her breasts are heavier, her cheeks full … but she was always a
+				little too thin. And the rounded hips, slim legs and trim torso don’t give the
+				impression of a mature matron, but rather a carusa , a young girl who aged
+				overnight, but gracefully, as her Nina the shopkeeper says. What does she say in her
+				letter? ‘I saw you in the newspaper. You were really funny, Mody! Lots of
+				kisses from your shopkeeper, who’s loaded with money. I can’t wait to
+				tell you how good I’ve become at robbing those citrulli , those
+				American fools. All you have to do is tell them that something is traditional,
+				antique, and they’re ready to shell out …’ 
+
+A young girl grown old! But there in the
+				shop window she can’t see her wrinkles, her hair. Therefore, Modesta, if you
+				want to know more about that weariness, you must have the courage to look at
+				yourself in a mirror at least once.
+					‘ Oh, shit, you’re far-sighted, Mody! You see everything cloudy and indistinct … Will you, or won’t you wear these glasses?’ So Modesta had
+				better wear the glasses that Bambolina gave her. ‘ You’ll get a crick
+					in your neck, Zia, every time you have to read!’ 
+
+Reassured by the lenses, all she sees
+				are the usual white strands and a few more wrinkles. Her teeth? Strong. And if she
+				smiles, the wrinkles are erased by magic. That smile at the end of her speeches had
+				sparked cries of enthusiasm and applause. It was satisfying and comforting to be
+				understood, to be loved. That was the reason – she realized it now – why each day
+				she acquiesced to watering down her ideas, impoverishing their content, reducing her
+				language. Even so, success was certain; in fact, even more certain than before. That
+				was the catch! In recent months, the less she said the more applause she received
+				from the crowd. And she, content, tried not to see it. Now she realized that during
+				those years, all she had had was personal success. Like an actress who, just to
+				please the audience, passes off even the most hackneyed or reactionary script as
+				good. She understood Mela; she finally understood the radiant eyes, the confident
+				demeanour of that girl … Surrounded by applause, accepted and loved by the
+				crowd, Mela had no need for anyone, except for some casual affair with a woman.
+				Lucky her! But Mela made sounds spring from her keyboard: exquisite, classic sounds,
+				not words that spewed fire more terrible than cannons … 
+
+With her arms on the mirror,
+				Modesta’s happy smile vanishes, and she weeps in despair. She’s never
+				felt so despondent, not when she decided to stop getting richer and richer by
+				accumulating money, nor when she felt called to poetry. With her face buried in her
+				arms, she tries to find the strength not to be corrupted by herself, that self who
+				says: ‘Besides, if you don’t do it, someone else – surely worse than you
+				– will promptly do it.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">八十九
+
+事情就是这样：莫德斯塔不得不决定放弃她经历过的最激动人心的追求。没有更甜的酒，没有新鲜出炉的面包，没有恋人的唾液，能与那股生命的气息相提并论——那强度，多年来带着她飞越全国，卷走所有记忆，所有悲伤。她决心不与敌人合作，那敌人，尽管以千百种现代方式伪装——那张新权力的脸，究竟长什么样？它展开在一只章鱼的许多无声触手中，章鱼伪装在科学、艺术、专业的不同颜色中——那个敌人，在各方面依然是同样的权力，穿着傲慢战士的优雅制服。
+
+下定决心，莫德斯塔设法从椅子上站起来，站直了身子，但她还得穿过大厅，走下宏伟的大理石楼梯。虽然在乔伊斯面前，反讽曾帮助掩盖从胸口缓缓升到脑袋的空虚，但一旦到了外面，在那条宽阔的大理石大道上，在废墟遍布半岛却完好无损的罗马——一个被教廷宽广玫瑰色翅膀保护的罗马——她忍不住屈服于沮丧。为了不跌倒，她摸索着在一个酒吧里找座位，酒吧挤满了来自许多不同地区的人，他们不停穿过那些街道，在未受损的墙壁间寻求庇护，寻求希望……不安的人群像在梦中一样围着她转动：饥饿的意大利人并肩挨着寻找商机的丰满红润的美国面孔。中欧的男人与集中营的前囚犯肩并肩：憔悴的犹太人身后跟着前囚犯那略微安稳些的脚步……一两年以来，女人开始在街上行走，没有男人的陪伴，目光直视前方，仿佛她们不是女人，而是士兵。一切都是新的，一切都是旧的。一切都在改变，一切都没有改变。莫德斯塔想，也许一切都得从头来过。也许这是另一场战争，一场没有炸弹的战争。也许这才是真正的战争，而前面的不过是个序幕。&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>legacy</b><span>遗产；留下的影响</span><em>leave a legacy</em></div>
+<div><b>reconcile</b><span>和解；调和</span><em>reconcile with</em></div>
+<div><b>rebuild</b><span>重建</span><em>rebuild a life</em></div>
+<div><b>disillusionment</b><span>幻灭</span><em>political disillusionment</em></div>
+<div><b>compromise</b><span>妥协</span><em>reach a compromise</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch088.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch090.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 93 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch092.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" selected>Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch094.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 93<span>解放后、政治与记忆</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1943 年政权垮台、1945 年解放后，重建并不等于问题消失。战后左翼政党、工会、家庭代际冲突与政治幻灭共同构成新的环境。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">93 
+
+But none of us would have known it if the
+				doctor hadn’t whispered to us as he hurriedly went out: ‘Indeed, he has
+				little time left now!’ Seated in a roomy armchair, his head barely supported,
+				Pietro is staring at something beyond the open window. 
+
+‘Pietro has never stayed in bed
+				when the sun is high, and this little worm tickling my chest certainly won’t
+				put me there.’ 
+
+‘Are you in pain,
+				Pietro?’ 
+
+‘No, Mody, staiu aspittannu me
+					figghia , I’m waiting for my daughter. Afterwards, when I’ve
+				seen her, I can go … How long have I been waiting for her,
+				Bambolina?’ 
+
+‘Two days, Pietro. But she should
+				be here soon. She’s stuck at the airport.’ 
+
+‘America is a long way off,
+				Bambù!’ 
+
+‘But Crispina is in Palermo now,
+				and if it weren’t for the strikes …’ 
+
+‘Strikes, Mody?’ 
+
+‘Yes, Pietro.’ 
+
+‘It took some doing, didn’t
+				it, Mody, to be able to say that word out loud and in broad daylight! You’re
+				young, Bambuccia, but at one time you could only talk in the dark, and you
+				couldn’t even feel secure within the walls of your own house. You remember
+				Pasquale, don’t you, Mody? He was slender and bionnu , fair as an
+				archangel, then thanks to betrayals and kowtowing to the Fascists, he became bloated
+				and sweaty like a pig, and like a pig this hand of mine got rid of him … Bambù, will you hold my hand
+				like you did yesterday? Bambolina’s hand sees, heals and restores.
+				That’s why she can then recount whatever she touches in poems, like the
+				balladeers. My father used to say that a person born with the talent to tell stories
+				is also someone who heals … What is my little sparrow doing, Bambù? My
+				Argentovivo isn’t off crying somewhere, is she?’ 
+
+‘No, she’s making a cassata … Crispina will be famished.’ 
+
+‘That’s my little sparrow,
+				she listened to me. You’ll take care of her for me afterwards, won’t
+				you, Bambù? You’ll guide her along? That’s how she is. Many people are
+				like that. It’s not that they’re less capable than others, it’s
+				that they’re meek by nature and they need to be steered along.’ 
+
+‘Of course, Pietro.’ 
+
+‘I knew you would. I’m just
+				talking to pass the time while we wait.’ 
+
+‘Speaking of talking, Zia, if you
+				knew what fantastic stories Pietro has told me these past few days! I’ll write
+				them all down, Pietro. You’ll let me, won’t you?’ 
+
+‘If they stir your imagination,
+				they’re yours.’ 
+
+‘Never mind imagination! You
+				should hear all the things he knows about Nonna Gaia, and about Uncle Jacopo and the
+				time he came to liberate you from the island. Tell Zia too about the island,
+				Pietro.’ 
+
+‘I’ve told it all by now,
+				Bambuccia.’ 
+
+‘But about that German who was
+				kind …’ 
+
+‘Well, I don’t know if he
+				didn’t see us on purpose, or if he really didn’t see us, but certainly
+				if he had stopped us we would have been done for.’ 
+
+Timur! … so I had encountered
+				Timur? A chilling terror fills me at the thought of that name that I myself had
+				summoned up. They only mentioned a German. 
+
+‘What is it, Zia? You’ve
+				turned pale.’ 
+
+‘What did that German look like,
+				Pietro? Tell me.’ 
+
+‘How should I know, my dear Mody!
+				With those helmets, all their faces looked alike.’ 
+
+‘Let’s not talk about
+				Germans. I don’t like Zia’s expression when we speak of them. Tell us
+				about your masterstroke, about how you routed Inès … Pietro considers it
+				his greatest work, Zia.’ 
+
+‘Of
+				course! I can fight forcefully with my hands and legs, but with a woman, well! With
+				a woman! … Pietro had to make himself small as a snake and spy on
+				her … But Mody knows everything, Bambù. I had nothing against Inès, but
+				she was tormenting my Ippolito so I blackmailed her. She had a cascamorto ,
+				a lovesick suitor, but she couldn’t make up her mind to run off with him. She
+				kept accumulating money, so I made her decide in a jiffy. But afterwards she too was
+				happy. Women! Who can understand them! She said she couldn’t leave her son
+				Jacopo, that her duty was to stay close to him. But while we’re on the
+				subject, Mody, I shouldn’t, but … for my peace of mind can I be sure
+				that you’ll find a companion for my dear Prince, to go fishing, walking with
+				him?’ 
+
+‘Of course, Pietro.’ 
+
+‘Go open the door, Bambù. Crispina
+				is here! She’s come just in time. I’m tired, and this languor
+				that’s come over me even while talking about happy moments is a sign that I am
+				truly exhausted and must sleep.’ 
+
+* 
+
+Pietro sleeps deeply, and faced with
+				that profound sleep, no one dares weep or shriek. His composed body, the smile that
+				Crispina’s arrival fixed on his face for ever, inspire only respect. 
+
+Everyone was notified by
+				Bambolina’s elegant script with its irrevocable words … Like back
+				then, at Carmelo, when we could do anything we wanted, right, Cavallina? but only
+				during the hours that Gaia’s calligraphy had firmly penned on that piece of
+				paper, shiny as silk. Jacopo squeezes my arm for a moment. His clothes have a new
+				smell of aseptic wards mixed with the whiff of a train – they’ve travelled all
+				night – and he holds his Olimpia by the waist, as if to support her. That’s
+				right, I had almost forgotten; even good things are forgotten. For every life
+				that’s taken, another life is born: Olimpia is expecting a baby with my
+				Jacopo. 
+
+‘How lovely Crispina is, Nonna!
+				Every time she comes back, she’s even more beautiful! Is it true that I was in
+				love with her as a child? Pietro always told me so.’ 
+
+‘Yes,
+				Carluzzu.’ 
+
+‘I don’t remember being in
+				love, only her singing. I have two Crispinas in my head: the one ’Ntoni used
+				to push into the middle of the room to sing, and the impressive, confident woman on
+				that immense stage. Remember how Pietro was sweating? Where was that,
+				Nonna?’ 
+
+‘In Milan, I think; it was so long
+				ago. Pietro was happy! Life flies by when you’re happy.’ 
+
+‘It’s true. But what are you
+				looking at, Nonna? Why are you so pale?’ 
+
+Prando is back there, standing near
+				’Ntoni and smiling at me. After so many years, he wants to talk to me.
+				I’d rather stay there with them, listen to the stories about Pietro, drink
+				some wine. But Prando needs me. I have to go to him. 
+
+‘What is it, Mama? Why are you
+				looking at me like that? Your silence is humiliating me. Prando has come, and by
+				coming he is apologizing for his past behaviour. Let’s put it behind
+				us.’ 
+
+Why is he speaking in the same voice he
+				used as a child, when his foot in a plaster cast made him fidget and fret? 
+
+‘I had to see the doctor.
+				Something is wrong with my heart. They tell me I have to make up my mind: either
+				change my life and live another thirty years, or …’ 
+
+With my hands I grasp the wiry curls and
+				look closely at him: not a single white strand, not a shadow on those marmoreal
+				features. But Prando isn’t lying. Only this warning could have bent his pride
+				and made him return to the one who gave birth to him. 
+
+‘But you know what I told that
+				blatant idiot? That without my work, which is more intoxicating to me than wine, and
+				without my motorcycle, I can’t live. What should I do, end up like that wimp
+				Mattia, who looks after himself like a delicate, sickly woman?’ 
+
+‘But he’s happy.’ 
+
+‘That may be, but I’d
+				rather …’ 
+
+‘Whom do you want to spite by
+				dying, eh, old man?’ 
+
+‘Old man, you call me – and
+				you’re right. Why did you bring me into this world if you knew I would have to
+				grow old?’ 
+
+‘So, you want to take your revenge
+				on me?’ 
+
+‘That too. If a son dies, your
+				son, you’ll regret giving birth to me. And you’ll be an old woman with regrets, for ever bound to
+				my memory.’ 
+
+‘You’ve loved me that much,
+				Prando?’ 
+
+‘That much. But you
+				haven’t!’ 
+
+‘Why do you say that?’ 
+
+‘Because you lived for everyone
+				else, always travelling around, damn you, giving speeches and cosying up to
+				everybody.’ 
+
+‘Was I supposed to choose you, and
+				reject a life?’ 
+
+‘Yes.’ 
+
+‘Prando, you have always wanted it
+				all, even as a child. “Prando has two Mamas: Mama Stella and Mama Mody, and
+				two aunts besides.” Remember?’ 
+
+‘Yes.’ 
+
+‘So then tell me: what could I do,
+				I who am so much like you, who, like you, want it all?’ 
+
+‘That’s true too! Finally a
+				smile, Mama. When you smile, you become young again, like when I was a child. Prando
+				is a bastard, but he’s also proud when you smile and look like a young
+				girl … I want to hold you in my arms, and don’t protest, right,
+				because I’m not well! Here, close to me, my mamma bambina , or did you
+				lie? Maybe it wasn’t even you who gave birth to me? Maybe you’re my
+				sister? With you, anything is possible. That’s what drives me wild! Even when
+				I’m dead, it will drive me crazy!’ 
+
+‘Yet you know that if I had been
+				docile, all yours like Amalia, you would have tired of me, as you have of
+				her.’ 
+
+‘It’s true. Prando tires
+				easily of the things he possesses. Money only bores me now that I have it, and even
+				the motorcycle. I pretend it’s important to me, but I’ve lost my taste
+				for it now that everyone can have one.’ 
+
+‘I know you, Prando. Shall we put
+				our cards on the table?’ 
+
+‘Let’s put our cards on the
+				table. What are you trying to say?’ 
+
+‘Knowing your greed is insatiable,
+				it seemed pointless to me to sacrifice myself.’ 
+
+‘You mean you realized that the
+				more slack you gave me, the more you bound me to you?’ 
+
+‘Maybe, if you feel that way about
+				it. Maybe … Who can fully understand their actions when it comes to love or affection? I only know that
+				nobody likes the idea of being cast aside, and you, you’re a man who takes and
+				discards … Who could you have got this from? The old man wasn’t like
+				that. He knew how to love the things he won.’ 
+
+‘Don’t talk to me about the
+				past. The past is boring!’ 
+
+‘You see? You rob life with both
+				hands. With both hands you seized it – admit it! – and now you want to throw it
+				away.’ 
+
+‘Yes.’ 
+
+‘Don’t your children mean
+				anything to you?’ 
+
+‘Very little! I like Carluzzu:
+				he’s tough, he knows what he wants. Did you know he beat me up
+				once?’ 
+
+‘Yes.’ 
+
+‘What a keen mind he
+				has!’ 
+
+‘Why didn’t you prevent him
+				from seeing me all this time?’ 
+
+‘Damn if I didn’t try! But
+				you know what his reaction was? Didn’t he tell you? He replied abruptly with a
+				few harsh words: “You will not stand in my way. You’re just an old
+				Fascist has-been.” That’s exactly what he said. Just between us, Mama, I
+				had to laugh. You like Carluzzu, don’t you?’ 
+
+‘I’ve never liked anyone
+				more.’ 
+
+‘Then you have to give me some
+				credit, because he’s my son after all, isn’t he? What resolve that boy
+				has! And what integrity! Take military service … With a little money, I
+				could have had him declared unfit and instead … Well, he’s leaving!
+				In a few months he’s leaving and there’s nothing I can do about it. But
+				why?’ 
+
+‘He’s right. He says that
+				having been raised in a privileged setting, the military will help him understand
+				his country.’ 
+
+‘Yes, yes, he says things like
+				that but … when he comes back he has to join the practice with me!
+				Otherwise who will I leave it to?’ 
+
+‘Get it out of your head, Prando.
+				Try to understand once and for all …’ 
+
+‘You always side together, dont
+				you! I knew it, and to tell you the truth, this is the only thing that has consoled
+				me during these years and allowed me to keep tabs on you. Through him I kept up with
+				you. Your affection for each other gratified me – who knows why? We really are a mystery to ourselves
+				when it comes to matters of love and affection … Who said that, you or
+				him?’ 
+
+‘I did, a few minutes
+				ago.’ 
+
+‘Oh, right. I’m not a good
+				listener, I know. Even Bambuccia is always telling me that. But he knows how to
+				listen, right?’ 
+
+‘Of course, and you should hear
+				him tell stories!’ 
+
+‘Enough, or I’ll get
+				jealous! Instead tell me, you old sorceress, what do you think of
+				Ignazio?’ 
+
+‘He’s your spitting image
+				and you know it. Why even ask?’ 
+
+‘Yes … my spitting
+				image.’ 
+
+‘Why are you frowning like that?
+				Why do you avoid him? Bambù told me.’ 
+
+‘What can I say to someone who is
+				just like me? I’ve been fed up with myself for years! Oh, Mody,
+				listen …’ 
+
+‘Why are you calling me Mody
+				now?’ 
+
+‘I want to explain why I really
+				came back to you. I didn’t come back to my mother, but to my best friend.
+				Because you’ve been a friend to me, Mody, I have to tell you. I need an ally
+				now who knows about my heart condition – a complete secret is heavy to bear and you,
+				I know, will not annoy me by whining and offering advice as Amalia, Bambù or even
+				Mattia would.’ 
+
+‘You know you can count on
+				me.’ 
+
+‘I know. But you must swear to me
+				on Carluzzu that no one will ever know anything.’ 
+
+‘I swear.’ 
+
+‘Come here; look me in the eye.
+				You’re tough, old lady! How is it possible that I don’t see any dismay,
+				not a tear in your eyes?’ 
+
+‘You’d like me to cry now?
+				To be worried about you?’ 
+
+‘No. My esteem for you would
+				lessen. But will you be able to keep it up tomorrow or a month from now as
+				well?’ 
+
+‘Try me.’ 
+
+‘Look at that! Now she’s
+				challenging me! And to this challenge, my dear Mody, I add another. Listen,
+				I’ve had an idea: Once the mourning for Pietro is over, would you be willing
+				to arrange a party for me and my heart? A party for us two and our secret? I want a
+				very grand party. The whole island must feel the joy. You must prepare it with your
+				own hands, and I’ll see if these
+				beautiful little hands I’m kissing tremble. Can you do it? If you’re up
+				to such a contest – and whoever heard of such a thing, celebrating your own
+				son’s engagement to this slut of an illness clinging to his heart? – if you
+				can do it, Prando will reward you by wanting to live, you can be sure of it. The
+				excitement he feels for this wager is already causing life to flow back into his
+				veins. But watch out, old woman, it won’t be easy. I’ll follow you step
+				by step, watch your every gesture, your every expression. And if you so much as
+				quaver or grow sad, you’ll lose.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">九十三
+
+但我们谁也不会知道，要不是医生匆匆走出去时低声对我们说：&quot;确实，他现在时日无多了！&quot;彼得罗坐在一把宽敞的扶手椅里，他的头几乎无力支撑，凝视着敞开的窗外。
+
+&quot;太阳高高在上时，彼得罗从来没有躺在床上过，而这搔着我胸口的小虫子肯定不会把我弄到那儿去。&quot;
+
+&quot;你痛吗，彼得罗？&quot;
+
+&quot;不痛，莫迪，我在等我的女儿。之后，当我见到她之后，我就可以走了……我等她多久了，班博利娜？&quot;
+
+&quot;两天了，彼得罗。但她应该很快就到。她被困在机场了。&quot;
+
+&quot;美国很远，班布！&quot;
+
+&quot;但克里斯皮娜现在在巴勒莫了，要不是因为罢工……&quot;
+
+&quot;罢工，莫迪？&quot;
+
+&quot;是的，彼得罗。&quot;
+
+&quot;可真不容易，对吧，莫迪，能够大声地、在光天化日之下说那个词！你还年轻，班布奇亚，但曾几何时你只能在黑暗里谈论，甚至在自己家的墙内也不能感到安全。你还记得帕斯夸莱，对吧，莫迪？他苗条而金发，像个天使长，然后靠着背叛和巴结法西斯，变得浮肿流汗像猪一样，也像猪一样被我亲手解决掉了……班布，你会像昨天那样握着我的手吗？班博利娜的手能看见，能治愈，能修复。这就是为什么她能把触摸到的任何东西写入诗歌，像民谣歌手一样。我父亲曾说，一个人天生有讲故事的天赋，也就是有治愈能力的人……我的小雀儿在做什么，班布？我的银活没有躲到哪儿哭去了吧？&quot;
+
+&quot;不，她在做卡萨塔……克里斯皮娜会饿坏的。&quot;
+
+&quot;这就是我的小雀儿，她听懂了。让她做她的蛋糕。让她当小雀儿，趁还能时。你听到我了吗，莫迪？趁还能时！你，班博利娜，好好握住我的手。这手能看见。我女儿到的时候，她会需要它来看到。不是用眼睛看——眼睛会骗人。是像你这样，用指尖看。&quot;&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>compromise</b><span>妥协</span><em>reach a compromise</em></div>
+<div><b>solidarity</b><span>团结</span><em>act in solidarity</em></div>
+<div><b>legacy</b><span>遗产；留下的影响</span><em>leave a legacy</em></div>
+<div><b>reconcile</b><span>和解；调和</span><em>reconcile with</em></div>
+<div><b>rebuild</b><span>重建</span><em>rebuild a life</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch092.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch094.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

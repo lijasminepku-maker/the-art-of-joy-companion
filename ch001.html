@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 1 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <span></span>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" selected>Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch002.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 1<span>西西里乡村与童年</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1900 年前后的西西里：贫困、佃农关系与父权家庭塑造了一个孩子可拥有的选择。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">1 
+
+I’m four or five years old, in a
+				muddy place, dragging a huge piece of wood. There are no trees or houses around.
+				Only me, sweating, as I struggle to drag that rough log, my palms burning, scraped
+				raw by the wood. I sink into the mud up to my ankles but I have to keep tugging. I
+				don’t know why, but I have to. Let’s leave this early memory of mine
+				just as it is: I don’t want to correct or invent things. I want to tell you
+				how it was without changing anything. 
+
+So, I was dragging that piece of wood.
+				And after hiding it or leaving it behind, I entered a large opening in the wall,
+				closed off only by a black curtain swarming with flies. Now I’m in the dark
+				room where we slept and where we ate bread and olives, bread and onions. We cooked
+				only on Sundays. My mother is sewing in a corner, her eyes wide in silence. She
+				never speaks, my mother. She either shouts or keeps quiet. Her heavy fall of black
+				hair is matted with flies. My sister, sitting on the ground, stares at her from two
+				dark slits buried in folds of fat. All her life, at least as long as their lives
+				lasted, my sister tracked her constantly, staring at her that way. And if my mother
+				went out – which happened rarely – she had to lock her in the toilet, because my
+				sister wouldn’t hear of being separated from her. Locked in that little room
+				my sister would scream, tear her hair and bang her head against the wall until my
+				mother came back, took her in her arms and silently stroked her. 
+
+For years I’d heard her scream
+				like that without paying any attention to it, until one day, tired of dragging that
+				wood, lying on the ground and hearing her
+				scream, I felt a kind of sweetness spreading through my body. A sweetness that then
+				became shivers of pleasure, so that little by little, I began to hope each day that
+				my mother would go out so that I could listen, ear pressed to the toilet door, and
+				take pleasure from those screams. 
+
+When it happened, I would close my eyes
+				and imagine that my sister was tearing her flesh, harming herself. And so, touching
+				myself in the spot where pee-pee comes out, my hands urged on by the screams, I
+				discovered a pleasure greater than that of eating freshly baked bread, or fruit. 
+
+My mother said that my sister Tina –
+				‘the cross that God justly sent us because of your father’s evil
+				ways’ – was twenty years old. But she was only as tall as me, and so fat that,
+				if you could remove her head, she would look like the trunk that Nonno always kept
+				locked. Nonno, who had been a seaman, was ‘even more wicked than his
+				son’. I had no idea what a seaman did. Tuzzu said they were men who lived on
+				ships and went to sea … but what was the sea? 
+
+Tina looked just like Nonno’s
+				trunk, and when I was bored I would close my eyes and lop off her head. Since she
+				was twenty years old and female, all females at twenty must surely become like her,
+				or like my mother. For males it was different: Tuzzu was tall and had no missing
+				teeth like Tina; his were strong and white, like the summer sky when you get up
+				early to bake bread. His father was like him too: vigorous, with teeth that shone
+				like Tuzzu’s when he laughed. He was always laughing, Tuzzu’s father.
+				Our mother never laughed, and this too must have been because she was a female. But
+				even though she never laughed and had no teeth, I hoped to turn out like her; at
+				least she was tall and her eyes were large and gentle, and she had black hair. Tina
+				didn’t even have hair: just a few thin strands that Mama combed out trying to
+				cover the top of that egg. 
+
+The screams have stopped. Mama must be
+				back, hushing Tina by stroking her head. Who knows if Mama too has discovered how
+				much pleasure you can feel by touching yourself in that spot? And Tuzzu, I wonder if
+				Tuzzu knows? He must be harvesting reeds. 
+
+The sun is high. I have to go look for
+				him and ask him about this touching, and about the sea too. Will he still be
+				there?</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">1
+
+我四五岁光景，在一片泥泞地上，拖着一根巨大的木头。四周没有树，也没有房屋。只有我，汗流浃背，费力地拖着那根粗糙的木桩，掌心被木头磨得火辣辣地疼。泥浆没到脚踝，但我必须继续拖。我不知道为什么，可我就是必须这样做。就让我这段早年的记忆保持原样吧：我不想修正什么，也不想编造什么。我只想把那时的情形原原本本地告诉你。
+
+于是，我拖着那根木头。把它藏好或丢下之后，我走进墙上一个很大的洞口，洞口只挂着一幅黑帘子，上面爬满了苍蝇。此刻我置身于那间黑暗的屋子，我们在那里睡觉，也在那里吃面包和橄榄，面包和洋葱。我们只有星期天才生火做饭。母亲在角落里缝补，沉默中睁大了双眼。她从不说话，我的母亲。她要么大嚷大叫，要么一声不吭。她那一头浓密的黑发上沾满了苍蝇。姐姐坐在地上，从埋在层层肥肉里的两条黑缝中死死盯着她。姐姐一生——至少是她们俩还活着的时候——就这样一直盯着母亲。而母亲要是出门——这很少发生——就得把姐姐锁在厕所里，因为姐姐绝不肯离开母亲半步。被锁在那间小屋里，姐姐便尖叫、扯头发、用头撞墙，直到母亲回来，把她抱在怀中，默默地抚摸她。
+
+多年来，我听着她这样尖叫，从未留意，直到有一天，拖木头拖得累了，躺在地上听着她的叫声，我感到一种甜美的感觉传遍全身。那种甜美而后化作一阵阵欢愉的颤栗，于是渐渐地，我开始每天都盼着母亲出门，好把耳朵贴在厕所门上，从那些尖叫声中获取快感。
+
+每当这时，我便闭上眼睛，想象姐姐正在撕扯自己的皮肉，伤害自己。于是，在尖叫声的催促下，我的双手抚摸着尿尿的那个地方，发现了一种比吃新鲜出炉的面包或水果更为强烈的快感。
+
+母亲说，我姐姐蒂娜——是你父亲造的孽，上帝公正地降给我们的十字架——已经二十岁了。但她只有我这么高，而且胖得如果把头去掉，就像爷爷一直锁着的那只箱子。爷爷当过水手，比他儿子还要坏。我不知道水手是做什么的。图祖说水手是住在船上、到海上去的人……可是，海又是什么？
+
+蒂娜确实像爷爷的那只箱子，我无聊的时候便闭上眼睛，把她的头砍掉。既然她二十岁而且是女的，那么所有女人到了二十岁一定都变成她那副模样，或者像我母亲那样。男人不一样：图祖很高，不像蒂娜那样缺了牙齿；他的牙又结实又白，像夏天早起烤面包时的天空。他父亲也像他一样：健壮，笑起来牙像图祖的牙那样闪闪发亮。图祖的父亲总是在笑。我们的母亲从不笑，这也一定因为她是女人。但尽管她从不笑，也没有牙，我却希望自己长得像她；至少她个子高，眼睛又大又温柔，还有一头黑发。蒂娜连头发都没有：只有稀稀拉拉几根，妈妈梳理着，想盖住那颗鸡蛋一样的脑袋顶。
+
+尖叫声停了。妈妈一定回来了，正抚摸着蒂娜的头让她安静下来。谁知道妈妈是否也发现了抚摸那个地方能带来多大的快感呢？还有图祖，不知道图祖知不知道？他一定在割芦苇。
+
+太阳很高了。我得去找他，问他关于抚摸的事，也问问海的事。他还会在那儿吗？</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>drag</b><span>拖，费力地移动</span><em>drag oneself through</em></div>
+<div><b>splinter</b><span>碎木片；裂开</span><em>a splinter of light</em></div>
+<div><b>hovel</b><span>破旧小屋</span><em>a cramped hovel</em></div>
+<div><b>stifle</b><span>压抑，窒息</span><em>stifle a cry</em></div>
+<div><b>linger</b><span>徘徊；迟迟不散</span><em>a smell lingered</em></div></div>
+</div>
+<div class="nav-row">
+  <span></span>
+  <a href="index.html">回目录</a>
+  <a href="ch002.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

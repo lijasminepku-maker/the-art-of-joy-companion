@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 43 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch042.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" selected>Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch044.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 43<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">43 
+
+The first week of Carlo’s
+				absence 
+
+‘Will he really no longer come?
+				But why, Modesta, why?’ 
+
+It was best not to
+					answer … ‘ Think me vile if you like, but don’t hold it
+					against me, because I loved you for an hour .’ He had spirit, that
+				lanky young man with his awkward gait. 
+
+The second week of Carlo’s absence 
+
+‘So what you found out about him
+				was true? It wasn’t a joke?’ 
+
+‘What did I find out,
+				Beatrice?’ 
+
+‘Have you already forgotten? Go
+				on, of course you remember! That he was a socialist! Is that why you sent him
+				away?’ 
+
+‘You yourself pointed out that we
+				have the good fortune of not knowing any of those atheists.’ 
+
+‘So it was true? It seems
+				impossible. What a pity, he was so cheerful!’ 
+
+It was best not to respond. 
+
+‘Why don’t you answer when I
+				talk about him? You’re insufferable when you do that! You remind me of Nonna
+				Gaia. You’re just like her, distant and self-centred. You never think about
+				me.’ 
+
+‘And why do you say I never think
+				about you?’ 
+
+‘Oh, of course! What do you care
+				if Carlo doesn’t come anymore? You’re always shut up in that damn room,
+				working! Uffa , what a bore! In the morning with Attorney Santangelo, in the
+				afternoon by yourself, and later you’re always with Eriprando
+				and …’ 
+
+‘And with
+				you, it seems to me, no?’ 
+
+‘Oh, sure, scraps … And
+				I get bored, uffa ! Especially now with these clouds. Uffa, how
+				tedious!’ 
+
+‘It’s autumn,
+				Beatrice.’ 
+
+‘At least before, we could go to
+				the beach. Then too, it’s not as if I don’t love Eriprando. But
+				he’s little. How can you expect me to talk to him? With Carlo we could have
+				such interesting talks!’ 
+
+‘But he was a socialist, Beatrice;
+				don’t forget that.’ 
+
+‘I haven’t forgotten.
+				It’s a very serious thing, I know. It’s serious, isn’t it,
+				Modesta?’ 
+
+The third week of Carlo’s absence 
+
+‘All those amusing things he
+				taught me! Remember when he came with tambourines? You have no idea how much fun it
+				was to play the tambourines. You can’t imagine; you never wanted to learn.
+				He’d promised to bring me several new games, once summer
+				ended … When summer is over and we’re forced to stay shut up
+				indoors, it’s important, he said, to think up diversions to amuse ourselves,
+				to distract us from nature’s lethargy. He also said that autumn and winter are
+				the most difficult seasons but also the most … the most …’ 
+
+‘Productive, Beatrice.’ 
+
+‘Ah, yes, productive! That’s
+				right, for the imagination! And that summer, though beguiling, can be more fruitless
+				in the long run. How well those from the continent express themselves! Maybe
+				it’s because, as he said, they have long winters and are forced to think a
+				lot?’ 
+
+‘You could also say: to play with
+				their intellects.’ 
+
+‘Oh, yes, that’s what he
+				said, delightful, isn’t it? It’s strange, but I thought people on the
+				continent were all blond and sombre, but he has dark hair, dark eyes too, and
+				he’s always joking. Of course, his hands are pale; remember how white his
+				hands are? What am I saying? You never looked at him; how could you remember! But
+				why does everyone have it in for those socialists, Modesta? He doesn’t seem
+				like a monster. Maybe he’s an exception, like Uncle Jacopo, who was so gentle
+				even though he didn’t believe in God.’ 
+
+‘He must be an exception,
+				Beatrice.’ 
+
+‘Well then, in that case, why
+				don’t you write to him and let him come back? Maybe then, in time and with your influence, he’ll stop being a
+				socialist.’ 
+
+‘If you miss him so much why
+				don’t you write to him yourself and ask him to return?’ 
+
+‘Me? Have you lost your mind?
+				I’m a Brandiforti and an unmarried young lady!’ 
+
+‘I haven’t lost my mind.
+				You’re the one who misses him, so it should be you …’ 
+
+‘You’re jealous,
+				that’s what! You’re jealous and that’s why you don’t want to
+				write to him. I figured it out, you know! You used the fact that he’s a
+				socialist as an excuse to shut me up. You’re jealous …’ 
+
+It was better not to respond and to let
+				her cry, though those tears led me to take her in my arms and made me aware of that
+				sad, unbearable tremor which for some days had been causing her to limp more. 
+
+‘You’re jealous of Carlo.
+				Tell the truth! You’re jealous!’ 
+
+Two days after the third week of Carlo’s absence 
+
+‘I decided to write to Carlo
+				because I realize you didn’t send him away because he’s a socialist, but
+				because you’re jealous. Besides, as Uncle Jacopo used to say, maybe being a
+				socialist is not as horrible as they say.’ 
+
+‘You’re free to do what you
+				like, Beatrice.’ 
+
+‘What does that mean? Nonna used
+				to say that too and then … What does that mean? That you’ll give him
+				a cold reception, or that you won’t receive him at all? Tell me now, at least.
+				So I’ll know what to do!’ 
+
+Now that she was finally rebelling – and
+				because I did not want her to confuse me with Gaia – I could speak. Taking her in my
+				arms, I tried to still for a moment those curls shaken by years of fears and
+				insecurities. I had to still that little face that started at the slightest sound or
+				shadow. 
+
+I take her cheeks in my hands, and like
+				before, her hair falls softly over my fingers. And though not one shiver now blurs
+				my gaze, the touch of her hair fills me with a peace which, while holding no
+				surprises, is perhaps deeper than the pleasure of the past. 
+
+‘Listen to me, Beatrice. For once,
+				listen to me! I am not like your grandmother, even though I learned many things from
+				her. I love you in a different way than
+				she did. All I want is your contentment. I’m not opposed to Carlo. I have a
+				lot of confidence in you, and the fact that you care so much for him convinces me
+				that perhaps there is nothing wrong with being a socialist. What do we know,
+				right?’ 
+
+‘Nothing, actually.
+				Nothing.’ 
+
+‘Who was it who spoke ill of the
+				socialists, hmm? Try and remember.’ 
+
+‘Well, Attorney Santangelo, my
+				aunts and … all those others.’ 
+
+‘But those people are all antipatiche , disagreeable, aren’t they, Beatrice?
+				Tedious.’ 
+
+‘Oh, for heaven’s sake,
+				Modesta, don’t even speak of them! So then you don’t find Carlo antipatico ?’ 
+
+‘Beatrice, hold your little head
+				still for a moment; try to look me in the eye. I don’t find Carlo either
+				likeable or unlikeable. For me he was just a doctor who came to check on the health
+				of Ippolito and Eriprando. But if his company is important to you, I will try to get
+				to know him and love him as you love him.’ 
+
+‘But I don’t love him,
+				Modesta! What are you saying? It’s just that I enjoy myself with
+				him!’ 
+
+‘All right! Then I’ll try to
+				enjoy his conversation as well.’ 
+
+‘Oh, yes! That’s just what I
+				wanted, Modesta! Thank goodness you understand. I was feeling resentful toward you.
+				It’s just that when you won’t talk, it scares me. I’m not
+				intelligent like you, like Nonna, who understand even when something is unspoken.
+				Uncle Jacopo was like you too, but I, I … I need you to explain things to
+				me, and now that you’ve spoken, I believe you. I believe you and I love you
+				so, so much. It’s you I love, not him. You mustn’t be jealous.
+				It’s just that I have fun with him.’ 
+
+‘When is he coming?’ 
+
+A deep blush rising from her neck to her
+				cheeks, which I had never seen in her before, disturbed me so that for a moment I
+				felt as though the old passion for her was coming over me again. I closed my eyes to
+				try to understand. No, it was only recollection of a time when I trembled at her
+				sudden, unpredictable changes – recollection or nostalgia? – as we walked hand in
+				hand through the corridors and gardens. 
+
+‘Why did you close your eyes,
+				Modesta? Don’t you feel well? How lovely you are with your eyes closed! When you close your eyes you’re more
+				beautiful and I always want to kiss you, but we can’t.’ 
+
+‘And why can’t
+				we?’ 
+
+‘Because I have things to
+				do.’ 
+
+‘But did Carlo reply? When is he
+				coming?’ 
+
+‘He’s down in the parlour,
+				waiting. That’s why I can’t kiss you. I was afraid you wouldn’t
+				want to see him, so I told Argentovivo to have him wait downstairs. He’s been
+				waiting quite a while. Come on. Now that everything is cleared up, come down with
+				me.’ 
+
+‘Why don’t you go by
+				yourself?’ 
+
+‘But it isn’t appropriate,
+				Modesta! I’m an unmarried young lady. Come on, come with me!’ 
+
+‘Yes, of course, I’ll come,
+				but just for today. In the future, I permit you to see him alone. I’m the head
+				of this household, aren’t I? Times have changed, Beatrice.’ 
+
+‘But what will people
+				say?’ 
+
+‘Didn’t we decide not to be
+				concerned about what people say, as Jacopo advised us?’ 
+
+‘You’re right. Later on
+				I’ll see, but not today! I’m afraid!’ 
+
+Her small, trembling hand pulled me
+				along as it had in the past (how many years ago had it been?). But back then her
+				pallid face did not blush with that deep red that now makes her seem like a
+				stranger. A stranger, but dear to me. The way it should be. 
+
+In the parlour, in Carlo’s
+				presence, the blush vanished as swiftly as it had arisen. So swiftly that I became
+				concerned (how could that small body stand so much excitement?) and put my arm
+				around her slender waist for fear that she might shatter. Grateful, Beatrice leaned
+				on me and together we went to greet the young man, who seemed taller and more
+				serious now that he wore a double-breasted winter jacket, as though he had aged. 
+
+‘You see, Princess, I followed
+				your advice and I’ve grown a beard. And just as you predicted, I gained years
+				and patients as a result. You are invaluable, Princess!’ 
+
+‘I am happy to have been of help
+				to you, Doctor, and besides, the beard suits you. Isn’t that right, Beatrice?
+				Doesn’t it suit him?’ 
+
+‘Well, it can’t yet be
+				called a bona fide beard like the ones you see in Catania … It will take another month or two before
+				the scraggly thing can be called such. So I hope, at least.’ 
+
+‘Nevertheless, it becomes you.
+				Doesn’t it, Beatrice?’ 
+
+Beatrice was rigid. Her back weighed so
+				heavily on my chest that I was almost unable to speak. Carlo could not sit down in
+				front of ladies who insisted on standing; that was the rule. So the three of us,
+				standing stock-still in the middle of the room, looked like tin soldiers awaiting an
+				order to attack. 
+
+‘I’m afraid Beatrice
+				doesn’t approve of my beard. She’s looking at me as though she
+				doesn’t recognize me.’ 
+
+Beatrice didn’t answer. And while
+				I, beginning to sweat, tried to nudge her toward a chair, Carlo’s smile turned
+				into a disappointed pout. 
+
+‘Clearly my beard has not been as
+				successful here, among friends, as it has been out there among foes. What would the
+				Princess say if I were to go home and shave and come back in about an hour? That way
+				we can begin all over again, as if this beard had never existed.’ 
+
+Unexpectedly turning to me and hugging
+				me, Beatrice burst out laughing so hard that Carlo jumped back and I had to dig in
+				my heels not to totter. 
+
+‘Oh God, how funny he is, Modesta!
+				Did you see how he was plucking at those few hairs when he said
+				“clearly”? Oh God, Carlo, how funny you look with that beard! I’ve
+				never laughed so much in my life! I’m laughing so hard I can’t
+				breathe!’ 
+
+Little by little her contagious laughter
+				spread to us, too, and somehow we frozen tin soldiers found ourselves huddling on
+				the sofa, all three of us in hysterics. ‘Just like kids,’ Carlo said,
+				and added, ‘kids who claim to have a beard, of course!’ 
+
+The laughter we had managed to stifle
+				seized us feverishly again until Beatrice stood up and yelled, ‘Enough!
+				Enough, Carlo! Have mercy, I’m dying!’ 
+
+‘Have mercy? I should have mercy
+				for you who showed no mercy at my attempt to enter the austere world of our
+				masculine, bearded heroes with these few hairs of mine?’ 
+
+‘No! Don’t say that word
+				again. I can’t take anymore!’ 
+
+‘All right, I won’t utter
+				the scandalous word “bearded” anymore, Signorina Beatrice! But it’s my duty to plead the cause of
+				the beard, which has always been and always will be a symbol of genius and virility!
+				At least in our country, where hair is abundantly profuse. Would you laugh, little
+				girl, at the beard of Garibaldi, Galileo Galilei or Turati?’ 
+
+‘And who is this Turati? Do you
+				know him, Modesta?’ 
+
+‘Ah, foolish girl, ignorant and
+				unaware! Yours is an act of true irreverence, not only toward our ancient
+				forefathers, but also toward the luminous greatness of our contemporaries who, with
+				their elaborate beards, have erected the pillars of our bearded culture.’ 
+
+‘Oh God, Modesta, bearded culture!
+				Bearded culture!’ 
+
+And we doubled up laughing, until
+				Argentovivo came in carrying tea. Exhausted from the hysterics, we fell upon the
+				cakes and biscuits in silence; I didn’t know fun could be so tiring. 
+
+‘It’s true, Princess, I
+				haven’t felt so tired since I was six or seven years old. But it’s a
+				good, pleasant fatigue … I had forgotten! It reminds me of a time many,
+				many years ago when I still lived with my parents in the country …’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">43
+
+卡洛离开后的第一周
+
+&quot;他真的再也不来了吗？可为什么，莫德丝塔，为什么？&quot;
+
+最好不回答……&quot;若你愿意，尽可鄙视我，但请别记恨我，因为我曾爱你一个时辰。&quot;他有骨气，那个瘦长笨拙的年轻人。
+
+卡洛离开后的第二周
+
+&quot;所以你查到的关于他的事是真的？不是玩笑？&quot;
+
+&quot;我查到了什么，贝亚特里切？&quot;
+
+&quot;你忘记了吗？快点，你当然记得！他是社会主义者！你是因为这个才赶他走的吗？&quot;
+
+&quot;是您亲口指出，我们有幸不认识任何一个无神论者。&quot;
+
+&quot;所以是真的？简直难以置信。真遗憾，他是那么开朗！&quot;
+
+最好不回答。
+
+&quot;为什么我一谈起他你就不回答？你这样真让人受不了！你让我想起盖娅奶奶。你跟她一模一样，疏远、自我中心。你从不考虑我。&quot;
+
+&quot;你为什么说我不考虑你？&quot;
+
+&quot;哦，当然了！卡洛来不来，你哪里在乎？你总把自己关在那该死的房间里工作！唉，真无聊！上午跟圣安杰洛律师，下午独自一人，再晚些总跟埃里普兰多在一起，还有……&quot;
+
+&quot;还有你，我觉得，不是吗？&quot;
+
+&quot;哦，当然，残羹剩饭……我无聊透了，唉！尤其现在这阴云密布。唉，真乏味！&quot;
+
+&quot;是秋天了，贝亚特里切。&quot;
+
+&quot;至少以前我们还能去海边。再说，也不是我不爱埃里普兰多。但他太小了。你怎能指望我跟他交谈？跟卡洛在一起，我们能进行那么有趣的谈话！&quot;
+
+&quot;可他是社会主义者，贝亚特里切；别忘了这一点。&quot;
+
+&quot;我没忘。这是件非常严重的事……&quot; </div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div>
+<div><b>jealous</b><span>嫉妒的</span><em>be jealous of</em></div>
+<div><b>longing</b><span>渴望，思念</span><em>a longing for</em></div>
+<div><b>vow</b><span>誓言</span><em>make a vow</em></div>
+<div><b>conceal</b><span>隐瞒，掩藏</span><em>conceal the truth</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch042.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch044.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

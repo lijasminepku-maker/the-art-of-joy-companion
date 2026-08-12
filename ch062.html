@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 62 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Three</div></div>
+<div class="nav-row">
+  <a href="ch061.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch058.html" >Chapter 58</option><option value="ch059.html" >Chapter 59</option><option value="ch060.html" >Chapter 60</option><option value="ch061.html" >Chapter 61</option><option value="ch062.html" selected>Chapter 62</option><option value="ch063.html" >Chapter 63</option><option value="ch064.html" >Chapter 64</option><option value="ch065.html" >Chapter 65</option><option value="ch066.html" >Chapter 66</option><option value="ch067.html" >Chapter 67</option><option value="ch068.html" >Chapter 68</option><option value="ch069.html" >Chapter 69</option><option value="ch070.html" >Chapter 70</option><option value="ch071.html" >Chapter 71</option><option value="ch072.html" >Chapter 72</option><option value="ch073.html" >Chapter 73</option><option value="ch074.html" >Chapter 74</option></select>
+  <a href="ch063.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART THREE</p>
+  <h2>Chapter 62<span>法西斯时期与新的思想</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1922 年后法西斯逐步建立一党统治。自由主义、社会主义、无政府主义与共产主义并存。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">62 
+
+I don&#x27;t know how long I stood			there, my head against the door, laughing excitedly over my naivety, when hurried				steps coming up the stairs snapped me out of my reverie. Was it her, returning? I				too would have done the same. But my hand dropped from the doorknob at the sound of				Stella&#x27;s voice asking to come in. Jacopo and Bambù must have hurt themselves				chasing each other around. No, not Bambù, Jacopo! He&#x27;s the fragile one. All he				does is shut himself up in his room, reading and studying. 
+
+&#x27;Mody, Mody, it&#x27;s me,			Stella. Please open the door!&#x27; 
+
+&#x27;What&#x27;s wrong, Stella?			Don&#x27;t tell me Jacopo hurt himself because this time I&#x27;ll give him a good			spanking! Then we&#x27;ll see if he makes up his mind to play some sports, and stop			chasing after Bambù!&#x27; 
+
+&#x27;No, Mody, no! It&#x27;s the			foreign signora , she&#x27;s distressed, and I, I … I&#x27;m so			sorry I thought badly of her!&#x27; 
+
+&#x27;What happened?&#x27; 
+
+&#x27;I don&#x27;t know! She called			for me and she seemed calm. When I saw the bags in the middle of the room I thought:			&quot;She wants me to help her … it&#x27;s time for her to leave.&quot;			Wasn&#x27;t she supposed to leave, Mody? Instead she told me that she wanted to			sleep and didn&#x27;t want to be disturbed until tomorrow morning. But as she was			getting into bed I saw that she was crying. When I got back to the kitchen I			couldn&#x27;t stop thinking about those tears. So I went back and knocked at the			door, thinking maybe she might want something warm.&#x27; 
+
+&#x27;Get to			the point, Stella. What happened?&#x27; 
+
+&#x27;She didn&#x27;t answer. I			knocked and knocked, over and over again, a hundred times. No response. I&#x27;m			worried, Mody! Maybe the signora isn&#x27;t well.&#x27; 
+
+&#x27;Oh dear God! Princess, the water			is all red. It&#x27;s blood!&#x27; 
+
+Nunzio is yelling like a madman.			I&#x27;ve never seen him in such a state. He broke down two doo...</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">62
+
+我不知道自己站了多久，头抵着门，为自己的天真激动得笑出声来——直到楼梯上传来急促的脚步声，将我从恍惚中惊醒。是她回来了吗？我也会这样做的。但听到斯特拉请求进门的声音，我的手从门把上垂落下来。雅各布和班布想必是追逐嬉闹时受了伤。不，不是班布，是雅各布！他才是脆弱的那个。他整日把自己关在房间里读书学习。
+
+「莫迪，莫迪，是我，斯特拉。求求你开门！」
+
+「怎么了，斯特拉？别告诉我雅各布受伤了，因为这次我可要好好揍他一顿！到时候看他是不是肯下定决心去运动运动，别再追着班布跑了！」
+
+「不，莫迪，不！是那位外国夫人，她很难过，而我，我……我真抱歉，我之前对她存了坏心！」
+
+「出了什么事？」
+
+「我不知道！她叫我去，看上去很平静。当我看到房间中央的行李时，我想：『她想让我帮她……她该走了。』她不是本该走了吗，莫迪？可是她却告诉我，她想睡觉，明天早上之前不想被打扰。但当她上床时，我看见她在哭。回到厨房后，我脑子里一直想着那些眼泪。于是我又回去敲门，想着也许她想要点暖和的东西。」
+
+「说重点，斯特拉。到底怎么了？」
+
+「她没有回应。我敲了又敲，一遍又一遍，敲了上百次。没有动静。我担心，莫迪！也许那位夫人身体不舒服。」
+
+「哦，天哪！公主，水全红了。是血！」
+
+农齐奥像个疯子一样大叫着。我从未见过他如此失态。他撞开了两扇门……</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>dissent</b><span>异议</span><em>voice dissent</em></div>
+<div><b>allegiance</b><span>忠诚，拥护</span><em>pledge allegiance</em></div>
+<div><b>propaganda</b><span>宣传</span><em>state propaganda</em></div>
+<div><b>refuge</b><span>避难处；庇护</span><em>seek refuge</em></div>
+<div><b>defy</b><span>违抗，挑战</span><em>defy an order</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch061.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch063.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

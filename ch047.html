@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 47 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch046.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" selected>Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch048.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 47<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">47 
+
+The period of Beatrice’s convalescence 
+
+‘No! It’s futile for you to
+				try to avoid me.’ 
+
+‘I’m not avoiding you,
+				Carlo!’ 
+
+‘You are avoiding me! But we
+				should talk, given that you wanted to talk so much before, instead of loving me the
+				way I loved you.’ 
+
+‘And how should I have loved you,
+				Carlo? In silence, letting you adore me like a statue?’ 
+
+‘But love is mystery, silence. I
+				venerated you in silence. Just looking at you was enough to make me happy for days
+				and days. I didn’t need to talk. Love is a miracle, and as
+				such …’ 
+
+‘Love is not a miracle, Carlo,
+				it’s an art, a skill, a mental and physical exercise of the mind and of the
+				senses like any other. Like playing an instrument, dancing or
+				woodworking.’ 
+
+‘You’re talking about
+				sex.’ 
+
+‘But isn’t sex love? Love
+				and sex are two sides of the same coin. What is love without sex? The veneration of
+				a statue, of a Madonna. What is sex without love? Nothing more than a clash of
+				genital organs.’ 
+
+‘Then you deny the spiritual
+				essence of love? You deny its spontaneity, and the fact that the more spontaneously
+				it arises, the more genuine, pure and miraculous it is?’ 
+
+‘Carlo, you, too, like your
+				comrades in Catania: “The asceticism of the Russian people, the sacredness of
+				the working class, the martyrology of
+				the proletariat, nature as God, the artist as God.” How is it
+				possible?’ 
+
+‘What does all that have to do
+				with it?’ 
+
+‘It has everything to do with it,
+				because all I found among your comrades was a barely concealed aspiration for
+				sainthood and a vocation for martyrdom. Or else a ferocity of dogma hiding a fear of
+				investigation, of experimentation, of discovery, of life’s fluidity. If you
+				want to know, I didn’t find anything resembling the freedom of materialism.
+				And I ran away, yes, because I had no intention of falling into a trap perhaps worse
+				than the Church from which I had escaped.’ 
+
+‘But Modesta, don’t you see?
+				You’re denying the sacrifice and abnegation of those who are fighting for the
+				proletarian cause, for a better society without class differences, without
+				man’s exploitation by other men, without …’ 
+
+‘I’m not denying any
+				struggle! I’m critical of a mind-set and way of thinking that is not very
+				different from the old world that you seek to oppose. By thinking the way you do,
+				you will build a society that, in the best of cases, will be a copy, and an inferior
+				one at that, of the old Christian bourgeois society.’ 
+
+‘But radical transformations take
+				time. First we have to overthrow the bourgeoisie through revolution and change the
+				relations of production. Everything else will then follow on its own because the
+				superstructures created by the bourgeois ideology will collapse … In any
+				case, what I wanted to talk about is us. I don’t see what this theoretical
+				discussion has to do with it. But we’ll talk about it later.’ 
+
+And talking about it, hearing myself
+				accused in a thousand ways of being cruel, cold, rational, being told how much I had
+				been loved without deserving it, hearing how love is so sacred and miraculous, I
+				suddenly realized that I wasn’t listening anymore. As I watched his hands
+				gripping my knees, I was thinking of all the discussions that I would have in the
+				future, if I lived long enough, with Alberto, Giovanni, Michel … Michel,
+				his eyes green as emeralds. Discussions that would come up again and again, exactly
+				the same, for another ten, twenty, thirty years. The image of my future, of perhaps having many more years to
+				live, coursed through my blood like a gentle April rain, soothing the irritation
+				that Carlo’s voice now aroused in me. 
+
+But I had to show patience toward that
+				tense, disappointed face, that of a child who will not resign himself to the fact
+				that his plaything lies before him, irreparably broken by a gust of wind or a
+				careless act (mine or his?). I didn’t want to lose that fervent intellect that
+				encouraged me to explore and continually gave me new insights, new concepts, new
+				words. Having experienced disappointment myself over the end of a good thing, I
+				began to understand. He no longer loved me either, but he couldn’t resign
+				himself to having been the cause. 
+
+‘It’s your fault.
+				You’re the one who ruined everything!’ 
+
+‘Yes, Carlo, it’s my
+				fault.’ 
+
+The admission of my guilt had the power
+				to soothe him. Now he stopped attacking. He looked at me, appeased and drained. He
+				let go of my knees, ran his hands over his face. He didn’t know where to look.
+				He turned his head wearily from side to side. 
+
+‘You have no idea, Modesta, what
+				the men I’ve known since childhood are like, the men who have, so to speak,
+				shaped me. You don’t know how lonely they are, how little they know about the
+				women they think they know all about, from the moment they first had the courage to
+				visit a prostitute. Now I see I should have told you right away that the only women
+				I had before you were those poor souls whom society forces to sell their body. You
+				would have understood, and we would have quickly shattered the loneliness that for
+				centuries has existed between men and women.’ 
+
+I looked at him; he was smiling now as
+				he finished his little speech. He was smiling his quiet, shy smile. And maybe
+				because wispy clouds trailed uncertainly after a flight of seagulls promising
+				unknown places, worlds and faces yet to be discovered, maybe because Beatrice, now
+				recovered though thinner, came running toward us, one moment corporeal, bright,
+				illuminated by the sun, the next rendered diaphanous by those timid, late winter
+				clouds, I saw Carlo’s face the way I had once seen it. 
+
+‘I admire you a great deal,
+				Modesta, but none the less, I want to tell you something, for your own good, for your future. I may be too
+				sensitive, it’s true, but you’re too dramatic, far too
+				dramatic!’ 
+
+‘Modesta! Oh God, Modesta, Carlo,
+				hurry, please! Eriprando, Eriprando! Nonna was right, the curse! Run! He’s on
+				the carpet, screaming. His little foot, Modesta, his little foot, rigid like mine
+				was. Hurry! Argentovivo went to lift him up to feed him, but he started
+				shrieking!’ 
+
+Beatrice was weeping on my shoulder,
+				hugging me frantically. I couldn’t move. An anger I had never felt before for
+				that little slip of a thing trembling in my arms and immobilizing me made me shout,
+				‘Shut up! Stop talking about curses and ill omens.’ 
+
+I must have pushed her away violently.
+				As I ran toward the house, I saw Carlo helping her up from the ground. But he lost
+				no time comforting her. Once in the room, he reached out to support me just in time
+				as I watched that little child writhing on the carpet, Argentovivo’s cries
+				resounding in my head. 
+
+‘Steady, Modesta! We need a
+				surgeon. Run to the car and wait for us, or if you don’t feel you can drive,
+				call Pietro.’ 
+
+‘No, no, I’ll drive. What is
+				it, Carlo, what’s wrong?’ 
+
+‘Run, Modesta, we must hurry!
+				There’s no time! I don’t want to give you any false hopes.’ 
+
+Eriprando struggled with his affliction
+				alone, wrapped in a blanket in Carlo’s arms. And I mustn’t scream or cry
+				or ask questions. I must simply drive, urged on by those screams, loud at first,
+				then fading into a long, droning, dissonant dirge. 
+
+I was left standing outside a blank,
+				unreadable door, the nurse’s impassive face regarding me as an outsider; the
+				hospital’s silence screamed more loudly in my head than Eriprando’s
+				cries, confining me behind an insurmountable wall of waiting. Or was it the slippery
+				wall of the well, from which I was trying to crawl back up to the light on my hands
+				and knees? … up there, maybe Mimmo would talk to me. I stayed in the
+				stagnant well until Mimmo said in his unmistakable voice: 
+
+‘Don’t worry, princess. It’s nothing serious. It’s not
+					polio. All we had to do was cut a tendon. Carlo will explain it to you
+					later.’ 
+
+‘Modesta, may I introduce my
+				friend and colleague Arturo Galgani of Milan? Luckily he was here!’ 
+
+‘Pleased
+				to meet you, Doctor.’ 
+
+‘The pleasure is all mine,
+				Princess.’ 
+
+* 
+
+The headlights gingerly probed the
+				black lava pavement polished by the rain. Carlo drove cautiously; not a jolt, no
+				abrupt braking, so as not to disturb the sleep of the little one who lay heavily in
+				my lap. I couldn’t look at his face, which in a few hours had grown thin and
+				pale, as if La Certa had paused for a moment to focus on him. I
+				mustn’t look at him. The tall blond man had smiled and said, ‘Caught in
+				time, it’s just a minor episode; I suggest you take him home, however. He
+				should wake up in familiar surroundings and if you do not appear worried or anxious,
+				as I’m sure you won’t, the child will no longer remember anything when
+				he wakes up. It’s extremely important that he forget, and accept the exercises
+				and massages as something everyone does.’ 
+
+‘Do you feel ill, Modesta? Is that
+				why you’ve closed your eyes?’ 
+
+‘No, Carlo, no. I’m just
+				very tired.’ 
+
+To reassure him, I opened my eyes and
+				the calm, friendly face from the past smiled at me a moment before turning back to
+				watch the road. 
+
+‘What did you say the name of this
+				muscle cramp or contraction was, Carlo?’ 
+
+‘Oh, they call it a piede
+					cavallino , a charley horse. Are you still thinking about it? It can be
+				serious because the contraction stunts the leg’s growth, but caught in time
+				it’s nothing serious, nothing at all.’ 
+
+‘Cavallino , like
+				Beatrice?’ 
+
+‘As a matter of fact!’ 
+
+‘Thank you, Carlo. What if you
+				hadn’t been there!’ 
+
+‘But I was there. I’m always
+				there. I’m not being arrogant, believe me; it’s just a statement of
+				fact. I can’t help it. Whenever someone needs me, somehow there I am, at the
+				ready. Convenient for others, though less so for me. What can you do! It must be
+				this damned vocation of mine as a doctor.’ 
+
+He was joking. And if Carlo was joking,
+				it must be true that Eriprando would recover. 
+
+‘Vocation
+				or not, Carlo, I’m grateful to you and … forgive me for
+				everything.’ 
+
+‘For what?’ 
+
+‘So, no hard feelings,
+				Carlo?’ 
+
+‘No hard feelings. Just loving
+				ones I’d say, Princess.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">47
+
+貝雅特麗齊的康復期
+
+「不！你想躲開我是徒勞的。」
+
+「我沒有躲你，卡洛！」
+
+「你在躲我！但我們應該談談，既然你之前那麼想談，卻不是像我愛你那樣愛我。」
+
+「那我該怎樣愛你呢，卡洛？默不作聲，讓你像崇拜一尊雕像那樣崇拜我嗎？」
+
+「可是愛就是神秘，是沉默。我在沉默中敬奉你。光看著你，就足以讓我快樂好幾天。我不需要說話。愛是奇蹟，既是奇蹟……」
+
+「愛不是奇蹟，卡洛，是一門藝術，一種技藝，一種心靈與感官的精神和身體練習，和其他任何技藝一樣。就像演奏樂器、跳舞或做木工。」
+
+「你在說性。」
+
+「可是性不就是愛嗎？愛與性是一枚硬幣的兩面。沒有性的愛是什麼？是對雕像、對聖母的膜拜。沒有愛的性是什麼？不過是生殖器官的碰撞罷了。」
+
+「那麼你否認愛的精神本質？你否認它的自發性，否認它越是自發地產生，就越真誠、純潔和神奇？」
+
+「卡洛，你和你那些卡塔尼亞的同志們一樣：『俄羅斯人民的苦行主義、工人階級的神聖性、無產階級的殉道史、自然即上帝、藝術家即上帝。』這怎麼可能？」
+
+「這些跟我們有什麼關係？」
+
+「一切都有關係，因為我在你的同志們那裡找到的，無非是一種幾乎不加掩飾的成聖渴望和殉道使命。要嘛是一種教條的兇猛，隱藏著對探究、實驗、發現、生命流動性的恐懼。如果你想知道的話，我沒有找到任何類似唯物主義自由的東西。於是我逃走了，是的，因為我無意落入一個也許比我逃離的教會更糟糕的陷阱。」
+
+「可是莫德斯塔，難道你看不出來嗎？你在否認那些為無產階級事業、為一個沒有階級差異、沒有人剝削人、沒有……的更美好社會而奮鬥的人們的犧牲與奉獻。」
+
+「我沒有否認任何鬥爭！我批評的是一種心態和思維方式，它與你們試圖反對的那個舊世界沒有太大區別。以你們的思維方式，你們將建立的社會，在最好的情況下，也不過是舊基督教資產階級社會的複製品，而且是低劣的複製品。」
+
+「可是根本的變革需要時間。首先我們必須通過革命推翻資產階級，改變生產關係。其他一切都會隨之而來，因為資產階級意識形態創造的上層建築將會崩潰……總之，我想談的是我們。我看不出這場理論討論有什麼關係。但我們以後再談。」
+
+談啊談，聽著自己被千般指責為殘忍、冷漠、理性，聽著別人說自己多麼不值得卻被深愛，聽著愛是多麼神聖而神奇，我突然意識到自己已經不再聽了。看著他的雙手緊握我的膝蓋，我想著將來——如果我活得夠久——和阿爾貝托、喬瓦尼、米歇爾……米歇爾，他那雙翡翠般碧綠的眼睛……將要進行的所有討論。那些討論會一再重複，一模一樣，再持續十年、二十年、三十年。我的未來，也許還有許多年可活的景象，像四月溫柔的細雨般流過我的血液，撫平了卡洛的聲音此刻在我心中激起的煩躁。
+
+但我必須對那張緊繃、失望的臉表現出耐心，那是個孩子，不肯接受他的玩具就躺在他面前，被一陣風或一個不慎的舉動（是我的還是他的？）無可挽回地摔碎了。我不想失去那個熾熱的才智，它鼓勵我去探索，不斷給我新的見解、新的概念、新的詞彙。我自己也經歷過美好事物終結的失望，我開始明白了。他也不再愛我了，但他無法接受自己是造成這一切的原因。
+
+「是你的錯。是你毀了一切！」
+
+「是的，卡洛，是我的錯。」
+
+承認過錯竟有撫慰他的力量。現在他停止了攻擊。他看著我，平靜而又疲憊。他放開我的膝蓋，雙手抹過臉龐。他不知該往哪裡看。他疲憊地把頭轉來轉去。
+
+「你不知道，莫德斯塔，我從小認識的那些男人是什麼樣的，那些可以說塑造了我的男人。你不知道他們有多孤獨，他們自以為很了解女人，其實了解得少之又少，從他們第一次鼓起勇氣去找妓女的那天起。現在我明白，我應該一開始就告訴你，在你之前我認識的女人只有那些被社會逼迫出賣身體的可憐人。你就會理解了，我們就會迅速打破數百年來存在於男人和女人之間的孤獨。」
+
+我看著他；他說完這番小小的話後，正微笑著。他在微笑，他那安靜、羞澀的微笑。也許是因為幾縷薄雲在海鷗飛過之後猶疑地飄蕩，預示著未知的地方、世界和面孔尚待發現；也許是因為貝雅特麗齊，雖已康復卻更清瘦了，朝我們跑來，時而實在、明亮、被陽光照耀，時而被那些羞怯的晚冬雲朵變得朦朧透明——我看見了卡洛的臉，就像我曾經看見過的那樣。
+
+「我非常欽佩你，莫德斯塔，但儘管如此，我想告訴你一件事，為你好，為你的未來。我可能太敏感了，這是真的，但你太戲劇化了，實在太戲劇化了！」
+
+「莫德斯塔！天哪，莫德斯塔，卡洛，快來，求你了！埃里普蘭多，埃里普蘭多！奶奶說得對，詛咒啊！快跑！他在地毯上，在尖叫。他的小腳，莫德斯塔，他的小腳，僵硬得像我當年那樣。快！阿爾真托維沃去把他抱起來餵奶，但他開始尖叫！」
+
+貝雅特麗齊伏在我肩上哭泣，瘋狂地擁抱我。我動彈不得。一種從未有過的憤怒朝那個在我懷中顫抖、讓我動彈不得的小東西襲來，讓我喊道：「閉嘴！別再提什麼詛咒和凶兆了。」
+
+我一定是粗暴地把她推開了。當我朝房子跑去時，我看見卡洛正把她從地上扶起來。但他沒有浪費時間去安慰她。一進房間，他及時伸手扶住了我，因為我正看著那個小小孩在地毯上扭動，阿爾真托維沃的哭喊聲在我腦中迴盪。
+
+「穩住，莫德斯塔！我們需要一個外科醫生。跑去開車等我們，或者如果你覺得開不了車，就叫彼得羅來。」
+
+「不，不，我來開。是什麼問題，卡洛，怎麼了？」
+
+「快跑，莫德斯塔，我們必須快！沒時間了！我不想給你任何虛假的希望。」
+
+埃里普蘭多獨自與病痛搏鬥，裹在毯子裡，躺在卡洛的懷中。我不能尖叫，不能哭泣，也不能問問題。我只能開車，被那些尖叫催促著——起初響亮，然後變成漫長、嗡嗡作響、不和諧的哀歌。
+
+我被留在一扇空白、不可讀的門外站著，護士面無表情地看著我，把我當成外人；醫院的寂靜在我腦中尖叫，比埃里普蘭多的哭聲還要響，把我困在一堵無法逾越的等待之牆後面。還是說，那是井的滑溜牆壁，我正試圖手腳並用地從中爬回光明？……在上面，也許米莫會跟我說話。我待在停滯的井裡，直到米莫用他那不會認錯的聲音說：
+
+「別擔心，公主。沒什麼大礙。不是小兒麻痺。我們只需要切開一條肌腱。卡洛以後會向你解釋。」
+
+「莫德斯塔，請允許我介紹我的朋友兼同事，米蘭的阿圖羅·加爾加尼。幸虧他在這兒！」
+
+「幸會，醫生。」
+
+「是我的榮幸，公主。」
+
+*
+
+車燈小心翼翼地探著被雨水打磨得發亮的黑色熔岩路面。卡洛謹慎地駕駛著，沒有一絲顛簸，沒有急剎車，以免打擾那個沉沉躺在我膝上的小傢伙的睡眠。我不敢看他的臉，幾小時內那張臉就變得瘦削蒼白，彷彿死神曾停下片刻凝視過他。我不能看他。那個高個子金髮男人微笑著說：「及時發現了，只是個小問題；不過我建議你把他帶回家。他應該在熟悉的環境中醒來，如果你們不顯得擔憂或焦慮——我相信你們不會的——孩子醒來後就不會記得任何事情。讓他忘記極其重要，讓他接受練習和按摩，當作人人都做的事。」
+
+「你不舒服嗎，莫德斯塔？所以你閉上了眼睛？」
+
+「不，卡洛，不。我只是很累。」
+
+為了讓他放心，我睜開眼睛，過去那張平靜、友善的臉在我轉頭看路之前朝我微笑了一瞬。
+
+「你剛才說這種肌肉痙攣或收縮叫什麼來著，卡洛？」
+
+「哦，他們叫它馬蹄足。你還在想這個嗎？如果收縮阻礙了腿的生長，可能會很嚴重，但及時發現就沒什麼大不了的，一點都沒有。」
+
+「馬蹄足，像貝雅特麗齊那樣？」
+
+「還真是！」
+
+「謝謝你，卡洛。要是你不在場的話！」
+
+「但我在場。我總是在場。我不是自大，相信我；這只是陳述事實。我身不由己。每當有人需要我，不知怎的，我就在那裡，隨時待命。對別人方便，對我就不那麼方便了。有什麼辦法呢！一定是因為我這該死的醫生天職。」
+
+他在開玩笑。如果卡洛在開玩笑，那埃里普蘭多一定會康復，這一定是真的。
+
+「天職也好，不是也罷，卡洛，我感激你，還有……原諒我的一切。」
+
+「原諒什麼？」
+
+「那麼，沒有芥蒂了，卡洛？」
+
+「沒有芥蒂了。只有愛，我想說，公主。」</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>conceal</b><span>隐瞒，掩藏</span><em>conceal the truth</em></div>
+<div><b>burden</b><span>负担</span><em>carry a burden</em></div>
+<div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div>
+<div><b>jealous</b><span>嫉妒的</span><em>be jealous of</em></div>
+<div><b>longing</b><span>渴望，思念</span><em>a longing for</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch046.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch048.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

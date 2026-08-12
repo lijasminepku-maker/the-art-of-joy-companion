@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 25 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch024.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" selected>Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch026.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 25<span>庄园、贵族与社会流动</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">estate、title、inheritance 和 marriage 构成贵族权力的语言。西西里的土地租佃链也让佣人、管理者和地主之间的关系很复杂。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">25 
+
+‘Ooh, ooh, ooh, dormi figghia, fa la “O”. E si Beatrice nun voli durmiri coppa nno’ culu sa quantu n’ha
+					aviri … ooh, ooh, ooh … dormi bedda, fa la
+					“O” … Sleep, little one, go to beddy-bye …’ 
+
+Beatrice’s ability to go from
+				tears to laughter was something that took my breath away. She was laughing now,
+				curled up in my lap. 
+
+‘Do you know why I’m
+				laughing?’ 
+
+‘How would I know that?’ 
+
+‘Because you’re singing the
+				same lullaby that my tata used to sing to me.’ 
+
+‘Your tata ?’ 
+
+‘Yes, my nanny, the wet nurse.
+				They say tata on the continent, and that’s what they taught me to
+				call her. It seems more elegant to them, except that my tata was Sicilian,
+				and I know there’s a bad word in that lullaby.’ 
+
+‘So you understand Sicilian
+				then?’ 
+
+‘Of course I understand it. With
+				my tata , when we were alone, ’u parravamu sempri , we always
+				spoke it. I like it a lot, but in our home it’s forbidden: French, English,
+				Italian, anything but Sicilian. So many things my tata told me! She always
+				spoke to me in Sicilian, or rather in Palermitano. She was from Palermo, and she was
+				very proud of it. She hated Catania: “C atanisi soldu fausu ,”
+				she always said, “The Catanesi are false.” 16 And I enjoyed needling her.
+				She would get angry, but then we laughed and made up. What good times those were, Modesta, there in Catania! The house
+				was always full. They were all alive, then, and we didn’t have this damn war.
+				We came to the villa only in the summer, but here too, the house was always full of
+				people. Ignazio’s friends … if you knew how many he had! And all
+				young. When they came to see him they would shut themselves up in his room and talk
+				loudly, you know, like men do. I always stood behind the door, not to eavesdrop, but
+				I liked to hear the voices and smell the aroma of tobacco that filtered through the
+				cracks. Later they came for dinner or tea with their sisters … Then, in
+				1915, they began leaving. Everyone said that the war would last only six months,
+				thanks to some extraordinary weapons or other that … Well! Almost two
+				years have gone by and it’s still not over. And the losses aren’t over
+				either … cousin Manfredi died right after Ignazio … as if he had
+				called him. And two months ago Alberto, too, disappeared at the front
+				in … I don’t remember where. And so all the houses are closed up.
+				Those doors draped in black are so sad. Then there was Alessandra’s tragedy,
+				poor child: she was Ignazio’s fiancée.’ 
+
+She stopped talking, and her head felt
+				heavy on my shoulder. 
+
+‘Are you asleep?’ 
+
+‘No. Why haven’t you asked
+				me about Alessandra?’ 
+
+‘I don’t know.’ 
+
+‘It’s really true what Maman
+				says. You were born for the convent. You’re not at all curious. But me,
+				I’m curious about everything! Is it a sin?’ 
+
+‘Why should it be a sin? Come on,
+				cheer up, don’t be so sad. And to show you it’s not a sin, I’ll
+				admit …’ 
+
+‘Address me familiarly, as
+				“tu”.’ 
+
+‘I’ll admit that I’m
+				curious about Alessandra too. So?’ 
+
+‘But you’re asking without
+				being really interested! Ask me properly! Otherwise I’ll think it’s a
+				sin.’ 
+
+‘Would you please tell
+				me … What is the tragedy that concerns Alessandra?’ 
+
+‘Address me as
+				“tu”.’ 
+
+‘All right, so tell me about
+				it.’ 
+
+‘She killed herself when she found
+				out that Ignazio was paralysed.’ 
+
+‘Dear God! How did she kill
+				herself? May God forgive her! This is definitely a sin.’ 
+
+‘We never
+				knew. It’s a mystery. Some say she starved herself to death, some say she
+				poisoned herself, some say …’ 
+
+‘What?’ 
+
+‘It’s terrible, but some say
+				– and it seems that this is really the truth – that she hanged herself in the
+				bathroom with a rope. Yes, a rope.’ 
+
+As she spoke, she clung to me and hid
+				her face in my neck. Was it an embrace? Was it possible that she also felt those
+				shivers? I, too, had done that with Mother Leonora. So then she hadn’t been a
+				coward after all; it was just because I was a child that she behaved that way. Now I
+				was Mother Leonora, and like her I had to be prudent. But how to stop the little
+				hand that innocently grasped my breast, or rather the bands that bound my bosom? 
+
+‘What on earth are you wearing
+				under your smock, Modesta? It feels like a cuirass! Let me see …’ 
+
+‘No, no, Principessina ,
+				it’s not permitted. Those are the bands that all the novices wear.’ 
+
+‘Oh! Why? Won’t you
+				answer? … I see. I can feel that your breasts are bigger than mine.
+				It’s so that they don’t show, for the sake of modesty.’ 
+
+‘Exactly. No, don’t do that.
+				Don’t loosen them, Beatrice. Besides, you’re tickling me.’ 
+
+‘Strange; I’m not ticklish
+				there. You don’t believe me? Put your hand here. You see? I’m not
+				ticklish. It makes me feel warm. When I was little I would always put my hand on my tata ’s breast to fall asleep … I’m sleepy! Will
+				you let me put my hand there?’ 
+
+It was hopeless to try and stop her. Her
+				quick little hand had found an opening between one binding strip and the other, in
+				part because I didn’t fasten them as tightly as in the convent, and now she
+				was holding a breast in her palm. Supported by her hand that way, it looked like
+				Saint Agatha’s severed breast. I closed my eyes so I wouldn’t see those
+				fingers now playing with my nipple, plunging me into a prolonged
+				shiver … Poor Mother Leonora, what she must have gone through! Motionless
+				as she had been, I let myself come agonizingly. Don’t let the child notice,
+				for God’s sake, don’t let her see! … She fell asleep like
+				that, clutching my breast. From the tall windows the moon peered in, suspicious:
+				under her spiteful gaze Beatrice’s hair shone like silver. I didn’t know what to do. The effort to resist
+				caressing her was so strong that I felt as tired as I did when I used to run through
+				the reeds all day looking for Tuzzu. Beneath the moon’s gaze Tuzzu stared at
+				me, the wounds of his eyes bleeding a blue sea … 
+
+‘D’accordo ca nenti pisi, picciridda, ma non poi stari cca’
+					tuttu ’u santu jornu, e poi t’haiu a purtari in vrazza menzu
+					addurmintata … It’s true you don’t weigh a thing, little girl, but you can’t
+					stay here the whole blessed day and then make me have to carry you in my arms,
+					half asleep …’ 
+
+Sleep tugged at my hair, my
+					forehead … nenti pisa ’sta picciridda , weightless, this
+				little girl is: a small kitten on my lap. Either I had grown taller or she was
+				smaller than normal. How old could she be? I don’t know what’s happening
+				anymore, Tuzzu, I’m sleepy and muddled, confused by Ignazio’s eyes
+				winking sweetly and malevolently in the darkness, more malevolent than the moon.
+				They weren’t the eyes of a boy, but those of a grown man. Her brother? How
+				could it be? Should I wake her? I didn’t dare. Sleep there? She would catch
+				cold. 
+
+‘Are you taking care of the
+					Principessina ? Be careful, you know! The Principessina must absolutely
+					not catch cold. Her health is delicate, very delicate!’ 
+
+‘Signorina, Signorina Modesta! Oh,
+				thank goodness I found you! I was looking for you. It’s supper time. You know
+				the Principessina is delicate, delicate and distracted, as the Princess
+				says, and must be looked after. She even forgets to eat when she’s reading or
+				roaming around the house … Oh, she’s sleeping! Oh dear God,
+				Signorina Modesta, you have no idea, you can’t imagine the worry she causes
+				us. Always having to look for her! Yes, yes, I’ll help you carry her. This
+				always happens when she comes to this room! I even took the liberty of suggesting to
+				the Princess that this room be kept locked. And you know what she told me? In this
+				house, we don’t lock anything up. If Cavallina wants to break her neck running
+				through the garden or wants to sleep with Ignazio, she’s welcome to! Here,
+				everyone is his own master, free to live and die as he pleases. One of a kind, the
+				Princess! But I firmly believe that this room should be locked. Listen, I’m
+				not a superstitious ignoramus, as the Princess calls the village women, but this
+				room is maleficent for the Principessina . Evil! When she comes in here,
+				after hours and hours I find her crying or else asleep, all dishevelled like she is now.
+				It’s not natural. Good thing we have you here now! Now the responsibility
+				isn’t all mine, like it was before …’ 
+
+I decided to answer her just to stop the
+				flood of words. 
+
+‘Don’t worry, Argentovivo.
+				I’ll see to Beatrice. There, that’s right, let’s carry her to her
+				room.’ 
+
+‘What about supper?’ 
+
+‘Maybe it’s best if she
+				sleeps.’ 
+
+We carried her up to her room, but as
+				soon as she was in bed Beatrice opened her eyes and said, ‘I’m
+				hungry!’ 
+
+‘You see how she acts, Signorina
+				Modesta, you see?’ 
+
+‘I’m hungry!’ 
+
+‘Supper is served in the green
+				drawing room.’ 
+
+‘No, I want to eat here, with
+				Modesta. Here, I said! Go on, go! And don’t say a word! One of these days
+				I’m going to sew that mouth of yours shut. Shut up and go away. I want to eat
+				here, with Modesta!’ 
+
+I felt my blood run cold. I had never
+				heard Cavallina utter harsh words, and her shouts thundered like those of the
+				Princess. 
+
+‘Come here, Modesta. I purposely
+				pretended to be asleep to make you come to my room. I was afraid you wouldn’t
+				want to come. Do you like it?’ 
+
+Saying that I did, very much, I moved
+				closer and tried to guess how old she was. Up close like that, tiny wrinkles were
+				beginning to line her pale forehead. Or was it those shouts that had aged her? I had
+				never seen such transparent skin. 
+
+‘See, this is the mirror I told
+				you about. See how bright and cheerful it is? Haven’t you made up your mind
+				yet? And this is our grandmother. Look how beautiful she was! The Englishwoman, not
+				an aristocrat but very wealthy, remember? None of us inherited her beauty, as Maman
+				says. We only managed to inherit her money, or rather, steal it, she says.
+				Grandfather was in sad straits, as is often the case with aristocrats. And so, again
+				in Maman’s words, that ingenuous bourgeoise was providential in keeping the
+				family afloat. She makes me laugh so when she says that all aristocrats are thieves!
+				Beginning with the Savoia, who are aristocrats up to a certain point. How funny!
+				She’s beautiful, isn’t she? She looks like Ignazio, doesn’t
+				she?’ 
+
+‘Yes, and
+				Mother Leonora as well.’ 
+
+‘You want to become a nun like
+				her, right?’ 
+
+‘Yes.’ 
+
+‘When did your vocation come to
+				you?’ 
+
+‘In the convent.’ 
+
+‘What exactly is a vocation? How
+				does it feel? What do you hear?’ 
+
+Not having any idea, I responded in the
+				words of Mother Leonora: ‘It’s like the singing of birds.’ 
+
+‘She too used to say that, Maman
+				told me. I barely knew her. Maman also says that for Aunt Leonora it was a tragedy
+				because she was rich and could have made a good match. But that for you it’s
+				different. It’s good that you have this vocation because in the convent, with
+				Mother Leonora’s modest stipend and trousseau, you’ll be better off than
+				married to some servant or perhaps a lowly clerk. With your intelligence, she says,
+				and with our support, you can even become Mother Superior.’ 
+
+Argentovivo was right: her Princess had
+				a keen eye. 
+
+‘That’s why she told me not
+				to deter you from your vocation. Though I’m sorry about it, because it means
+				that in three months you’ll go away, and I like being with you. I told her
+				that, you know. But she said I should leave you in peace and that I’m
+				impetuous. It’s true, somewhat … it’s a pity, though, because
+				if you didn’t have a vocation you could stay here with me for ever, since I
+				too will never be able to marry.’ 
+
+‘Why not? You’re
+				wealthy.’ 
+
+‘Yes, yes, I know, but Maman says
+				that no one must find out that a Brandiforti is a cripple. Many have asked to marry
+				me. You see, all the Brandiforti up until Grandfather’s generation were
+				fine-looking and healthy. Then something in the blood deteriorated. The first sign
+				was the fact that the Englishwoman had only one child, my father … Then
+				the birth of the “thing” who, as I told you, is in the room where the
+				window is always closed. No one has ever seen him, not even me. Of course, there was
+				Ignazio, handsome and strong, but Maman says that he too was rotten – his brain,
+				that is. Maybe that’s why he died. So Maman says that our lineage must dry up
+				like a river that is no longer fed by the Mountain. We’re from Catania. There,
+				the Mountain bestows life with its snow
+				and death with its lava. Maman says that she can recall seeing many other fertile
+				estates and families wither and die out as willed by God and the
+				Mountain.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">25
+
+「噢，噢，噢，睡吧闺女，小嘴圆圆。要是贝阿特丽切不肯睡，她屁股可知道要挨多少下……噢，噢，噢……睡吧宝贝，小嘴圆圆……睡吧，小宝贝，睡觉觉……」
+
+贝阿特丽切能在转瞬之间从泪水过渡到欢笑，这能力让我屏息。她此刻正蜷在我腿上，笑个不停。
+
+「你知道我为什么笑吗？」
+
+「我怎么会知道？」
+
+「因为你唱的是我奶妈以前给我唱的同一首摇篮曲。」
+
+「你的奶妈？」
+
+「是的，我的保姆，乳母。大陆那边叫奶妈，他们教我也这么叫她。他们觉得这样更高雅一些，只不过我的奶妈是西西里人，我知道那首摇篮曲里有个脏字。」
+
+「那你听得懂西西里话了？」
+
+「当然听得懂。跟我的奶妈在一起，只有我们俩的时候，我们总说西西里话。我非常喜欢，可在我们家里这是禁止的：法语、英语、意大利语，什么都行，就是不能说西西里语。我的奶妈给我讲过好多事！她总是用西西里语跟我说话，更确切地说，是巴勒莫方言。她是巴勒莫人，她为此非常骄傲。她恨卡塔尼亚：&#x27;卡塔尼亚人都是假钱币，&#x27;她总说，&#x27;卡塔尼亚人都虚伪。&#x27;而我喜欢逗她。她会生气，但然后我们就笑着和好了。那些日子多么美好啊，莫德斯塔，在卡塔尼亚！房子里总是满满的。那时候他们都还活着，我们也没有这该死的战争。我们只在夏天才来别墅，但这里也是，房子里总是人来人往。伊尼亚齐奥的朋友们……你要是知道他有多少朋友就好了！全都是年轻人。他们来看他时，会把自己关在他房间里大声说话，你知道，像男人那样。我总站在门后，不是为了偷听，而是我喜欢听那些声音，闻透过门缝飘进来的烟草香味。后来他们带着姐妹来吃饭或喝茶……然后，一九一五年，他们开始离开了。所有人都说战争只会持续六个月，因为有些了不起的武器什么的……唉！快两年过去了，还没有结束。伤亡也没有结束……曼弗雷迪表哥紧随伊尼亚齐奥之后死了……仿佛伊尼亚齐奥在呼唤他。两个月前，阿尔贝托也在前线失踪了，在……我不记得是哪儿了。于是所有的房子都关上了门。那些披着黑纱的门是多么悲伤啊。然后还有亚历山德拉的悲剧，可怜的孩子：她是伊尼亚齐奥的未婚妻。」
+
+她停住了，头沉重地靠在我肩上。
+
+「你睡着了吗？」
+
+「没有。你为什么不问我亚历山德拉的事？」
+
+「我不知道。」
+
+「妈妈说的真是对。你生来就是为修道院的。你一点也不好奇。可是我呢，我对什么都好奇！这是罪过吗？」
+
+「为什么是罪过呢？来吧，打起精神，别这么难过。为了证明这不是罪过，我承认……」
+
+「用&#x27;你&#x27;来称呼我，随便一点。」
+
+「我承认我也对亚历山德拉好奇。所以呢？」
+
+「但你问得并不真正感兴趣！好好地问我！否则我会以为这是罪过。」
+
+「请你告诉我……亚历山德拉的悲剧是什么？」
+
+「用&#x27;你&#x27;称呼我。」
+
+「好吧，那告诉我吧。」
+
+「当她得知伊尼亚齐奥瘫痪后，她自杀了。」
+
+「天哪！她是怎么自杀的？愿上帝宽恕她！这绝对是罪过。」
+
+「我们从来不知道。这是个谜。有人说她是饿死的，有人说她是服毒，有人说……」
+
+「什么？」
+
+「太可怕了，但有人说——似乎这才是真相——她在浴室里用一根绳子上吊了。是的，一根绳子。」
+
+她说着，紧紧抱住我，把脸埋在我的脖子里。这是拥抱吗？她是否也可能感觉到了那些颤栗？我也曾对莱奥诺拉修女这样做过。那么她终究不是懦夫；只是因为我那时是个孩子，她才那样表现。现在我是莱奥诺拉修女了，像她一样，我必须谨慎。可是，如何阻止那只天真的小手握住我的乳房，或者说，握住束缚着我胸脯的束带呢？
+
+「你的罩衫下面到底穿的什么呀，莫德斯塔？摸起来像一件胸甲！让我看看……」
+
+「不，不行，小公主殿下，这是不允许的。那是所有见习修女都戴的束带。」
+
+「哦！为什么？你不回答吗？……我明白了。我能感觉到你的乳房比我的大。这是为了不让它们显露出来，为了端庄。」
+
+「正是。不，别这样。别解开它们，贝阿特丽切。而且，你弄得我好痒。」
+
+「奇怪；我在那儿不觉得痒。你不信？把你的手放在这里。你看？我不痒。这让我觉得暖和。我小的时候，总是把手放在奶妈的乳房上入睡……我困了！你能让我把手放在那里吗？」
+
+试图阻止她是徒劳的。她敏捷的小手已经找到了一条束带之间的缝隙——部分原因是我不再像在修道院里那样把它们束得那么紧——现在她正用掌心托着一只乳房。在她手中那样托着，它看起来就像圣阿加莎被割下的乳房。我闭上眼睛，不去看那些正在玩弄我乳头的、让我陷入漫长颤栗的手指……可怜的莱奥诺拉修女，她该经历了怎样的煎熬！像她曾经那样静止不动，我让自己痛苦地达到高潮。别让孩子察觉，看在上帝的分上，别让她看见！……她就那样睡着了，抓着我的乳房。从高大的窗户里，月亮窥视进来，充满怀疑：在她恶意的注视下，贝阿特丽切的头发像银子一样闪闪发光。我不知道该怎么办。抵抗抚摸她的冲动是如此强烈，我感到疲惫，就像当年整天在芦苇丛中奔跑寻找图佐时一样。在月亮的注视下，图佐盯着我，他眼睛的伤口流淌着蓝色的大海……
+
+「没错，你一点都不重，小姑娘，可你不能整个大白天都待在这儿，然后我还得半抱半拖地把你弄回去……」
+
+睡意拽着我的头发，我的额头……这小囡一点不重，轻若无物：膝上的一只小猫。要么是我长高了，要么是她比正常身材小。她可能多大了？我不知道发生了什么，图佐，我又困又迷糊，被伊尼亚齐奥的眼睛搅得混乱，它们在黑暗中甜蜜而恶意地眨着，比月亮更加恶意。那不是男孩的眼睛，而是一个成熟男人的眼睛。她的哥哥？怎么可能？我该叫醒她吗？我不敢。睡在那里？她会着凉的。
+
+「您在照看小公主殿下？小心点，您知道！小公主殿下绝对不能着凉。她的身体很娇弱，非常娇弱！」
+
+「小姐，莫德斯塔小姐！哦，谢天谢地我找到您了！我在找您。是晚餐时间了。您知道小公主殿下很娇弱，娇弱又心不在焉，就像公主说的，必须有人照顾。她看书或在宅子里闲逛时，甚至会忘记吃饭……哦，她睡着了！哦天哪，莫德斯塔小姐，您不知道，您想象不出她给我们带来多少担心。总得找她！是，是，我帮您把她抱回去。她每次来这个房间都会这样！我甚至冒昧向公主建议把这个房间锁起来。您知道她怎么跟我说的吗？在这个家里，我们什么也不锁。如果卡瓦利娜想在花园里摔断脖子，或者想和伊尼亚齐奥一起睡，随便她！在这里，每个人都是自己的主人，想怎么活就怎么活，想怎么死就怎么死。独一无二，这位公主！但我坚信这个房间应该锁起来。听着，我可不是公主说的那种迷信无知的村妇，但这个房间对小公主殿下是不祥的！邪恶！她走进这里时，过了好几个钟头，我发现她要么在哭，要么睡着了，头发散乱，就像现在这样。这不正常。幸好您来了！现在责任不全在我一个人身上了，不像以前……」
+
+我决定回答她，只是为了止住那滔滔不绝的话。
+
+「别担心，阿真托维沃。我会照顾贝阿特丽切的。对，那样就好，我们把她抱回她房间吧。」
+
+「那晚餐呢？」
+
+「也许让她睡更好。」
+
+我们把她抱上楼，回到她的房间，但刚一放到床上，贝阿特丽切就睁开了眼，说：「我饿了！」
+
+「您看她怎样，莫德斯塔小姐，您看到了吧？」
+
+「我饿了！」
+
+「晚餐在绿色会客厅。」
+
+「不，我要在这里吃，和莫德斯塔一起。就在这里，我说！去吧，走开！一个字也不许说！总有一天我要把你的嘴缝起来。闭上嘴，走开。我要在这里吃，和莫德斯塔一起！」
+
+我觉得血都凉了。我从没听过卡瓦利娜说苛刻的话，她的喊叫声像公主一样雷鸣般响亮。
+
+「过来，莫德斯塔。我是故意装睡的，好让你来我房间。我怕你不愿意来。你喜欢吗？」
+
+说着我非常喜欢，我走近她，试图猜测她的年龄。这样近距离看，细细的皱纹开始爬上她苍白的前额。还是那些叫喊声让她变老了？我从未见过如此透明的皮肤。
+
+「看，这就是我跟你说的那面镜子。看它多明亮多欢快？你还没决定吗？还有这个，是我们的奶奶。看她多美！那个英国女人，不是贵族但非常富有，记得吗？我们谁也没有继承她的美貌，妈妈这样说。我们只成功继承了——或者说偷走了——她的钱，她说。祖父当时处境艰困，贵族们常常如此。于是，还是用妈妈的话说，那个天真的资产阶级女人成了救星，让家族得以维持。当她说什么所有的贵族都是贼的时候，真是太可笑了！从萨沃亚家族开始，他们顶多算半吊子贵族。多好笑！她很美，不是吗？她长得像伊尼亚齐奥，对吧？」
+
+「是的，也像莱奥诺拉修女。」
+
+「你也想成为像她那样的修女，对吧？」
+
+「是的。」
+
+「你的圣召是什么时候来的？」
+
+「在修道院里。」
+
+「圣召到底是什么？是什么感觉？你听见了什么？」
+
+我毫无概念，只好用莱奥诺拉修女的话回答：「就像鸟儿的歌唱。」
+
+「她也常这么说，妈妈告诉我的。我几乎不认识她。妈妈还说，对莱奥诺拉姨妈来说，这是个悲剧，因为她很富有，本可以结一门好亲事。但对你来说就不一样了。你有这个圣召是好事，因为在修道院里，有莱奥诺拉修女那份微薄的薪俸和嫁妆，你会比嫁给某个仆人或下级小职员过得好。以你的聪慧，她说，加上我们的支持，你甚至可以当上院长嬷嬷。」
+
+阿真托维沃说得对：她的公主眼光犀利。
+
+「这就是为什么她叫我不要妨碍你的圣召。尽管我为此感到难过，因为这意味着三个月后你就要走了，而我喜欢和你在一起。你知道，我告诉过她。但她说我应该让你清净，说我太冲动了。确实，有点……不过，很可惜，因为如果你没有圣召，你就可以永远留在这里和我在一起，因为我也永远无法结婚。」
+
+「为什么不能？你很有钱。」
+
+「是，是，我知道，但妈妈说绝不能让任何人发现布兰迪福尔蒂家有一个跛子。好多人求过婚。你看，布兰迪福尔蒂家一直到祖父那一代都相貌堂堂、身体健康。然后血脉里有什么东西变坏了。第一个迹象是那个英国女人只生了一个孩子，就是我父亲……然后是那个&#x27;东西&#x27;的出生，我跟你说过的，在窗户永远关着的房间里。没有人见过他，连我也没见过。当然，有伊尼亚齐奥，英俊强壮，但妈妈说他也是腐烂的——他的脑子，也就是说。也许这就是他死的原因。所以妈妈说我们的血脉必须像一条不再被大山滋养的河流那样干涸。我们是卡塔尼亚人。在那里，大山用它的雪赐予生命，用它的熔岩带来死亡。妈妈说，她曾亲眼见过许多其他肥沃的庄园和家族枯萎消亡，如上帝和大山所愿。」
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>estate</b><span>庄园；地产</span><em>manage an estate</em></div>
+<div><b>inherit</b><span>继承</span><em>inherit a name</em></div>
+<div><b>privilege</b><span>特权</span><em>a privilege to</em></div>
+<div><b>servant</b><span>仆人</span><em>a household servant</em></div>
+<div><b>summon</b><span>召唤；传唤</span><em>summon someone</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch024.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch026.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

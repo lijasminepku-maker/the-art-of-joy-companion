@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 12 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch011.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" selected>Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch013.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 12<span>修道院、教育与规训</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">convent 不只是宗教场所，也是教育、慈善和纪律机构。理解称谓背后的等级，比记住全部宗教词更重要。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">12 
+
+To get out of that situation, I had to
+				die. And die just the way Mimmo had suggested to me: that is, by jumping out of the
+				window. But which one? Fortunately there were bars on mine, because it would have
+				been too high and, on top of that, there were no geranium beds, no trees or shrubs
+				that would keep me from breaking all my bones. I cared about this body of mine,
+				which had given me so much joy. 
+
+I searched for three days without
+				finding a single window that did not have those loathsome iron grilles. Finally,
+				discouraged, I sat on the grass and leaned my head against the rusty rim of the
+				well. The flock of sheep, as Mimmo called them, never ventured there. Why not?
+				Indeed, why was it they never came near the old well, and when one of them glimpsed
+				it from afar, she swiftly crossed herself three times and looked away? That&#x27;s
+				their business. For me it was better this way. I had at least found a place where I
+				could concentrate undisturbed in the sun, since by this time I was no longer able to
+				either think or read in my cell. How could I manage to die if all the windows had
+				bars? &#x27;E caddi come corpo morto cade&#x27; … 9 How could I appear perfectly
+				dead, &#x27;even as a dead body falls&#x27;, to quote the Poet, without really
+				ending up in the odious arms of La Certa ? 
+
+&#x27;Did the princess by chance call
+				for me? If you&#x27;ll excuse my saying so, you should not let yourself be lulled
+				into sleep like that, under the April sun. April entices us with her false warmth.
+				She caresses you with caring hands, but
+				she&#x27;s ready to abandon you to the venomous dampness as soon as shadows
+				fall.&#x27; 
+
+&#x27;Who told you I was looking for
+				you, the oak tree?&#x27; 
+
+&#x27;As usual, and it was right. Even
+				now, your eyes are calling to me, princess, but they don&#x27;t know whether to
+				trust a stranger or not. Because, even though I&#x27;ve seen you grow with the
+				tenacity of a healthy plant, we&#x27;re still strangers, aren&#x27;t
+				we?&#x27; 
+
+&#x27;Do you know why the sisters never
+				come near this well and why, when they see it, they cross themselves as if
+				they&#x27;ve seen the devil?&#x27; 
+
+&#x27;I see that since they&#x27;ve
+				kept you in quarantine you&#x27;ve sharpened your tongue, eh, princess?&#x27; 
+
+&#x27;Not just my tongue, Mimmo,
+				I&#x27;ve sharpened my wits as well. It&#x27;s just that …&#x27; 
+
+&#x27;What? The well? It worries you,
+				this well? Stay away from it, child!&#x27; 
+
+&#x27;Why?&#x27; 
+
+&#x27;Because it lures tormented souls.
+				I myself have counted two of them who listened to its voice.&#x27; 
+
+&#x27;Whose voice?&#x27; 
+
+&#x27;The well&#x27;s water of
+				oblivion, princess. And they jumped in. I fished two of them out myself, with these
+				arms. My father, in his day, pulled another one out. My grandfather, God rest his
+				soul, who knows how many! But he was of the old school, and kept quiet about it. At
+				that time people kept quiet about everything. Even at home, with one&#x27;s own
+				blood, you didn&#x27;t talk. People were mute in those days! But things have been
+				changing these past twenty years. In the villages down in the valley people are
+				beginning to talk, guardedly, of course, but they talk. And on the continent, from
+				what my son tells me – he&#x27;s a merchant, so he comes and goes – there&#x27;s a
+				flurry of talk and new ideas. They even speak out against this war that has broken
+				out. When did people ever speak out against a war, before! This son of mine,
+				Giovanni, says that the wind of rebellion is coming here too, stirring
+				people&#x27;s minds, especially in the sulphur mines and saltworks … You
+				should hear him! He&#x27;s really passionate about these new rebellious
+				ideas.&#x27; 
+
+&#x27;Rebellion against
+				whom?&#x27; 
+
+&#x27;Who else do the poor rebel
+				against? Against the rich, the barons, the Church.&#x27; 
+
+&#x27;So the
+				doctor was one of these?&#x27; 
+
+&#x27;Of course. Not at first, but in
+				the last few years he changed, like my son Giovanni.&#x27; 
+
+&#x27;But he&#x27;s not poor.
+				He&#x27;s a doctor.&#x27; 
+
+&#x27;He must be an exception. Although
+				my Giovanni tells me that over there, on the continent, there are many doctors and
+				teachers and lawyers who are on the side of the people.&#x27; 
+
+&#x27;But can what your son tells you
+				be true?&#x27; 
+
+&#x27;Of course! And I&#x27;m worried.
+				He&#x27;s always talking about these things. He&#x27;s a hothead, my Giovanni!
+				I&#x27;m afraid that one fine day …&#x27; 
+
+&#x27;And what do you think about
+				it?&#x27; 
+
+&#x27;Me, princess? I&#x27;m wary by
+				nature. Then too, even though I criticize the rules of this convent and many, many
+				other things about the Church that aren&#x27;t clear, I still believe in God. Oh
+				yes, I believe in God.&#x27; 
+
+&#x27;Ah, why, don&#x27;t they believe
+				in God?&#x27; 
+
+&#x27;Well, if it were simply that they
+				didn&#x27;t believe in Him, child, that I could understand. But they hate and
+				oppose Him. That&#x27;s what makes me wary, you see. Without the Gospel&#x27;s
+				teachings, our young people have only a dark future ahead of
+				them … You&#x27;re all flushed. What is it? Is it the thought of all
+				these godless people? Eh, it&#x27;s Mimmo&#x27;s fault! You&#x27;re right, my
+				child. Mimmo talks too much!&#x27; 
+
+What could I say? That discovering that
+				I was not alone in doubting God had brought on a heat flash, forcing me to clamp my
+				mouth shut to keep from screaming with joy? Lowering my head and clenching my fists
+				to drive my nails into my palms (this would make me grow pale, I knew), I said,
+				&#x27;Don&#x27;t worry, I&#x27;m all right, Mimmo.&#x27; 
+
+&#x27;It worries me seeing you hanging
+				around this well. I told you, I pulled two of them out myself, with my own
+				arms.&#x27; 
+
+His anxiety showed me I was right on the
+				mark. He wouldn&#x27;t let me out of his sight again, not for a moment. My eyes
+				rolling, the pallor increasing as my nails dug into my palms, I stood up, lurching
+				so that he had to hold me up. 
+
+&#x27;Don&#x27;t worry, Mimmo, it was
+				the sun and the dampness. You were right. Good thing you woke me. Although
+				now … Maybe it would have been a blessing for me to get acute double
+				pneumonia and go to be with God … Thank you, Mimmo. Goodbye.&#x27; 
+
+Without looking
+				back, I set out towards the convent, but on the way I had time to check behind me.
+				He was following me, uncertain. I made sure the uncertainty didn&#x27;t last: I
+				staggered and fell to my knees. I knew he was watching me. I waited for the sound
+				of his footsteps to approach before picking myself up. My acting must have been
+				convincing: the impulse to turn around and look at him was so strong
+				that I staggered for real. Yet this was no time for pity. It was time to act.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">12
+
+欲脱此困境，我唯有死。且须如米莫所暗示那般去死：即从窗口跃下。然而哪一扇窗？所幸我窗前装有铁栏，否则那窗口实在太高，加之窗下既无天竺葵花坛，亦无树木灌丛可免我粉身碎骨。我珍惜这副身躯，它曾予我多少欢愉。
+
+我搜寻三日，未见一扇窗户不设那些可恶的铁栅栏。终于，我心灰意冷，坐在草地上，将头倚在古井生锈的井沿。那群绵羊——米莫如此称呼她们——从不涉足此地。为何不呢？诚然，她们为何从不靠近这口老井？且当其中一人远远瞥见，便迅速划三次十字，移开目光？那是她们的事。于我而言，如此更好。至少我找到一处可在阳光下不受打扰地凝神思索之地，因为此时我在静室中已既不能思考亦不能阅读。若所有窗户皆有铁栏，我如何能死？&quot;我如死尸般倒下&quot;……我如何能显得全然死去，&quot;恰如死尸倒下&quot;——借诗人之语——而不致真正落入那可憎的死神怀抱？
+
+&quot;公主莫非在唤我？恕我直言，您不该在四月阳光下如此昏昏欲睡。四月以虚假的温暖诱惑我们。她以温柔之手抚慰你，然阴影一降临，她便准备将你弃于阴毒之潮湿中。&quot;
+
+&quot;谁告诉你我在找你，是那橡树么？&quot;
+
+&quot;一如往常，它是对的。即便此刻，您的眼睛也在呼唤我，公主，但它们不知是否该信任一个陌生人。因为，尽管我见您如一株健康植物般顽强成长，我们仍是陌生人，不是吗？&quot;
+
+&quot;你可知道为什么那些修女从不靠近这口井，且为何一见它便划十字，仿佛见了魔鬼？&quot;
+
+&quot;我看出自她们将您隔离以来，您的舌头变锋利了，嗯，公主？&quot;
+
+&quot;不止舌头，米莫，我的头脑也变锋利了。只是……&quot;
+
+&quot;什么？这口井？它让您不安？这口井？离它远些，孩子！&quot;
+
+&quot;为什么？&quot;
+
+&quot;因为它引诱受折磨的灵魂。我亲眼见过两个听从了它的声音的人。&quot;
+
+&quot;谁的声音？&quot;
+
+&quot;遗忘之井水的声音，公主。她们跳了进去。我亲手用这双臂捞起过两个。我父亲，在他那个年代，也捞起过一个。我祖父，愿上帝安息他的灵魂，天晓得有多少！但他是老派人物，对此缄口不言。那个年代人们对一切保持沉默。即便在家中，对至亲骨肉，也不交谈。彼时人们都是哑巴！但这二十年来世道变了。山下谷中的村庄里，人们开始交谈，当然有所顾忌，但毕竟在交谈。而大陆上，据我儿子所说——他是个商人，来往奔波——那里议论纷纷，新思想层出不穷。他们甚至公开反对这场已爆发的战争。从前何时有人敢公开反对战争！我这儿子乔瓦尼说，反叛之风也将吹到这里，搅动人心，尤其在硫磺矿和盐场……您该听听他的话！他对这些新反叛思想真是充满热情。&quot;
+
+&quot;反叛谁？&quot;
+
+&quot;穷人还能反叛谁？反叛富人、贵族、教会。&quot;
+
+&quot;那么医生也是其中之一？&quot;
+
+&quot;当然。起初不是，但最近几年他变了，正如我儿子乔瓦尼。&quot;
+
+&quot;但他不穷。他是医生。&quot;
+
+&quot;他必定是个例外。尽管我家乔瓦尼告诉我，那边大陆上有许多医生、教师和律师站在人民一边。&quot;
+
+&quot;但你儿子告诉你的这些话能是真的吗？&quot;
+
+&quot;当然！我正为此担忧。他总是谈论这些事。他是个热血青年，我家乔瓦尼！我怕有朝一日……&quot;
+
+&quot;你对此有何看法？&quot;
+
+&quot;我吗，公主？我生性谨慎。再者，尽管我批评这修道院的规矩，以及教会中许多许多不明不白的事，我仍然信仰上帝。哦，是的，我信仰上帝。&quot;
+
+&quot;啊，为何？他们不信上帝吗？&quot;
+
+&quot;嗐，若只是不信上帝，孩子，我倒能理解。但他们仇恨上帝、反对上帝。这才令我警惕，您明白吗。没有福音书的教诲，我们的年轻人面前只有黑暗的前途……您满脸通红。怎么了？是因为想到这些不信神的人吗？哎，都是米莫的错！您说得对，我的孩子。米莫话太多了！&quot;
+
+我能说什么？难道告诉他，发现自己并非唯一怀疑上帝的人，让我一阵热潮涌起，不得不紧抿嘴唇才不致欣喜尖叫？我低下头，紧握双拳，将指甲刺入掌心（我知道这会让我脸色变白），说道：&quot;别担心，我没事，米莫。&quot;
+
+&quot;看见您在这井边徘徊，我心中不安。我告诉过您，我亲手捞起过两个，用我自己的双臂。&quot;
+
+他的焦虑向我表明，我正中要害。他不会再让我离开视线，一刻也不会。我翻着白眼，随着指甲刺入掌心脸色愈发苍白，我站起身来，趔趄着，以致他不得不扶住我。
+
+&quot;别担心，米莫，是太阳和潮湿的缘故。你是对的。幸好你叫醒了我。不过现在……或许患上急性双侧肺炎去见上帝，对我也是一种恩赐……谢谢你，米莫。再见。&quot;
+
+头也不回，我朝修道院走去，但途中我有时间回头查看。他正跟着我，犹豫不决。我确保这种犹豫不会持久：我踉跄跌倒，双膝着地。我知道他在看着我。我等待他的脚步声靠近，才站起身来。我的表演必是十分逼真——转身看他的冲动如此强烈，以致我真的踉跄了一下。然而此刻不是怜悯之时，而是行动之时。</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>stern</b><span>严厉的</span><em>a stern voice</em></div>
+<div><b>convent</b><span>女修道院</span><em>life in a convent</em></div>
+<div><b>devotion</b><span>虔诚；投入</span><em>show devotion to</em></div>
+<div><b>confess</b><span>忏悔；坦白</span><em>confess a fear</em></div>
+<div><b>obedience</b><span>服从</span><em>demand obedience</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch011.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch013.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

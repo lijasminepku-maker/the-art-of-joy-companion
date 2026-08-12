@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 46 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch045.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" selected>Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch047.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 46<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">46 
+
+&#x27;When I saw you two racing down the
+				stairs like – if I may say so, Princess – a couple of real hoydens, I nearly fled
+				for fear of hearing that muffled gallop over my head just like …&#x27; 
+
+&#x27;Nonna Valentina&#x27;s
+				marching?&#x27; 
+
+&#x27;Well, unfortunately no, Beatrice!
+				Nonna Valentina would certainly have been preferable to the charges of the royal
+				guard. Damn Turin, built purposely so that a few carabinieri on horseback
+				or a well-aimed cannon can keep an entire district under control. Ungrateful Turin,
+				or ungrateful continent, as you call it. How I missed this tranquil, relaxing
+				parlour and Catania&#x27;s safe streets!&#x27; 
+
+&#x27;Why do you say that Carlo?
+				You&#x27;re scaring me! Were there cannons?&#x27; 
+
+&#x27;Cannons, no, at least not for the
+				moment. It&#x27;s just that, having been gone for so long, I was able to see Turin
+				in all its cold-blooded ruthlessness. That, however, is one of the benefits of
+				travelling. One must periodically move away from any place where familiarity has
+				killed objectivity. This is true of languages as well. After being forced to speak
+				another language for many months, as I was, when you go back to your own you realize
+				that being away from it has enabled you to rediscover its essential soul. One could
+				coin an amusing slogan: &quot;Study English, French, German to … learn
+				Italian.&quot; And so with these pedantic, futile notions, here I am expressing my
+				joy to be with you again, and also … oh, yes, the fact that by virtue of
+				my long stay in this island&#x27;s sun
+				I have ripened into a respectable, indolent terrone , a true peasant. Oh!
+				And I have also understood why those in the north are so scornful of the south:
+				it&#x27;s because they&#x27;re envious, mark my words!&#x27; 
+
+&#x27;You&#x27;re sad, Carlo.
+				You&#x27;re joking, but you&#x27;re sad.&#x27; 
+
+&#x27;Well, let&#x27;s say that the
+				overall situation i... [truncated]</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">46
+
+「方才見二位飛奔下樓，恕我直言，公主殿下——活脫脫兩個野丫頭，我險些奪門而逃，生怕頭頂又響起那悶雷般的馬蹄聲，彷彿……」
+
+「瓦倫蒂娜奶奶在行軍？」
+
+「唉，可惜並非如此，貝雅特麗齊！瓦倫蒂娜奶奶的行軍，比起皇家衛隊的衝鋒可要可愛多了。都靈這鬼地方，建城之初便算計好了——寥寥數名騎馬的憲兵，或是一門瞄準得當的大砲，便足以鎮住整個街區。忘恩負義的都靈啊，或者該說忘恩負義的大陸，隨你怎麼叫。我多麼懷念這間寧靜安適的客廳，還有卡塔尼亞安穩的街巷！」
+
+「卡洛，你這番話是什麼意思？你嚇到我了！真有大砲嗎？」
+
+「大砲倒沒有，至少眼下沒有。不過是離家日久，得以看清都靈那冷酷無情的真面目罷了。然而這恰是旅行的好處之一。人須得時常離開那些熟悉到失去判斷力的地方。語言也是如此。被迫說上好幾個月的外語之後——如我所經歷的那般——再回到母語中，便發覺疏離讓你重新觸到了它的魂魄。不妨造一句有趣的標語：『學英語、法語、德語……是為了學好意大利語。』就這樣，我帶著這些迂腐無用的念頭，來到你面前，表達重聚的喜悅，還有……哦，對了，多虧在這海島的陽光下久居，我已蛻變成一個可敬而懶散的地道南方鄉巴佬。噢！我還領悟了為何北方人對南方如此鄙夷——那是嫉妒，記住我的話！」
+
+「卡洛，你在憂傷。你在說笑，心裡卻憂傷。」
+
+「好吧，就算眼下大局……總之能回到這兒，我滿心歡喜。」</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>vow</b><span>誓言</span><em>make a vow</em></div>
+<div><b>conceal</b><span>隐瞒，掩藏</span><em>conceal the truth</em></div>
+<div><b>burden</b><span>负担</span><em>carry a burden</em></div>
+<div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div>
+<div><b>jealous</b><span>嫉妒的</span><em>be jealous of</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch045.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch047.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

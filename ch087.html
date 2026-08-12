@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 87 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch086.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" selected>Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch088.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 87<span>解放后、政治与记忆</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1943 年政权垮台、1945 年解放后，重建并不等于问题消失。战后左翼政党、工会、家庭代际冲突与政治幻灭共同构成新的环境。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">87 
+
+On the long journey back through the
+				endless corridors, stairs and more stairs, the anxiety that I might lose Jacopo too
+				in that other struggle he has withstood for years – against a gentle face framed by
+				graceful curls – makes me tremble; he hasn’t mentioned Inès, hasn’t
+				asked about her. Only when I return to the parlour, now rustling like a crowded
+				theatre – the same murmuring, the same occasional voices interspersed with a few
+				silvery notes of an instrument as someone tunes a guitar, a mandolin – only when I
+				see Jacopo where I left him, no longer hugging Prando but Nina, does my anxiety
+				subside. And my surprise at how little time has passed between the peace his return
+				brought us and the war that erupted in ’Ntoni – and which perhaps lies
+				invisibly coiled in Jacopo’s serene smile as well – gives way to the first
+				mandolin player’s melody. It charms Prando, who throws his head back as he
+				listens. At every event, big or small, Prando always demands music and his gaze
+				becomes tender, distant. My scar throbs under my hair at the sight of the beauty of
+				that absorbed head, the large head of an adult man. I can’t sit still;
+				I’m better off going back to ’Ntoni. But as soon as I turn to leave,
+				Prando grabs me by the waist. 
+
+‘Where is my mamma
+					bambina running off to? Always running away, always full of mysteries! Or
+				is it just that, however you may do your duty as a mother, you really can’t
+				stand me, can you?’ 
+
+He forces me to turn around. When I meet
+				his gaze, now bold and scathing again, I realize that he can’t help it. He
+				will always be that way: he loves me
+				just as I love him. Could it be otherwise? The love between a mother and a son is
+				the ultimate romantic melodrama, simply because it cannot be consummated. 
+
+‘It’s no use running away,
+				little girl, because this business of trying to escape me makes me love you more. At
+				the front I was the laughing-stock of everyone! Oh, not that I spoke about you a
+				lot, but they all noticed it and laughed at me. Oh, with respect, mind
+				you … and you know how I responded? “Go on, laugh, laugh, you guys
+				with mothers who are real dogs!” Then they’d start talking nonsense
+				because they were all in love with their mothers as well. See what my mamma
+					bambina does? I hardly say a word to her ca già gira l’occhi
+					scappannu pi banni e banni . Already she’s looking all around, not
+				knowing which way to turn. Ma unni vai? Ccà vicinu a mia hai a stari: madre mi sei e miniera mia! Where are you running to? Stay here with me,
+				you’re my mother and my treasure. Come on, Pippo, play a courtly serenade!
+				Maybe it will melt that precious stone she has in place of a heart.’ 
+
+How did Prando come up with that
+				forgotten language? Did he ever hear Carmine’s voice? 
+
+‘Oh, Pippo! She’s trembling
+				against my chest like a frightened dove.’ 
+
+‘You’re hurting me, Prando!
+				Let me go! I can’t breathe!’ 
+
+‘Do you know that if I really
+				squeezed you, I could break you in two? But then if I needed it, where would I find
+				a suitable glue to reattach this porcelain neck? If only I could find such a glue! I
+				would enjoy breaking you into pieces to then have the pleasure of reassembling you
+				piece by piece afterwards. Where to find it? I’ll have to look for it at the
+				Civita, in that no man’s land. They say you can find everything there. You can
+				buy anything: from the finest silks to candles for the dead, from one-hundred-carat
+				gold to the sharpest knives, from a faceless picciotto – a thug who for a
+				few liras will kill whoever decided to snub you by crossing the street – to silken
+				ladies, vellute with perfumed hair … even fresh new corpses, if
+				you really want to study anatomy on your own … You’re laughing!
+				Laugh, bella , because when you laugh – no offence to decent, married women
+				– you become the most beautiful of all!’ 
+
+It must have
+				been the guitar and mandolin that caused that spring – silent, earlier – to flow.
+				Even his voice changed. The guitar, at first delicate, became deep, as though
+				scoured by underground winds. 
+
+Pippo and Cosimo stand up as they play,
+				and behind Prando’s back stare at my face or at some apparition behind me that
+				enchants and transports them. Prando is silent. He knows that, after delivering his
+				offer of love to everyone, it’s time to listen to other voices, other requests
+				for love. And indeed, a jasmine-sweet voice breasts the wave to declare its anguish
+				over an unrequited love: 
+
+‘Bedda p’amari a tia
+					’stu cori chianci. Sinceramenti senza ca si fingi … Cugghiennu alivi pi ’sti munti santi … bedda p’amari a tia
+					’stu cori chianci … My sweet, for love of you my heart cries,
+				sincerely, it’s no lie …’ 111 
+
+To whom is Crispina singing? Where did
+				that mature voice come from? Or had the pall of war, marked only by anthems,
+				silenced that living sap? After the sorrow over her unrequited love, Crispina, now
+				pushed by unseen hands into the centre of the room, starts singing spitefully: 
+
+‘Quantu è laria la mi zita,
+					malanova di la sua vita … Ah, laria è, cchiù laria d’idda nun ci nn’è … Havi i spaddi vasci vasci ca mi parunu du casci … Ah, laria è, cchiù laria d’idda nun ci nn’è … How ugly my
+				fiancée is! No one is uglier: her shoulders are so stooped she looks like a
+				hunchback …’ 
+
+At that expression of liberation from
+				the shackles of a tormented love, Carluzzu widens his eyes, easily frees himself
+				from the old man’s arms and toddles toward us. Held by that old man, he seemed
+				small. Now, as he slowly approaches, the big-boned structure of his hips and
+				shoulders makes him seem like a little man. 
+
+‘Oh, Mama, look at my son!
+				He’s tugging at me! He must not be used to seeing me hugging a woman.
+				What’s the matter, Carluzzu, are you jealous?’ 
+
+‘Papa, I sing too!’ 
+
+Stella’s voice seizes me by the
+				throat; her trusting dark eyes stare at me. I have to bend down and touch him to
+				feel her in my arms … The small sturdy body doesn’t struggle as he
+				keeps saying, ‘I sing … I sing too with Crispina. Why are you
+				crying, Nonna?’ 
+
+‘Because
+				I’m moved, Carluzzu. Crispina sings so beautifully.’ 
+
+‘Me too, Nonna, I sing
+				good.’ 
+
+‘I’m sure you do.’ 
+
+‘Nonna, Nonna …’ 
+
+Already I was a
+				grandmother … As I reflected on the idea – inevitably more upsetting than
+				any war – I looked away from Carluzzu and saw Inès enter through the parlour’s
+				French door. 
+
+I hadn’t seen her in years, and if
+				it weren’t for the perception of danger that her name, whispered beside me,
+				carried with it, I wouldn’t have recognized her. The smiling charm that had
+				made her seem beautiful had vanished, along with the dark curls, now wound tightly
+				around her head in a harsh braided crown. The small swollen lips, pinched in a
+				disdainful expression, had thinned to a rigid blade of command, and her body,
+				bolstered by the ‘position’ she had won, had lost its agility and
+				grace. 
+
+‘Eh, Mody, a new broom sweeps
+				clean! You should see her now, a harpy with her maid! And something Pietro cannot
+				tolerate: despotic and harsh with the signor prince. That woman has decided
+				to kill him so she can marry: I can see it in the way she rolls her eyes right and
+				left! All she does is hoard money. Plus, she no longer satisfies the signor prince and he’s itching for her, the poor creature! I’ve talked to her,
+				but she doesn’t want vellute . Why not? I thought. If you accepted
+				that arrangement, back then, why won’t she, instead of making the poor soul
+				suffer? By this time, he trembles and runs away when he sees her. Action is needed
+				here, Mody. Listen to me!’ 
+
+‘And what is that,
+				Pietro?’ 
+
+‘It’s simple: get rid of her
+				by natural means, using her own venomous ways.’ 
+
+Inès comes forward with regal bearing
+				and stops in front of Jacopo, who is still arm in arm with Nina. Jacopo hasn’t
+				seen her, so taken is he by Nina’s smile. I can believe it! What else can
+				matter to him when Nina is talking and laughing? But Inès raises her hand – at one
+				time delicate and tremulous, now loaded with rings – and places it firmly on her
+				son’s shoulder, separating the two. Jacopo turns pale as a corpse and abruptly
+				pushes Nina away. Staring at him in surprise, she exclaims,‘What’s come
+				over you, my dark-haired boy? Is this your girlfriend perhaps? Is that why you’re flustered? Look how
+				red he is! Oh, Mody, come and see!’ 
+
+Nina laughs louder, staring at Inès
+				defiantly. Inès, chin raised, hisses: ‘You see filth everywhere, signora . Or is it signorina ? 
+
+‘Signorina , signorina!’ 
+
+‘Oh, now I see, signorina . But things here aren’t like they are on the continent!
+				I’ve known Jacopo since he was a baby, and I’ve come to embrace him as a
+				mother.’ 
+
+‘Sorry, I was just joking. Besides
+				you’re so young and beautiful I thought I was paying you a
+				compliment!’ 
+
+‘Such compliments aren’t
+				appreciated here, isn’t that so, Jacopo? Have you nothing to say to
+				me?’ 
+
+‘But Inès, I came to see you as
+				soon as I returned …’ 
+
+‘Yes, but only for a
+				minute.’ 
+
+‘Well, to reassure you and
+				then … then I had to reassure the others as well.’ 
+
+‘Of course. But afterwards I
+				waited all day for you.’ 
+
+‘Well, I would have come back
+				later on, after … You see? They’re playing music. Crispina was
+				singing. Come on, Crispina, go on with your singing! Besides you’re here,
+				aren’t you, Inès? You’re here with us now. Cheer up, Inès. Don’t
+				be like that!’ 
+
+Jacopo’s voice becomes uncertain,
+				stammering. It’s time to act. As if Pietro has understood my intention – maybe
+				from my stride, certainly not from the smiling expression on my face – I find him
+				standing silently by my side, and I hear myself say, ‘Oh, Inès, a pleasure to
+				see you! Come, let’s not ruin this party in Jacopo’s honour. Our Jacopo
+				is happy. You should be happy as well. Come, let’s hug. It’s also been a
+				long time since we’ve seen one another.’ 
+
+Rigid and hostile in my arms, she
+				whispers, ‘Jacopo is mine, mine alone, and I don’t like this slut. Why
+				was she holding him so tight?’ 
+
+‘All right, Inès, you’re
+				here now, aren’t you? Stay with your Jacopo … and you, Nina, come
+				and see how amazing Carluzzu has become. He says he can sing like Crispina.
+				Let’s see if it’s true. You too, Pietro, you were certainly right: your
+				Crispina must study music. You were right about that other matter as well:
+				we’ve wasted too much time, we must resolve things.’ 
+
+‘Of
+				course, Mody! I’m relieved to hear it, and with your permission everything
+				will be arranged in the best possible way.’ 
+
+‘I don’t doubt it,
+				Pietro.’ 
+
+‘What’s wrong with that
+				Inès, Mody? Why did she get so incensed? Is she in love with Jacopo,
+				maybe?’ 
+
+‘Come on, Nina! Have you forgotten
+				she’s his mother?’ 
+
+‘Oh, right. But how does that
+				change things?’ 
+
+‘Territorialism. You invaded her
+				colony!’ 
+
+‘Hell, Mody, you’ve restored
+				my good mood! Olimpia, come here, my precious colony! My adored Somalia, my
+				Abyssinia! You crack me up, Mody! I’d like to write a song about it and sing
+				it in the streets … Oh Bambuccia, there you are, finally! Where were you
+				hiding? Come and hear your aunt’s latest … Come, you too, with your
+				lands, your plantations! How is your colony?’ 
+
+Nina and Bambolina laugh, and Bambù goes
+				along with that amiable moment. And when Nina, looking around the crowded room,
+				exclaims: ‘Where is your chosen twin? Your ’Ntoni? Uh-oh! Something has
+				happened here. It’s the first time I’ve seen you two apart,’
+				Bambolina answers calmly: ‘’Ntoni had a slight indisposition, but
+				he’s asleep now. I think it’s best to let him sleep. But afterwards,
+				Zia, later on, when this delightful impromptu party is over, ’Ntoni has asked
+				to speak with Jacopo. 
+
+‘Now let’s go get more wine,
+				Nina. What kind of hostess are you, for heaven’s sake! Don’t you see
+				they’ve drained every drop and are looking for wine and other drinks as if
+				they were dying of thirst?’ 
+
+* 
+
+‘So, Mama, will you make up your
+				mind or not? Are you going to run for deputy, yes or no? You’d be at the top
+				of the list. Down in Catania, they’re insisting on it. It would be a matter of
+				pride for us: a communist deputy, a Sicilian woman, in Rome. Plus, I would love to
+				have my mamma bambina side by side with me.’ 
+
+‘No, Prando. Joyce wrote to me as
+				well: no! Despite the fact that we have only a little money, and a salary
+				wouldn’t hurt. But if they pay you
+				– and from what I’ve seen, the pay isn’t paltry – they become your
+				masters and tie your hands. No, Prando, I want to be free to speak.’ 
+
+‘You’re unpredictable, Mama,
+				as unpredictable as you are irritating! The communist cause …’ 
+
+‘I enrolled, didn’t I? I
+				support it. In fact, since I’ve discovered this gift of public speaking that I
+				didn’t know about …’ 
+
+‘Oh, you’re simply
+				fantastic!’ 
+
+‘Fine, I’ll work for you,
+				but on a grassroots level: in the piazzas, with the crowds, not in a building where
+				there are already a great many of you to defend us.’ 
+
+‘That’s true too. Young
+				people don’t know how to speak in public. It’s strange.’ 
+
+‘Twenty years of silence have an
+				effect.’ 
+
+‘In fact, the few who are able to
+				speak are those who did so like me at the Littoriali – that is, in a
+				Fascist setting.’ 
+
+‘Exactly. So you’ll fill a
+				void with me. Is it a deal, Prando?’ 
+
+‘Still, I’m a little sorry.
+				I dreamed of seeing you there in Rome alongside Joyce.’ 
+
+‘Such a fine party, wasn’t
+				it, Prando?’ 
+
+‘Oh, wonderful! Whenever a party
+				is unplanned, it turns out well.’ 
+
+‘Too bad it’s over, right,
+				Nina?’ 
+
+‘Too bad. But why haven’t
+				Jacopo and Bambù come back? They’ve been up there with ’Ntoni for an
+				hour. I’m a little worried.’ 
+
+‘Here they come. I’m
+				off.’ 
+
+‘Why, Prando? Stay! Don’t
+				you want to hear about ’Ntoni?’ 
+
+‘Hey, Nina, excuse me but I have
+				other things to do than worry about these spoiled picciriddi and their
+				crises!’ 
+
+Prando gets up slowly and heads for the
+				French door; on the way, he rights an overturned chair upholstered in red silk. For
+				an instant, the silk focuses the sunset’s hundred tongues of fire and those of
+				his hair; for a moment, his tall, lithe body pauses as he stares in silence at the
+				tables full of glasses, pitchers, dishes … Maybe he noticed the dismay in
+				our eyes over what he said. Perhaps he, too, was somewhat struck by his own words,
+				since he is moved to add, ‘It was lovely, Mama! A party after years and years!
+				I should give you all a hand cleaning up, but, well … I have to run.
+				Forgive me. See you later.’ 
+
+‘What can
+				I say, Mody? No offence to anyone, but the more I see of these men, the happier I am
+				to have had a little girl. Tell me, didn’t you have him read
+				Voltaire?’ 
+
+‘Of course I did!’ 
+
+‘Are you sure? Including the terms
+				“fanaticism”, “tolerance”? If I were in government,
+				I’d see to it that the various Prandos were settled down nice and comfortably,
+				amid fresh meadows and spouting water fountains, and I would make them read over and
+				over again what Voltaire said about fanaticism … What a fanatic, wow! As
+				if he were the only one who had gone to war!’ 
+
+‘Oh Nina, you make me feel
+				cheerful again. Do you know what I would do if I were in government?’ 
+
+‘What would you do?’ 
+
+‘I would give a lifelong income to
+				people like you who have the talent to cheer others up.’ 
+
+‘Don’t even mention income,
+				please! What can I do to earn a living? Shit, the only thing I’m experienced
+				in is prisons! Say, Mody, isn’t there some school where I can teach that
+				subject?’ 
+
+‘Stop, Nina, or I’ll die
+				laughing!’ 
+
+‘But there should be, or it should
+				be created. Because, well, Fascism is over but the prisons are still there.
+				Yesterday I took a little stroll through Catania … those prisons must be
+				protected by God! Everything destroyed, Mody, bombed, but the prison is untouched,
+				as if nothing had happened … But what are those kids doing? Those carusi , as you people say. I really like carusi , meschini , picciotti … There, I could study Sicilian
+				and go teach it abroad.’ 
+
+‘Abroad, Nina?’ 
+
+‘Sure, in
+				Italy … It’s given you some bitter disappointments, hasn’t it,
+				this Italy! Tell me, Mody, couldn’t we have gone directly from the earlier
+				little states to socialism?’ 
+
+‘Apparently not, Nina.’ 
+
+‘A pity! But what on earth are
+				they doing? They’ve been standing there chatting on the stairs for an
+				hour … Now look at that, instead of coming down, they’re going back
+				up. Hell, who can understand them! Daytime parties are really nice, but like
+				everything else, they have their downside: the sun sinks, and after the warmth of
+				all that company the shadows deepen and
+				you think … you think about the fact that there’s an entire night
+				ahead of you, and melancholy slips in en pointe like a sad ballerina. You
+				too, Mody, shit! If I don’t fire up the engines to make you
+				smile … I see you, don’t you realize it? Even in the dark I see you.
+				It may be because I feel like I’ve spent a hundred years with you! I see you
+				all huddled and pale, as if harbouring bitter thoughts. My beautiful, sad Mody,
+				what’s come over you?’ 
+
+‘You’re sad too, Nina, come
+				on!’ 
+
+‘It’s because the
+				party’s over, I think.’ 
+
+‘It’s not because of the
+				party and you know it.’ 
+
+‘Of course, you have to admit that
+				it seemed more like a farewell party than a welcome home party.’ 
+
+‘When Prando stalked off that way,
+				I had the same feeling I had when he left for the war.’ 
+
+‘Certainly, imprisoned down on the
+				island, we weren’t hoping for such a quick end to Fascism. We were thinking of
+				a different kind of peace.’ 
+
+‘That’s exactly right,
+				Nina.’ 
+
+‘And yet my father and his old
+				buddies had warned us.’ 
+
+‘Yes, you told me many times, and
+				Maria down in Catania said so as well.’ 
+
+‘I’m afraid comrade Angelo
+				was right.’ 
+
+‘Angelo who?’ 
+
+‘Angelo Tasca, when he said back
+				then that with the Lateran Treaty, the Church wasn’t so much forming an
+				alliance with Fascism as preparing to assume its legacy … Oh, damn! You
+				startled me, Bambolina! Are you all crazy, appearing like ghosts and turning on the
+				light so abruptly?’ 
+
+‘Are you angry, Nina?’ 
+
+‘No, no! But I have to say
+				something. Sorry. It must be because of being in prison; six years take their toll,
+				after all! Every time the light is suddenly switched on or someone yells, it makes
+				me jump. May I ask what you were all doing, going up and down the stairs? Hey,
+				don’t tell me something serious has happened?’ 
+
+‘It’s just that we had to
+				make some decisions, Nina, Zia … Or rather, Jacopo had to make them
+				because I can’t do it. I … I’d dreamt of this moment so often. I was so
+				happy! All of us here together like before, and instead … oh, Nina, I
+				can’t believe it! Just reunited and we have to …’ 
+
+‘Come, sweetheart, come.
+				Don’t cry. What am I saying? Cry, cry, let it all out here in Nina’s
+				arms.’ 
+
+Bambolina sobs in her arms, and her
+				shoulders, toughened by the outdoor air and sunshine, become fragile and tremulous
+				again, shaken by those sobs. Nina holds her gently, tenderly. She knows, as I knew,
+				that that slim waist, barely marked by a black patent-leather belt, can break under
+				the pressure of a harsh gesture, an unkind word. Like my Beatrice, Bambolina strives
+				for absolute joy as a natural right, and she knows how to achieve it and how to
+				offer it to others. Even Mattia, who slowly enters through the French door and looks
+				at me gravely – why hadn’t I noticed him before? – even he, despite the
+				problem with his heart, seems like a young man again, his skin and his gaze soothed
+				by Bambù’s caresses. 
+
+‘Happiness is a
+					right.’ Yes, Carlo, like bread, water, sunshine. And together we will
+				fight for Bambolina and for little Beatrice who, we can already see, ‘lacks the shrewdness and ruthlessness needed to fight, which
+					fortunately you have, Modesta’ . 
+
+Jacopo studies an overturned pitcher,
+				trying not to listen to Bambolina’s sobs. ‘ Oh, Mama, when I hear a
+					woman cry I want to die. I can’t take it! ’ Jacopo, his tall
+				body once erect, now humbled, takes off his glasses and wipes them. Jacopo, like
+				Bambolina, lacks shrewdness and ruthlessness. It’s for them that we must
+				fight, Carlo, only for them … for that Carluzzu, who fell asleep on the
+				sofa and is now rubbing his eyes, staring at the chandelier. ‘ … Well,
+					Mama, with this child about to be born to Stella and Prando, we’re at the
+					fourth generation of atheists. I know you don’t like the word, but four generations are already almost a
+					nobility .’ ‘ What do you mean, Jacopo? ’
+					‘ Uncle Jacopo, then you, Mama, then me, Prando and Bambù . And
+					Carluzzu makes four …’ 
+
+Look at him there: a big-boned little
+				man, sliding off the sofa and running, dazed, toward his aunt. In that wide-eyed
+				gaze you can read everything, those eyes still full of the earlier fun and games,
+				the cheerful singing. Clearly undecided whether to leave the joy behind and cry too,
+				he clings to Bambolina’s skirt, asking for help in his own way. The tiny hands have the power to
+				rouse Bambù, who lets go of Nina and exclaims: ‘ Ma che semu pazzi ,
+				are we all crazy in this house! Carluzzu, what did they do, abandon you? Just look
+				at that, forgetting about such a sweet piccioletto ! My little one, my
+				little kitten! What are we today, eh, Carluzzo? Come, tell your aunt what you are
+				today: a kitten or a little ant?’ 
+
+‘I’m a sciccareddu today, Zia, a little donkey.’ 
+
+‘You mean an asinello ,
+				right, Carluzzu? Sooner or later, we have to learn an Italian word or two,
+				don’t we?’ 
+
+‘Asinello, ’u
+					sacciu . I know the song too: Sciccareddu di lu me cori …’ 112 
+
+‘Oh, Zia, when you were away I
+				thought I might be mistaken, but now seeing you two side by side … Did you
+				know that Carluzzu looks just like you?’ 
+
+‘Well, what a surprise, Bambù!
+				Prando is Mody’s son.’ 
+
+‘Of course, of course, Nina. But
+				Prando doesn’t resemble Modesta. And you Carluzzu, do you love your nonna ?’ 
+
+Carluzzu doesn’t answer and stares
+				at me, serious. Indeed, I was a grandmother … how did it feel? Nina had
+				asked me many times, but I had no answer. Even now, with that overly serious face,
+				the big wide eyes staring at me, I don’t feel anything, but I’m
+				beginning to understand. Up till now, my inattention toward the last born concealed
+				envy toward someone whose youth reminds you of a time that is past for you, and of a
+				future that you will not live to see owing to biological constraints. And
+				everyone’s insistence on the fact that that small creature looked so much like
+				me? Sensing an old person’s envy which, if badly directed, might explode, they
+				were probably trying to arouse my tenderness in order to protect him. His little
+				face, so intent on studying me, was further confirmation of my conclusion: Modesta
+				must seem tall to him, powerful … like Nonna Gaia, Nonna Valentina. Of
+				course, it would be easy to intimidate and dominate him with authority, just as it
+				would be easy to suffocate him with excessive love, thereby protecting oneself
+				against the ever-present threat of a ‘league against abominable
+				grandmothers’. 
+
+‘Just look at them, Jacopo: two
+				peas in a pod!’ 
+
+How can I resist the temptation of power
+				that makes my brow throb now that he, perhaps sensing my doubt and confusion, smiles with my smile and touches his hand
+				to my face to feel through my flesh where the danger, or tenderness, of my being
+				lies? His palm reads me, and as soon as I decide not to use that power, the little
+				hand gains strength and pretends to slap me. 
+
+‘You must like your nonna , don’t you, if you do that! He always does that when he likes
+				someone, even with Olimpia.’ 
+
+‘Olimpia! Where is
+				Olimpia?’ 
+
+‘It’s really an obsession.
+				Always fixated on Olimpia! Just look at him. That’s always the way: first a
+				slap, then he kisses you.’ 
+
+I feel like I’ve been able to
+				strip the word nonna off my skin – or transform it into something small and
+				tender like him. 
+
+‘Oh Zia, he’s just like you:
+				always restless, always up to something, and he asks so many questions! You must
+				have been like that as a little girl. I can just see you! And then too, he has a
+				mania for dragging …’ 
+
+‘Dragging, Bambù?’ 
+
+‘Yes, he drags tree limbs, gathers
+				leaves, and he never stops asking questions. He’s alert, intelligent, but what
+				worries me is his fear that everyone may disappear at any moment. What do you think,
+				Jacopo? Could it be because of the war? Because he saw you all leave one after the
+				other?’ 
+
+‘That could be. But at the moment
+				it’s ’Ntoni we need to worry about. Right now he’s sleeping, but
+				he’s in bad shape, worse than you think. And as I told you earlier upstairs,
+				your loving care, your words, won’t help him. He needs medical care and
+				that’s that. The soul can fall ill just like the body. He was wounded inside
+				and the wound will only heal with the help of a physician who specializes in these
+				things. It’s not solely because of the war, the concentration camp, as you
+				thought. There’s also Stella …’ 
+
+‘So you’ve really made up
+				your mind, Jacopo? I was hoping you would have second thoughts.’ 
+
+‘Bambù, you’re really
+				stubborn, you know? If he himself realizes it and he’s not
+				well … Did you see how he asked to go when he saw a glimmer of hope? If he
+				realizes it, all of you should realize it as well. When I returned, I too dreamt of
+				nothing but studying here and enjoying the sunshine, our home! What did you think? I
+				dreamt of it for years, but clearly it’s not possible.’ 
+
+‘But he
+				could go to Milan himself, to that doctor.’ 
+
+‘No! He asked me to go with him,
+				and all in all it will be best for me too that way: I’ll study and quickly
+				become apprenticed … I’d say this is a warning. As always after a
+				war, times speed up. Yes, the pace has quickened and this is probably a sign that we
+				shouldn’t waste a moment. We’re behind Europe by at least twenty years!
+				Mama, please, you talk to Ida. I know you understand.’ 
+
+‘I understand perfectly. But we
+				have to consider the accounts: we have very little money now.’ 
+
+‘Damn! With the newspaper having
+				risen to thirty liras in a year! Shit, Mody, I’ll accept the offer of that
+				bitch who’s loaded with money. I’ll go into business!’ 
+
+‘Into business, Nina?’ 
+
+‘That’s right, Jacopo. Back
+				there, on the island, I started knitting, and crocheting hats, scarves, sweaters and
+				shawls isn’t bad. Plus, with that shitty Esmeralda we’ll have helpers. I
+				like to choose and match colours. I’ve always had a passion for colour, maybe
+				because I’m begalina , half blind, as my mother used to say, and
+				colours stand out.’ 
+
+‘Oh, dear Nina, thank heavens
+				you’re staying here!’ 
+
+‘We’ll work, Mama! And it
+				will be a good thing for both ’Ntoni and me to start looking after ourselves,
+				financially speaking as well.’ 
+
+‘Anyway, I’m going to bed.
+				What a day this has been! I have to bolster my strength so that tomorrow I can face
+				Esmeralda’s favours and her intentions to save me through redemptive work,
+				concepts that motivate that aristocratic lady. She’s beautiful though; damn,
+				she’s gorgeous! They talk a lot about proletarian beauty … to
+				console us and keep us in line in our poverty. Before, I didn’t look at the
+				rich, or I looked at them and didn’t see them, since my eyes were blinded by
+				that populist platitude. Until I realized, damn if I didn’t realize, that they
+				are not only rich but beautiful, fragrantly scented and often intelligent! Like you,
+				Jacopo. Damn this rotten world!’ 
+
+‘You’re making me blush,
+				Nina. Come, I’ll take you up.’ 
+
+‘Oh sure, go ahead, take me up,
+				give me your arm. Not everyone has the chance to be accompanied by a young man like
+				you. Good as gold! At least I’ll be able to tell my grandkids: “So, you
+				won’t believe it, my dear grandchildren, but your grandmother, long ago, had
+				the good fortune, thanks to
+				incarceration and prison cells, of landing among the most elegant and refined
+				people …” And they’ll say: “No, really, Nonna? How did that
+				happen? Tell us!”’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">八十七
+
+在那穿越无尽走廊、楼梯又楼梯的漫长归途中，我可能会失去雅各布的焦虑——在另一场他已经抗争多年的斗争中，对抗一张被优雅卷发框住的温柔面孔——让我颤抖；他没提过伊内丝，没问过她。只有当我回到客厅时，那客厅如今像座拥挤的剧院般窸窣作响——同样的低语，同样的间断人声中夹杂着调弦的曼陀林、吉他弹出的几个银铃般的音符——只有当我看到雅各布留在我离开他的位置，不再拥抱着普兰多而是拥抱着尼娜时，我的焦虑才平息。而我惊讶于他的归来带给我们的和平与在恩托尼身上爆发的战争之间，时间竟过得如此之少——那场战争也许同样无形地盘绕在雅各布平静的微笑中——这惊讶被第一位曼陀林手的旋律所取代。那旋律迷住了普兰多，他仰头倾听。在每个事件中，无论大小，普兰多总是要求音乐，他的目光变得温柔而遥远。看到那专注的头颅、那个成年男人大颗头颅的美丽，我头发下的伤疤隐隐作痛。我坐立不安；最好还是回到恩托尼身边。但就在我转身要走的瞬间，普兰多揽住了我的腰。
+
+&quot;我的小妈妈要逃到哪里去？总是逃跑，总是充满秘密！还是说，不管你如何尽你母亲的本分，你真的受不了我，对吧？&quot;
+
+他迫使我转过身来。当我对上他的目光，如今又变得大胆而尖刻，我意识到他无可奈何。他将永远是那样：他爱我，正如我爱他。还能是别的样子吗？母亲和儿子之间的爱，是终极的浪漫情节剧，仅仅因为它无法被圆满。
+
+&quot;逃跑没用，小妈妈。我们注定要彼此折磨。你知道的。我一直都知道，甚至在我还小的时候。我想我生来就知道。也许这就是为什么我那么难缠。你还记得吗？&quot;
+
+&quot;我记得一切，普兰多。&quot;
+
+&quot;一切？我不信。有些事连你也不知道。比如，我知道你和马蒂亚，和尼娜。你以为我生你的气是因为这些？不。我气的是你从来没把这些告诉我。你把我当小孩子。&quot;
+
+&quot;有时候你还是个孩子。&quot;
+
+&quot;如今不再是了。不再是了。战争把我变成了一个男人。我不喜欢我变成的这个男人。但我没有办法。过来，坐下。我有些事要告诉你。不是道歉，我不道什么歉。只是……解释。&quot;
+
+&quot;我不需要你的解释，普兰多。&quot;
+
+&quot;但我需要你听。请坐。就一会儿。&quot;
+
+我坐下了。外面的音乐还在继续，有人开始唱歌了。熟悉的声音，熟悉的歌曲，从我们童年起就在唱的歌曲。在那短暂的时刻里，仿佛战争从未发生过。
+
+&quot;我在战俘营里，以为自己会死去。不，不是因为饥饿或寒冷，虽然那些都有。但因为我无法想象没有你们的生活。我躺在那里，在黑暗中，试着回想每一个细节：这间房子，花园，你的脸，雅各布的声音，班博利娜的笑声。我意识到一件事：我从来没有学会独自生活。我总是在你们身上投射我自己的影子。当我回来，看到你们所有人还活着，甚至在某种程度上比从前更好，我不知所措了。我本该开心，但我感到了某种……失望。仿佛我不再被需要了。&quot;
+
+&quot;你永远都是被需要的，普兰多。&quot;
+
+&quot;是吗？可马蒂亚在，尼娜在。雅各布长大了。班博利娜恋爱了。连斯特拉都……都走了。我该占据什么位置呢？告诉我，小妈妈。告诉我该做什么。&quot;
+
+&quot;你不需要做什么。你只需要在这儿。活着。呼吸。像我们所有人一样，一天一天过。&quot;
+
+&quot;就这么简单？&quot;
+
+&quot;就这么简单。但简单从不意味着容易。&quot;
+
+他笑了，那是一个疲惫的、没有信服的笑容，但毕竟是个笑容。他低下头，靠在我肩上，我们就这样静静坐着，听着曼陀林的声音，直到天色渐暗，直到第一个来叫我吃晚饭的声音响起。&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>compromise</b><span>妥协</span><em>reach a compromise</em></div>
+<div><b>solidarity</b><span>团结</span><em>act in solidarity</em></div>
+<div><b>legacy</b><span>遗产；留下的影响</span><em>leave a legacy</em></div>
+<div><b>reconcile</b><span>和解；调和</span><em>reconcile with</em></div>
+<div><b>rebuild</b><span>重建</span><em>rebuild a life</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch086.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch088.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

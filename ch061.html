@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 61 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Three</div></div>
+<div class="nav-row">
+  <a href="ch060.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch058.html" >Chapter 58</option><option value="ch059.html" >Chapter 59</option><option value="ch060.html" >Chapter 60</option><option value="ch061.html" selected>Chapter 61</option><option value="ch062.html" >Chapter 62</option><option value="ch063.html" >Chapter 63</option><option value="ch064.html" >Chapter 64</option><option value="ch065.html" >Chapter 65</option><option value="ch066.html" >Chapter 66</option><option value="ch067.html" >Chapter 67</option><option value="ch068.html" >Chapter 68</option><option value="ch069.html" >Chapter 69</option><option value="ch070.html" >Chapter 70</option><option value="ch071.html" >Chapter 71</option><option value="ch072.html" >Chapter 72</option><option value="ch073.html" >Chapter 73</option><option value="ch074.html" >Chapter 74</option></select>
+  <a href="ch062.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART THREE</p>
+  <h2>Chapter 61<span>法西斯时期与新的思想</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1922 年后法西斯逐步建立一党统治。自由主义、社会主义、无政府主义与共产主义并存。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">61 
+
+The light of dawn, which I had groped for			in the dark, arrived to polish the shapes of the furniture and Uncle Jacopo’s				books which, no longer imprisoned by glass and grillework, peacefully retold their				stories. Since he had returned among us, I too had begun to refer to him as uncle,				to distinguish between the troubled face that stared back at me from the photograph				and the little boy with the pensive gaze of an adult. But the worm kept gnawing the				bony vaults of my cranial chamber, making me get in and out of bed, open and close				drawers and windows. It was stifling in that room, but when I opened the shutters I				was met by a dense chill, without a cloud in the sky, the same unbroken, bright sky				of summer in the dead of winter. How I had yearned for that gleaming brilliance				during the long winters of my trips up north! No, I would not leave again. It was				she who had to go away, taking the worm away with her. Though I lack the courage to				admit it out loud, I know it has a name: jealousy. I said it, and for a moment this				word, whose meaning had been unfamiliar to me before, stands apart from my emotions				and I can see it; I can touch it like a vase, a glass, an object you can turn and				look at from all sides. That’s the value of saying things: materialized by my				voice, the worm is more nebulous, formless and ineffectual than all the feelings I				had experienced up until that day. Moreover, something that I would never have				imagined before, it was a carnal sensation, a constant dull ache like a tingling, a				toothache … That Turk Nazim, a proletarian hero despite his nobility, living in prison and in poverty				despite his wealthy, influential childhood in a villa on the Bosphorus with his				little friend Joyce, daughter of an Italian ambassador and a Turkish				noblewoman...</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">61
+
+黎明之光，我在黑暗中摸索已久的那道光芒，终于降临，拂拭着家具的轮廓与雅各布叔叔的藏书——那些书卷，不再被玻璃与铁栅禁锢，安然地重述着它们的故事。自从他回到我们中间，我也开始称他为叔叔，以此将照片中那凝视着我的不安面容，与那个有着成人般沉思眼神的小男孩区分开来。但那蠕虫仍在啃噬我颅骨穹窿，驱使我辗转反侧，开合抽屉与窗户。房间里闷热难耐，可当我推开百叶窗，迎面而来的却是浓重的寒气，万里无云——盛夏与隆冬之间，竟是同样朗澈如洗的晴空。在北国旅居的那些漫漫冬日里，我曾何等渴念这片灿烂光芒！不，我不会再离开了。该走的是她，连同那条蠕虫一并带走。虽然我没有勇气大声承认，但我知道它有一个名字：嫉妒。我说出来了，这个词——它的含义此前对我如此陌生——瞬间与我的情感分离开来，我能看见它了；我能触摸它，如触摸一只花瓶、一只玻璃杯，一件可以翻转、从四面八方端详的物件。这便是言语之物的价值：经我之声物质化后，那条蠕虫比我此前所经历的一切情感都更加朦胧、无形而无力。更有甚者，有一种我此前绝未想象到的感受——那是一种肉体的知觉，一种持续钝痛，如刺痛，如牙痛……那个土耳其人纳齐姆，虽出身贵族，却是无产阶级的英雄；尽管童年在博斯普鲁斯海峡畔的别墅中富裕显赫地成长，与他的小伙伴乔伊斯——一位意大利大使与土耳其贵族女子之女——相伴，却过着狱中贫困的生活……</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>regime</b><span>政权，统治体制</span><em>an authoritarian regime</em></div>
+<div><b>dissent</b><span>异议</span><em>voice dissent</em></div>
+<div><b>allegiance</b><span>忠诚，拥护</span><em>pledge allegiance</em></div>
+<div><b>propaganda</b><span>宣传</span><em>state propaganda</em></div>
+<div><b>refuge</b><span>避难处；庇护</span><em>seek refuge</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch060.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch062.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

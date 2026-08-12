@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 41 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch040.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" selected>Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch042.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 41<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">41 
+
+‘I’m selling everything. I
+				said I’m selling everything. I’ll rent the palazzo to the bank. Attorney
+				Santangelo agrees: turn everything into gold and some shares. Then we’ll see.
+				Before long it will take a suitcase full of paper to buy a crust of bread. The
+				seaside villa will do, and it will also be good for Ippolito: here he can’t go
+				out in the street and his health is suffering. At Carmelo he had grown used to
+				working with the gardener, to being outdoors, to—’ 
+
+‘And it was a mistake! Word about
+				his deformity spread throughout the fields. It’s one thing to imagine it and
+				another thing to see it, figghia , and you’ve lost standing! If, in
+				addition to this first error, you now want to add, as you’re telling me, that
+				of retreating to a small house without a household staff, it will be difficult to
+				keep up your prestige.’ 
+
+‘But I don’t want to keep up
+				any prestige, Carmine. Maybe I wasn’t clear. I want to dispose of the lands as
+				well.’ 
+
+‘The lands too? No, that I
+				didn’t understand! The Princess, God rest her soul, and I placed our trust in
+				you, but I can see you’re just an indolent woman. Are you tired of working so
+				soon?’ 
+
+‘That’s my business. You
+				can’t understand. I don’t like this work. I want to study!’ 
+
+‘Study? Listen to her! And what
+				does that mean, study?’ 
+
+‘You see? You can’t
+				understand. All right, so I’m lazy and a woman, call it whatever you
+				want.’ 
+
+‘I
+				won’t say another word. But when they know you’re selling, word will get
+				around and you won’t find anyone who will offer you the real value of the
+				land: they’ll give you next to nothing, like what happened last month with the
+				Suormarchesa estate in the Serradifalco territory: it had to be sold at public
+				auction and Don Calò bought it for a song.’ 
+
+‘So don’t wait for a public
+				auction and for Don Calò to arrive. Buy it yourself. Carry out the plan you’ve
+				had for twenty years.’ 
+
+‘I see you’re perceptive.
+				But I didn’t steal anything; I took what was coming to me by my labour, while
+				the Prince and his offspring, not to speak ill of the dead, fooled around studying
+				books and gazing at the stars. Besides, I did it for my sons.’ 
+
+‘Your sons? What sons?’ 
+
+‘I have two
+				sons … didn’t you know?’ 
+
+‘How could I know when you
+				didn’t tell me?’ 
+
+‘I had to tell you? You observe, figghia , you listen. You’ve become like these signori .
+				Always taken up with useless things … I’ve been very worried during
+				these four years of war. But as God willed, Mattia returned when you gave birth, and
+				now Vincenzo is coming home after he was said to be missing. You too have a son; did
+				you forget that? If you sell everything, what will you leave him? You may have
+				enough to live on for ten or twenty years, but lands give children status. And you
+				have a son!’ 
+
+‘He’s your son
+				too.’ 
+
+‘He doesn’t have my
+				name!’ 
+
+‘You talk like the old man you
+				are: “name”, “status”! My son will make his way on his own.
+				We younger people are different.’ 
+
+‘That may be! But as you say,
+				I’m an old-fashioned man, and for me my duty as a father comes first. And
+				while we’re on the subject: my sons mustn’t know about my weaknesses.
+				You’re a child, just a few years between you and Mattia.’ 
+
+‘So?’ 
+
+‘We can’t see each other
+				like we used to. My sons mustn’t know.’ 
+
+I lunged forward to strike him, but this
+				time he didn’t let me hit him. He blocked me with his hand and, holding me at
+				a distance, said in a frigid tone that I didn’t recognize: 
+
+‘Stop
+				right there, carusa , the time for fun and games is over, little girl! You
+				have to keep quiet. Understood? And forget. Carmine has forgotten. Always at your
+				command, Princess.’ 
+
+* 
+
+‘This one we absolutely must
+				take; it’s a unique painting, and this landscape too, look! Even if you
+				don’t like them very much, we must keep them. We’ll put them all in one
+				room. Uncle Jacopo used to say that over time they would become priceless.
+				Fortunately he made a note of the ones he thought were valuable. He knew everything
+				about painting, about sculpture, even architecture. Such freedom, Modesta! Have you
+				noticed how my colour has returned, like you wanted, and that I’ve even gained
+				weight? Come on, give me a hug and smile. I just can’t stand to see you so
+				sad. Let’s hope that this illness will soon pass. What did the doctor call
+				it … anaemia? Is that what he said? I want so much to take driving lessons
+				with you. What a good idea you had to sell that hearse and buy a small car. Without
+				a driver we’ll be free to go wherever we want. We’ll drive ourselves,
+				just think what fun! How do you feel? Better? Come with me, there’s a really
+				nice Empire-style table that I’d like to take with us, but I want your
+				opinion.’ 
+
+Did you hear how Beatrice talks? Carmine
+				is gone and she senses the emptiness I’m left with, and that I need her. 
+
+Until a few minutes ago I had meant to
+				skip over the episode of Carmine’s desertion, recalling that being abandoned
+				or abandoning is one of the obligatory phases that life imposes on us. But as always
+				happens in ‘affairs of the heart’, his words assumed the right to live
+				without my intellect’s permission. Don’t worry. I won’t give you a
+				blow-by-blow description of the struggle that everyone comes to know and tries to
+				forget. I suffered just like everyone else. But love is neither absolute nor
+				eternal, and love doesn’t only exist between a man and woman, possibly
+				consecrated. You could love a man, a woman, a tree and maybe even a jackass, as
+				Shakespeare tells us. 
+
+The harm lies in the words which
+				tradition presents as absolute, in the distorted meanings those words continue to
+				hold. The word ‘love’ is a
+				lie, just like the word ‘death’. Many words lied, almost all of them
+				lied. That was what I had to do: study words exactly as one studies plants,
+				animals … And then, wipe away the mould, free them from the deposits of
+				centuries of tradition, invent new ones, and above all discard and no longer use
+				those that common practice most often adopts, the most corrupt ones, such as
+				‘sublime’, ‘duty’, ‘tradition’,
+				‘self-denial’, ‘humility’, ‘soul’,
+				‘modesty’, ‘heart’, ‘heroism’,
+				‘feeling’, ‘compassion’, ‘sacrifice’,
+				‘resignation’. 
+
+I learned to read books in a different
+				way. As I came across a certain word, a certain adjective, I extracted them from
+				their context and analysed them to see if they could be used in ‘my’
+				context. In that first attempt to identify the lie hidden in words that were
+				evocative even to me, I realized how many of them there were, and accordingly how
+				many false concepts I had fallen victim to. And my hatred grew, day by day: the
+				hatred of discovering that I had been deceived. 
+
+I found the words to kill Carmine. I
+				found what all the poets know: that you can kill with words, just as well as with a
+				knife or with poison: 
+
+You kill me, but my face 
+
+remains glazed 
+
+in your eyes. 
+
+At night 
+
+your eyelids weep, 
+
+nailed shut. 
+
+And thinking back to Beatrice in the
+				early days of our love, to the Beatrice of that time, before I forget her: 
+
+What drives you on 
+
+through obscure, unsettled 
+
+seasons, 
+
+you who pale at the slightest 
+
+heat 
+
+and collapse, shattered, 
+
+at the slightest stir 
+
+of shadows on the lawn? 
+
+Don’t be
+				afraid. I won’t recite all the poems that flooded my mind like a swollen
+				torrent. 
+
+* 
+
+‘What are you doing, Modesta? You
+				shouldn’t work so hard. Forgive me for coming to look for you. It’s so
+				nice down at the shore with this heat. We’ve prepared a fire; tonight
+				we’ll dine on the beach. Pietro caught a lot of fish this morning. He’s
+				so funny, he wants us to think that Ippolito caught some too! Come on, we’re
+				all so cheerful, the only thing we’re missing is you.’ 
+
+And they all seemed really happy to
+				scurry around under Beatrice’s orders. In a short time, she had transformed
+				the small cove into a dining-room glittering with silver cutlery and porcelain
+				plates, lit by bright acetylene lamps on the boats. The happiest of all was Ippolito
+				who, hand in hand with his Signorina Inès, sat staring at the sea. Did the sea
+				whisper freedom to him as well? It must have been so, because those big eyes with no
+				eyelashes, always teary, widened as they stared at the water. A distant echo of
+				recollection seemed to appear in his eyes when he turned his gaze on me. Terrified,
+				I had the precise feeling that those eyes were looking at me with recognition, as he
+				repeated: ‘Boo-tiful, Mama, boo-tiful.’ Fortunately, Signorina Inès
+				burst into one of those sudden laughs that shook her dark ringlets, her neck and her
+				breasts. Fortunately, because I was about to run away when I heard him address me as
+				‘Mama’. 
+
+‘Did you hear that, Princess? He
+				said “beautiful”. With me he’s already said it, and many other
+				words as well. But, just as I thought, in front of you he’s embarrassed. Do
+				you see how much weight he’s lost? And do you know, he’s just about
+				finished painting the vegetable garden fence with the gardener’s help, and his
+				hands have almost stopped shaking.’ 
+
+With growing dread I watched that poor
+				thing’s eyes as he followed Inès’s lips and then looked at me with a
+				kind of satisfaction at hearing his aunt, as he now called her, tell of his
+				accomplishments. He had a strong sense of family, the poor creature. I tried to
+				laugh silently. But the thought that he had been lost to life only as long as they
+				had kept him locked up, and the
+				recognition of the progress that he had made even at his age just because someone
+				took pains with him, brought sobs to my throat; I had to return quickly to my room,
+				where I wept for hours and hours. Was I crying for Ippolito?</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">41
+
+&quot;我要把一切都卖掉。我说了，一切都卖掉。我将把宫殿租给银行。圣安杰洛律师也同意：把一切都换成黄金和一些股票。然后我们再看。过不了多久，就得提一皮箱纸钞去买一块面包皮了。海边别墅就够用了，而且对伊波利托也有好处：在这里他没法上街，健康在恶化。在卡梅洛，他已经习惯了跟园丁一起干活，习惯了户外，习惯了——&quot;
+
+&quot;那是个错误！关于他畸形的传闻已经传遍了田野。想象是一回事，亲眼见到是另一回事，孩子，你的声望已经受损了！除了这个最初误判之外，如果还要如你所说，再加上退居到一栋没有佣人的小房子，那么维持你的威望便难上加难了。&quot;
+
+&quot;但我不想维持任何威望，卡尔米内。也许我没说清楚。我还想把田地也处理掉。&quot;
+
+&quot;田地也卖掉？不，这我没理解！公主，愿她安息，和我，我们对你寄予了信任，可我看你不过是个懒散的女人。这么快就厌倦劳作了？&quot;
+
+&quot;这是我的事。你理解不了。我不喜欢这份工作。我想学习！&quot;
+
+&quot;学习？听她说的！学习是什么意思？&quot;
+
+&quot;你看？你理解不了。好吧，就算我懒，我是女人，随你怎么说。&quot;
+
+&quot;我不再说了。可一旦他们知道你要卖地，风声传开，你就找不到人肯出田地的真正价值：他们只会给你一点点钱，跟罗马上个月塞拉迪法尔科领地上索尔马切萨庄园那事一样：不得不公开拍卖，结果卡洛老爷只花了一首歌的价钱就买下了。&quot;
+
+&quot;那……&quot; </div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>conceal</b><span>隐瞒，掩藏</span><em>conceal the truth</em></div>
+<div><b>burden</b><span>负担</span><em>carry a burden</em></div>
+<div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div>
+<div><b>jealous</b><span>嫉妒的</span><em>be jealous of</em></div>
+<div><b>longing</b><span>渴望，思念</span><em>a longing for</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch040.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch042.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

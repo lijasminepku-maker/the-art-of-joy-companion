@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 57 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch056.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" selected>Chapter 57</option></select>
+  <a href="ch058.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 57<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">57 
+
+‘Three months I’ve waited,
+				Modesta. Three times I watched the moon wax and wane with the protracted pace of a
+				life sentence. Why do you want to condemn me to this solitude, why?’ 
+
+‘I’m not condemning anyone.
+				I don’t have the heart to listen to anyone anymore. My heart has become a
+				wasteland, and the name Tudia is now stamped on me like a mark of death.’ 
+
+‘Damn Vincenzo for coming between
+				us! I feel like a wolf caught in a trap. Why did he do it?’ 
+
+‘He was a Fascist.’ 
+
+‘Don’t be silly; he was no
+				Fascist! He was out of his mind! That morning before going out to meet his death –
+				death makes you talk, you know! – he told me things … unspeakable things
+				about our father, which I can’t even stand to think about.’ 
+
+‘You see how the memory is still
+				too vivid between us? Let’s wait a little longer. Maybe in a
+				year … If Beatrice would at least snap out of her psychosis and if her
+				innocent child, Bambolina, could only swallow a sip of milk without spitting it up.
+				Bambolina is wasting away, and I’m tormented by it. Now go!’ 
+
+‘For three months I’ve had
+				your face imprinted on my eyes, night and day. Come away with me! There are other
+				places outside this narrow-minded island. I’ve seen them … I’m
+				not like those people who look at me disapprovingly because I haven’t avenged
+				Vincenzo’s death. I haven’t even wanted to find out who did it or who didn’t. I
+				don’t want to know anymore. I don’t give a damn!’ 
+
+‘Don’t say that!’ 
+
+‘On the contrary, I’ll say
+				it! And I want you, even if it was a friend of yours who killed Vincenzo, even if it
+				was that Jose …’ 
+
+‘Jose didn’t leave my house
+				even for a moment.’ 
+
+‘You’re defending him, are
+				you? So say it: you’ve changed because of him. Say it! Since he set foot on
+				this island, you’ve changed.’ 
+
+‘I’ve changed because of
+				Carlo’s death, Mattia. Try to use your head.’ 
+
+‘No! The death of a brother-in-law
+				can’t change someone to that extent!’ 
+
+‘He was a friend.’ 
+
+‘No! I don’t believe it. It
+				was that Jose, and if you want to know, I came to the funeral to see him, just to
+				see him.’ 
+
+‘So?’ 
+
+‘I saw him! Mattia isn’t
+				fooled. That guy has the body you like. He’s a man I’d like to test my
+				skill against, by God! Arrogant, solid as a rock, and contemptuous! If it
+				weren’t for you, I’d like to ask him a thing or two!’ 
+
+‘He’s gone, Mattia. Stop
+				ranting. I won’t see him again. I read in his face that I won’t see him
+				again.’ 
+
+‘You don’t fool
+				me.’ 
+
+‘Like I read in your eyes that day
+				at your father’s bedside that death could come to me from you. I won’t
+				see him again.’ 
+
+‘Again she says it. She says it
+				again, almost in tears! Don’t you see that he’s captured you, at least
+				in your imagination?’ 
+
+‘That’s enough, Mattia. Get
+				out!’ 
+
+‘No! Not like this, you fiendish
+				lava devil! Not with that sentence hanging over me. No! For you then, I’m
+				supposedly a sign of death, aren’t I? And what is he? He’s life, right?
+				And to think how much I loved you! I hate you! I hate you!’ 
+
+I mustn’t turn
+				around … Before I finish the thought, I find I have the gun in my hand.
+				From the recoil that jolts me from wrist to shoulder, I sense that I’ve fired,
+				too, while a whitish flash explodes in my face and makes me keel over … Is
+				it I who drop to the ground or is it the
+				grass that rises up to meet me? Face down, I fire again, without being able to take
+				aim because a warm liquid is now dripping into my eyes. Screams and gunshots echo
+				behind me; bracing my hands on the ground, I try to pull my head out of the dark
+				wave that submerges me. At night, the sea is black if there is no
+				moon … But there is a moon now … from up above, it stares at me
+				with its whitewashed gaze, but it isn’t screaming. It’s Elena who is
+				screaming, and those swift legs, the legs of a hare, are Celso’s. It seems
+				impossible, but Celso runs like Tuzzu … that Celso has the legs of a
+				hunter. He’ll kill him. I find myself hoping that Mattia will manage to escape
+				the hunter … I can only hope that Mimmo has seen me … he has
+				long arms, Mimmo does. And although my head is now banging faster and faster against
+				the walls of the well, I can only hope … 
+
+‘Hope and push, Modesta. Push, that way you help yourself and you help
+					it!’ 
+
+‘The position is right! … don’t fight the wave of pain,
+					don’t oppose it, follow it with your entire body and your senses,
+					that’s the only way you’ll do it!’ 
+
+I push with my entire body and my
+				senses, but that mass of flesh that stirs at regular intervals, sure as day follows
+				night, and rams the walls of my belly, doesn’t want to come out. Was it
+				Prando, unborn, struggling inside me or was it I, unborn, who was struggling against
+				the wire sutures of my forehead to get out? I thrashed about incessantly to be
+				reborn … And one misty dawn, barely tinged with the heat’s reddish
+				glow, I gave birth to myself as though a great wave of carnal pain, washing over my
+				body and crashing far behind me, had carried away all the sorrow, the bitterness,
+				the joyful plans now wrecked against the rocks of Carlo’s death. The
+				disappointment over those plans that had collapsed in such a brief time was a bitter
+				ache. It had been a bitter ache back when Carlo lay dying in bed, when Beatrice, her
+				eyes shining with madness, kept saying: 
+
+‘Just think how envious people can
+				be, Modesta! They continue to say that Carlo is dead, when he was here just two
+				minutes ago – you know how he is – every so often he comes down from his study to
+				talk to me. In fact, before I forget, he told me that tonight we’re going to
+				the Opera. Would you like to come too? It’s just envy, going around saying he’s dead,
+				while … don’t you hear his footsteps up there? Listen, he’s
+				got up from his desk now … When he gets up, the chair scrapes on the
+				marble floor. We should get a rug, but Carlo says it’s not suitable
+				for …’ 
+
+A bitter ache back … when? A
+				year, two years ago? When the girl Modesta, full of the untarnished hope of youth,
+				sure of her future, pressed ahead unsuspectingly, blindfolded … When she
+				walked hand in hand with Carlo, confidently, drinking in his voice, his ideas, his
+				presence as though he were something eternal that would always be with her like the
+				Mountain, the sky, the sea. How often with Carlo, alive, or with Jacopo, dead, had
+				she discussed, held forth, about the contradiction that is at the core of nature.
+				But when his death, final and unappealable, exposed that contradiction,
+				disappointment – like an avalanche that sweeps away confidence and joy – can make
+				you glimpse in your own end a more certain way. Could it be that young
+				people’s adventurousness, their way of rushing into deadly matches, their
+				frequent untimely deaths, were simply the result of some earlier
+				disappointment-contradiction? She had sought her own death confronting Mattia that
+				night, she knew that now, and maybe only someone who has come so close to death can
+				forget and then be reborn as Modesta is reborn day by day, staring into the mirror
+				of dawning at that red, serpentine scar, which splits her forehead in two. 
+
+‘It will take three or four years,
+				Modesta, for the redness to fade.’ 
+
+What did the years matter when you began
+				to understand? The scar that bisects her forehead is now a sign of the healing of
+				her being, itself divided earlier. Modesta is reborn from her body, uprooted from
+				that earlier Modesta who wanted everything, and who couldn’t tolerate doubts,
+				in herself or others. She is reborn with an awareness of being alone. And day by
+				day, hour by hour, she accepts the grief of Beatrice’s return from her long
+				journey through madness. 
+
+She has come back serene, but with her
+				hair all white. In her own way, Beatrice is content, left to her memories, dressed
+				in mourning, the locket of her beloved husband on a black velvet ribbon around her
+				neck. Of course, Bambolina suffers somewhat in that house, what with her mother and Argentovivo
+				who do nothing but talk about the past. But in the end, she only sleeps there,
+				because in the morning Pietro, by unspoken agreement with his Mody, takes her to
+				Villa Suvarita, and the sad little face quickly brightens there among Prando,
+				Jacopo, ’Ntoni and some stray friends they picked up in the fields. 
+
+‘So many children!’ – she
+				squeals happily, then always adds: ‘I must tell my Mama to come and see
+				them …’ 
+
+She’s already
+				talking … Yet that moonlit night etched in my memory seems like just
+				yesterday … The wound throbs at the recollection of Mattia. He too had
+				wanted to die, but then he chose to go to America – at least that’s what
+				Pietro reported. And Jose? After having fought in the north, Jose was arrested with
+				Pertini. 
+
+‘A storm of arrests, my dear Mody!
+				But what’s most upsetting, what most casts the spirit into the deepest
+				despondency is not seeing any news in the press. This pall of silence over
+				everything. I swear to God! You wander around searching for news, like a dog finding
+				a bone that’s been picked clean or like a starving man seeking a crust of
+				stale bread.’ 
+
+‘Yes, Antonio, arrests and
+				indifference.’ 
+
+Every solitary voice of rebellion falls
+				into the lake of indifference, without a ripple. An indifference that slowly but
+				steadily permeates every street, every corner, at each step of history’s way:
+				the murder of Matteotti, the Special Laws, the Lateran Treaty 62 … 
+
+Men’s business, Princess, they
+					make and unmake history as they please. Of course, Stella. 
+
+I watch her, but that gentleness and
+				resignation I had earlier mistaken for wisdom no longer enthrals
+				me … Earlier … when Bambolina wasn’t here with us. But now
+				that Bambolina is beginning to chase after Prando, why do they stop her and separate
+				them? I have to leave my books and go down. She’s crying inconsolably on the
+				lawn, while Prando runs off happily toward the woods. 
+
+‘What is it, Stella, Elena? Why
+				did you separate them?’ 
+
+‘But she was running like a
+				tomboy, Princess! She’ll dirty her little dress.’ 
+
+That’s how the rift begins.
+				According to them, Bambolina, only five
+				years old, should already act differently, remain composed, eyes lowered, to
+				cultivate the young lady of tomorrow. Like in the convent: laws, prisons, history
+				erected by men. But it’s women who have agreed to be the keepers of the keys,
+				uncompromising guardians of men’s words. In the convent, Modesta hated her
+				jailers with a slave’s hatred, a humiliating but necessary hate. Today, she
+				defends Bambolina from both men and women, impartially and confidently; by defending
+				her she is defending herself, her past, a daughter she might someday give birth
+				to … Remember, Carlo? Remember when I told you that only women can help
+				women, and you, with your masculine pride, didn’t understand? Now do you see?
+				Now that you’ve had a daughter, do you understand? 
+
+In the mirror – it’s been a long
+				time since I’ve looked at myself – Carlo’s face stares back at me. Or
+				maybe it’s my habit of speaking with him that calls his features to life,
+				moulding my smile and my eyes into his, the urge to keep those we love alive? In me,
+				he is reborn in the mirror, alive, smiling … I understand why you’re
+				smiling, Carlo: the dead don’t want us to die with them. They want us to keep
+				them alive, in our thoughts, in our voices, in our gestures. With his hands, I pull
+				a strand of hair down over my forehead … to be like him! 
+
+Since the morning when I woke up with my
+				head shaved because of the wound, I’ve had short hair. Should I let it grow
+				again? In a few years, I could once more have the braids which mattered so much to
+				me as a child. A longing for those braids constantly threatened by the
+				convent’s scissors makes me want to see them again. At the time, Cavallina
+				saved them in a drawer somewhere … There they are, long and thick, with a
+				colour so vivid that touching them, my heart nearly leaps with fright. But as soon
+				as I pick them up, distaste for that dead part of me makes me fling them in the
+				waste-basket. You can’t go back again. Besides, back then, I could hardly
+				swim! The memory of those cumbersome braids in the water and on the pillow, the
+				barrettes, hairpins, combs, the effort. No, I prefer that new face with its exposed
+				neck: a boy’s face, like Carlo’s. I want to continue swimming without a
+				bathing cap, like him. Even better, I
+				want to swim to the rock of the Prophet and sweep back the mop of hair with a flick
+				of my fingers, like him, before stretching out in the sun.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">57
+
+「我等了三個月了，莫德斯塔。三次我看著月亮盈虧，以終身監禁般的漫長節奏。你為什麼要把我判處這種孤獨，為什麼？」
+
+「我沒有判處任何人。我沒有心情再聽任何人了。我的心已經變成了一片荒地，圖迪亞這個名字現在像死亡的印記一樣烙在我身上。」
+
+「該死的溫琴佐，插到我們之間來！我感覺像一隻落入陷阱的狼。他為什麼要這麼做？」
+
+「他是個法西斯。」
+
+「別傻了；他不是什麼法西斯！他瘋了！那天早晨，在出去迎接死亡之前——死亡會讓你說話，你知道的！——他告訴了我一些事情……無法啟齒的事情，關於我們的父親，我連想都不願去想。」
+
+「你看，記憶在我們之間還是太鮮明了吧？讓我們再等一等。也許一年後……但願貝雅特麗齊能至少走出她的精神錯亂，但願她無辜的孩子洋娃娃能吞下一口奶而不吐出來。洋娃娃正在日漸消瘦，我為此備受折磨。現在走吧！」
+
+「三個月了，你的臉日夜印在我的眼睛上。跟我走吧！在這個狹隘的島嶼之外還有其他地方。我見過……我不像那些人，他們因為我沒有替溫琴佐的死復仇而用不贊同的眼光看著我。我甚至不想去查出是做了還是沒做。我不想再知道了。去他媽的！」
+
+「別那麼說！」
+
+「相反，我就要說！我想要你，即使是你的一個朋友殺了溫琴佐，即使是那個何塞……」
+
+「何塞一刻都沒有離開過我的家。」
+
+「你在替他辯護，是嗎？那就說吧：你因為他改變了。說啊！自從他踏上這個島，你就變了。」
+
+「我改變了，但不是因為任何人。是我的未來在我面前改變了，不是某一個人。我想教書，旅行，甚至可能寫作；一個人。你明白嗎，馬蒂亞？這不僅僅是你和我的問題：是我的生活在召喚我，而你對此無能為力。」
+
+「女人不能獨自旅行！」
+
+「時代在變，馬蒂亞。」
+
+「那些是大陸上的想法！莫德斯塔，這裡是西西里！你會被強姦，被當作妓女對待，如果你旅行的話！」
+
+「我會保護自己的。我做到了現在。但你，馬蒂亞——什麼把你留在這裡了？什麼？」
+
+「我需要你，我需要你沒有那個何塞！」
+
+「那你永遠不會擁有我。我不會讓任何人擁有我。你走吧——你妨礙我游泳了。」
+
+「游泳！當然，游泳！你這幾個月都在游泳。而我在做什麼？我在岸上看著我那傻瓜弟弟在床上，咒罵卡米，抱怨他的腿，而他自己開的槍打傷了自己！」
+
+「你相信你弟弟嗎？」
+
+「我不知道我該相信什麼！所有人都懷疑我，而我懷疑所有人。我只知道我想要你。我嘗試過了——相信我——不去想你。我從一個沙龍到另一個沙龍，但那只是又一次羞辱。太丟臉了，我逃回來了。我跪著回來的，你看到我了嗎？但如果你不開口，我就完了！看著我！我求你。說點什麼。不要連一個字都不跟我說。我叫你看著我！」
+
+「起來，馬蒂亞。你讓我感到同情。一個男人永遠不應該跪在任何人面前。你父親也會這麼告訴你的。」
+
+「別提他！說你愛我，不然我就這樣一直跪在這裡，跪到世界末日。」
+
+「那些說出來的詞明天就可能不是真的。行動起來吧，馬蒂亞，讓我看到你的改變。站起來，走吧。也許有一天……」
+
+「哪一天？什麼時候？我不能這樣活下去。我有敵人要對付，有土地要耕種，而我什麼也做不了，因為你一直在我眼前。」
+
+「走吧，馬蒂亞。做個男人。也許有一天，當這一切平息下來——你弟弟康復了，我的孩子長大了——也許有一天，我們可以在這裡以外的地方見面。但不是現在，不是在這裡。不是現在。」
+
+「你把我打發走，就像打發走你已經厭倦的僕人——帶著可能會召喚我的模糊可能性。你是個冷酷的女人，莫德斯塔。一個熔岩做的魔鬼。」
+
+「也許是吧。」
+
+「但我會回來的。我會改變的。你會看到的。」
+
+在他離開之後，我注視著大海很長一段時間。海浪衝擊著岩石，然後又退去。這是季節的節奏，我的身體學會了這個節奏。有一次，我曾經害怕大海。現在她是我唯一真正的朋友，可能也是第一個不要求我承諾什麼的朋友。
+
+我脫掉衣服，走進水裡。海水以她冰冷的擁抱迎接我。我游向那塊稱作先知岩的礁石。它在那裡，平靜而不動，像個老人，像卡米。但它也會在有一天被侵蝕消失。所有東西都會。而也許這就是自由——知道一切都會過去，甚至包括悲傷。
+
+在礁石上，我仰面躺著曬太陽。我的身體浸在水中和陽光下，感覺重生了一樣——也許可以這麼說。我剪了頭髮，像男孩子一樣短。為什麼不呢？我已經是個半個小子半個丫頭了。現在我完全擁有那張新的面孔，暴露的脖頸：一張男孩的臉，像卡洛那樣。我想不用泳帽繼續游泳，像他那樣。甚至更好，我想游到先知岩，然後用手指一甩那頭亂髮，像他那樣，然後在陽光下伸展開來。」</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>longing</b><span>渴望，思念</span><em>a longing for</em></div>
+<div><b>vow</b><span>誓言</span><em>make a vow</em></div>
+<div><b>conceal</b><span>隐瞒，掩藏</span><em>conceal the truth</em></div>
+<div><b>burden</b><span>负担</span><em>carry a burden</em></div>
+<div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch056.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch058.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

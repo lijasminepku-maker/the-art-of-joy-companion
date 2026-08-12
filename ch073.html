@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 73 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Three</div></div>
+<div class="nav-row">
+  <a href="ch072.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch058.html" >Chapter 58</option><option value="ch059.html" >Chapter 59</option><option value="ch060.html" >Chapter 60</option><option value="ch061.html" >Chapter 61</option><option value="ch062.html" >Chapter 62</option><option value="ch063.html" >Chapter 63</option><option value="ch064.html" >Chapter 64</option><option value="ch065.html" >Chapter 65</option><option value="ch066.html" >Chapter 66</option><option value="ch067.html" >Chapter 67</option><option value="ch068.html" >Chapter 68</option><option value="ch069.html" >Chapter 69</option><option value="ch070.html" >Chapter 70</option><option value="ch071.html" >Chapter 71</option><option value="ch072.html" >Chapter 72</option><option value="ch073.html" selected>Chapter 73</option><option value="ch074.html" >Chapter 74</option></select>
+  <a href="ch074.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART THREE</p>
+  <h2>Chapter 73<span>法西斯时期与新的思想</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1922 年后法西斯逐步建立一党统治。自由主义、社会主义、无政府主义与共产主义并存。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">73 
+
+Power of the imagination. As ugly as I			had felt at hearing the word &quot;old&quot;, that&#x27;s how beautiful I now			felt soaking in cool bath water, with Prando sleeping in the next room: beautiful			and content, like a little bride in a romance novel, on her			honeymoon … After her wedding, Beatrice became more beautiful and proud			each day … I did not enjoy this serene bliss for long. I just had time to			get out of the bathtub when Prando&#x27;s voice reached me, upset. 
+
+&#x27;Hey, Mama! Where are			you?&#x27; 
+
+&#x27;I&#x27;m right here.&#x27; 
+
+&#x27;What happened?&#x27; 
+
+&#x27;You fell asleep.&#x27; 
+
+&#x27;No! Tell me, how can that			be?&#x27; 
+
+&#x27;It&#x27;s because you&#x27;re			like me. First you get angry and shout, then you fall asleep. Can you imagine Jacopo			falling asleep after arguing with Bambù?&#x27; 
+
+&#x27;Not a chance! He goes on and on			every time! Last week, after that quarrel with Bambolina, he pestered me for three			days. He gets fixated on something and that&#x27;s that!&#x27; 
+
+&#x27;To us they seem like fixations,			Prando, but it&#x27;s just that he&#x27;s different.&#x27; 
+
+&#x27;That&#x27;s for sure! How long			did I sleep?&#x27; 
+
+&#x27;Not long.&#x27; 
+
+&#x27;And what did you do?&#x27; 
+
+&#x27;I took a bath.&#x27; 
+
+&#x27;Was it			you who put this blanket over me?&#x27; 
+
+&#x27;Of course, first I covered you			and then …&#x27; 
+
+&#x27;You took a bath … What			a lovely dress! It&#x27;s been a long time since you&#x27;ve worn it. It&#x27;s			my favourite.&#x27; 
+
+&#x27;I know.&#x27; 
+
+&#x27;Why did you get all dressed up			like that? Did you get all dressed up because of that Tudia who&#x27;s coming to			dinner?&#x27; 
+
+&#x27;Not again, Prando!&#x27; 
+
+&#x27;Why have you started seeing			him?&#x27; 
+
+&#x27;It&#x27;s business, like with			Attorney Santangelo and the others; you know that.&#x27; 
+
+&#x27;Yes, but that Tudia isn&#x27;t			an old man and the way he looks at you incenses me. I&#x27;m all sweaty, look! Will			you let me take a shower in your bathroom? This nap has left me feeling s...</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">73
+
+想象力的力量。听到「老」这个词时我感到多么丑陋，现在浸泡在清凉的浴水中，听着普兰多在隔壁房间熟睡，我就感到多么美丽：美丽而满足，像言情小说里蜜月中的小新娘……婚礼后，比阿特丽斯一天比一天更美丽、更骄傲……这份宁静的幸福我没有享受太久。我刚来得及从浴缸出来，普兰多不安的声音便传到耳边。
+
+「喂，妈妈！你在哪？」
+
+「我在这儿。」
+
+「发生什么了？」
+
+「你睡着了。」
+
+「不可能！告诉我，怎么可能？」
+
+「因为你像我。先是生气大吼，然后就睡着了。你能想象雅各布跟班布吵完架后倒头睡着吗？」
+
+「绝无可能！他每次都喋喋不休！上星期，跟班波莉娜吵完后，他缠了我整整三天。他盯上一件事就没完！」
+
+「在我们看来像是执念，普兰多，但其实只是他不同而已。」
+
+「那倒是真的！我睡了多久？」
+
+「没多久。」
+
+「那你在做什么？」
+
+「我洗了个澡。」
+
+「是你给我盖的毯子吗？」
+
+「当然，我先给你盖上，然后……」
+
+「你洗了个澡……多漂亮的裙子！你好久没穿了。这是我最喜欢的一条。」
+
+「我知道。」
+
+「你为什么打扮成这样？是因为那个要来吃饭的图迪亚吗？」
+
+「又来了，普兰多！」
+
+「为什么你开始见他了？」
+
+「是生意，就像和圣安杰洛律师他们一样，你知道的。」
+
+「是，可那个图迪亚不是老头子，他看你的眼神让我火冒三丈。我浑身是汗，你看！让我在你浴室洗个澡好吗？这午觉睡得我……</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>regime</b><span>政权，统治体制</span><em>an authoritarian regime</em></div>
+<div><b>dissent</b><span>异议</span><em>voice dissent</em></div>
+<div><b>allegiance</b><span>忠诚，拥护</span><em>pledge allegiance</em></div>
+<div><b>propaganda</b><span>宣传</span><em>state propaganda</em></div>
+<div><b>refuge</b><span>避难处；庇护</span><em>seek refuge</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch072.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch074.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

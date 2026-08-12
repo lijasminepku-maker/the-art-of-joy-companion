@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 70 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Three</div></div>
+<div class="nav-row">
+  <a href="ch069.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch058.html" >Chapter 58</option><option value="ch059.html" >Chapter 59</option><option value="ch060.html" >Chapter 60</option><option value="ch061.html" >Chapter 61</option><option value="ch062.html" >Chapter 62</option><option value="ch063.html" >Chapter 63</option><option value="ch064.html" >Chapter 64</option><option value="ch065.html" >Chapter 65</option><option value="ch066.html" >Chapter 66</option><option value="ch067.html" >Chapter 67</option><option value="ch068.html" >Chapter 68</option><option value="ch069.html" >Chapter 69</option><option value="ch070.html" selected>Chapter 70</option><option value="ch071.html" >Chapter 71</option><option value="ch072.html" >Chapter 72</option><option value="ch073.html" >Chapter 73</option><option value="ch074.html" >Chapter 74</option></select>
+  <a href="ch071.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART THREE</p>
+  <h2>Chapter 70<span>法西斯时期与新的思想</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1922 年后法西斯逐步建立一党统治。自由主义、社会主义、无政府主义与共产主义并存。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">70 
+
+When Joyce, her anger spent, falls to the			carpet rubbing her hands, Modesta follows her and hugs her. Maybe Joyce hurt herself			like Modesta used to when she hit Carmine on the face and shoulders. 
+
+&#x27;Did you hurt yourself,			Joyce?&#x27; 
+
+&#x27;Oh, I did!&#x27; 
+
+&#x27;Your hands are too delicate for			hitting like that.&#x27; 
+
+&#x27;And your head is as hard as			marble!&#x27; 
+
+&#x27;The bone structure of us country			folk. Heads, hearts and minds as hard as stone. Tuzzu used to say, &quot;Who knows			who knocked up your mother?&quot; Your hands are frozen. Let me rub			them.&#x27; 
+
+&#x27;Oh, they hurt!&#x27; 
+
+&#x27;I&#x27;ll be			gentle … And you? Who knows who knocked up your mother?&#x27; 
+
+&#x27;A frigid, elegant mannequin. And			to think that abroad all they talk about is the warmth and humanity of the Italians.			Compared to my father, any Englishman I met always seemed like a Neapolitan to			me.&#x27; 
+
+&#x27;You can never be sure whose child			you are, Joyce. Only a mother knows, but in most cases she doesn&#x27;t			say.&#x27; 
+
+&#x27;Oh, I&#x27;m sure about me and			Renan.&#x27; 
+
+&#x27;And who is Renan?&#x27; 
+
+&#x27;My sister.&#x27; 
+
+&#x27;But wasn&#x27;t her name …?			I&#x27;m sorry, you called her by another name, or were there three of			you?&#x27; 
+
+&#x27;No,			please, Modesta! Don&#x27;t interrogate me, don&#x27;t interrogate me!&#x27; 
+
+&#x27;I&#x27;m not interrogating you,			Joyce! It&#x27;s just that I love you. When you love someone you want to know what			they were like ten, twenty years ago. That&#x27;s all it is, believe me. Oh, Joyce,			I&#x27;ve already experienced this moment.&#x27; 
+
+&#x27;What moment?&#x27; 
+
+&#x27;We two, sitting here on the			carpet, talking, the light fading into darkness, and … you too must have			felt that there are certain moments you&#x27;ve already experienced. Haven&#x27;t			you? If only we were able to remember, we could avoid all the mistakes we&#x27;re			compelled to make, because I&#x27;m certain these moments we&#x27;ve alr...</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">70
+
+当乔伊斯怒火耗尽，倒在毯子上揉搓双手时，莫德斯塔跟随她，拥抱她。也许乔伊斯弄伤了自己，就像莫德斯塔以前打卡尔米内的脸和肩膀时那样。
+
+「你弄伤自己了吗，乔伊斯？」
+
+「哦，是的！」
+
+「你的手太娇嫩了，经不起这样打。」
+
+「而你的脑袋硬得像大理石！」
+
+「我们乡下人的骨架子嘛。脑袋、心肠和头脑都硬得像石头。图祖常说：『谁知道是谁把你妈肚子搞大的？』你的手冻僵了。让我揉揉。」
+
+「哦，疼！」
+
+「我会轻点的……你呢？谁知道是谁把你妈肚子搞大的？」
+
+「一个冰冷而优雅的人体模型。想想看，在国外人人都谈论意大利人的热情与人情味。与我父亲相比，我遇到的任何英国人对我来说都像那不勒斯人。」
+
+「你永远无法确知自己是谁的孩子，乔伊斯。只有母亲知道，但大多数情况下她不说。」
+
+「哦，关于我和雷南，我很确定。」
+
+「雷南是谁？」
+
+「我妹妹。」
+
+「可是她的名字不是……？对不起，你用另一个名字叫过她，还是说你们一共三个人？」
+
+「不，求你了，莫德斯塔！别审问我，别审问我！」
+
+「我不是在审问你，乔伊斯！只是因为我爱你。当你爱一个人时，你想知道他们十年前、二十年前是什么样子。仅此而已，相信我。哦，乔伊斯，我已经经历过这个时刻了。」
+
+「什么时刻？」
+
+「我们俩，坐在这毯子上，说着话，光线渐渐暗入黑暗，而……你一定也感觉到过，有些时刻你早已经历过了。难道不是吗？如果我们能够记住，我们就能避免所有那些我们被迫犯下的错误，因为我确信这些我们已经……</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>propaganda</b><span>宣传</span><em>state propaganda</em></div>
+<div><b>refuge</b><span>避难处；庇护</span><em>seek refuge</em></div>
+<div><b>defy</b><span>违抗，挑战</span><em>defy an order</em></div>
+<div><b>regime</b><span>政权，统治体制</span><em>an authoritarian regime</em></div>
+<div><b>dissent</b><span>异议</span><em>voice dissent</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch069.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch071.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

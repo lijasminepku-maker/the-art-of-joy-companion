@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 17 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch016.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" selected>Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch018.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 17<span>修道院、教育与规训</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">convent 不只是宗教场所，也是教育、慈善和纪律机构。理解称谓背后的等级，比记住全部宗教词更重要。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">17 
+
+Starting that night, I got busy. I had to
+				work quickly, because Mimmo was very good at convincing people, rich and poor, men
+				and women, animals and devils, as Sister Teresa said. 
+
+A saw was easy to find in the equipment
+				shed behind the kitchen. There were saws of all shapes and sizes. And after gulping
+				down the milk and soft, bland bread among all those flaccid white faces – I swear!
+				what other colouring could all those future brides of Christ have? – instead of
+				going to bed I waited until all the doors were closed before slipping out. Hugging
+				the walls closely – I knew every stone of those corridors, every corner and every
+				door – I climbed up toward the cool darkness, even darker than the pitch-black of
+				the stairs. Luckily there was neither moon nor stars. Though the mornings were
+				sunny, for days and days a dense cloud covering descended from sunset to dawn,
+				obscuring Mother Leonora&#x27;s firmament. She moaned about it – it wasn&#x27;t
+				the cloudy season – but for me it was a sign that I had to act, or saw, if you
+				prefer. For several nights I sawed until dawn, protected by that mass of clouds
+				until the first light of day. I sawed at four places, the four points that supported
+				the weight of the telescope. When my work was done, I threw myself on my bed,
+				exhausted – I hadn&#x27;t slept for days and days – and contented. At last I could
+				sleep. Now all I had to do was wait for a clear night. 
+
+Strangely enough, however, I
+				couldn&#x27;t sleep a wink, maybe because I had become used to sleeping little or not at all, or because I was worried that
+				the balustrade might be replaced. I would fall asleep but then quickly wake up,
+				obsessed with keeping an eye on it. A clear night did not come. It rained now, even
+				in the daytime. 
+
+&#x27;What a shame, princess, just this
+				year when nature promised such a great harvest! There hasn&#x27;t been such a spell
+				of foul weather around here as long as anyone can remember. All that good wheat and
+				hay will be ruined if this continues.&#x27; I prayed along with Mimmo that the
+				skies would clear, because otherwise my wheat and hay would rot as well if things
+				went on like this. 
+
+There was nothing I could do. At night,
+				clinging to the window bars, I almost wept with rage. Not a star could be seen, not
+				a breath of wind stirred that dark, dense mass. Exhausted, I sank onto the bed. Let
+				it all rot, wheat and rye and hay. That night I would sleep. I&#x27;d had enough.
+				And I slept so deeply that, according to what they told me afterwards, only Sister
+				Costanza&#x27;s slaps – she never missed an opportunity – were able to wake me up.
+				Howling, weeping, doors slamming in the wake of the frantic clanging of the bell,
+				dragged me out of bed terrified. I thought: an earthquake! 
+
+&#x27;Worse than that, child! Worse!
+				Hurry, come to the chapel, you&#x27;re the only one missing. We&#x27;re all in the
+				chapel, praying. Mother Leonora fell from the tower! Who would have expected
+				it?&#x27; 
+
+I had never heard such joy in Sister
+				Costanza&#x27;s sorrowful voice. 
+
+&#x27;Who would have thought
+				she&#x27;d go up to her observatory! There&#x27;s been nothing but thunder and
+				lightning all night. Who would have imagined it! Come, hurry! Mimmo has laid her out
+				as best he could; he&#x27;s the one who heard the scream. Come to the chapel to see
+				her one last time and keep vigil for her!&#x27; 
+
+Keep vigil? Me? All night and maybe the
+				next morning too, when I was dying for some sleep? I wouldn&#x27;t dream of it. 
+
+&#x27;Come, child, get a move on!
+				Don&#x27;t stand there in a daze. Naturally, I understand how you feel; you are the
+				one most affected by this tragedy. You were so devoted to her and she loved you so
+				much! But take heart. Accept this great trial that God has sent you.&#x27; 
+
+So then, if I were the most affected, I
+				could very well faint out of grief and thus avoid the ordeal they wanted to inflict
+				on me. E caddi come corpo morto
+					cade , I fell like a dead body falls, as the Poet and master of life says.
+				And there was no way to wake me, either that night or the following day.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">17
+
+自那夜起，我便忙活起来。我必须迅速行动，因为米莫极善于说服人——无论贫富、男女、禽兽还是魔鬼——如特蕾莎修女所言。
+
+锯子在厨房后面的工具棚里极易找到。那里有各种形状大小的锯子。在那些苍白松弛的面孔之间——我发誓，那些基督的未来新娘还能有什么别的面色？——吞下牛奶和软绵绵淡而无味的面包后，我没有上床，而是等到所有门都关闭后才溜出去。紧贴着墙壁——我熟悉那些走廊的每一块石头、每一个角落、每一扇门——我爬上清凉的黑暗，比楼梯的漆黑还要暗。所幸没有月亮，也没有星星。尽管清晨阳光明媚，但一连数日，从日落到黎明，浓密的云层低垂，遮住了莱奥诺拉院长的苍穹。她为此哀叹——这并非多云季节——但于我而言，这是一个必须行动的征兆，或者如果你愿意，可称之为锯的征兆。连续数夜，我锯到黎明，受那团云层庇护，直至第一缕晨光。我在四个位置下锯——支撑望远镜重量的四个支点。活计完成后，我倒在床上，筋疲力尽——我已数日数夜未眠——然而心满意足。我终于可以睡了。如今只需等待一个晴朗之夜。
+
+然而奇怪的是，我竟无法合眼，也许是因为我已习惯睡得极少或根本不睡，也许是因为我担心那栏杆被更换。我会睡着，但旋即惊醒，一心惦记着盯住它。晴朗之夜没有到来。如今连白日也在下雨。
+
+&quot;真可惜，公主，偏偏今年大自然许诺了如此丰饶的收成！此地还从未有过这般漫长的恶劣天气，据人们记忆所及。若这样持续下去，所有那些好麦子和干草都要毁了。&quot;我与米莫一同祈祷天空放晴，否则若这般继续下去，我的麦子和干草也会烂掉。
+
+我无计可施。夜里，抓着窗栏，我几乎愤恨得落泪。不见一颗星星，没有一丝风吹动那黑暗浓密的云层。筋疲力尽，我倒在床上。让一切烂掉吧，小麦、黑麦、干草。那夜我要睡觉。我受够了。而我睡得如此深沉，据后来她们告诉我，唯有科斯坦扎修女的耳光——她从不放过任何机会——才将我唤醒。嚎叫、哭泣、门在疯狂钟声的催促下砰砰作响，将我从床上惊恐地拖起。我想：地震了！
+
+&quot;比那更糟，孩子！更糟！快来，到小堂去，只缺你一人了。我们都在小堂里祈祷。莱奥诺拉院长从塔上摔下来了！谁能料到呢？&quot;
+
+我从未在科斯坦扎修女那悲哀的声音中听见过如此欢欣。
+
+&quot;谁会想到她竟上了天文台！整夜只有雷鸣电闪。谁能想象得到！来，快！米莫已尽其所能将她安顿好；是他听到了尖叫。来小堂见她最后一面，为她守夜吧！&quot;
+
+守夜？我？一整夜，也许还要加上第二天早晨，当我渴睡得要死的时候？我做梦也不会干。
+
+&quot;来，孩子，快点！别站在那儿发愣。自然，我明白你的感受；你是受这场悲剧影响最深的人。你曾那般忠心待她，她也如此深爱于你！但振作起来吧。接受上帝赐予你的这场大试炼。&quot;
+
+那么，既然我是受影响最深之人，我大可因悲伤而晕厥，从而避开她们想强加于我的煎熬。我如死尸般倒下——正如那位诗人和生命之主所言。而那夜及次日，再无方法能将我唤醒。</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>mercy</b><span>仁慈，宽恕</span><em>ask for mercy</em></div>
+<div><b>stern</b><span>严厉的</span><em>a stern voice</em></div>
+<div><b>convent</b><span>女修道院</span><em>life in a convent</em></div>
+<div><b>devotion</b><span>虔诚；投入</span><em>show devotion to</em></div>
+<div><b>confess</b><span>忏悔；坦白</span><em>confess a fear</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch016.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch018.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

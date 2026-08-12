@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 21 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch020.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" selected>Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch022.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 21<span>庄园、贵族与社会流动</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">estate、title、inheritance 和 marriage 构成贵族权力的语言。西西里的土地租佃链也让佣人、管理者和地主之间的关系很复杂。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">21 
+
+The entire house wasn’t made of
+				silk, but almost. There were wooden doors and tables, velvet drapes. Outside,
+				however, everything was made of marble: staircases, fountains and statues that, when
+				you least expected them, peeped out from a green niche, not marble of course, but
+				leaves and flowers so lovely that if Mimmo could see them he would be wild with joy.
+				No, better that he wasn’t there to see them; he would have felt bad. He was so
+				proud of his geraniums, even though he grumbled: ‘Eh, princess, there are
+				flowers that are more beautiful. I wish with all my heart that one day you may see
+				them as I did in Catania … If you could see that villa! I was in Catania
+				when I was a soldier. But here, amid the lava, on this meagre scrap of land that we
+				manage to reclaim from it, we have to grow beans, tomatoes, things to
+				eat …’ 
+
+As Mimmo had wished for her, she now saw
+				those flowers. Sometimes she even touched them, but she didn’t know their
+				names. And after days and days of that silky silence which made her slip from her
+				room into the corridor, and out to the garden, she found the courage to enter the
+				library to find the names of those flowers. She had been right: there were huge
+				volumes full of illustrations where you could find all of them if you looked. 
+
+All the names were in Latin. She had to
+				learn them by heart. Now she had something to keep her busy: going from the library
+				to the garden, from the garden to the library to engrave all those strange,
+				difficult names firmly on her mind. 
+
+Mimmo always told
+				the truth. Those plants truly were beautiful. If only he were there to break the
+				silence with his sturdy, unhurried voice! Instead, there were only the rushed words
+				of that frivolous creature from the continent, who raced around the room always
+				saying the same things. She didn’t even listen to her anymore. Or rather she
+				stopped listening to her, until she said: 
+
+‘The Princess is very pleased to
+				know that you are less sad, and that you go to the library.’ 
+
+So then, the house wasn’t
+				deserted. They knew what she was doing. Heartened by it, she even dared to enter the
+				music room that day, and with trembling hands, opened the lid of the piano that was
+				at least three times longer than the one in the convent; it wasn’t brown, but
+				black and shiny like the marble columns of the entry staircase. The brilliant gloss
+				was intimidating, but she couldn’t stand that silky silence anymore, so she
+				resumed her practice. Could she be disturbing anyone? At the convent they only
+				allowed her one hour. Her eyes and her fingers were entranced by the whiteness and
+				pliancy of those keys. She barely had to touch them and the sound rang out powerful
+				and pure like an organ. It wasn’t a piano – or maybe, as with the automobile,
+				there were three of them hidden under that long hood … 
+
+‘The Princess bids you good
+				morning and asks me to tell you that you have a marvellous touch. She also said that
+				she admires how you have resumed studying and practising the piano, despite your
+				grief over what happened … The Princess would like to know if the food in
+				our house is to your liking and why you don’t take tea at five o’clock.
+				Oh! I see, at the convent they didn’t take tea … Forgive me, signorina , but the Princess has instructed me to measure your shoulders
+				and waist and the circumference of your chest. What’s this you’re
+				wearing under your shirt, signorina ? Why is it so tight? Oh, of course, the
+				convent’s rules. I will report it to the Princess if I may … The
+				Princess asks if you would please – provided you don’t mind too much – she
+				asks that you please take off those bands for a moment so that I can take the exact
+				measurement of your chest … The Princess asked me if you have a photograph
+				of yourself. No photographs? Of course: the convent. Too bad. The Princess asks me
+				to tell you that, knowing how devout you are, she has ordered the driver to take you to Mass tomorrow morning in the
+				village. Only since it’s a two-hour drive she would like to know if you prefer
+				to go to the eight o’clock Mass or the one at noon … at eight? Very
+				well, I’ll tell her.’ 
+
+How many days had I been there? If the
+				next day was Sunday it must have only been a week or eight days. It seemed like
+				months! Would they leave her by herself for ever? Of course she could read and
+				study, the food was good, but … here she comes again with her
+				“Princess”: 
+
+‘The Princess requested that I
+				bring you these three dresses. She asks that you please wear one of these for tea
+				this afternoon, though she is well aware of how important those smocks of yours are
+				to you since they remind you of your vocation. I will come to pick you up since you
+				are not familiar with that wing of the house. She also told me to be sure to tell
+				you not to worry: you only have to wear the dress at five o’clock. After tea,
+				you can go back to wearing your smocks.’ 
+
+There were three dresses: one pink, one
+				white with gorgeous lace, and a blue one, shiny and flashy, but at least it had the
+				highest neckline. A pity! The pink dress and the white one with the lace appealed to
+				her, but she had to be prudent. So she contented herself by not taking her eyes off
+				them as she dressed and combed her hair – she didn’t have much time. She had
+				never seen anything so beautiful; she felt like crying. 
+
+‘What is it? Are you crying, signorina ? Come now, it’s not the end of the world if you wear a
+				dress for one hour. The Princess had expected this. If you knew how intelligent she
+				is, the Princess! She had actually predicted that you would cry if you had to take
+				off that smock. Come, dry those tears. You don’t want to make the Princess
+				sad, do you? She has already suffered so much these past few years: misfortunes one
+				after the other, and then Mother Leonora’s … There, that’s it,
+				go right in. And smile for once, signorina , smile, if only not to remind
+				the Princess of her grief.’ 
+
+Maybe she was right; I should smile. But
+				prudence stopped me; my lips froze. Confused by Argentovivo’s chatter and
+				surprised that, even if I had wanted to smile, my lips would barely move, I found
+				myself in the middle of a room so spacious, so crammed with tables and sofas and
+				armchairs and settees, that my confusion turned to dismay. 
+
+There was no one,
+				only a desert of furniture: here, too, no one was waiting for me. Resigned, I
+				decided to wait for Argentovivo to return, since I would never on my own have found
+				my way back to my room down those corridors and rooms that all looked alike. 
+
+‘I assure you, Maman, she’s
+				pretty. A bit solemn but pretty, I assure you!’ 
+
+Appearing in front of me – where had she
+				come from? – a small, pale face nearly hidden by a mass of fine, blond silky hair
+				(silk here, too) was studying me from head to toe, circling around me just as I did
+				the statues in the garden. Finally, taking me by the hand, she led me safely – how
+				she managed not to overturn the maze of little tables loaded with figurines, boxes,
+				lamps, God only knows! – toward the rear of a narrow, high-backed chair with padded
+				armrests. Seated in the chair was the Princess who had sent me all those messages
+				through Argentovivo’s voice. She was as I had imagined her. Except that when
+				she spoke, had it not been for the little hand that held me, I would have run
+				away. 
+
+‘Thank God she’s not
+				actually one of those monsters who infest our convents! Thank God she looks human!
+				And you, Cavallina, you could have told me, couldn’t you? that she was normal.
+				If not beautiful, normal. You could have told me, couldn’t you?’ 
+
+‘But I did tell you, Maman, and
+				Argentovivo also told you. It’s just that you never trust anyone.’ 
+
+‘Of course I don’t trust
+				anyone! I’m surrounded by cafoni , boors! No one who inherited my good
+				taste or that of your father, buonanima ! God rest his soul! Come here,
+				child … What is your name? What’s that? Modesta? Dear God, what a
+				hideous name! Don’t be offended, my girl. It’s just that to me,
+				names … well, there isn’t one that seems fitting to me. Or rather,
+				there’s not a name that resembles the person who bears it. The two always
+				clash. Does it seem to you that I should be called Gaia? What’s cheerful about
+				me? Bah! As for Modesta, how dreadful! Forgive me, I … Oh, Cavallina,
+				she’s not only normal! Now that she’s worked up … are you
+				offended because of your name? Well, now that this offence, or whatever it is, made
+				you blush a little, I can really see that you are lovely. That’s enough now!
+				Go away, the two of you! I’ve tired myself out. The sight of youth is tiring.
+				Go ahead, off with you.’ 
+
+The little hand
+				tugged at me and I clung to it. We were already out of the room when the voice
+				boomed behind us: 
+
+‘Just look at that! Now that
+				she’s running I can see that she is also graceful! Listen, Cavallina, since
+				she isn’t homely, let’s let her come with us, shall we! What do you
+				think?’ 
+
+‘Of course, Maman, it would make
+				me very happy.’ 
+
+‘Good! All right then! Agreed. But
+				now, off you go. And you, girl, do you understand? Tomorrow, instead of making that
+				drive to the village, you can come to Mass with us, at noon. Be sure to be on time!
+				And put on a decent dress, for the love of God! A dress in a more cheerful colour,
+				for Heaven’s sake. Because that blue is depressing, so dismal that the sadness
+				of a winter evening has washed over me since you’ve been here. Go on, be
+				off!’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">21
+
+整座宅邸并非全然丝绸所筑，却也相差无几。木门木桌，天鹅绒帷幔，处处可寻。然而屋外，万物皆为大理石所造：阶梯、喷泉、雕像——在你最不经意之时，它们从绿荫掩映的壁龛中悄然探出，自然非大理石雕成，而是花叶交织，美得令人心醉，若米莫见了，必定欣喜若狂。不，他还是不要在此目睹为好；见了，他只怕会黯然神伤。他素来以自己的天竺葵为傲，尽管总爱嘟囔：「唉，小公主啊，世间还有更美的花呢。我满心盼望，有朝一日你能亲眼一见，如同我当年在卡塔尼亚所见那般……你若能见到那座庄园便好了！我当兵时在卡塔尼亚待过。可这儿，在这熔岩之上，在这块我们勉强从岩浆手中夺回的贫瘠之地，我们只得种豆子、番茄，种些果腹之物……」
+
+一如米莫昔日对她的祝愿，她如今终于见到了那些花。有时她甚至伸手去触摸，却不知其名。日复一日，在那如丝绸般柔滑的寂静中——这寂静让她从房间滑入走廊，又从走廊飘进花园——她终于鼓起勇气走进藏书室，去寻找那些花的名字。她猜得没错：这里确有数卷巨大的图鉴，只要细心翻阅，每一样皆可寻得。
+
+所有的名字都是拉丁文。她只得默记于心。如今她总算有事可做了：从藏书室到花园，再从花园回到藏书室，将那些古怪艰涩的名字一一铭刻在脑海之中。
+
+米莫从来都说真话。那些花草的确美不胜收。倘若他能在此，用他那沉稳而缓慢的声音打破这片寂静，该有多好！然而，此刻唯有那个从大陆来的轻浮女子匆忙的话语。她在房间里跑来跑去，翻来覆去总是那几句。她已不再听她说话了。或者说，她不再听她说了——直至她开口道：
+
+「公主殿下欣闻您不再那么忧伤，且常去藏书室，甚感欣慰。」
+
+如此说来，这宅邸并非空无一人。她们知道她在做什么。受此鼓舞，她那天甚至大胆踏入了音乐室，用颤抖的手掀开了那架钢琴的琴盖。那架琴至少比修道院里的长三倍；它不是棕色的，而是漆黑锃亮，如同入口楼梯的大理石柱。那耀眼的光泽令人望而生畏，但她再也无法忍受那如丝绸般的寂静了，于是重拾练习。会打扰到谁吗？在修道院，她们只许她练一小时。她的眼睛和手指被那些琴键的莹白与柔韧所迷住。她几乎不必触碰，声音便迸发出来，雄浑而纯净，宛如管风琴。这不是钢琴——或许，就像那辆汽车，在那长长的琴盖之下，藏着三架琴也不一定……
+
+「公主殿下向您道早安，并嘱我转告，您的触键妙不可言。她还说，她十分钦佩您在遭遇那般变故之后，仍能重新研习钢琴、坚持练琴……公主殿下想知道，我们家中的饮食是否合您口味，以及您为何不在五点钟用茶。哦！我明白了，修道院是不用茶的……恕我冒昧，小姐，公主殿下吩咐我为您量肩、量腰，还有胸围。您衬衣下面穿的是什么，小姐？为何束得这样紧？哦，自然是修道院的规矩。容我禀报公主殿下……公主殿下问，您是否愿意——倘若您不太介意的话——请暂且解开那些束带，以便我为您量准胸围……公主殿下还问我，您可有照片。没有照片？当然：修道院。可惜了。公主殿下嘱我转告，她素知您虔诚，已命车夫明早送您去村里望弥撒。只是路上需两个钟头，她想问您，是愿去八点钟的弥撒，还是中午那场……八点？好极了，我这就回禀。」
+
+我在这里待了多少天了？若明天是星期天，那该只有一周或八天。却仿佛过了数月！她们会永远让她独处吗？当然，她可以读书、学习，食物也很好，可是……她又来了，带着她的「公主」：
+
+「公主殿下吩咐我为您送来这三件衣裙。她请您务必在今日下午茶时择一穿着，尽管她深知您那几件罩衫对您何等重要，因为它们令您记起自己的圣召。我会来接您，因为您不熟悉宅邸的那一侧。她还特意嘱咐我告诉您不必担心：您只需在五点钟穿这件裙子。茶毕，您便可换回您的罩衫。」
+
+三件衣裙：一件粉红，一件雪白缀着华丽蕾丝，还有一件蓝色，亮闪闪的有些刺目，但至少领口最高。可惜了！那件粉红的和那件白色蕾丝的都在向她招手，但她必须谨慎。于是她一边穿衣梳头——时间不多了——一边目不转睛地盯着它们，聊以自慰。她从未见过如此美丽的东西；她想哭。
+
+「怎么了？您在哭吗，小姐？好啦好啦，穿一件裙子一个钟头又不是世界末日。公主殿下早就料到了。您若知道她有多聪明就好了，公主殿下！她其实早就预料到，若让您脱下那件罩衫，您会哭的。来，擦干眼泪。您总不想让公主殿下伤心吧？这几年她已受了太多苦：祸不单行，接着又是莱奥诺拉修女那事……好了，这就对了，进去吧。笑一笑，小姐，笑一笑吧，哪怕只是为了不让公主殿下想起她的悲伤。」
+
+也许她是对的；我该笑一笑。但谨慎拦住了我；我的嘴唇僵住了。被阿真托维沃的絮叨弄得晕头转向，又惊觉即使自己想笑，嘴唇也几乎动弹不得——我就这样置身于一间宽敞得令人目瞪口呆的厅堂中央，满眼尽是桌子、沙发、扶手椅、长榻，密密麻麻，我的困惑转为了惊惶。
+
+空无一人，唯有一片家具的荒漠：这里同样没有人等着我。我认命了，决定等阿真托维沃回来，因为凭我自己，永远也找不到穿过那些千篇一律的走廊和房间回到卧室的路。
+
+「我向您保证，妈妈，她很漂亮。有点严肃，但漂亮，我向您保证！」
+
+在我面前——她是从哪儿冒出来的？——一张苍白的小脸，几乎被一头细密柔软的金色丝发（这里也是丝绸）遮住了大半，正从头到脚打量着我，围着我转圈，就像我在花园里绕着那些雕像转一样。终于，她牵起我的手，领着我——天晓得她是怎么在堆满小雕像、匣子、台灯的桌子迷宫中穿行而不至于撞翻任何东西！——来到一把高背窄身的软垫扶手椅后方。椅中坐着的，正是那位通过阿真托维沃之口向我传递了无数信息的公主殿下。她正如我想象中的模样。只不过当她开口说话时，若非那只小手还牵着我，我定已拔腿逃走了。
+
+「感谢上帝，她不是什么盘踞在我们修道院里的怪物！感谢上帝，她看起来像个人样！你呢，卡瓦利娜，你本可以告诉我的，不是吗？她是个正常人。即便不算美，也是正常的。你本可以告诉我的，不是吗？」
+
+「可我确实告诉过您了，妈妈，阿真托维沃也告诉过您。只是您从不相信任何人罢了。」
+
+「我当然不相信任何人！我身边全是些乡巴佬，粗鄙之人！没有一个继承了我的好品味，也没有一个继承了你父亲——愿他安息！——的品味。过来，孩子……你叫什么名字？什么？莫德斯塔？天哪，多么可怕的名字！别见怪，我的姑娘。只是对我来说，名字……唉，没有一个名字是合我心意的。或者说，没有一个名字与它的主人相称。两者总是格格不入。你觉得我该叫盖娅吗？我身上哪有一丝欢快？呸！至于莫德斯塔，太可怕了！原谅我，我……哦，卡瓦利娜，她不仅正常！现在她激动起来了……你是因为你的名字生气了吗？好吧，既然这冒犯——管它是什么呢——让你脸上添了些红晕，我倒是真看出你是个可人儿了。够了！你们两个都走吧！我累了。看见青春让我疲倦。去吧，走吧。」
+
+那只小手拽了拽我，我紧紧握住它。我们已出了厅堂，那声音却从身后轰然传来：
+
+「瞧瞧！她跑起来的样子，我这才看出她还颇有几分优雅呢！听着，卡瓦利娜，既然她不是个丑八怪，就让她跟我们一道吧，怎么样？你觉得呢？」
+
+「当然愿意，妈妈，我会很高兴的。」
+
+「好！那就这样定了！一言为定。不过现在，你们去吧。还有你，姑娘，明白了吗？明天，你不必再坐车去村里了，可以跟我们一起望中午的弥撒。务必准时！看在上帝的分上，穿件像样的裙子！穿件颜色欢快些的，看在老天的分上。因为那件蓝色太阴郁了，阴沉得像是自从你来了之后，一个冬日黄昏的忧伤便笼罩了我。去吧，去吧！」
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>privilege</b><span>特权</span><em>a privilege to</em></div>
+<div><b>servant</b><span>仆人</span><em>a household servant</em></div>
+<div><b>summon</b><span>召唤；传唤</span><em>summon someone</em></div>
+<div><b>bargain</b><span>交易；讨价还价</span><em>strike a bargain</em></div>
+<div><b>estate</b><span>庄园；地产</span><em>manage an estate</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch020.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch022.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

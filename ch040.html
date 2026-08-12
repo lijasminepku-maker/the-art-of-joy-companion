@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 40 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch039.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" selected>Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch041.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 40<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">40 
+
+But the promise of freedom, repeated by
+				the waves and the wind, shattered against the walls of palazzos springing with roses
+				and vines sculpted from sharp lava. 29 There was no freedom in those back
+				streets and narrow alleyways, those confusing piazzas swarming only with arrogant
+				men sporting straw hats and canes, watched by shadowy female figures hidden behind
+				curtains or from the darkness of ground-floor doors, always partly open. The palazzo
+				on Via Etnea opened its doors to a string of unwelcome receptions at which, two days
+				after our arrival, a procession of impeccably dressed women, with white or black
+				gloves and flowery hats, began parading in front of us, opening and closing their
+				fans and offering protection and advice. 
+
+‘Oh, Jesus and Mary! No! Go alone
+				to the Opera? Gesummaria , no! There’s our box, my dear
+				niece …’ 
+
+‘Absolutely! Indeed there was much
+				talk about your absence on Sunday! Of course, you were both tired from the journey,
+				naturally. But please, my little doves, Mass at noon on Sundays. It’s
+				tradition. Absolutely.’ 
+
+‘Go to the café by yourselves? Oh
+				no, it’s unacceptable, dear cousin, unacceptable! …’ 
+
+‘Of course, it’s quite
+				unfortunate not to have a brother, a husband!’ 
+
+‘Go to the cinema? That modern
+				devilry? Oh no! We never go except on rare occasions, and always provided that one
+				of our men makes certain beforehand that the film isn’t too
+				licentious …’ 
+
+‘An
+				historical film, you say, cousin? Nonsense! History as a front for indecorous
+				scenes, women in low-cut dresses, orgies … Not on your life! Everyone is
+				still talking about that Cabiria ! 30 A true disgrace! And those in parliament
+				who go around spouting high-sounding words about freedom. But what can you expect
+				with all those socialists in the government? And our Holy Father a prisoner! 31 Meanwhile,
+				immorality is rampant in our own homes as well! Yesterday I nearly had a stroke
+				hearing my nephew, only fourteen years old … what a barren generation of
+				misfits and selfish egotists we’re raising! … but what was I saying?
+				Oh yes, I nearly had a stroke hearing my nephew urging his sister to cut her hair
+				like all those lunatics on the continent, the suffragettes. My husband, who saw them
+				in Milan, says they look like men, with short hair and no corsets. All we need is
+				for them to start wearing trousers and amen! Everything is being turned upside down,
+				everything! …’ 
+
+‘If I may say so, my dear girls,
+				you read too much. It’s not good for the eyes. My uncle, a doctor, claims that
+				reading causes wrinkles … Gaia permitted you to? Well of course, always
+				one of a kind! A woman of great merit, no question, but too, too …’ 
+
+‘Last Sunday at Mass, the
+				Baronello Ortesi showed a real interest in our darling Beatrice. Of course
+				they’re not from an old family, but these barons are wealthy! We must have him
+				meet Beatrice … Oh no! Not here! You two are women alone and cannot
+				receive men. You could accept cousin Esmeralda’s thoughtfulness, since she so
+				kindly offered to arrange a tea. Oh, it would be nice if there were a man in this
+				house …!’ 
+
+Beatrice grew pale, and I no longer
+				slept, increasingly oppressed by figures and accounts. Tossing and turning in bed, I
+				banged my head against the walls of that prison of payments, property taxes, tenancy
+				agreements … The campieri , the estate’s armed guards, and
+				the sovrastanti , the gabellotto ’s trusted men, were
+				struggling to collect the rents, the peasants were rising up, the land wasn’t
+				yielding, wages tripled. To read a book I sacrificed hours and hours of sleep. The
+				piano was silent. Jacopo’s trunk, still closed, stood forgotten in a corner of
+				the room next door. What kind of trap had I fallen into? 
+
+I pressed on, managing that seemingly
+				immense realm which was leaking on all
+				sides. And that odd house kept like a royal palace? ‘ I would suggest
+					that Voscenza refresh the drapes in the spring ,’ the
+				majordomo had respectfully directed. Which meant having them remade. The country
+				villa, Carmelo, was still open, serving as a hotel, awaiting the return of all the
+				deceased; twenty mouths to feed, twenty wages to pay each month. I couldn’t
+				sleep anymore. Gaia had also suffered from insomnia. Now I understood her obsessed
+				look, the way she remained shut up in her study intent on fighting that impossible
+				battle. What had she sacrificed herself for? Out of duty, for a name to be held high
+				in other people’s eyes or her own? In fact, all those lawyers, bankers and
+				notaries had the same impervious gaze she had, fixed in one direction. Not Carmine.
+				In my memory, Carmine, his white curls unruffled in the breeze, rode toward me on
+				his horse, laughing … For months I had only seen him surrounded by
+				notaries and attorneys imprisoned in their close-fitting black vests and jackets. As
+				soon as he could, he fled. I too had to get away from those walls and those men whom
+				I had so admired when I managed Carmelo, but who now seemed like inmates in a prison
+				that they themselves had built day by day. ‘ If I may say so,
+					Princess, Voscenza should have been born a man. ’ At one time
+				I had thought those words were the highest recognition one could receive from other
+				people, but now the terror of becoming like Gaia tightened my chest so that I
+				couldn’t breathe. 
+
+The city taught me. The power of those
+				majestic domes, of the rapacious palazzos and towers barely refined by haughty,
+				ornamental gates, kept out the wretched swarm that was bled dry serving and smiling,
+				and reminded everyone, rich and poor alike, that amassing wealth was a way to
+				contend with the fear of death, a word that in reality is no more frightful than the
+				words ‘illness’, ‘slavery’, ‘torture’. I would
+				no longer worry about death, that final destination which, once it’s no longer
+				feared, makes each hour enjoyed to the fullest seem eternal. But you had to be free,
+				you had to take advantage of every moment, experience every step of the walk we call
+				life. Free to observe, to study, to gaze out the window, to look beyond that jungle
+				of palazzos and glimpse whatever light from the sea might filter in through the
+				shutters … Someone had turned off all the streetlamps, the port’s siren saluted an
+				unseen ship, the clatter of shutters arose as they were opened, one by one. A
+				fishmonger’s cry went up from the narrow back streets surrounding Via Etnea,
+				interrupting the call of the snow vendor, who reminded people of the heat in order
+				to sell the ‘Mountain’s saliva’… 
+
+But all this was out there, not here on
+				this elegant boulevard of heavy bank doors, sumptuous as coffins. They had opened
+				the doors of the Bank of Sicily, and here came the first employee crossing the
+				street. You could tell from the perfect cut of his dark suit and his jaunty,
+				polished cane that he wasn’t a mere clerk. The man surely had the same
+				insistent, focused gaze as Attorney Santangelo and was preparing for his day as a
+				manager, pleased to give orders and humiliate people. No, I would not become an
+				employee to my inheritance. To begin with, I would not receive anyone that day. 
+
+Jacopo, with his ironic smile, is
+				calling to me from inside the trunk. I must open that trunk. At one time he spoke to
+				me about wealth and poverty, but I was too young then. Somehow he told me that both
+				one and the other can bestow life and death: ‘ From Carmelo, 27 March 1912.
+					I leave tomorrow. I’m resuming my travels. There is no life in these minds
+					obliterated by pride. I feel contemptible leaving the entire burden on
+					Gaia’s shoulders. But what good is it to oppose history? My duty would be
+					to shut myself up in this prison with her and go along with her absurd hope of
+					keeping up a mentality and wealth obtained on the backs of the poor, and soon to
+					be swallowed up by a middle class fortified by a new greed. And if not
+					that … a spectre is haunting Europe. I declare myself a coward, but I
+					am resuming my life. The only regret and guilt I’ll take with me – a heavy
+					burden – is Beatrice. We should prepare her for life, make her study; the new
+					world will belong to doctors, engineers, chemists. I’m leaving, and the
+					rest is silence.’ 
+
+Beatrice said that Jacopo would have
+				been as handsome as Ignazio if he hadn’t had a curved back … Stooped
+				under his burden, Jacopo walks along paths unknown to me, long dark paths with no
+				trees or houses. Where was he going? 
+
+‘You see, Beatrice, he’s
+				always doing that. He speaks to me and then he goes away.’ 
+
+‘Don’t say that; it
+				frightens me! God, it’s so scary, Modesta! What did he tell you?’ 
+
+‘Many
+				good and proper things that he wants for your happiness and mine.’ 
+
+‘Oh God! That’s enough now.
+				Let’s go to sleep. Hold me! I’m afraid I’ll see him
+				too.’ 
+
+Beatrice clings to me. I like to feel
+				her trembling: the way it starts up, how slowly but surely she calms down in my arms
+				until her hand drops or the pressure of her head on my chest plunges me with her
+				into a deep sleep that holds no memories. According to what I was told, I slept for
+				two days and two nights.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">40
+
+然而，自由之诺——被海浪与风复诵着——撞碎在那春藤玫瑰、熔岩雕纹的宫殿墙壁上。29 那些偏僻的小巷与窄街里没有自由；那些令人晕头转向的广场上，只有头戴草帽、手持手杖的傲慢男人成群游荡，而隐蔽在窗帘后、或一楼半开门的幽暗中的女性身影，则在注视着他们。埃特纳大街上的宫殿敞开大门，迎来的是一连串不受欢迎的接待。我们抵达两天后，一群着装无可挑剔的妇人——戴着白手套或黑手套，顶着花团锦簇的帽子——开始在我们面前列队行进，开合着手中的扇子，献上庇护与忠告。
+
+&quot;哦，耶稣玛利亚！不！独自去歌剧院？耶稣玛利亚，不行！有我们的包厢呢，我亲爱的侄女……&quot;
+
+&quot;绝对不行！说实话，周日你们缺席的事，议论可多了！当然，你们长途跋涉，自然疲乏。不过，我的小鸽子们，请务必，周日正午的弥撒。这是传统。绝对。&quot;
+
+&quot;独自去咖啡馆？喔，不，这不可接受，亲爱的表妹，不可接受！……&quot;
+
+&quot;当然，没有兄弟、没有丈夫，实在是不幸！&quot;
+
+&quot;去电影院？那种现代魔鬼玩意儿？喔，不！我们很少去，偶尔为之，而且总要我们男人中的一位事先确认影片不算过于放荡……&quot;
+
+&quot;你说历史片，表姐？荒唐！历史不过是淫秽场景的幌子，低胸衣裙的女人，纵欲狂欢……绝无可能！人人至今还在谈论那部《卡比利亚》！30 真是丢人！还有议会里那些高喊自由高调的家伙。可有那么多社会主义者在……&quot; </div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>vow</b><span>誓言</span><em>make a vow</em></div>
+<div><b>conceal</b><span>隐瞒，掩藏</span><em>conceal the truth</em></div>
+<div><b>burden</b><span>负担</span><em>carry a burden</em></div>
+<div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div>
+<div><b>jealous</b><span>嫉妒的</span><em>be jealous of</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch039.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch041.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

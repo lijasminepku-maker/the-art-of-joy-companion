@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 84 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch083.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" selected>Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch085.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 84<span>战争、流离与国家权力</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">二战时期，旅行、艺术教育、家庭和生育都受不稳定环境影响。法西斯国家的监控、逮捕与监禁会改变人们说话和沉默的方式。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">84 
+
+‘They weren’t trying to harm
+				us, micia . They were tearing down Mussolini’s bust, and they were
+				elated! When you slumped to the ground like in the movies, I realized, damn if Nina
+				didn’t realize, that it was serious! But now you’re out of danger, and
+				that’s what counts.’ 
+
+‘What danger? And why is it so
+				dark?’ 
+
+‘Because your eyes hurt. Nothing
+				serious. It’s the fever and weakness.’ 
+
+‘It’s from hunger,
+				isn’t it, Nina?’ 
+
+‘Well, I wish! You had typhus, micia , and what a fever! Is it possible you don’t remember
+				anything? What a fright! Hour by hour, I was afraid you would die in my
+				arms.’ 
+
+‘Nina? I’ve never seen you
+				cry.’ 
+
+‘Hell! It’s you who are
+				making me cry, with those fleshless ribs and these tiny little hands. They look like
+				my Olimpia’s hands when she had diphtheria.’ 
+
+‘Olimpia! Have you heard from your
+				daughter?’ 
+
+‘She’s here with
+				us … you really don’t remember anything?’ 
+
+‘I only remember that I followed
+				you and that it was hot …’ 
+
+In the dim light, I stare at
+				Nina’s face and try to remember. Maybe if she’d turn on the
+				lamp … 
+
+‘Why the lamp, micia ?
+				It’s still daylight. I’ll open the window.’ 
+
+To open the window Nina has to move
+				aside waves of white tulle, like the veil the novices wear when they become brides
+				of Christ. The gauzy white makes me
+				nauseous. Who knows why Beatrice insisted on that fatal symbol, and why Carlo
+				didn’t rebel? ‘No one can defy Beatrice. You know that,
+					Modesta.’ 
+
+Nina moves away from the curtains,
+				satisfied, and goes over to the large mirror framed by gilded vine leaves and
+				flowers. Who can defy Cavallina? She insisted on that mirror until she got her way,
+				and now, like every morning, Nina looks at herself in the glass and brushes her hair
+				as she gazes at her image. 
+
+‘It’s beautiful here, micia , lovelier than you’d described. Eh, you rich folks! Either
+				you don’t realize what you have or you mock the rest of us: the country house,
+				a cottage … Hell, this place is a palace!’ 
+
+Nina combs hair that shines like
+				burnished gold – or is it the sun? 
+
+‘Naturally, your Bambù got me some
+				henna! Hey, it’s not true that everything natural is always good. Sometimes
+				nature needs some touching up.’ 
+
+She’s right: that silky golden
+				mass softens her somewhat plebeian features, as Nonna Gaia would say, and gives
+				Nina’s face ‘a certain something sweet that’s touching’.
+				Right, Carlo? 
+
+‘Un po’ di luna, un
+					po’ di mare, un po’ di musica nel cuor … Solo così potrò
+					scordare il mio dolor … , a little moon, a little sea, a little music
+				in my heart … only then can I forget my sorrow …’ 105 
+
+Nina is singing a new song. 
+
+‘Oh, did you know I met your
+				famous Jose?’ 
+
+‘Where?’ 
+
+‘Here. He landed with the
+				Americans. He found us some penicillin and left again. Who could have imagined it,
+				an Italian in an American uniform fighting against his country! He sends you his
+				warm regards. What a magnificent man! Your Nina, for two days at least, was in love,
+				and not because she’s a cottarola , as her father used to say, someone
+				who loses her head easily. The truth is, that guy is a real man!’ 
+
+‘Everyone falls in love with
+				Jose.’ 
+
+‘Look at that! You too?’ 
+
+‘No, not me.’ 
+
+‘Why not?’ 
+
+‘Because I was certain I’d
+				never see him again. I won’t see him again. It’s Timur I’m going
+				to meet up with.’ 
+
+‘Timur!
+				Come on! You said every German helmet we saw was him.’ 
+
+‘Yes, it’s the only thing I
+				remember: faceless helmets and shiny metal badges on their chests. A hundred, two
+				hundred, maybe a thousand helmets and badges with that cruel slogan.’ 
+
+‘Actually, we only saw a few of
+				them, micia ! “Only the essential quota of Germans!”
+				that’s what your Jacopo said.’ 
+
+A warm rush of pride when Nina talks
+				about Jacopo that way always clears away the fog of lethargy. To hear her speak
+				about him, and for that reason only, I have her tell me the story of our liberation,
+				which I know by heart … 
+
+‘Yes, yes, it was him. While
+				everyone was celebrating the fall of Fascism, deluding themselves that it was all
+				over, that very morning, with Pietro, he began pulling strings, and didn’t let
+				up … Yes, he was the one who persuaded your friend Pasquale to help them.
+				Hardly timid or hesitant! He planned the trip, dealt with everybody. And after
+				bringing us here, he quickly departed again for Rome to bring back my Olimpia. Just
+				in time, too!’ 
+
+To hear it again and make certain of
+				Nina’s admiration for my Jacopo, all I have to do is ask, ‘But is it
+				possible that he carried me in his arms for so long?’ 
+
+‘Of course he did! He and Pietro,
+				but nearly always him.’ 
+
+Nearly always him! … Even
+				though he’s far away (Jose took him along to fight in the north), in
+				Jacopo’s arms I’m transported tenderly from bed to chair. And if
+				it’s not too hot: ‘You mustn’t sweat,’ she told me, her
+				gentle hands supporting my waist as we move toward the window, so distant;
+				it’s a struggle to reach it, but it’s clean, no bedbugs or rats that
+				scratch. 
+
+‘It’s nice here, isn’t
+				it, micia ? All these trees are restful on the eye. Greenery outside, and so
+				clean inside! Remember how those dark bastards used to scratch? You were really
+				brave to never mention them, Mody, I have to tell you.’ 
+
+‘All we could do was ignore
+				them.’ 
+
+‘Sure, but now that I see all this
+				cleanliness – almost excessively spotless – I realize even more how courageous you
+				were.’ 
+
+‘And how about you? You never told
+				me about your seasickness or island sickness, whatever you want to call
+				it.’ 
+
+‘I still
+				dream about that little scrap of land the size of a handkerchief! Oh! You
+				couldn’t raise your eyes without seeing that fearful water constantly in
+				motion.’ 
+
+‘That’s why you often kept
+				your head down. So it wasn’t a headache!’ 
+
+‘Oh sure, you must be joking!
+				You’re talking about the kind of headache a signorina gets! It was as
+				if my head was stretched and pulled by the waves. Oh, they know that being confined
+				on the island has this effect on almost everyone, except you, my fine little
+				one!’ 
+
+‘Nina, hold me. You’re
+				right, but I’m still afraid. I’m ashamed, but I’m
+				afraid!’ 
+
+‘Come, stay quietly in my arms and
+				the fear will go away. Not to brag, but Nina is a master at calming her micia .’ 
+
+Nina is a master at soothing every
+				quiver, her stroking sure and confident on my burning forehead. And that’s why
+				today, too, I look into her eyes to endure the long waiting, the anxiety, the fear,
+				the lack of news, bombarded by echoes of massacres, torturing, mass killings that
+				only those who have lived through can know, and afterwards have the right to
+				tell. 
+
+But that comes later … Now, if
+				it weren’t for Nina, I would remain supine, waiting, suspended in a void of
+				anxiety and fever, trying only to decipher the closed faces, sealed by terror, of
+				those who return amid the indecipherable chatter the radio constantly
+				blares … And nothing can console me, not Bambolina’s beauty, a new
+				beauty, her face tanned, proud of her work in the fields, nor Carluzzu,
+				Stella’s son, who when he falls already knows how to get up by himself without
+				crying, not the birth of little Beatrice – all white and golden – the daughter of
+				Bambù and Mattia, nor the sight of Olimpia, Nina’s daughter, as she plays with
+				Crispina. 
+
+‘They’re always together,
+				aren’t they, Nina?’ 
+
+‘She’s a force of nature,
+				that Crispina! In a few months she’s transformed my Olimpia. When she got
+				here, her eyes were those of a terrified sheep. She wouldn’t speak. Now she
+				runs and leaps around like a little goat …’ 
+
+At night I continue to reach for
+				Nina’s hand, the dark-haired, serious Nina of the island who still lives in my
+				memory. By day: the golden, smiling Nina who runs through the delicate green of the vineyard at sunset. Finally I can
+				run beside her and drink in her stories, her jokes. 
+
+‘God the hare, Nina? That’s
+				a new one!’ 
+
+‘No, little one, old as madonna
+				eight!’ 
+
+‘What do you mean,
+				eight?’ 
+
+‘Eight! Like the number eight. Or
+				madonna the ballerina, or if you prefer, God the tightrope-walker, whatever you
+				like.’ 
+
+‘You make me laugh, Nina. Where do
+				you get these things? Do you make them up?’ 
+
+‘Make them up? Not a word!
+				They’re all passed down as part of the family legacy. It takes centuries to
+				arrive at such refinements. In his serene old age my grandfather, a pure-blooded
+				product of Viareggio, enjoyed digging up and collecting various oaths. “Now
+				that Italy has finally been united” – he used to say – “and now that the
+				parasitic papacy has been chased out, it’s our duty to gather together the
+				expressions of revolt that rose spontaneously from the oppressed
+				people …” That’s right, like popular songs and poems: part of the
+				cultural heritage, he said. Poor Nonno ! He was completely unshakeable. I
+				only saw him cry twice: over the Concordat 106 and over Sacco and Vanzetti.’ 107 
+
+‘For God’s sake, Nina,
+				don’t start in with Sacco and Vanzetti!’ 
+
+‘Yet if the Allies win,
+				we’ll have to take a look at that ugly crime, my dear Mody.’ 
+
+‘No, Nina, no! Instead, tell me:
+				any news of Arminio?’ 
+
+‘Nothing, not about Arminio or
+				your ’Ntoni. But we can be happy to have heard something about Jacopo and
+				Prando. And if I’m happy, not being part of the family …’ 
+
+‘You are part of the
+				family!’ 
+
+‘How I love your Mattia! If it
+				weren’t for Bambolina I would gladly spend a couple of hours one-on-one with
+				him. But though Nina may be a cottarola who loses her head easily, she
+				gives in to her fancies, yes, but not with men who are taken.’ 
+
+Nina, Nina … The dark-haired,
+				feral Nina of the island, the golden-haired, smiling Nina of Carmelo. Finally I can
+				run beside her, enjoy the sight of her harmonious freedom, her step that sketches
+				melodious whorls of vital energy. Now she stops, preoccupied. She must have
+				something to confess to me. 
+
+‘I have a
+				confession to make, micia . Last night I had a relapse, so to speak.
+				It’s just that that dark-skinned guy appealed to me, plus this morning, he was
+				leaving. Well, now you know, it wasn’t so bad …’ 
+
+Each time she confesses, my surprise at
+				not being jealous makes me run into her arms, grateful. How can that be? Thinking of
+				Joyce, I realize that jealousy is always provoked by those in the habit of using it
+				out of pointless, venomous cruelty. Besides, after her confession, her arms tighten
+				around me with new warmth. 
+
+‘You’re not mad at me, are
+				you, micia ? What can you do? That’s how Nina is! She’s a bit of
+				a maschiaccio , a hoyden, as Arminio used to call me when I was a little
+				girl. And was he ever right! Don’t pay any attention. They’re just
+				passing fancies, nothing serious, things that only render the affection I have for
+				you purer. Even with my husband, it was the same. Of course, he got worked up a
+				little …’ 
+
+‘And if he did it?’ 
+
+‘Oh well, it doesn’t work
+				both ways!’ 
+
+‘And if I do it?’ 
+
+‘It works both ways, micia , don’t worry. Nina keeps her word.’ 
+
+‘But you’re all I
+				want.’ 
+
+‘Bullshit! It’s just that
+				you don’t know; you have no experience. You, Bambolina, you’re the first
+				to have had a little freedom. Not to brag, but we, in these things, had it really
+				easy with my mother, and my mother with my grandmother … But then come to
+				think of it, maybe each of us is the way we are. Any rational thinking stops when it
+				comes to love, and it’s best not to talk about it. What a time your Nina went
+				through, torn between you, who were dying, and that little one so far away! Only
+				Jacopo understood me. That young man understands everything. How could I leave you
+				to go and bring Olimpia back from Rome? “Well, then we’ll send
+				Pietro,” he said, without batting an eye. “If you feel you can rely on
+				him, write a letter to your sister and Pietro will go and get her.” What a
+				decision, my micia with that giant who never looks at you directly. I trust
+				him, but would Licia trust that beast? And so Jacopo, as if he had read it in my
+				eyes, said: “All right, I’ll go. For some reason, everyone trusts
+				me.” For some reason, he says! He looks like an angel!’ 
+
+‘But Jacopo will come back, right,
+				Nina?’ 
+
+‘Of
+				course, like they’ll all come back. Even Arminio, I’m sure of
+				it.’ 
+
+The magical balm of her certainty spurs
+				us to keep Carmelo’s rooms ready and waiting, and nothing else exists around
+				us, neither the unbridled joy of those to whom everyone has returned, nor the ashen,
+				death-like grief of those who have lost everyone and wander like blind men through
+				the ruins, the markets, the shops. It’s horrifying to meet their gaze, eyes
+				dilated in a question that has no answer. 
+
+‘Don’t look at them, Mody.
+				Do as you did on the island with those who were starving. It doesn’t help them
+				or us.’ 
+
+And without looking, we waited through
+				winter, then summer. And then another winter and another summer.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">八十四
+
+&quot;他们不是想伤害我们，小猫咪。他们在推倒墨索里尼的半身像，他们欣喜若狂！当你像电影里那样瘫倒在地上时，我意识到——该死的尼娜怎么可能意识不到——事情严重了！但现在你脱离危险了，这才是重要的。&quot;
+
+&quot;什么危险？为什么这么暗？&quot;
+
+&quot;因为你的眼睛疼。没什么严重的。是发烧和虚弱。&quot;
+
+&quot;是饿的，对吗，尼娜？&quot;
+
+&quot;嘿，我倒希望！你得了斑疹伤寒，小猫咪，烧得可真厉害！你难道什么都记不得了吗？多吓人啊！一个小时又一个小时，我怕你会死在我怀里。&quot;
+
+&quot;尼娜？我从没见你哭过。&quot;
+
+&quot;见鬼！是你让我哭的，看看这些没有肉的肋骨和这双小小的手。它们像我女儿奥林匹娅得白喉时的手。&quot;
+
+&quot;奥林匹娅！有你女儿的消息了吗？&quot;
+
+&quot;她和我们在一起……你真的什么都不记得了？&quot;
+
+&quot;我只记得我跟着你，天很热……&quot;
+
+在暗淡的光线中，我凝视着尼娜的脸，试图回忆。也许如果她把灯打开……
+
+&quot;为什么开灯，小猫咪？天还亮着呢。我去开窗。&quot;
+
+为了打开窗户，尼娜必须拨开层层白色薄纱，就像见习修女成为基督新娘时戴的面纱。那白色的薄纱让我恶心。谁知道为什么贝阿特里切坚持要那个不祥的象征，为什么卡洛没有反抗？&quot;没人能违抗贝阿特里切。你知道的，莫德斯塔。&quot;
+
+尼娜满意地从窗帘旁走开，走向那面由镀金藤叶和花朵框着的大镜子。谁能违抗卡瓦利娜呢？她坚持要那面镜子，直到如愿以偿，现在，像每天早上一样，尼娜对着镜子看着自己，像往常一样梳着头发……
+
+&quot;那面镜子！尼娜，看看那镜子！&quot;
+
+&quot;怎么了？我可不想吓到你。我的脸还没完全好，但比昨天好了。你想看看你自己吗？你看起来真可怜，我亲爱的小宝贝……你为什么哭？别哭，求你了。抚摸你是想让你好受些，而不是让你哭。&quot;
+
+&quot;是因为那面镜子，尼娜。你相信吗？自从我被迫离开家那天起，我就没照过镜子。我没注意到它在那里。&quot;
+
+&quot;嗯，我应该早想到你可能想看看自己。&quot;
+
+&quot;不是那样的，尼娜。我哭是因为我看到你站在那面镜子前。就像在家里一样。我们到家了。&quot;
+
+后来，当尼娜用毛巾敷在我眼睛上时，我感到她的嘴唇贴在我额头上——先是轻轻地，然后温暖起来。外面，远处，模糊的爆炸声与我们的寂静交织在一起，而在这寂静中，我失去了所有知觉。
+
+&quot;你终于又笑了。你的眼睛不那么红了。你能吃东西了吗，小猫咪？&quot;
+
+&quot;好多了。我饿了。&quot;
+
+&quot;这是个好兆头。来，把这汤喝了。今天早上它似乎不那么差。也许他们终于决定少放点水了，那些法西斯！谁知道呢……今天甚至多给了些面包。我想知道是不是因为美国人已经到罗马了，他们开始害怕了……然而我不应该兴奋。他们随时都可能把我转走……但今天情况不错！也许我们该趁这个机会，你能告诉我点故事……&quot;
+
+&quot;我不知道任何故事，尼娜。你才是有故事的人。&quot;
+
+&quot;哦，我讲得够多了。现在该你了。你不是在监狱里待了很多年吗？给我讲讲你第一次进来的时候。&quot;
+
+&quot;没什么可讲的。我害怕，就是这样。朱莉安娜修女的声音让我想起我的嬷嬷，莱奥诺拉嬷嬷……还有门，同样的声音，同样的锁和钥匙声。有时候，夜深人静时，我总觉得又回到了修道院的时光。&quot;
+
+&quot;修道院？你在修道院待过？&quot;
+
+&quot;很多年。&quot;
+
+&quot;那个莱奥诺拉嬷嬷，她对你好还是坏？&quot;
+
+&quot;我想她对我好。她试图理解我。她教我写字。&quot;
+
+&quot;那么说来，你不是从小就识字？我爸也是，他是个工人，却学会了读书写字。可就算他不会写，他也懂得比所有老板加起来还多。其实，你和他有点像，莫迪。你怎么能对一个无政府主义者讲修道院、嬷嬷还有那些修女的事，却又不让我觉得你是站在他们那边的人？&quot;
+
+&quot;也许是因为我从来没有站在任何人的一边，尼娜。&quot;
+
+&quot;可能是这样。但我也有我的立场，我希望有一天你会站在我这边。不过，我们先把这事放一边。现在我们先把汤喝完。&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>trauma</b><span>创伤</span><em>live with trauma</em></div>
+<div><b>custody</b><span>拘押；监护权</span><em>taken into custody</em></div>
+<div><b>resistance</b><span>抵抗；抵抗运动</span><em>join the resistance</em></div>
+<div><b>liberation</b><span>解放</span><em>after liberation</em></div>
+<div><b>scarcity</b><span>匮乏</span><em>a time of scarcity</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch083.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch085.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

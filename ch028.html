@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 28 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch027.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" selected>Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch029.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 28<span>庄园、贵族与社会流动</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">estate、title、inheritance 和 marriage 构成贵族权力的语言。西西里的土地租佃链也让佣人、管理者和地主之间的关系很复杂。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">28 
+
+I squeezed my eyes shut. I froze in
+				astonishment. 
+
+‘Go on, suck me. Be a good little picciridda . If you don’t eat you won’t grow. You’ll
+				wither away, and gaunt La Certa will come and gather your bones. There, eat
+				and you’ll grow … Hush, hush, picciridda , relax.’ 
+
+I couldn’t relax. I was frozen,
+				embarrassed, seeing her play with my breasts, my hair, my ears. How was it
+				possible? 
+
+‘You’re all chilled and
+				sweaty, Modesta. Here, I’ll dry you. You don’t think it’s a sin,
+				do you? What harm is there? After all, we’re both women. We won’t get
+				pregnant.’ 
+
+That made me laugh out
+				loud … Tuzzu used to laugh when I … ‘Listen to this
+					picciridda – a retort worthy of the impudent scamp she is!’ 
+
+I thought I was laughing and instead, to
+				my surprise, I found myself crying on her chest. She was tall now, and her arms
+				sheltered me. 
+
+‘Oh, are you crying? Don’t
+				cry. It’s not a sin, I promise you. Here, come, let me drink all those nice
+				salty tears.’ 
+
+I submitted. I felt cold. 
+
+But little by little her caresses slowly
+				melted the chill of my surprise, and a warmth I had never felt before made me say,
+				‘No, Beatrice, it’s not a sin.’ 
+
+And so, for the first time in my life, fui amata amando , I loved and was loved in return, as the aria
+					goes. 18 Something so rare that even now, I can recall the feeling of lightness that made me
+				open my eyes in the morning, secure in
+				the new adventure that was born from our embrace. Together we ran through the rooms,
+				the garden, the avenue lined with palm trees … Our lessons and afternoon
+				tea were the only interruptions in our solitude as a twosome. But they were brief
+				interruptions, since a look, or a caress under the table, or her brushing my
+				shoulder as we played the piano always reassured us that we would soon be together
+				again. 
+
+‘Shall we play baby and tata ?’ 
+
+‘Yes.’ 
+
+‘This time you be the tata and I’ll be the baby.’ 
+
+‘Which do you prefer, being the tata or the baby?’ 
+
+‘Oh, it makes no difference to me,
+				as long as I can be near you and hold you.’ 
+
+‘Me too.’ 
+
+Surrendering to her, I left behind that
+				inferno of qualms and bands and lava walls. The convent receded when I stared into
+				her eyes. It collapsed behind me and I could see the stars again. Was that what
+				paradise was: love? I didn’t know what that word meant: ‘the Love that
+				moves the sun and the other stars’. 19 
+
+Naturally, when she embraced me
+				everything revolved around me. It wasn’t like with Tuzzu or with Mother
+				Leonora. A tenderness I had never known before made me feel serene among the trees
+				that revolved around the sun, confident that I would not fall. 
+
+When she undressed me, I learned from
+				her what colour my skin was, how many moles I had on my back … 
+
+‘You have a slim waist too.
+				It’s just that you don’t wear a corset. See, it’s almost as
+				slender as mine. Don’t you believe me? Here, I’ll get the measuring
+				tape. Plus you’re taller and have wider hips, and you’re not
+				lame.’ 
+
+That word was always followed by tears.
+				To make them stop I just had to kiss the leg that was slightly thinner and shorter
+				than the other. 
+
+‘Don’t you find it
+				repulsive?’ 
+
+‘Repulsive? Of course not! I only
+				find it moving, Beatrice. Don’t be silly.’ 
+
+‘My tata said the same
+				thing. Will you give me some milk like she did?’ 
+
+‘First
+				I’ll cover you with my hair.’ 
+
+‘Oh yes, I’m so
+				cold!’ 
+
+And she pretended to be so cold – there
+				in the sun – that it made her tremble. 
+
+‘And what’s this, between
+				your legs?’ 
+
+‘A meadow.’ 
+
+‘Can I rest my lips there and feel
+				how soft the grass is?’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">28
+
+我紧闭双眼。我惊愕得僵住了。
+
+「来，吸我吧。做个乖小孩。不吃东西你长不大的。你会枯萎，干瘦的死亡就会来收你的骨头。来，吃吧，你就会长大……嘘，嘘，小家伙，放松。」
+
+我无法放松。我僵住了，窘迫极了，看着她玩弄我的乳房、我的头发、我的耳朵。这怎么可能？
+
+「你全身又冷又湿，莫德斯塔。来，我帮你擦干。你不觉得这是罪过吧？有什么害处呢？毕竟，我们俩都是女人。我们不会怀孕的。」
+
+这话让我放声大笑了起来……图佐以前也笑，当我……「听听这小家伙——真是个厚脸皮的小捣蛋鬼的回嘴！」
+
+我以为我在笑，然而，令我惊讶的是，我发现自己正伏在她胸前哭泣。她现在变高了，她的双臂庇护着我。
+
+「哦，你在哭吗？别哭。这不是罪过，我向你保证。来，过来，让我喝掉那些咸咸的、美好的眼泪。」
+
+我顺从了。我感到冷。
+
+但渐渐地，她的爱抚慢慢融化了我惊讶的寒意，一种我从未感受过的温暖让我说：「不，贝阿特丽切，这不是罪过。」
+
+就这样，有生以来第一次，我既爱也被爱着——如那首咏叹调所唱。如此稀有之事，以至于直到现在，我仍能忆起那种轻盈的感觉，它让我在清晨睁开双眼，安然于我们拥抱所生的崭新冒险之中。我们一起跑过房间、花园、棕榈树成行的大道……我们的课程和下午茶是我们两人独处时光中仅有的中断。但这些中断是短暂的，因为一个眼神，或桌下的一次抚摸，或弹钢琴时她擦过我的肩膀，总是让我们确信我们很快又会在一起了。
+
+「我们玩宝宝和奶妈好吗？」
+
+「好。」
+
+「这次你做奶妈，我做宝宝。」
+
+「你更喜欢做奶妈还是做宝宝？」
+
+「哦，对我来说都一样，只要我能靠近你，抱着你。」
+
+「我也是。」
+
+向她臣服，我将那个充满疑虑、束带与熔岩之墙的地狱抛在了身后。当我凝视她的眼睛时，修道院退去了。它在我身后崩塌，我又能看见星星了。难道那就是天堂：爱？我不知道那个词的意思：「那推动太阳和其他星辰的爱」。
+
+自然，当她拥抱我时，一切都围绕着我旋转。不像和图佐在一起时，也不像和莱奥诺拉修女在一起时。一种我从未体验过的柔情，让我在围绕太阳旋转的树木间感到宁静，确信我不会坠落。
+
+当她为我宽衣时，我从她那里知道了自己肌肤的颜色，背上长着多少颗痣……
+
+「你的腰也很细。只是你没穿束腰罢了。看，几乎跟我的一样纤细。你不信？来，我去拿卷尺。而且你更高，胯更宽，你也不跛。」
+
+那个词之后总是跟着眼泪。要让它们停下来，我只需亲吻那条比另一条略细略短的腿。
+
+「你不觉得恶心吗？」
+
+「恶心？当然不！我只觉得它动人，贝阿特丽切。别傻了。」
+
+「我的奶妈也说过同样的话。你能像她那样给我些奶喝吗？」
+
+「我先用头发盖住你。」
+
+「哦好，我好冷！」
+
+她假装冷成那样——在阳光下——冷得发抖。
+
+「那这个呢，在你两腿之间？」
+
+「一片草地。」
+
+「我能把嘴唇放在那儿，感受青草的柔软吗？」
+</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>servant</b><span>仆人</span><em>a household servant</em></div>
+<div><b>summon</b><span>召唤；传唤</span><em>summon someone</em></div>
+<div><b>bargain</b><span>交易；讨价还价</span><em>strike a bargain</em></div>
+<div><b>estate</b><span>庄园；地产</span><em>manage an estate</em></div>
+<div><b>inherit</b><span>继承</span><em>inherit a name</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch027.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch029.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

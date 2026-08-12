@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 34 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch033.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" selected>Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch035.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 34<span>战争前夕与家族秩序</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1915 年意大利参加第一次世界大战。乡村生活与国家大事并不同步，但战争、价格、劳动力和家族荣誉会逐步进入私人生活。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">34 
+
+That Monday the Princess surprised me
+				with her acuity, as Argentovivo would have said. I always learned something new from
+				her. Listen to this: 
+
+‘You tire yourself out too much,
+				Mody! You’ve become skin and bones. Watch out! If you become ugly, I’ll
+				have the “thing” disown you. Before, it was a joy to the eye to see you.
+				You work too hard. You have the house on your back, that “thing” to look
+				after, and you still study! Granted, this proves that you have intelligence. At
+				first I used to think that your interest in books was due to your having to acquire
+				a position, but now I see that it is truly a scholarly interest. But I don’t
+				like to see you like this. Therefore, either find a way to gain some weight and get
+				back a bit of colour, or I shall forbid you to take any more lessons. Is that clear?
+				Then too, maybe the doctor is right: you should get out in the air more. Starting
+				tomorrow you will take riding lessons. That way, when you catch up to Beatrice, who
+				isn’t bad on a horse, you two can go riding a little. You must do it for
+				Beatrice’s sake as well: with the excuse that you can’t ride a horse,
+				she’s becoming fat and flabby on me. These blondes! As soon as they pass
+				adolescence they blow up like balloons. I want her thinner, and you fatter. You too,
+				Carmine, do you understand? We must give Mody lessons. Now, enough talking, get to
+				work.’ 
+
+I didn’t know myself why I
+				persisted in studying that way. But now that the threat had been issued, the thought of not being allowed to study anymore
+				made me finish off two bowls of pasta that evening and lots of mashed potato;
+				potatoes were said to be fattening. And in the morning milk, butter and heaps of
+				jam. However, the idea of seeing Orlando again made me tremble with fear. Was it
+				really Orlando I was afraid of, or Carmine? 
+
+Since our encounter I hadn’t
+				thought of him again, nor had I looked at him, not even when he stood in front of me
+				in the old woman’s study … There he was, coming down the broad lane,
+				laughing. That smug laugh was insufferable. Outside the wall he was master. You
+				could tell by the way the other man listened to him, one step behind, leading
+				Orlando and another horse by the reins. 
+
+‘Good day, Padroncina . I
+				am very pleased that you have decided to confront the horse. I leave you to Rosario;
+				he’s the best riding master we have, and he will teach you properly. Remember,
+				Rosario, the Principessina is a little frightened. With you, I feel
+				confident. Riverisco , Padroncina , my respects.’ 
+
+Rosario quickly linked his fingers
+				together and positioned his hands to give me a boost up. But you could tell he was
+				holding back. I felt so angry toward that deferential snotnose that I fell over the
+				animal’s flank. 
+
+‘Forgive me, Voscenza ,
+				forgive me. I didn’t think you already knew how to leap up. Luckily you
+				weren’t hurt! You weren’t hurt, were you?’ 
+
+‘I’m fine. Don’t cower
+				so! Where did Don Carmine go?’ 
+
+‘Actually he must have gone back
+				home …’ 
+
+‘And where is that?’ 
+
+‘Well, on foot it’s far. By
+				horse, a good ten minutes.’ 
+
+‘Take me there on the horse,
+				then.’ 
+
+‘But I have orders
+				to …’ 
+
+‘I’m the one who gives the
+				orders here! Help me climb on and try not to let me fall again!’ 
+
+He went on apologizing profusely.
+				Feeling him behind me on the saddle, thin and spindly, was so disgusting to me that,
+				using my thighs and knees, I managed not to lean on him. 
+
+‘Why, Voscenza is in
+				perfect balance! That was my mistake, believe me, Don Carmine didn’t tell me. He said you were still
+				afraid … That was my mistake.’ 
+
+‘That wasn’t the mistake.
+				Let’s go, I’m in a hurry!’ 
+
+* 
+
+‘What’s this, Padroncina ? You’re telling me that Rosario made you tumble?
+				Bravo, Rosario! I didn’t know you also had the knack of making beautiful girls
+				tumble! Good for you … What? You don’t want him to teach you? Did
+				you hear that, Rosario? It’s clear you didn’t make her fall hard. Now
+				what do we do, Padroncina ? We’ll have to talk about it. I don’t
+				have the time. What do you say, Rosario, should we try Beppe? … No, she
+				says? It has to be me? All right then. You go back to work, Rosario, or we’ll
+				waste all day here. I’ll try to settle things with the Principessina .’ 
+
+He opened the door to let Rosario out,
+				and when he had shut it again he leaned his back against it, staring at me. He was
+				no longer smiling. 
+
+‘So then, it really has to be
+				me?’ 
+
+I couldn’t open my mouth, I was so
+				angry over those words. 
+
+‘Well, answer me! And why are you
+				trembling like that? We’re not on the horse. Say something.’ 
+
+The familiar tu thrown in my
+				face, him standing right there in front of me, made me raise my arms and pound his
+				chest with clenched fists. I wanted to scratch his face, but he was too tall. 
+
+‘You’re beautiful. Strong
+				too, and you want me. Do you know you want me?’ 
+
+I was about to hit him again, but the
+				truth of those words struck me like a lightning bolt. It was true. How could I have
+				known it if he hadn’t told me? And here I thought that the trembling that
+				gripped me in his presence was simple hatred. Should I run away? But why? I had
+				never felt the frenzy that was coursing through my blood in the guise of hatred. It
+				was a terrifying pleasure I had never experienced, and in order to feel it once
+				more, I started striking him again. He let me do it. My arms and fists hurt from
+				pounding that marble chest, making me sink into his motionless arms. That was his
+				signal. As if that were all he had been
+				waiting for, his hands close around my waist and lift me up, making me soar, light
+				as a feather. It was like looking into a ravine. The greater the terror, the greater
+				my desire to plunge in. I found myself on the floor with him on top of me. He had
+				not undressed me, nor had he undressed. I felt him inside me. He wasn’t
+				hurting me; he was moving gently. When he slid out, I knew he must have come just by
+				the way his head slumped against my shoulder. But he said nothing, and I was burning
+				all over since no shivers had come to relieve me. 
+
+‘I’m sorry about being in
+				such a hurry, picciridda ; it’s just that I’ve wanted you for so
+				long, and you really don’t know anything. Slowly, in time, I’ll teach
+				you to come too. Your mothers don’t teach you anything, so it’s up to
+				the man …’ 
+
+* 
+
+And teach me he did. Every morning,
+				just after sunrise. First to understand the horse, and later, there at his house, in
+				that small bare room that smelled of tobacco. 
+
+‘It’s like with the horse.
+				You have to tighten your thighs around me, and you have to move with me. It’s
+				like being horse and rider. Let yourself go, figghia , don’t stiffen
+				up as though I wanted to kill you. By now you know the animal, and I want to give
+				you pleasure like you give me. You see, figghia , love isn’t what so
+				many men who aren’t men say it is – and women too who aren’t women – the
+				ones who go running from one lover to the next, barely feeling anything. With love,
+				when you find it … to me it only happened once … no, not with
+				Beatrice’s mother; that one was sick in the head like all of them in the
+				villa, full of impulsive whims; one day she wanted it and the next day she
+				cried … No, with a real woman whom I had for years; then she died on me.
+				But that’s not what I wanted to say. The truth is that when you find the right
+				woman or the right man, then it’s your duty to get to know one another. The
+				body is a delicate instrument, more so than a guitar, and the more you study it and
+				attune it to the other person, the more perfect the sound and the more intense the
+				pleasure. But you have to help yourself and help me. You mustn’t feel ashamed. Here now, I’ll move
+				very, very slowly and you follow me. And when you feel the heat building you have to
+				tell me, so I’ll wait for you, and we’ll climax together. Why
+				don’t you want to tell me, eh, picciridda , when you feel ready? If
+				you don’t want to say it out loud, give me a sign, squeeze me tight, bite my
+				ear, whatever you like. You’re warm and trembling all over, but I know you
+				feel only a faint pleasure. That’s it, take your time, don’t be
+				ashamed.’ 
+
+How could I have known it if he
+				hadn’t told me? Ever so slowly, I learned to follow him on that deep wave that
+				held such thrills. And the first time I really came the pleasure was so intense I
+				thought I had been struck by lightning. 
+
+‘Brava , now you’re
+				really a woman, and I cried out with you. I bet you didn’t even hear me, you
+				were screaming so loudly when you came.’ 
+
+For days and days I thought I had not
+				learned the lesson well. And if I slid on the saddle, I was afraid of falling
+				off … And when he, not speaking, grabbed me by the waist and tossed me
+				onto the bed so that I felt my legs tense, I was always afraid that I might not
+				reach that thrilling, satisfying shudder. But Carmine was skilful and patient. With
+				his palms he guided me, easing the anxiety that made me rigid, and always after
+				riding with him I plunged into that alluring, bottomless ravine. 
+
+‘That’s it, figghia , gallop! Yesterday you were a little scared, but today if you
+				don’t let fear erase the memory of pleasure, you won’t be afraid
+				anymore. Fear, like destructive thoughts, is a hardy weed and you must uproot it
+				from your body immediately.’ 
+
+He laughed, swiftly overtaking me with
+				his Orlando and urging me to gallop toward the valley. And that loud laugh, along
+				with the steely curls on his head, filled me with a sweet terror that drove me to
+				catch up with him, grab those wiry ringlets and pull and pull. I hated him, I wanted
+				to hurt him, but when I was away from him that mysterious chill gripped me again and
+				I had to go back. 
+
+‘Of course you’re hurting
+				me! What am I, made of iron?’ 
+
+‘You’re made of iron, and I
+				can’t stand the sight of you!’ 
+
+‘Fine, figghia , so
+				don’t look at me. Anyway, for some reason people make love with their eyes
+				closed. You’re a real woman, real and forceful. And to think, I swear to God, that I thought you only
+				liked the caresses of other women! Just look at that. Even an old man like me can be
+				wrong!’ 
+
+How did he know? My surprise made me tug
+				too hard on the reins and Morella almost threw me off. 
+
+‘What is it? Are you upset over a
+				silly thing like that? What do you think, that you’re the first to be
+				initiated by a woman’s hand? There’s nothing wrong with it, figghia . And don’t worry, you’re a woman, a real woman,
+				even if you wake up with whiskers one of these days.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">34
+
+那个星期一，公主以其敏锐令我吃惊——活银想必会这么说。从她身上我总能学到新东西。听听这个：
+
+&quot;你太操劳了，莫迪！都皮包骨头了。当心！你若变丑了，我就让那&#x27;东西&#x27;休了你。从前看你，养眼得很。你太拼命了。整个家压在你肩上，那&#x27;东西&#x27;要你照顾，你居然还学习！也罢，这说明你有头脑。起初我以为你翻书不过是为了谋个地位，如今我看出来了，确是学究的兴趣。可我不愿见你这副模样。所以，要么想法子长点肉、添些血色，要么我禁止你再上课。听明白了吗？再说，也许医生是对的：你该多透透气。明天起，你学骑马。等赶上贝亚特里切——她马术不差——你俩便可一起出去骑骑。你也得为贝亚特里切着想：她借口你不会骑马，结果把自己养得又胖又松。这些金发女人！一过青春期就跟气球似的鼓起来。我要她瘦些，你胖些。你也一样，卡尔米内，明白吗？我们得给莫迪上课。好了，别说了，干活去。&quot;
+
+我连自己也不知为何如此执着于学习。但威胁既出，想到再不许读书，那晚我竟吞下两碗面，外加许多土豆泥——据说土豆长肉。早晨又是牛奶、黄油，大堆果酱。然而，再见奥兰多的念头令我战栗。那真是奥兰多吗，我……</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>scarce</b><span>稀缺的</span><em>become scarce</em></div>
+<div><b>endure</b><span>忍受；持续</span><em>endure hardship</em></div>
+<div><b>aftermath</b><span>余波，后果</span><em>in the aftermath of</em></div>
+<div><b>enlist</b><span>参军；争取支持</span><em>enlist in the army</em></div>
+<div><b>ration</b><span>配给；限量</span><em>food rationing</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch033.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch035.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

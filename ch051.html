@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 51 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch050.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" selected>Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch052.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 51<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">51 
+
+Every night when the house grew quiet,
+				Carmine returned. How was that old man able to cross the grounds, pass through the
+				entrance hall and then, in that maze of corridors and stairs, find his way to my
+				room? 
+
+‘Carmine is used to the dark, and
+				good at remembering doors and passages and spots where danger may lurk.’ 
+
+‘Is there danger in this house?
+				Why did you come back?’ 
+
+‘Because I forgot my pipe
+				here.’ 
+
+‘I won’t give it to you. No
+				use looking for it. I won’t give it to you!’ 
+
+‘Why not? Let’s hear it. Why
+				won’t you give it to me?’ 
+
+‘Because you know how to light it
+				and I can’t. I tried and I burned myself. The only thing that came out was a
+				bitter liquid, not smoke like when you did it.’ 
+
+‘What do you mean? You’re a
+				woman! What are you doing with a pipe and tobacco?’ 
+
+‘I’ll tell you what I mean!
+				I won’t give it to you unless you teach me how to light it.’ 
+
+‘Listen to that! A sweet thing
+				with a pipe in her mouth!’ 
+
+‘Just once, Carmine, show me how
+				you do it.’ 
+
+‘All right, all right. But just
+				this one time! I know you, you’re stubborn as a mule, and I can’t get
+				along without my pipe! According to those in the white coats, I shouldn’t
+				smoke anymore, or drink, or … never mind! For what? To gain two more
+				miserable days to live? Forget
+				it! … Come on, I’ll teach you. Look: I’ll humour this whim of
+				yours, figghia , but you’re not going to start smoking like a carusu , are you?’ 
+
+‘Why not?’ 
+
+‘But why? Tell me, why?
+				Well?’ 
+
+‘Because I’m also a carusu !’ 
+
+‘That’s really a good one!
+				You’re also a boy?’ 
+
+‘That’s right. Half carusu and half maredda .’ 
+
+‘And who told you that?’ 
+
+‘I foresaw it. I saw it in my
+				future, that I could shoot and smoke and run like Carmine when he was young. I saw
+				you, you know, when you were young, and then I saw myself, old like you are now, but
+				even older, much older. You’re going to die, but I’ll live three times
+				your life. My future told me so.’ 
+
+‘Good for you! If your future told
+				you so, I won’t say another word! Here, look: this is how you have to fill it.
+				Tobacco is soft and you tamp it in slowly, very slowly … That’s it,
+				like that. I swear to God, you make me laugh with that pipe in your mouth! Now
+				let’s see. Apply the flame and draw on it … Careful, the smoke
+				should only go in your mouth! Hey, you’re not going to throw up on me, are
+				you? Don’t draw so hard! Look at her! Whatever possessed you to smoke? So now
+				that you’ve lit it, do you mind giving it back to me?’ 
+
+‘Oh, no, I’m keeping
+				it!’ 
+
+‘Look, carusa ,
+				you’re driving me crazy! I swear to God, you remind me of my son! Lazzarolu and cocciu di tacca , 52 like Mattia.’ 
+
+‘What do lazzarolu and cocciu di tacca mean, Carmine?’ 
+
+‘Aha, so we studied so much that
+				we forgot our own language, hmm?’ 
+
+‘I asked you what lazzarolu means!’ 
+
+‘An arrogant young tough guy of no
+				consequence.’ 
+
+‘And cocciu di
+				tacca ?’ 
+
+‘Same thing. Young and brazen, as
+				if to say: a fireball.’ 
+
+‘Oh! And your son is like
+				that?’ 
+
+‘I think so. Sometimes he seems
+				decent, but without substance; other times he seems bold and full of fire. Who
+				knows! A man can know everything except his own blood. Now don’t make me get
+				mad. Give me that pipe, or I’ll
+				smack you one, like I did to Mattia, to make you behave!’ 
+
+‘No! I’ll give it to you
+				only if you promise me that when the house is quiet, you’ll bring me one just
+				like it.’ 
+
+‘Listen, Modesta, it takes years
+				to learn to smoke a pipe properly.’ 
+
+‘Fine. You bring me one and in
+				time I’ll learn to smoke it properly. And why are you calling me Modesta
+				now?’ 
+
+‘What? Did I call you Modesta? I
+				wasn’t aware of it.’ 
+
+‘Yes; first figghia , and
+				now Modesta.’ 
+
+‘It’s true. And
+				there’s a reason, but I don’t know if I can tell you … Are you
+				going to give me that pipe or not?’ 
+
+‘I’ll give it to you if you
+				promise …’ 
+
+‘All right, all right, I promise.
+				Tomorrow I’ll find you a nice one, since trying to reason with you is like
+				talking to the wind. Stubborn and beautiful, no question about it! Give it to
+				me!’ 
+
+‘Okay, but I have to put it in
+				your mouth. You can’t touch it.’ 
+
+‘That’s fine with
+				me.’ 
+
+‘No, don’t move your arms.
+				I’ll put it in your mouth and I’ll take it out.’ 
+
+‘So who’s moving!
+				Can’t you feel I’m holding your waist? Such soft hips, Modesta! You
+				weigh nothing, but your thighs and belly are nice and plump. Look at how she’s
+				making me smoke! What if the flame goes out? It goes out easily, Modesta. Like the
+				flame of love, it has to be nourished and protected.’ 
+
+‘You called me Modesta again. Why?
+				Tell me! Why won’t you tell me?’ 
+
+‘Don’t ask. And take this
+				pipe out of my mouth! Let me stroke you … you’re so hot, my hands
+				are beginning to sweat.’ 
+
+‘Tell me!’ 
+
+‘It’s nothing, a silly
+				thing! A mistake I made with you. And it wasn’t the first time I made the same
+				mistake.’ 
+
+‘What mistake?’ 
+
+‘I had a woman, a wife and a
+				treasure. And I thought this gold mine, which fate had effortlessly handed me
+				without my having to snare her, you understand, was my rightful due. So I mined her,
+				I mined gold from her lips and her embrace, but without appreciating her or paying attention to her. And
+				after she had already given me two sons, I began to want a daughter. That was the
+				only thing I wanted, without thinking about her. I should have known I was asking
+				too much, because she was worn out and pale. But I couldn’t see that, and as a
+				result she died under the surgeon’s knife. So they wrote to me. Only then did
+				I realize what I had lost.’ 
+
+‘What do you mean, they wrote to
+				you? Where were you?’ 
+
+‘In America, because of Uncle
+				Antonio’s will. It was challenged and contested by a woman who was half
+				Sicilian and half American, and didn’t want to give us what was coming to us.
+				But never mind. An ugly business. Let me kiss you.’ 
+
+‘You’ve been beating around
+				the bush, Carmine, but you haven’t told me anything.’ 
+
+‘How can you not understand? When
+				I got back, the coffin was already in the ground. If I had at least been able to
+				kiss her, dead, I would have come to terms with it in my flesh. Instead, for years
+				and years I would see her in front of me, alive, with her dark, weary
+				eyes … and I avoided the faces of unknown women who wanted to take her
+				place.’ 
+
+‘And so?’ 
+
+‘So, nothing. With you I made the
+				same mistake. ’Na scazzittula di carusa , a snotty little brat, you
+				seemed like, based on my years of experience. And confused by my sons’ return
+				– Carmine is not ashamed to say – I left you without hesitation. But within a week,
+				I reached for you at night, and by day I saw you in the fields. I didn’t know
+				which way to turn, and I ran to the vellute , the silken ladies who make you
+				come if you pay. 53 But to come, I had to keep repeating your name in my head. So now you know. Absence
+				teaches you: I learned your name. The more I said it, the more beautiful you grew in
+				my imagination. I’ve talked too much. Don’t you understand? Or is it
+				your youth that prevents you from understanding, and lets you sleep so quietly there
+				on my shoulder?’ 
+
+‘I’m not sleeping, Carmine.
+				I just like lying here like this and listening to how much you wanted me and still
+				want me, and not giving you what you want right away.’ 
+
+‘Hah, just like a woman!
+				That’s why I didn’t want to tell you. My words gave you the upper hand and now you want to take revenge.
+				But Carmine can give you the satisfaction of making him wait.’ 
+
+‘And with those vellute ,
+				did you say my name?’ 
+
+‘“Modesta”, I said,
+				and I wouldn’t look at them.’ 
+
+‘Say it again.’ 
+
+‘Modesta!’ 
+
+‘Again.’ 
+
+‘Modesta!’ 
+
+‘Again.’ 
+
+‘Modesta, you’re driving me
+				crazy!’ 
+
+‘Now say: Modesta, my gold
+				mine.’ 
+
+‘My gold mine, Modesta, I want to
+				enter you all the way to your heart.’ 
+
+Spoken by his voice, the word
+				“heart” loses the ambiguity that had made me hate it. And I see my
+				heart, the eye and nucleus, the chronometer and regulator of my carnal centre. In
+				the dark, I listen with the palms of my hands to its violent throbbing, crying out
+				with joy from my chest to my perspiring brow, unwilling to quiet down. 
+
+‘What is it, Modesta? Why are you
+				feeling your chest? Why are you keeping your eyes open? Love used to put you to
+				sleep before. If you’re worried about getting pregnant, put your mind at ease,
+				because I took care of it like I promised.’ 
+
+‘No, no! Yesterday I was afraid
+				maybe but now … now you call me Modesta, and you went all the way to my
+				heart. I saw it, you know, my heart.’ 
+
+‘And what was it like?’ 
+
+‘Like the wooden wheel that the carusi set aflame at Pentecost and drag down from the Mountain. I only
+				saw it from a window, a long time ago. At that time I wasn’t allowed to go
+				outside the walls. Around here they don’t do the wheel, Carmine. Why is
+				that?’ 
+
+‘No, of course not! This land is
+				flat! What do they know about rye and wheat fields here?’ 
+
+‘Have you seen the big wheel up
+				close?’ 
+
+‘Of course! Not only have I seen
+				it, but for three years – at the age when the first stubble appears on your chin –
+				just like my father and my grandfather before me – all of us Tudia have been
+				big-boned up till this day! – I had the
+				honour, along with one of the Mussumeci – another family of hefty stature, though
+				dark-skinned and dark-spirited – of lighting and dragging the wheel in order to urge
+				the sun to grant us the warmth that nurtures the wheat and rye. 
+
+‘Oh, that’s what it’s
+				for? That’s the reason behind it?’ 
+
+‘Of course! An ancient
+				tradition!’ 
+
+‘But didn’t you burn
+				yourselves?’ 
+
+‘Well, that’s where skill
+				comes in! When the wheel is unleashed and bursts into flame as it rolls madly down
+				the slope like an enraged beast, it takes an expert hand and quick reflexes to dodge
+				the flames, as well as an understanding of the wind. Even when the air seems still
+				as glass, you have to be aware of the wind. Once I had all my hair burned to ashes!
+				That’s why for three years, we wheel guys shaved our heads almost
+				completely.’ 
+
+‘How did you push it?’ 
+
+‘I’m surprised you
+				don’t know, Modesta.’ 
+
+‘From a distance I couldn’t
+				tell, because all I could see was the wheel.’ 
+
+‘But the women and girls go to
+				watch when the wheel is being built.’ 
+
+‘I was in the convent, Carmine.
+				Don’t forget.’ 
+
+‘Can you picture a wagon wheel?
+				Each year, the most skilled craftsman assumes the job of making one that is as big
+				as possible, with a wooden shaft in the centre as strong as iron. So one guy here
+				and one guy there, holding on to this shaft, push or restrain it depending on the
+				terrain, as you might imagine.’ 
+
+‘I’m afraid,
+				Carmine!’ 
+
+‘It’s not fear, Modesta.
+				You’re sleepy.’ 
+
+‘Why does sleep make you
+				frightened?’ 
+
+‘Of course, a lack of sleep and
+				food makes you cold and even causes strange sensations that can seem like fear. A
+				weakened body can’t defend itself against bad memories and gives in to the
+				mind’s imaginings. Sleep now. You’ll see, tomorrow morning you
+				won’t remember. Sleep peacefully, because Carmine, as he promised you,
+				didn’t leave his mark in your womb when he made you come.’ 
+
+When dawn comes, Carmine goes
+				away … In my sleep I see him slip away like a shadow. How did he manage to appear and disappear, yet still be
+				ever present? 
+
+‘It’s because you have me in
+				your heart, Modesta. It’s the same for me. I go away and I carry you, here,
+				with me.’ 
+
+‘Do you have a pocket in your
+				heart to carry me in?’ 
+
+‘Of course! the heart is a pocket,
+				a huge basket that can hold everything.’ 
+
+‘Yesss … everything! And
+				then it breaks, like yours.’ 
+
+‘When it breaks, it means that
+				it’s carried enough burdens and pleasures.’ 
+
+‘But why do you leave? At the
+				first light of dawn, you leave. Even if I’m sleeping, I can feel you
+				leaving.’ 
+
+‘Now I’m back,
+				actually.’ 
+
+‘You’re back because
+				it’s night, but then as soon as I fall asleep, you take the opportunity to
+				leave. Don’t you ever sleep?’ 
+
+‘Of course I sleep.’ 
+
+‘Yesterday you were sleeping here
+				beside me and then when I woke up, you were gone. How can you tell in your sleep
+				that it’s getting light?’ 
+
+‘It’s because all my life
+				I’ve been waking up at dawn.’ 
+
+‘Then go this instant if you have
+				to leave. Go right now!’ 
+
+‘But it’s nighttime now, and
+				Orlando is all sweaty from the ride. Let me get some rest too.’ 
+
+‘You rest and then you leave. But
+				why?’ 
+
+‘Temper, temper, figghia !’ 
+
+‘And don’t call me figghia !’ 
+
+‘When you throw a tantrum and
+				start whining, you become my figghia .’ 
+
+‘Why do you always have to
+				leave?’ 
+
+‘So I won’t upset your
+				household and mine.’ 
+
+‘Who cares!’ 
+
+‘You’ve acquired a good
+				reputation down in Catania. They admire you for the way you’ve managed
+				things.’ 
+
+‘But I never see them! And when I
+				see them they look at me with daggers in their eyes.’ 
+
+‘The women, naturally! They envy
+				you. Pay no attention; they don’t
+				count. But the men admire you for the way you’ve handled your affairs and your
+				family.’ 
+
+‘That’s not true.’ 
+
+‘Oh, no? What’s the truth
+				then? Let’s hear it. How come all the Brandiforti and others came to
+				Cavallina’s wedding, hmm?’ 
+
+‘Don’t call her Cavallina!
+				My Beatrice is all grown up, and a happy woman.’ 
+
+‘I’m glad. And for this very
+				reason, why should we upset her and everybody else with childish fits of temper? And
+				my family too, up there in Carmelo, why scandalize them when we have our nights
+				together? Here, let me hold you.’ 
+
+‘You were right, Carmine: I bled
+				again. How did you do it? I keep meaning to ask you, and I always forget.’ 
+
+‘Has it been that long, Modesta?
+				Let me hold you. So much time has passed already, and it seems like
+				yesterday.’ 
+
+‘But how did you do it?’ 
+
+‘Never mind. Men’s
+				business.’ 
+
+‘Tell me.’ 
+
+‘I held my breath!’ 
+
+‘Oh, sure, your breath! You make
+				me laugh.’ 
+
+‘So laugh. You’re just like
+				my Linuzza! Always curious, always asking …’ 
+
+‘Don’t say that name or
+				I’ll clobber you!’ 
+
+‘Oh, you’re just like her!
+				She was jealous of my mother and you’re jealous of a dead woman.’ 
+
+‘I don’t want to hear
+				it.’ 
+
+‘She’s dead,
+				Modesta.’ 
+
+‘And if she were alive,
+				she’d be an old woman now.’ 
+
+‘I’m old too, but you still
+				want me.’ 
+
+‘Are you saying that if she were
+				alive, you’d want her more than me?’ 
+
+‘I’m not saying anything.
+				You can’t talk about something you don’t know.’ 
+
+‘She died young so she could keep
+				you tied to her for ever.’ 
+
+‘That might very well be, if you
+				say so, since being stubborn, like her, and a woman, you certainly know her better
+				than I do.’ 
+
+‘I’m your gold mine, and you should be thinking only of me now that
+				I’m your treasure.’ 
+
+‘Don’t you feel me holding
+				you in my arms like my life’s gold?’ 
+
+He burrows between my thighs and the
+				gold of my youth comes to light in his hands. Alone by day, remembering his face
+				amid the fields and sunlight, at night in his arms, which smell of hay and
+				tobacco. 
+
+‘Tobacco, Modesta? Naturally, all
+				I do is smoke! Tobacco is all that’s left to me.’ 
+
+‘What about me?’ 
+
+‘You’re something
+				else.’ 
+
+‘What am I?’ 
+
+‘You’re my youth, which
+				doesn’t want to leave me. It clings to your skin, youth does! Even if
+				you’re aware of the years, youth calls you, and you’re driven to pursue
+				it. And all it takes is some little thing to give you the illusion you’ve
+				found it, and you let yourself be deceived. You can’t help it.’ 
+
+‘I’m young, aren’t I,
+				Carmine?’ 
+
+‘Of course! What do you
+				think?’ 
+
+‘At times I feel old.’ 
+
+‘Definitely a condition of youth!
+				The younger you are, the older you feel, sometimes. But you have to be careful,
+				because feeling old makes you old. Like my son Vincenzo: he came back from the war
+				healthy and strong, and in a year he became old and miserable, living with that
+				skinny signorinella who’s always scowling and fainting.’ 
+
+‘Listen to this old man blaming
+				his son! You’re the one who married him off to that little carusa from Modica. All the girls from Modica are like that, skinny and dreary.
+				Didn’t you know that?’ 
+
+‘But this carusa from
+				Modica brought us sizeable lands. And he should know the power it brought him, the
+				joy and pride of bolstering my efforts and those of my father and grandfather with
+				his wife’s money. Today’s new landowners are my sons
+				and …’ 
+
+‘The Tudia are replacing the old
+				estate holders, listen to that! And in time, with greater sacrifices, you Tudia will
+				even become aristocrats, right?’ 
+
+‘Of course! A Tudia should take
+				pride in riding from dawn to dusk without ever leaving the boundaries of his lands, and not let women’s
+				whining and lamenting make him miserable. Ride his horse, and seek his pleasure
+				outside the home.’ 
+
+‘I hate you, Carmine!’ 
+
+‘That’s nothing new.
+				It’s always been that way between us.’ 
+
+‘And it always will be that way!
+				Why are you laughing, eh, old man? What’s that laughter in your
+				eyes?’ 
+
+‘I’m laughing at your
+				hatred, figghia . If only I’d had a daughter like you!’ 
+
+‘What do you mean?’ 
+
+‘That you hate me because, as the
+				Princess, God rest her soul, realized …’ 
+
+‘What did she realize?’ 
+
+‘That Mody is exactly like
+				Carmine. Two peas in a pod.’ 
+
+‘I’m not like you, Carmine!
+				Times are changing, and I hope that your sons, your grandchildren and all the other
+				young people will overthrow you landowners and do away with your estates.’ 
+
+‘Listen to her! And who put these
+				ideas in your head, your brother-in-law? Or did you read about them in books? And
+				what would you gain from it, eh, Princess Brandiforti?’ 
+
+‘I would have a good laugh over
+				it.’ 
+
+‘Those ideas are foreign, Modesta.
+				And nothing good ever came to the island from outside. You did well to ally yourself
+				through Beatrice’s marriage to a person of some importance, who might have
+				friends in high places one day soon.’ 
+
+‘Carlo would never sell himself
+				out!’ 
+
+‘I swear to God, you sound just
+				like Mattia! Always getting worked up over someone, you picciriddi ! You
+				with this socialist Carlo, and Mattia with his Mussolini. They’re foreigners,
+				outsiders! Just this morning, I put an end to the Black Shirt that had gotten under
+				Mattia’s skin and in his mind, with a sound thrashing! Naturally, they have to
+				give him money, because this Mussolini is the only one who can ensure order here –
+				he’s a real Crispi, I swear to God! – but not their
+				souls … He’s turned to the young with subtle cunning, and inflamed
+				their imaginations against the old. He was shrewd, because ever since the world
+				began the young have been quick to catch fire. Sure! Give a young man an Orlando and a Rinaldo,
+				make him dream with new words and new uniforms, let him believe that he will be
+				boss, and he’ll become your slave without knowing it.’ 
+
+‘There’s truth in what you
+				say, Carmine, but there’s also truth in what Carlo says. And his truth agrees
+				with me more.’ 
+
+‘So be it! But this truth is being
+				told too slowly. Too many watered-down words are coming out of their mouths. Young
+				people, since the world began, have always needed myths and heroic deeds.
+				That’s what worries me about Mattia. He must use his head, look after his
+				interests and not let himself be taken in.’ 
+
+‘I don’t give a fig about
+				you and your Mattia, and all the old men like you! I know Carlo is right, and you
+				can’t understand.’ 
+
+‘But I do understand, and I can
+				read, Modesta. Don’t make me angry! Their plans are too grandiose, and
+				they’re moving ahead too uncertainly.’ 
+
+‘Not in Russia. There, heads have
+				been broken, Carmine.’ 
+
+‘Well! Russia is a long way off!
+				And it should stay a long way off from the island! I repeat my question, figghia : what would you gain from having the landowners
+				overthrown?’ 
+
+‘I told you. I would have a good
+				laugh over it.’ 
+
+‘And how would you get by without
+				means? What would you leave your son?’ 
+
+‘I’m not leaving anything to
+				my son. He’ll study. He’ll work like Carlo does.’ 
+
+‘And what about you?’ 
+
+‘I’ll work too. I told you!
+				I hate you!’ 
+
+‘And who is it that you love? This
+				Carlo?’ 
+
+‘If I need to, I’ll work.
+				You can’t understand.’ 
+
+‘On the contrary, Carmine does
+				understand. Only one thing surprises him.’ 
+
+‘What’s that?’ 
+
+‘With these ideas of yours,
+				wouldn’t you have been better off staying in the convent and becoming a nun, figghia ?’ 
+
+‘I hate you, Carmine.’ 
+
+‘That’s the way it’s
+				always been between us.’ 
+
+‘No! This is genuine hate,
+				Carmine. It’s no longer submission toward you, this hatred, because I’ve grown up and I know you’re my
+				enemy.’ 
+
+‘Who told you these things? Your
+				friend from Milan?’ 
+
+‘A man who is not a landowner told
+				me!’ 
+
+‘If I understand correctly, you
+				love Carlo, but you want me. How can that be, Modesta?’ 
+
+‘I love Carlo, and my nature wants
+				you. I’ve learned not to fight my nature: I satisfy it but I don’t give
+				it my soul, as you say. I satisfy it with your kisses, I satiate it and when
+				it’s sated I clear my mind and set you aside. Why do you think I let you come
+				back? Did you think, you, with your landowner’s arrogance, that I let you come
+				back so I could be your gold mine for ever? No! It was to finish the story that you
+				had broken off because it pleased you. To take what I had coming to me, then send
+				you away.’ 
+
+‘That’s what I want, too.
+				That’s why I let you beat me up and insult me. I want to have my fill of you,
+				and when I’m satisfied, go away. I’m a condemned man, figghia .
+				Don’t forget that.’ 
+
+‘It’s not true! I
+				haven’t seen one sign of it these past months, either in your body or in your
+				mind. It was a lie so you could come back.’ 
+
+‘If you want to believe that, if
+				it soothes you to think so, go ahead. But now that you’re all in a lather, let
+				me kiss you.’ 
+
+‘Don’t act like a sheep,
+				Carmine; you’re a wolf! Take what you can get, but don’t act like you
+				have to ask. Kiss me for as long as my nature wants you, because later, maybe in a
+				month, maybe in an hour, I’ll impose the death sentence I gave you before.
+				I’ll be the one to kill you, not La Certa ! I’m young. You said
+				so, and I’ll never let anyone own me!’ 
+
+‘That’s what I like about
+				you. But don’t fool around with this man because, if I want to, I’ll
+				saddle you with a child. And then you’ll have to think of me for at least a
+				year.’ 
+
+‘You’ve miscalculated,
+				Carmine. Do you think I would have been so unconcerned these past months if I
+				didn’t have a way of staying free?’ 
+
+‘Of course not! But the way you
+				mean causes pain and often death.’ 
+
+‘I knew you’d say that! Not
+				for someone who has money, Carmine, money and know-how. Did you find me pale and
+				sickly the night you came back?’ 
+
+‘I found
+				you stronger and more beautiful. Let me kiss you.’ 
+
+‘And just a few days earlier, in a
+				small, sterile room, with a simple, painless operation, I rid myself of an
+				inconvenience. And I’d do it again if you got the idea of trapping me. No one
+				owns Modesta.’ 
+
+‘Modesta is smart and
+				strong-willed. And Carmine declares himself beaten … You want to stay like
+				that, on top of me? Stay on top and take me. Carmine is old. He’s learned the
+				wisdom of losing.’ 
+
+‘It’s easy to afford the
+				luxury of acting like a lamb, when nature has favoured you with being born a
+				wolf.’ 
+
+On top of him – that lamb – I set the
+				rhythm, and come with him. But now I know that my hatred conceals envy. 
+
+‘Will you teach me the wisdom of
+				losing, Carmine? I have too much anger in me sometimes, and I’d like to
+				learn.’ 
+
+‘Well, you can teach a lot of
+				things: how to ride a horse, how to make love, but you can’t give your own
+				experience to someone else. Each of us must gain his own, over the years, making
+				mistakes, stopping, going back and starting all over again.’ 
+
+‘Why is that?’ 
+
+‘Well, if you could teach it,
+				we’d all be the same!’ 
+
+‘You know, Carmine, sometimes I
+				think it would be wonderful to be born old and die as children.’ 
+
+‘The things you come up with! I
+				like the way you think, Modesta. Of course, it would be wonderful, and it’s
+				good to dream. But nature planned things differently.’ 
+
+‘So, did I beat you,
+				Carmine?’ 
+
+‘It’s only right. A person
+				must rebel. If Vincenzo had rebelled, truly rebelled I mean, I would never have let
+				that carusa from Modica into the house. I, in my day, opposed my
+				father’s will concerning a woman. And since I wouldn’t budge on that
+				point, and had always served him most valiantly, doing his shooting and the work of
+				four men, he had to give in. My father was a great man! You could always tell when
+				he was coming. And when he walked out the door, he was still with us.’ 
+
+‘You’re like that
+				too.’ 
+
+‘Others may think and say that. I
+				have no way of knowing.’ 
+
+‘I said so.’ 
+
+‘If you said so, I accept
+				it.’ 
+
+‘Don’t act like a sheep, Carmine, or you’ll make me see red again.
+				Now that you’ve given me such pleasure, I don’t want to hate
+				you.’ 
+
+‘So, you got rid of a child,
+				Modesta? I won’t ask whose it was.’ 
+
+‘I did.’ 
+
+‘Painlessly? How can that
+				be?’ 
+
+‘Times change, Carmine. Science is
+				discovering many things. And this one benefits us women. With knowledge and the help
+				of doctors, women will soon be free of so many decrees that nature and overlords
+				have heaped on them.’ 
+
+‘Are those the words of that
+				Carlo, the doctor? Is that how he talks?’ 
+
+‘Yes.’ 
+
+‘Is that why you say that word
+				that’s so difficult to say?’ 
+
+‘What word?’ 
+
+‘Love.’ 
+
+‘Yes.’ 
+
+‘Has he taught you many
+				things?’ 
+
+‘Yes, many things; even how to
+				swim.’ 
+
+‘Don’t make me laugh,
+				Modesta. That’s impossible. You can’t learn to swim unless you’re
+				a child. At one time I tried, but I was too old, and by then I was afraid of the
+				water.’ 
+
+‘Because you had no one to teach
+				you. I learned.’ 
+
+‘Maybe I believe you, maybe I
+				don’t, Modesta. You wouldn’t be saying that just to get the upper hand
+				and make me jealous of that man, would you?’ 
+
+‘Let me dispel your doubt.
+				Come …’ 
+
+* 
+
+I’m afraid, but I have to show
+				him. The sea, without the sun, now seems deep and hostile like it did before.
+				Perhaps by following the gleaming path the moon traces on that dark expanse, I can
+				overcome my fear. On the shore, Carmine follows me with doubtful eyes, his trousers
+				rolled up to his thighs. Waves as light as palm fronds are already lapping at my
+				shoulders. I shudder, but I have to show him even if it kills me. I could never turn
+				back to face his mocking wolf-eyes. I’m trembling, but I lift my feet off the
+				sand and move toward the horizon,
+				focused only on the moon’s path. To make my victory complete, once I’m
+				out in the open water, I roll over on my back and do the dead man’s float.
+				Maybe if I relax, the trembling will subside. With unseeing eyes, a dead man’s
+				eyes, I focus on the moon dangling there, smiling dimly … Someone yells
+				from the shore. It must be him. I can’t answer. What if I don’t go back?
+				He’s called three times, and he must have come out after me because now he
+				gathers me up, and the moon flings the waves against the white of his shirt. 
+
+‘That’s enough, Modesta! You
+				scared me! That wasn’t funny, figghia ! Was there any need to go out
+				that far? I swear to God you scared me! What if you suddenly fainted? You’re
+				all cold and trembling! And there I am, stuck on shore, watching
+				helplessly!’ 
+
+Now recovered, I let him carry me in his
+				arms. 
+
+‘Let’s go back.
+				There’s no use my putting your dress on for you. Know what I’ll do?
+				I’ll wrap you in Orlando’s blanket. Look, even Orlando is pawing the
+				ground. I swear to God, he, too, had a fright!’ 
+
+‘You and he were
+				scared … I’m just cold.’ 
+
+‘Of course! That’s why
+				I’m wrapping you nice and snug in the blanket. Leave it to me. There, like
+				that.’ 
+
+‘I can swim. Did you
+				see?’ 
+
+‘Of course I saw! I should have
+				been struck dead when I challenged you! You take too many chances, carusa !
+				Here, let me bundle you up.’ 
+
+‘I’ll let you bundle me up,
+				but you have to say: “Modesta can swim.”’ 
+
+‘Modesta can swim, but now she has
+				to quiet down. And let Carmine take her home like a good little girl, like a
+				sensible picciridda .’ 
+
+Restored to life in the blanket’s
+				warmth, cradled by his arms and the deep beating of his heart, I don’t want to
+				fall asleep. I don’t want to miss one step of that echoing gait magnified by
+				the night. In the dense wood, the moon’s light is blocked out and the palm
+				grove’s darkness settles on my eyelids, but I don’t want to sleep. With
+				an effort, I raise my face up to his neck and twirl my fingers around the wiry
+				curls, motionless in the faint breeze that has suddenly begun to stir. In order to
+				stay awake, all I have to do is take the ear hidden beneath his bushy sideburns in
+				my teeth, and nibble on it. 
+
+‘Sing to me, Carmine.’ 
+
+‘I
+				can’t sing, picciridda .’ 
+
+‘How far have we gone,
+				Carmine?’ 
+
+‘A long way, Modesta.’ 
+
+‘And how far do we still have to
+				go?’ 
+
+‘A long way.’ 
+
+‘And you aren’t going to
+				die, are you, Carmine? You lied so you’d have an excuse to come
+				back.’ 
+
+‘That may be, Modesta. Who can
+				say?’ 
+
+‘You can tell me, Carmine, because
+				I recognized you when you came back … When was it you came
+				back?’ 
+
+‘An eternity ago!’ 
+
+‘Tell me it isn’t true. You
+				can tell me, because you know that during this eternity I’ve been happy with
+				you.’ 
+
+‘I can’t tell you anything.
+				But if dreaming is good for you, then go to sleep and dream. Dreams and sleep are
+				more nourishing than bread.’ 
+
+‘I don’t want to
+				sleep.’ 
+
+‘Then don’t
+				sleep.’ 
+
+‘Did you see that I can
+				swim?’ 
+
+‘Of course I saw! But don’t
+				try it again, not at night or by day, at least not in front of someone like me who
+				has no love for the sea.’ 
+
+‘You got scared, huh?’ 
+
+‘And how!’ 
+
+‘So if you got scared, how come
+				your heart didn’t stop? No answer? I know why you won’t
+				answer.’ 
+
+‘Let’s hear it. Why
+				won’t I answer?’ 
+
+‘Because it’s not true that
+				you’re going to die.’ 
+
+‘No, I won’t answer because
+				I’m trying to restrain my imagination. I don’t like falling for the
+				uncertain plans suggested by my fantasies.’ 
+
+‘What does that mean?’ 
+
+‘It means that Carmine
+				doesn’t like the dark alleys of the mind where the dagger of suspicion can
+				appear and stab you in the back.’ 
+
+‘Your words are obscure,
+				Carmine.’ 
+
+‘Because obscurity has clouded my
+				eyes since I saw you in the middle of the sea. Now go to sleep. I’ll tuck you
+				in bed. I won’t be back tomorrow. Don’t expect me.’ 
+
+‘Why
+				won’t you come back?’ 
+
+‘Because I have to clear away
+				these clouds in my head that make you seem like a stranger to me. Sleep now.
+				Don’t pay any attention to me.’ 
+
+‘No. I won’t sleep unless
+				you tell me the reason for this sudden distance toward me.’ 
+
+‘Carmine isn’t used to
+				asking, to probing, carusa . He leaves that to the law. But if he
+				can’t see clearly, he changes his course … Let me go! There’s
+				no use hanging on to me. It’s all too easy to first sow suspicion and then try
+				to erase the implication with wheedling embraces.’ 
+
+‘No, it’s not yet dawn. You
+				can’t go! You see, I’m right! It’s not true that you’re
+				going to die if you can so heatedly go on your way and forget me as if you still had
+				twenty years to live.’ 
+
+‘I never heard that knowing
+				you’re going to die makes you a coward.’ 
+
+‘Damned old man! Get out, you and
+				your suspicions!’ 
+
+‘That’s what I’m
+				trying to do, carusa ! Take your arms from around my neck; I don’t
+				want to hurt you.’ 
+
+‘Why can’t I throw you
+				out?’ 
+
+‘You know why.’ 
+
+‘If it’s true that you can
+				observe things, my clinging to you like this should tell you something.’ 
+
+‘It tells me something,
+				that’s certain, but you have to confirm it with your words. Only then will I
+				know if my suspicion was a lover’s deceitful imagination.’ 
+
+‘It was you, Carmine, I thought
+				about when Carlo embraced me. And when he went away, I stroked myself and spoke your
+				name.’ 
+
+* 
+
+‘I have to go, Modesta. The woods
+				are beginning to glimmer; there’s just time for me to have a smoke.’ 
+
+‘I want to smoke too.’ 
+
+‘So, get your pipe. Isn’t
+				that why I brought it to you?’ 
+
+‘No. I’ll smoke yours and
+				you smoke mine.’ 
+
+‘At your command, Padroncina .’ 
+
+‘Why
+				didn’t you want to call me Padrona , Carmine?’ 
+
+‘Because you were a scazzittula di carusa , a snotty little brat. I told you.’ 
+
+‘And now how am I?’ 
+
+‘A strong, dangerous
+				woman … But just look at this! She makes me smoke this tiny
+				pipe … Give me mine back!’ 
+
+‘Why did you bring me such a small
+				one?’ 
+
+‘A pipe has to fit the size of the
+				hand, Modesta. My grandmother smoked one like this, in front of the house on summer
+				evenings, under the mulberry tree.’ 
+
+‘Your grandmother smoked? That
+				surprises me.’ 
+
+‘Oh, yes, she and her sisters. I
+				don’t know which regions they came from before landing on the island with
+				their father and brothers, loaded with gold and precious stones. I know little about
+				it, because in our house we couldn’t talk much about it.’ 
+
+‘And then?’ 
+
+‘Then my grandfather and his
+				brother moved quickly and snared two of those caruse , loaded with gold like
+				madonnas, keeping them here on this land.’ 
+
+‘And the others, the
+				men?’ 
+
+‘Bah! From what little I was able
+				to drag out of my mother over the years, they continued on their
+				way … Drifters, merchants … thieves, who can say? I must say,
+				that pipe suits you, I swear to God! Tell me, Modesta, why did you use that word?
+				Love is a precise word, and one should be cautious when using it.’ 
+
+‘To wound you, old man. And I
+				wounded you. For a couple of hours at least, I skewered you with doubt and made you
+				suffer, like I suffered in your absence. How could you not see that? You’re
+				not so tough, Carmine.’ 
+
+‘Love sucks you dry; it makes you
+				like glass! That’s why I fled from you at Carmelo. Who came looking for me
+				back then, all the way to my doorstep?’ 
+
+‘I did, Carmine. If I hadn’t
+				come, wouldn’t you have come looking for me?’ 
+
+‘Who can say what might have
+				happened? But knowing my nature, almost certainly no. Many times I fled from that
+				word, which can ruin your life more than
+				wine and gambling, turning my gaze from a balcony full of frangipani where the day
+				before you had stared with smouldering eyes.’ 
+
+‘So then you love me?’ 
+
+‘I said I did.’ 
+
+‘No! You have to say: I love you,
+				Modesta.’ 
+
+‘I don’t like to say that
+				word. Don’t make me mad!’ 
+
+‘There’s no use getting up.
+				I won’t let you go unless you say: I love you.’ 
+
+‘Of course, if you cling to me
+				like that and breathe your life’s breath into my mouth, I’ll have to say
+				it.’ 
+
+‘Say it, then.’ 
+
+‘I love you, Modesta.’ 
+
+‘How many times in your life have
+				you said it, Carmine?’ 
+
+‘Twice before you, figghia , and with you that makes three. And I thank my stars for not
+				letting me find that man with you.’ 
+
+* 
+
+‘I was afraid you wouldn’t
+				come back.’ 
+
+‘Why, Modesta?’ 
+
+‘Last night you threatened not
+				to.’ 
+
+‘Listen to this picciridda ! Crying, too.’ 
+
+‘But you threatened not
+				to!’ 
+
+‘At first, sure, but afterwards
+				don’t you remember that we smoked together?’ 
+
+‘So you’ll always come back,
+				right, Carmine?’ 
+
+‘Of course! Where else would I go?
+				I have the feeling that even dead, I’d come back to look at you. I’ll
+				come back from the eternal slumber, look at you, bring you gifts and watch that no
+				one comes near you.’ 
+
+‘You don’t fool me anymore,
+				you sly old fox. You won’t ever die.’ 
+
+‘That may be; anything is
+				possible. We human beings don’t know anything … Why won’t you
+				hug me? Don’t be like that. I got used to being hugged. You should always
+				treat picciriddi and animals in a certain way; otherwise they pine
+				away.’ 
+
+‘You’re neither a picciriddu nor an animal.’ 
+
+‘On the contrary, we’re all picciriddi and animals, myself included. Will you give me a
+				hug?’ 
+
+‘I don’t feel like
+				it.’ 
+
+‘Why?’ 
+
+‘Because you didn’t come
+				back.’ 
+
+‘What! But I’m right here!
+				Don’t you see me? Or are you saying that just to be difficult?’ 
+
+‘I’m saying it because I
+				dreamed that when you passed by the house with Orlando, you turned away from my
+				window and kept going.’ 
+
+‘And what do I have to do with the
+				scenes your imagination makes up when you’re asleep?’ 
+
+‘Didn’t you tell me that a
+				person can run from love?’ 
+
+‘I like the way you think,
+				Modesta. But what you just said isn’t like you. Those are the thoughts of a
+				foolish girl, not a strong woman like you. A person can run from anything if he
+				learns to recognize what can harm him.’ 
+
+‘What about destiny
+				then?’ 
+
+‘A word to reassure those who are
+				miserable! You can control destiny as you please, if you’re
+				determined.’ 
+
+‘That’s what I think,
+				too.’ 
+
+‘Then why do you say things that
+				differ from what you think?’ 
+
+‘To get your
+				confirmation.’ 
+
+‘Satanasso d’una
+					carusa! What a little devil! You make me waste my breath, instead of
+				embracing me.’ 
+
+‘And partly because I had some
+				doubt about what I thought.’ 
+
+‘Let’s hear it.’ 
+
+‘Carlo …’ 
+
+‘Don’t say that
+				name!’ 
+
+‘Well, I could have loved him if I
+				hadn’t been thinking of you.’ 
+
+‘No kidding! Too bad he
+				wasn’t able to measure up to me.’ 
+
+‘Damn you! Just what I wanted to
+				hear you say. So what if after you, I don’t find someone who measures up to
+				you?’ 
+
+‘Your loss, if you can’t
+				find him!’ 
+
+‘And all the better for you, since
+				you’d like to hold on to me for ever?’ 
+
+‘Naturally! Since the beginning of time, it’s always been that way if
+				you possess something precious.’ 
+
+‘If you could, you’d take me
+				with you to the grave, wouldn’t you?’ 
+
+‘No, not that! I like you alive. A
+				lifeless body is repulsive, even for the dead. And since it’s a night for
+				words, rather than embraces, promise me one thing. If one of these days you
+				don’t see me come when night falls …’ 
+
+‘You said you would always come
+				back. Don’t lie.’ 
+
+‘All right. If after hundreds and
+				hundreds of nights you don’t see me, promise me you won’t come looking
+				for me.’ 
+
+‘Why? Are you planning to go away,
+				like back then?’ 
+
+‘No, if I live, I’ll come to
+				see you for a hundred years. But if you don’t see me, it means my heart has
+				stopped, just as “they” predicted. Promise me you won’t look for
+				me. I don’t want you to see me dead.’ 
+
+‘Why?’ 
+
+‘I want to remain alive for you,
+				in your eyes! Well? Carmine has never asked you for anything; you could grant him
+				this much at least. Answer me, Modesta. This silence of yours is like a thorn in my
+				heart, and I can’t kiss you with this thorn. Promise Carmine.’ 
+
+‘A promise is a promise, Carmine,
+				and leaves a fatal stain on anyone who doesn’t keep it.’ 
+
+‘Promise me, Modesta, if you love
+				me.’ 
+
+‘I promise, Carmine, and I hope to
+				remain unstained.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">51
+
+每晚，當房子安靜下來，卡米就會回來。那個老人怎麼能夠穿過庭園，穿過門廳，然後在那迷宮般的走廊和樓梯中找到我房間的路呢？
+
+「卡米習慣了黑暗，善於記住門和通道，以及危險可能潛伏的地方。」
+
+「這房子裡有危險嗎？你為什麼回來？」
+
+「因為我把煙斗忘在這裡了。」
+
+「我不會給你的。不用找了。我不會給你的！」
+
+「為什麼不？說說看。為什麼不給我？」
+
+「因為你知道怎麼點燃它，而我不會。我試過了，燙傷了自己。從裡面冒出來的只有苦澀的液體，不是像你點的時候那樣的煙。」
+
+「你什麼意思？你是個女人！你拿煙斗和煙草做什麼？」
+
+「我告訴你我的意思！我不會給你，除非你教我怎麼點燃它。」
+
+「聽聽她說的！一個含著煙斗的甜心寶貝！」
+
+「就一次，卡米，教我你怎麼做的。」
+
+「好吧，好吧。但就這一次！我知道你，倔得像頭騾子，而我沒了煙斗不行！照那些穿白大褂的人說，我不該再抽煙、喝酒，或者……別管了！為什麼呢？為了多活兩天可憐的日子？算了吧！……來，我教你。看：我遷就你的這點任性，孩子，但你不會像個小子一樣開始抽煙，是吧？」
+
+「為什麼不？」
+
+「但為什麼？告訴我，為什麼？嗯？」
+
+「因為我也是一個小子！」
+
+「這可真是個好笑的！你也是個男孩？」
+
+「沒錯。一半小子，一半丫頭。」
+
+「誰告訴你的？」
+
+「我預見到的。我在我的未來中看見了，我可以像年輕時的卡米一樣射擊、抽煙和奔跑。我看見了你，你知道嗎，在你年輕的時候，然後我看見了自己，像你現在一樣老，但更老，老得多。你要死了，但我會活你三輩子的時間。我的未來告訴我的。」
+
+「好啊！如果你的未來這麼告訴你，我就不說什麼了！來，看：你得這樣裝煙。煙草是軟的，你要慢慢地壓實它，非常慢……就是這樣，像那樣。向上帝發誓，你含著煙斗的樣子讓我笑！現在試試看。點上火，吸一口……小心，煙只能進嘴！嘿，你不會吐在我身上吧？別吸那麼猛！看看她！你到底是中了什麼邪才想抽煙的？那麼，既然你點著了，介意把它還給我嗎？」
+
+「哦，不，我留著！」
+
+「聽著，丫頭，你把我逼瘋了！向上帝發誓，你讓我想起我兒子！傲慢的小混混，像馬蒂亞。」
+
+「卡米，『小混混』是什麼意思？」
+
+「啊哈，所以我們學習那麼多，卻忘了自己的語言，嗯？」
+
+「我問你『小混混』是什麼意思！」
+
+「一個無足輕重的傲慢年輕混混。」
+
+「那個呢？」
+
+「一樣。年輕又放肆，就是說：一個火球。」
+
+「哦！你兒子是那樣的？」
+
+「我覺得是。有時他看起來很正派，但沒有實質；其他時候他看起來大膽又充滿火力。誰知道呢！一個人可以知道一切，唯獨不知道自己的血。現在別讓我發火。把煙斗給我，不然我會像打馬蒂亞那樣給你一巴掌，讓你老實點！」
+
+「不！我給你煙斗，只有你答應我，等房子安靜的時候，你會帶一個一樣的來給我。」
+
+「聽著，莫德斯塔，學會正確地抽煙斗需要好幾年。」
+
+「好。你帶一個給我，慢慢我就會學會正確地抽。還有，你為什麼現在叫我莫德斯塔了？」
+
+「什麼？我叫你莫德斯塔了嗎？我沒注意到。」
+
+「是的；之前叫孩子，現在叫莫德斯塔。」
+
+「是真的。這是有原因的，但我不知道能不能告訴你……你到底給不給我煙斗？」
+
+「你答應了就給你……」
+
+「好吧，好吧，我答應。明天我給你找一個好的，因為試圖跟你講道理就像對風說話。又倔又美，毫無疑問！給我吧！」
+
+「好吧，但我得把它放到你嘴裡。你不能碰它。」
+
+「我沒意見。」
+
+「不，別動你的手臂。我會把它放進你嘴裡，也會拿出來。」
+
+「誰動了！你沒感覺我在摟著你的腰嗎？這麼柔軟的腰，莫德斯塔！你輕如無物，但你的大腿和肚子又豐腴又結實。看看她怎麼讓我抽煙！如果火滅了怎麼辦？很容易滅的，莫德斯塔。就像愛情的火焰，需要滋養和保護。」
+
+「你又叫我莫德斯塔了。為什麼？告訴我！為什麼不告訴我？」
+
+「別問了。把這煙斗從我嘴裡拿開！讓我撫摸你……你好燙，我的手開始出汗了。」
+
+「告訴我！」
+
+「沒什麼，一件傻事！我對你犯的一個錯誤。這不是我第一次犯同樣的錯誤。」
+
+「什麼錯誤？」
+
+「我曾經有一個女人，既是妻子也是珍寶。我以為這座命運毫不費力就交給我、不用我去誘捕的金礦——你明白嗎——是我應得的。所以我開採她，從她的嘴唇和懷抱中開採黃金，卻不欣賞她，不關注她。在她已經給我生了兩個兒子之後，我開始想要一個女兒。那是我唯一想要的，沒有考慮她。我應該知道我要求太多，因為她已經疲憊而蒼白。但我看不到那點，結果她死在了外科醫生的刀下。他們寫信告訴我的。那時我才意識到我失去了什麼。」
+
+「你說他們寫信給你，是什麼意思？你在哪裡？」
+
+「在美國，因為安東尼奧叔叔的遺囑。一個半西西里半美國的女人對它提出質疑和爭執，不願給我們應得的東西。但別管了。一件醜陋的事。讓我吻你。」
+
+「你一直在繞圈子，卡米，但你什麼也沒告訴我。」
+
+「你怎麼不明白呢？當我回來的時候，棺材已經下葬了。如果我至少能吻一下死去的她，我就會在肉體上接受這個事實。相反，多年來我一直看到她在我的面前，活生生的，帶著她那雙黝黑、疲憊的眼睛……我避開那些想取代她位置的陌生女人的臉。」
+
+「所以呢？」
+
+「所以，沒什麼。對你我也犯了同樣的錯誤。一個小鼻涕妞，在我多年的經驗看來你似乎是這樣。而且被我兒子們的歸來弄得心煩意亂——卡米並不羞於承認——我毫不猶豫地離開了你。但不到一周，晚上我就伸手去找你，白天在田野裡看到你。我不知道該往哪邊走，就跑去找那些絲絨女人，那些付了錢就能讓你射的女人。但要射出來，我不得不在腦子裡不斷重複你的名字。所以你現在知道了。缺席教會你：我學會了你的名字。我說得越多，你在我的想像中就越美麗。我說得太多了。你不明白嗎？還是你的年輕阻礙了你的理解，讓你能如此安靜地睡在我的肩上？」
+
+「我沒睡著，卡米。我只是喜歡像這樣躺在這裡，聽著你曾經多麼想要我、現在仍然多麼想要我，卻不立刻給你你想要的。」
+
+「哈，典型的女人！這就是我不想告訴你的原因。我的話給了你上風，現在你想報復了。但卡米可以給你讓他等待的滿足感。」
+
+「和那些絲絨女人在一起，你也叫我的名字嗎？」
+
+「『莫德斯塔』，我說，而且不看她們。」
+
+「再說一遍。」
+
+「莫德斯塔！」
+
+「再來。」
+
+「莫德斯塔！」
+
+「再來。」
+
+「莫德斯塔，你把我逼瘋了！」
+
+「現在說：莫德斯塔，我的金礦。」
+
+「我的金礦，莫德斯塔，我想一路進入你，直到你的心裡。」
+
+經由他的聲音說出，「心」這個詞失去了讓我憎恨它的歧義。我看到了我的心，那眼睛和核心，我那肉體中心的計時器和調節器。在黑暗中，我用手掌傾聽它猛烈的悸動，它從我的胸腔到我出汗的額頭，因喜悅而呼喊，不願安靜下來。
+
+「怎麼了，莫德斯塔？為什麼你在摸自己的胸口？為什麼睜著眼睛？以前做愛會讓你睡著的。如果你擔心懷孕，放心吧，因為我像我承諾的那樣處理了。」
+
+「不，不！昨天我可能還害怕，但現在……現在你叫我莫德斯塔，你一路進入了我的心。我看見了它，你知道嗎，我的心。」
+
+「它是什麼樣的？」
+
+「像五旬節那些男孩子們點燃、從山上拖下來的木輪。我只是很久以前從窗戶看到過。那時候我不被允許到牆外去。這附近沒有人弄那個輪子，卡米。為什麼呢？」
+
+「不，當然不！這片地是平的！這裡的人對黑麥和小麥田懂得什麼呢？」
+
+「你近距離看過那個大輪子嗎？」
+
+「當然！不但看到過，而且有三年的時間——在那下巴初生鬍茬的年紀——就像我父親和他的父親在我之前一樣——我們圖迪亞家直到今天都是大骨架的！——我有幸，和一個穆蘇梅奇家的人一起——他們也是高大身材的家族，雖然皮膚黝黑、脾性也陰暗——點燃並拖動那個輪子，以催促太陽賜予我們滋養小麥和黑麥的溫暖。」
+
+「哦，這就是它的用處？這就是背後的原因？」
+
+「當然！一個古老的傳統！」
+
+「但你們沒有燒到自己嗎？」
+
+「嗯，這就需要技巧了！當輪子被釋放，像一頭憤怒的野獸瘋狂地衝下山坡時火焰騰起，需要老練的手和快速的反應來躲避火焰，還要對風有所了解。即使空氣看起來像玻璃一樣靜止，你也必須意識到風的存在。有一次，我的頭髮全被燒成了灰燼！這就是為什麼在那三年裡，我們這些推輪子的人幾乎把頭剃得精光。」
+
+「你們是怎麼推的？」
+
+「我很驚訝你不知道，莫德斯塔。」
+
+「遠遠的我看不清楚，因為我只能看到輪子。」
+
+「可是女人和女孩們在建造輪子的時候會去看的。」
+
+「我在修道院呢，卡米。別忘了。」
+
+「你能想像一個馬車輪嗎？每年最有手藝的工匠承擔製作盡可能大的輪子的任務，中間有一根像鐵一樣堅固的木軸。所以一個人在這邊，一個人那邊，握住這根軸，根據地形推動或約束它，正如你可以想像的。」
+
+「我害怕，卡米！」
+
+「這不是恐懼，莫德斯塔。你只是睏了。」
+
+「為什麼睡眠讓人害怕？」
+
+「當然了，缺乏睡眠和食物會讓你發冷，甚至產生奇怪的感覺，這種感覺可能像是恐懼。一個虛弱的身體無法抵禦不好的回憶，會屈服於心靈的幻想。現在睡吧。你會看到，明天早上你就不記得了。安心睡吧，因為卡米，如他向你承諾的那樣，在你高潮的時候沒有在你子宮裡留下他的印記。」
+
+當黎明到來時，卡米離開了……在我的睡夢中，我看到他像影子一樣溜走。他是怎麼做到出現又消失，卻又永遠在場的？
+
+「那是因為你心中有我，莫德斯塔。對我來說也一樣。我離開，卻帶著你，在這裡，和我在一起。」
+
+「你的心裡有一個口袋可以裝我嗎？」
+
+「當然！心是一個口袋，一個可以裝下一切的大籃子。」
+
+「是的……一切！然後它就碎了，像你的那樣。」
+
+「當它碎了的時候，意味著它已經承載了足夠多的負擔和快樂。」
+
+「但你為什麼離開呢？天一亮你就離開。即使我在睡覺，我也能感覺到你離開。」
+
+「其實，我現在又回來了。」
+
+「你回來是因為天黑了，但一旦我睡著了，你就趁機離開。你從不睡覺嗎？」
+
+「我當然睡覺。」
+
+「昨天你睡在我旁邊，然後當我醒來時，你已經走了。你怎麼能在睡夢中知道天快亮了呢？」
+
+「因為我一生都在黎明時醒來。」
+
+「那你要是非得走，現在就走。馬上走！」
+
+「可現在是夜晚，奧蘭多騎了一路滿身是汗。讓我也休息一下吧。」
+
+「你休息，然後離開。但為什麼？」
+
+「脾氣，脾氣，孩子！」
+
+「別叫我孩子！」
+
+「當你發脾氣、開始哭哭啼啼的時候，你就成了我的孩子。」
+
+「你為什麼總是必須離開？」
+
+「這樣才不會擾亂你的家庭和我的家庭。」
+
+「誰在乎！」
+
+「你在卡塔尼亞贏得了好名聲。他們欽佩你處理事情的方式。」
+
+「但我從來不見他們！而當我見到他們的時候，他們像刀子一樣地盯著我看。」
+
+「女人嘛，自然！她們嫉妒你。別在意；她們不算數。但男人們欽佩你處理你的事務和你的家庭的方式。」
+
+「那不是真的。」
+
+「哦，不是嗎？那真相是什麼？說來聽聽。為什麼布蘭迪福爾蒂家和其他所有人都來參加了小馬駒的婚禮，嗯？」
+
+「不許叫她小馬駒！我的貝雅特麗齊已經長大了，是個幸福的女人。」
+
+「我很高興。正因為如此，我們為什麼要用幼稚的脾氣來擾亂她和其他人呢？還有我山上的家人，為什麼在我們擁有共同夜晚的時候還要讓他們難堪？來，讓我抱著你。」
+
+「你是對的，卡米：我又流血了。你是怎麼做到的？我一直想問你，總是忘記。」
+
+「已經這麼久了嗎，莫德斯塔？讓我抱著你。那麼多時間已經過去了，感覺像昨天一樣。」
+
+「但你是怎麼做到的？」
+
+「別管了。男人的事。」
+
+「告訴我。」
+
+「我屏住呼吸！」
+
+「哦，當然，屏住呼吸！你讓我笑。」
+
+「那就笑吧。你就像我的莉努扎！總是好奇，總是問……」
+
+「不許說那個名字，不然我揍你！」
+
+「哦，你就像她！她嫉妒我母親，而你嫉妒一個死去的女人。」
+
+「我不想聽。」
+
+「她已經死了，莫德斯塔。」
+
+「如果她還活著，她現在就是個老太婆了。」
+
+「我也老了，但你仍然想要我。」
+
+「你是說如果她還活著，你會更想要她，而不是我？」
+
+「我什麼也沒說。對於你不知道的事情，你無法談論。」
+
+「她年輕時就死了，這樣就能永遠把你拴在她身邊。」
+
+「說不定就是這樣，如果你這麼說的話，既然你像她一樣固執，而且是個女人，你當然比我更了解她。」
+
+「我是你的金礦，你現在應該只想著我，因為我是你的珍寶。」
+
+「你感覺不到我把你像生命中的黃金一樣捧在懷中嗎？」
+
+他把頭埋在我的大腿之間，我青春的金色在他的手中呈現出來。白天獨自一人，在田野和陽光中回憶他的面孔；夜晚在他的懷裡，聞起來有乾草和煙草的味道。
+
+「煙草，莫德斯塔？當然，我只抽煙！煙草是我僅剩的一切了。」
+
+「那我呢？」
+
+「你是另一回事。」
+
+「我是什麼？」
+
+「你是我的青春，不想離開我。它附在你的皮膚上，青春會！即使你意識到歲月的流逝，青春也在召喚你，你被迫去追尋它。只需要一件小事讓你有找到它的錯覺，你就會被欺騙。你身不由己。」
+
+「我很年輕，不是嗎，卡米？」
+
+「當然！你以為呢？」
+
+「有時候我覺得自己老了。」
+
+「絕對是青春的狀態！你越年輕，有時就越覺得自己老。但你得小心，因為感覺老會讓你變老。就像我的兒子溫琴佐：他從戰場回來時健康又強壯，一年之內就變得又老又可憐，和那個瘦巴巴的、總是愁眉苦臉又動不動就暈過去的小少婦生活在一起。」
+
+「聽聽這個老頭怪他自己的兒子！是你把他娶給了那個莫迪卡來的小丫頭。所有莫迪卡的姑娘都那樣，又瘦又無趣。你不知道嗎？」
+
+「但這個莫迪卡的丫頭給我們帶來了可觀的土地。他應該知道這帶給他的力量，那種用他妻子的錢來鞏固我、我父親和我祖父的努力的喜悅和驕傲。今天的新地主就是我的兒子們，而且……」
+
+「圖迪亞家正在取代舊的莊園主，聽聽這個！隨著時間的推移，再加上更大的犧牲，你們圖迪亞家甚至會變成貴族，對吧？」
+
+「當然！一個圖迪亞家的人應該驕傲地從黎明騎到黃昏，從不離開他的土地邊界，不讓女人的哭哭啼啼和哀怨讓他變得可悲。騎他的馬，在家門外尋找他的快樂。」
+
+「我恨你，卡米！」
+
+「這不是新鮮事。我們之間一直如此。」
+
+「永遠都會如此！你笑什麼，嗯，老頭？你眼裡的笑是什麼？」
+
+「我在笑你的恨，孩子。要是我有一個像你這樣的女兒就好了！」
+
+「你什麼意思？」
+
+「就是說你恨我是因為，正如公主——願上帝安息她的靈魂——所意識到的那樣……」
+
+「她意識到了什麼？」
+
+「就是莫迪和卡米一模一樣。一個模子刻出來的。」
+
+「我不像你，卡米！時代在變，我希望你的兒子們、你的孫子們和所有其他年輕人會推翻你們這些地主，消滅你們的莊園。」
+
+「聽聽她說的！誰把這些想法放進你腦袋裡的，你的姐夫？還是你從書上讀來的？這樣做你能得到什麼呢，嗯，布蘭迪福爾蒂公主？」
+
+「我會為此大笑一場。」
+
+「那些想法是外來的，莫德斯塔。沒有任何好的東西是從外面來這個島上的。你通過貝雅特麗齊的婚姻和一個重要人物結盟，做得很好，他可能很快有一天會在高層有朋友。」
+
+「卡洛永遠不會出賣自己！」
+
+「向上帝發誓，你聽起來就跟馬蒂亞一模一樣！總是為某人激動不已，你們這些小傢伙！你為了這個社會主義者卡洛，馬蒂亞為了他的墨索里尼。他們是外國人，是外人！就在今天早上，我用一頓結結實實的打，打跑了鑽進馬蒂亞皮膚和腦子裡的那個黑衫黨！當然，他們不得不給他錢，因為這個墨索里尼是唯一能確保這裡秩序的人——他真是個真正的克里斯皮，向上帝發誓！——但不能連他們的靈魂……他用狡猾的手段轉向了年輕人，點燃了他們的想像來反對老年人。他很精明，因為自有世界以來年輕人就容易著火。當然！給一個年輕人一個奧蘭多和一個里納爾多，用新的詞彙和新制服讓他做夢，讓他相信他將成為老闆，他就會在不知不覺中變成你的奴隸。」
+
+「你說的有道理，卡米，但卡洛說的也有道理。而且他的道理更合我的意。」
+
+「隨你便！但這個道理講得太慢了。他們口中吐出太多稀釋過的詞彙。自有世界以來，年輕人總是需要神話和英雄事蹟。這正是我對馬蒂亞的擔憂。他必須用腦子，關心自己的利益，不要讓自己被迷惑。」
+
+「我才不在乎你和你的馬蒂亞，以及所有像你這樣的老頭子！我知道卡洛是對的，而你不會明白。」
+
+「但我明白，而且我能讀能寫，莫德斯塔。別惹我發火！他們的計劃太宏大了，而且推進得太不確定了。」
+
+「在俄羅斯就不一樣。那裡，腦袋都被打破了，卡米。」
+
+「嗯！俄羅斯遠著呢！而且應該離這個島遠遠的！我再問一遍我的問題，孩子：地主們被推翻，你能得到什麼？」
+
+「我告訴過你了。我會為此大笑一場。」
+
+「沒有錢財你怎麼過活？你能給你的兒子留下什麼？」
+
+「我不給我的兒子留任何東西。他會學習。他會像卡洛那樣工作。」
+
+「那你呢？」
+
+「我也會工作。我告訴過你了！我恨你！」
+
+「那你愛誰？這個卡洛？」
+
+「如果我需要，我會工作。你不會明白的。」
+
+「相反，卡米明白。只有一件事讓他驚訝。」
+
+「什麼？」
+
+「帶著你這些想法，你待在修道院裡當個修女不是更好嗎，孩子？」
+
+「我恨你，卡米。」
+
+「我們之間一直如此。」
+
+「不！這是真正的恨，卡米。這不再是對你的順從，這種恨，因為我已經長大了，而且我知道你是我的敵人。」
+
+「誰告訴你這些的？你那個米蘭的朋友？」
+
+「一個不是地主的人告訴我的！」
+
+「如果我理解得沒錯，你愛卡洛，但你想要我。這怎麼可能呢，莫德斯塔？」
+
+「我愛卡洛，而我的天性想要你。我學會了不與我的天性抗爭：我滿足它，但我不把靈魂交給它，正如你所說。我用你的吻來滿足它，讓它飽足，當它飽足之後，我就清理我的頭腦，把你放在一邊。你以為我讓你回來是為了什麼？你以為，憑著你地主的傲慢，我讓你回來是為了讓我永遠做你的金礦？不！是為了完成你因為合你心意就中斷的故事。拿走我應得的，然後把你送走。」
+
+「這也是我想要的。這就是為什麼我讓你打我、侮辱我。我想把你吃夠，當我滿足了，就走開。我是個被判死刑的人了，孩子。別忘了。」
+
+「這不是真的！這些月來，無論是你的身體還是你的精神，我都沒看到一絲徵兆。這是個謊言，這樣你就能回來。」
+
+「如果你想相信這個，如果這麼想讓你舒服，那就隨你吧。但現在你渾身冒火了，讓我吻你。」
+
+「別像隻羊一樣，卡米；你是狼！能拿什麼就拿什麼，但別裝作必須請求。吻我，只要我的天性想要你多久就多久，因為之後，也許一個月，也許一個小時，我會重新施下我之前給你的死刑判決。殺你的人是我，不是死神！我是年輕的。你說的，我永遠不會讓任何人擁有我！」
+
+「我就喜歡你這樣。但別跟這個男人胡鬧，因為如果我想的話，我會讓你懷上孩子。然後你就得至少一年內都想著我。」
+
+「你失算了，卡米。你以為這些月來我會這麼毫不在意，如果我沒有辦法保持自由嗎？」
+
+「當然不！但你指的那種辦法會帶來痛苦，而且常常是死亡。」
+
+「我就知道你會這麼說！對有錢、有錢也有辦法的人來說就不會，卡米。你回來那晚發現我蒼白而病態了嗎？」
+
+「我發現你更強壯、更美麗。讓我吻你。」
+
+「就在幾天前，在一個無菌的小房間裡，用一個簡單的、無痛的手術，我擺脫了一個麻煩。如果你又起了困住我的念頭，我還會再做。沒有人擁有莫德斯塔。」
+
+「莫德斯塔聰明又意志堅強。卡米宣告自己被擊敗了……你想就那樣待在我上面嗎？待在上面，拿下我。卡米老了。他學會了失敗的智慧。」
+
+「當自然垂愛於你，生為狼，卻能故作羊態，這種奢侈還真是容易啊。」
+
+壓在他身上——那隻羊——我設定節奏，和他一起達到高潮。但現在我知道，我的憎恨掩蓋的是嫉妒。
+
+「你能教我失敗的智慧嗎，卡米？有時我內心有太多的憤怒，我想學。」
+
+「嗯，你可以教很多東西：怎麼騎馬，怎麼做愛，但你不能把自己的經驗交給別人。我們每個人都必須在歲月中獲得自己的經驗，犯錯誤，停下來，回頭，然後從頭再來。」
+
+「為什麼是這樣？」
+
+「嗯，如果你能教會別人的話，那我們就會全都一樣了！」
+
+「你知道嗎，卡米，有時我覺得生為老人、死為孩童，會是很美妙的事情。」
+
+「你想得出來的事！我喜歡你思考的方式，莫德斯塔。當然，這會很美妙，做夢是好的。但自然的計劃是另一回事。」
+
+「那麼，我打敗你了嗎，卡米？」
+
+「這才是對的。一個人必須反抗。如果溫琴佐反抗過，我是說真正的反抗，我永遠不會讓那個莫迪卡來的丫頭進家門。我，在我那時候，對一個女人的事上違抗了我父親的意願。既然我在那點上不肯讓步，而且一直最勇敢地為他服務，做他開槍的活和四個人的工，他不得不讓步。我的父親是個了不起的人！你總能知道他什麼時候來。當他走出門的時候，他仍然和我們在一起。」
+
+「你也是那樣的。」
+
+「別人也許會這麼想和這麼說。我無從知道。」
+
+「我這麼說的。」
+
+「如果你這麼說了，我就接受。」
+
+「別裝羊，卡米，不然你又會讓我火冒三丈。既然你已經給了我這麼大的快樂，我不想恨你了。」
+
+「這麼說，莫德斯塔，你擺脫了一個孩子？我不會問是誰的。」
+
+「是的。」
+
+「無痛的？這怎麼可能？」
+
+「時代在變，卡米。科學正在發現很多東西。而這個對我們女人有利。有了知識和醫生的幫助，女人很快就會擺脫自然和統治者強加在她們身上的那麼多法令。」
+
+「那些是那個卡洛醫生的話嗎？他這麼說話的？」
+
+「是的。」
+
+「這就是為什麼你說那個這麼難說的詞嗎？」
+
+「什麼詞？」
+
+「愛。」
+
+「是的。」
+
+「他教了你很多東西？」
+
+「是的，很多；甚至怎麼游泳。」
+
+「別讓我笑，莫德斯塔。那是不可能的。除非你是小孩子，否則你學不會游泳。我曾經試過，但我太老了，而且那時候我已經怕水了。」
+
+「因為沒有人教你。我學會了。」
+
+「也許我相信你，也許我不信，莫德斯塔。你不會是為了佔上風、讓我嫉妒那個男人而這麼說的吧？」
+
+「讓我打消你的疑慮。來……」
+
+*
+
+我害怕，但我必須讓他看。沒有太陽的大海，現在顯得深邃而充滿敵意，就像從前那樣。也許沿著月亮在那片黑暗遼闊的水面上畫出的閃閃發光的小徑，我可以克服我的恐懼。在岸上，卡米用懷疑的眼神跟著我，褲管捲到了大腿上。輕如棕櫚葉的波浪已經拍打著我的肩膀。我顫抖，但我必須讓他看，即使會死。我永遠不能回頭去面對他那雙嘲諷的狼眼。我在顫抖，但我從沙上抬起雙腳，朝地平線移動，只專注於月亮的小徑。為了讓我的勝利完滿，一游到開闊水域，我就翻了個身，仰面漂浮，做死人浮。也許如果我放鬆，顫抖會平息。用看不見的眼睛，死人的眼睛，我凝視著懸在那裡的月亮，朦朧地微笑……有人在岸上大喊。一定是他。我無法回答。要是我回不去了呢？他喊了三聲，他肯定追著我下水了，因為現在他把我撈起來了，月亮把浪花拋向他白襯衫的胸前。
+
+「夠了，莫德斯塔！你嚇到我了！這不好玩，孩子！有必要游那麼遠嗎？向上帝發誓，你嚇到我了！要是你突然暈過去呢？你又冷又抖！而我卻被困在岸上，無助地看著！」
+
+恢復了，我讓他用雙臂抱著我。
+
+「我們回去吧。替你穿上裙子也沒用。知道我該怎麼辦嗎？我用奧蘭多的毯子把你裹起來。看，連奧蘭多都在刨地。向上帝發誓，他也嚇壞了！」
+
+「你和他嚇壞了……我只是冷。」
+
+「當然！所以我才用毯子把你裹得暖暖的。交給我吧。好了，像這樣。」
+
+「我會游泳。你看到了嗎？」
+
+「當然看到了！當初我挑戰你的時候真該被雷劈死！你冒太多險了，丫頭！來，讓我好好把你包起來。」
+
+「我讓你包起來，但你必須說：『莫德斯塔會游泳。』」
+
+「莫德斯塔會游泳，但她現在必須安靜下來。讓卡米像個好姑娘、一個懂事的乖小孩一樣帶她回家。」
+
+在毯子的溫暖中恢復了生氣，在他的雙臂和他深沉的心跳中搖晃，我不想睡著。我不想錯過那被黑夜放大的、迴盪的腳步中的任何一步。在茂密的樹林裡，月亮的光被遮住了，棕櫚林的黑暗落在我眼簾上，但我不想睡覺。我費力地把臉抬到他的脖子上，用我的手指繞著他那剛硬的捲髮，它們在突然開始吹拂的微風中紋絲不動。為了保持清醒，我只需用牙齒咬住藏在濃密鬢角下的那隻耳朵，輕輕地咬它。
+
+「唱歌給我聽，卡米。」
+
+「我不會唱，小不點。」
+
+「我們走了多遠了，卡米？」
+
+「很遠了，莫德斯塔。」
+
+「那我們還有多遠要走？」
+
+「還有很遠。」
+
+「你不會死的，是吧，卡米？你撒了謊是為了有回來的藉口。」
+
+「也許吧，莫德斯塔。誰說得準呢？」
+
+「你可以告訴我，卡米，因為你回來的時候我認出了你……你什麼時候回來的？」
+
+「永恆那麼久以前！」
+
+「告訴我那不是真的。你可以告訴我，因為你知道在這段永恆裡，我和你在一起是幸福的。」
+
+「我什麼也不能告訴你。但如果做夢對你好，那就睡吧，去做夢。夢和睡眠比麵包更滋養。」
+
+「我不想睡。」
+
+「那就別睡。」
+
+「你看到我會游泳了嗎？」
+
+「當然看到了！但別再試了，無論是夜裡還是白天，至少不要在像我這樣不愛海的人面前試。」
+
+「你嚇壞了，是吧？」
+
+「當然！」
+
+「那麼如果你嚇壞了，你的心怎麼沒有停下來？不回答？我知道你為什麼不回答。」
+
+「說說看。為什麼我不回答？」
+
+「因為你不是真的快要死了。」
+
+「不，我不回答是因為我在努力克制我的想像。我不喜歡被那些由幻想所暗示的不確定的計劃所迷惑。」
+
+「那是什麼意思？」
+
+「意思是卡米不喜歡心靈的黑暗小巷，在那裡懷疑的匕首可能出現，從背後刺殺你。」
+
+「你的話很晦澀，卡米。」
+
+「因為晦澀蒙蔽了我的眼睛，自從我在大海中央看到你之後。現在睡吧。我會把你抱上床。明天我不回來。別等我。」
+
+「你為什麼不回來？」
+
+「因為我必須清除頭腦中這些讓你在我眼中像陌生人一樣的雲霧。現在睡吧。別理我。」
+
+「不。除非你告訴我你突然疏遠我的原因，否則我不睡。」
+
+「卡米不習慣提問，不習慣探查，丫頭。他把那留給法律。但如果他看不清楚，他就改變航向……讓我走！掛在我身上沒用的。先播下懷疑，然後試圖用討好的擁抱抹去隱含的意思，太容易了。」
+
+「不，天還沒亮。你不能走！你看，我是對的！你不是真的要死了，如果你能這麼怒氣沖沖地走你的路，忘了我，就好像你還有二十年可活一樣。」
+
+「我從沒聽說過知道自己要死就會讓人變成懦夫。」
+
+「該死的老頭！滾出去，帶著你的懷疑！」
+
+「我正在努力呢，丫頭！把你的手臂從我脖子上拿開；我不想弄傷你。」
+
+「為什麼我無法把你趕出去？」
+
+「你知道為什麼。」
+
+「如果你真的善於觀察，我這樣緊緊抓住你的樣子應該告訴你些什麼。」
+
+「它告訴了我一些事情。但不要把怨恨和愛混為一談，當你怨恨的時候。來，放開我，我喜歡記得你在海中央的樣子，你玩著你那危險的把戲，對著月亮微笑而你毫不在意我。我喜歡記得你像那樣，平靜而不在乎。同時，最後一次請求你：如果你不能保證在墓園裡不哭，就不要來參加我的葬禮。卡米不喜歡在眾人面前感到羞愧。」
+
+「我不會去的，我保證。」
+
+「這才是我的莫德斯塔！來，讓我替你蓋好被子。我去叫奧蘭多。」
+
+「等等。我保證不去墓園。但至少履行你的諾言，在我睡著之前留在這裡，像以前那樣。還有……明天再回來一次。」
+
+「寵壞了的任性小不點！只因為你的任性和你的為所欲為傷害了所有人。連可憐的奧蘭多都被你弄髒了……我來了。」
+
+「你為什麼從來不叫我莫德斯塔了，現在？」
+
+「因為莫德斯塔從來不做善變、被寵壞的小孩子做的事。」
+
+「我以前告訴過你，那天早晨：我是半個丫頭半個小子。我就是那樣的。」
+
+「而你永遠不會改變？」
+
+「永遠不會。」
+
+「這就對了。我也不會改變。但卡米不像你想的那樣年輕，時間很短了。就像蠟燭受損，風一吹就滅。時間很短了。我不想在最後一刻被你看到我出醜。」
+
+「不會發生的。」
+
+「誰能說得準呢？來，睡吧。我跟你說說我父親是怎麼死的。那時候沒有醫生管這裡的事，雖然有人去叫了一個。總之，他看到那個穿白大褂的人，就從床上坐起來吼道：『我不會把我的靈魂交給一個外國人的！只要我還能站起來，我要像樣地死在家人中間，在我的馬背上！』是我們扶著他的，因為他自己已經不行了。三個兒子，在奧蘭多的兩側。我們剛好在通往那些大山毛櫸樹的路上及時趕到，你知道的，那些比樹林裡所有其他的樹都高的山毛櫸，因為他看到了它們，然後就去了。就這樣。」
+
+「他去了，就這樣，沒有痛苦？」
+
+「沒有痛苦。他像活著時一樣平靜。」
+
+「我也想那樣死去。」
+
+「你不能選擇。但我向上帝發誓，我從沒聽你說過比這更好的話。好吧！卡米對此很高興。他不再要求什麼了。現在睡吧。」
+
+「你不會回來嗎？哦，我知道你為什麼不回來了：你是懦夫，卡米。你怕在我眼中變成老頭。是這個嗎？告訴我。你不回答？」
+
+「我不想看到你在我面前死，卡米。不要生氣。我也不想看到你死。如果你允許我，我也想得到這個滿足。你想要的所有其他的，我都給了你。現在該輪到我了。」
+
+「以全部的心，不帶怨恨？」
+
+「以全部的心，不帶怨恨。」
+
+「不。你很難不帶怨恨。那不是我認識的莫德斯塔。她會永遠怨恨我的，因為她的船已經起航，走向新的大陸、新的海洋。她怕老港口那些老船骸會絆住她的腳，阻止她航行。你是對的。這就是我要的：你還年輕，你的航線是筆直的，你的仇恨是清晰的。就是這樣。我會知道怎麼帶著它一起走的。甚至，如果你允許我給你建議：保持你的恨意，它比愛更值得信賴。我不知道死亡之後是什麼，因為我沒有學過任何東西，無論是好是壞。但如果那裡有東西，你的恨意會把我帶回來。這是個諾言。現在我的煙斗在哪裡？它跑到哪裡去了？在這裡！我本來會對自己生氣，因為我把它弄丟了……這就是你想要的煙斗嗎，說？」
+
+「留著它吧，卡米。我已經知道怎麼點它了。」
+
+「那麼一切都好了。卡米很高興。時間很短了。我希望奧蘭多還認識回去的路，因為我累了。」</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>longing</b><span>渴望，思念</span><em>a longing for</em></div>
+<div><b>vow</b><span>誓言</span><em>make a vow</em></div>
+<div><b>conceal</b><span>隐瞒，掩藏</span><em>conceal the truth</em></div>
+<div><b>burden</b><span>负担</span><em>carry a burden</em></div>
+<div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch050.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch052.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

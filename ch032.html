@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 32 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch031.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" selected>Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" >Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch033.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 32<span>战争前夕与家族秩序</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1915 年意大利参加第一次世界大战。乡村生活与国家大事并不同步，但战争、价格、劳动力和家族荣誉会逐步进入私人生活。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">32 
+
+Thanks to the doctor, a gentle old man
+				who now gaped at me with constant reverence, I had obtained the Princess’s
+				permission to open the window in that room. As a result, the air had swept away the
+				terrible odour that no amount of scrubbing had ever been able to eliminate. 
+
+With Pietro watching over me and his
+				dear Prince, that room was my home. No one could come in, and Pietro couldn’t
+				read, so I could blithely take Jacopo’s books in there and study them
+				undisturbed. Over time, I discovered that Ippolito was happy not only when I sang or
+				told him stories, but also when I read aloud (maybe because I pronounced the words
+				slowly, syllable by syllable). He listened, captivated, and I learned more and more,
+				as Jacopo’s instructions guided me … So that even the tutor, whom I
+				had thought was a genius only seven or eight months before, now seemed like an
+				insignificant philistine who couldn’t be relied upon. And if Mother Leonora
+				was merely a religeuse , he seemed like a poor Candide, happy and content
+				with his servitude, full of enthusiasm and naivety. Voltaire said that to be naive
+				at twenty was a sin. I was still naive, but I wasn’t twenty years old yet. I
+				attended lessons, yes, but only to later dismantle them, strip them, and extract
+				solely the concepts that could be of use to me. Ippolito listened happily, unaware
+				of my efforts. Because it was an effort! My skirts hung loose at the waist and a
+				strange sweat broke out when I helped Pietro bathe and dress Ippolito in the
+				morning. 
+
+‘You’re a saint, Modesta, a saint! But you should take care of yourself;
+				it’s alarming how thin you’ve become! Yes, I know, it’s your duty,
+				but now you’re all mine, right? You’re not thinking about that ugly
+				“thing” up there even now, are you? At least in the evening you’re
+				all mine, right? Come on, let’s play …’ 
+
+I too eagerly awaited evening. I wanted
+				nothing more than to caress her and hold her in my arms. And even though I was
+				tired, as soon as she touched my hair, my sleepiness vanished. 
+
+‘… Is it true that Ippolito
+				eats with a fork? How did you do it?’ 
+
+‘… Is it true that he lets
+				himself be bathed? Yes, of course, Pietro bathes him, but you help him dress him,
+				comb his hair. Argentovivo told me that Pietro has spruced himself up
+				too.’ 
+
+‘… What on earth do you do
+				all those hours with him? Argentovivo says that Pietro told her that you read and
+				the “thing” listens. Can it be?’ 
+
+‘… Is it true you’ve
+				managed to get him to pray? Father Antonio is happy to come and give him Holy
+				Communion every Sunday.’ 
+
+‘… Is he terribly ugly,
+				Modesta? Is he really as monstrous as Nonna says?’ 
+
+‘Of course not, Beatrice. Besides,
+				no soul of God is monstrous. He’s just fat and stumpy, but his eyes are not
+				exactly like Ti— I mean, they’re ugly but expressive.’ 
+
+‘What are you thinking about,
+				Modesta? You’re not thinking about him, are you? You don’t love him more
+				than me, do you? Sometimes it makes me angry to think that you spend so many hours
+				with him, that you comb his hair. You don’t caress him, do you? You
+				don’t sing him a lullaby like you do for me, do you?’ 
+
+‘What are you saying, Beatrice!
+				Ippolito, even though he’s ill, is still a man! And I, although I didn’t
+				go into the convent, will always be God’s bride, vowed to chastity.’ 
+
+‘Good thing. That way at least
+				I’ll always have you all to myself. I hate men.’ 
+
+Of course. Even though he was ill, he
+				was a man, and a prince. Beatrice was right. How come I hadn’t thought of it
+				before? Had I been working, studying too hard? Or had the serenity I felt in
+				Beatrice’s arms softened me, as Mimmo used to say? ‘Eh, princess! When love is too great it makes
+					you soft. It happened to me once. From the sturdy labourer I had been, I melted away like a candle. No living
+					creature should surrender to it.’ 
+
+I used to run away when Mimmo talked
+				like that. But was what I felt for Beatrice love? All those daunting books that
+				spoke of love! They were delightful to read, but the passions they described were as
+				fanatical, Voltaire would have said, as religious passion. Not to mention that for
+				some reason, it was always the women who had to submit … Jacopo said the
+				reason for it was that women are brought up only to love … She had to be
+				wary of Beatrice and think about her own life. What had she done since she’d
+				been in that villa? Of course she had studied, and she had won the Princess’s
+				complete confidence, something she hadn’t hoped for. And although Carmine
+				wouldn’t deign to glance at her, he had no choice but to accept her now. 
+
+The ‘thing’ was still a man.
+				I had seen him touch himself several times as he looked at me. And each time, Pietro
+				had promptly sent me away with some excuse. Had I wasted all that time? Yet it had
+				taken time for Ippolito to get used to me. One day when I was late, I found him tied
+				up, drooling, and Pietro desperate. That’s what I had to do: get sick and let
+				them stew in their own broth, as Mimmo would say. 
+
+The next morning I awoke with a severe
+				headache, unable to swallow any food. And tossing out all the pills, drops and
+				purgatives the doctor brought me, I held out against Beatrice’s desperate
+				tears, the Princess’s demands – by now she was saying, ‘Without her, I
+				feel like I’ve lost my right arm’ – and Pietro’s entreaties. He
+				was no longer able to manage his dear Prince, who had been up to all sorts of
+				mischief since he’d stopped seeing me in his room. 
+
+I couldn’t imagine what would
+				happen when I saw him again. However: ‘One action leads to another action, and
+				eliminates inaction which, though restful, in the long run turns into a
+				quagmire.’ In that year I was able to ascertain that Ippolito’s degree
+				of idiocy was not as extensive as Tina’s. His brutishness had been caused
+				simply by his having been abandoned. At least now he spoke a few words:
+				‘hungry’, ‘sleepy’, ‘peepee’,
+				‘Mama’, and, oddly, he called Pietro ‘Uncle’. 
+
+Ten days later, when I showed up,
+				nothing important seemed to happen.
+				Ippolito, after crying and drooling with excitement, was quiet all day. But in the
+				evening, when it was time for me to leave, he began screaming and holding on to my
+				skirt. Overcome by my long absence, he was now afraid that I would not return.
+				Pietro struggled to pry his hands loose, but the entire night was hell, and we had
+				to resort to the straitjacket and the pills like before. Something had happened. 
+
+In the days that followed, they
+				assembled in the rose-coloured parlour in fighting trim, arguing in front of me
+				without seeing me. 
+
+The doctor: ‘And I insist that,
+				since he has not calmed down either the first or second or third night, another
+				solution must be found. With all those baths, bromides and the straitjacket,
+				we’ll end up killing him. I cannot assume the responsibility for a murder. My
+				duty as a doctor—’ 
+
+The doctor again: ‘It is my duty
+				to advise those responsible – and you are responsible as well, my dear signorina – that as of this morning Ippolito has been refusing to eat.
+				Pietro is unable to make him swallow anything, not even by opening his jaws with
+				forceps. My duty as a doctor—’ 
+
+The Princess: ‘From the very
+				beginning, my dear signor doctor, with all your duty, I said it was folly
+				to leave a girl with that “thing”. Who, though he may be a
+				“thing”, is still a man. I’m well aware of how much those little
+				“visits” of his cost me.’ 
+
+The doctor: ‘Those little
+				“visits” are one thing; it’s clear that Signorina Modesta is
+				another matter. I insist—’ 
+
+Don Antonio: ‘And I forbid it! And
+				I will be forced, if you insist, to appeal to the Curia. We clergy cannot allow one
+				of our sheep, pledged to God, to be compromised by sleeping in the room of a man,
+				even as a nurse. I remind everyone that the spiritual journey of this soul is very
+				dear to His Eminence. There is not one time that he does not ask after
+				her.’ 
+
+Beatrice wept silently, staring at
+				everyone so wide-eyed that it was frightening to see. 
+
+The Princess: ‘Well then, bring
+				him a more attractive girl, since he’s become so picky.’ 
+
+The doctor: ‘We did, Princess! And
+				we went even further. We called Carmela back.’ 
+
+The Princess: ‘Who is this
+				Carmela?’ 
+
+The doctor:
+				‘The one he was once so fond of … That’s right, Princess, the
+				daughter of that petty thief who was killed in the citrus grove in Licosa, the one
+				who didn’t want to come anymore after she got married, remember? Just as well.
+				Anyway, yesterday she agreed, even though she has three children. The result? While
+				he wouldn’t even look at the others, he would have strangled Carmela if Pietro
+				hadn’t been there. There’s no doubt about it. My Ippolito has fallen in
+				love. Basically, even though he doesn’t have all the right feelings,
+				it’s clear that after being with a decent girl he doesn’t want anything
+				to do with those earlier trollops. Even Pietro realized it. When he brings him a new
+				one, the Prince turns his head and repeats stupidly: ‘Mama, Mama,
+				Mama.’ 
+
+The Princess: ‘What does Mama have
+				to do with it?’ 
+
+The doctor: ‘That’s the
+				point. Since the first day, he’s called Signorina Modesta Mama.’ 
+
+The Princess: ‘Imagine
+				that!’ 
+
+* 
+
+I had hoped for something to happen,
+				but the uproar of slammed doors, shouts and screams, commands and countermands
+				forced me back to bed. There was nothing else I could do, because the Princess now
+				looked at me with eyes whose gaze I dared not meet. In my safe haven, I received
+				news from Argentovivo and the doctor. The Princess’s latest decision was that
+				I should not see him and that they should continue bringing the ‘thing’
+				those girls. She was certain he would forget me. But the doctor, when he was with
+				me, sniggered and kept repeating, ‘Say what you will. I may be crazy, but
+				I’m not sorry my Ippolito has fallen in love.’ 
+
+The days passed and, forced to stay in
+				that bed, I began to feel sick for real, when one fine evening the door swung open
+				so unexpectedly and so loudly that I huddled against the wall holding my head in my
+				hands. Who could it be? Sister Costanza, surely. She was the Mother Superior now.
+				And if she used to do it before ‘to discover the hidden little vices of all
+				those little sinners’, imagine now that the convent was in her hands. 
+
+‘Girl! Pardon me for entering your
+				room, but they told me that you are not
+				well. And I’m sick and tired of both your illness and all the talk and
+				nonsense that your presence in that room has caused. So we have to make a decision.
+				I spoke with Carmine, and he agrees. He admitted that there is no other solution,
+				partly because, like it or not, the blame for all this havoc is yours, and you must
+				be the one to take responsibility for it. All in all, given that in a hundred years
+				I’ll be food for worms, as that joker Hamlet says, it wouldn’t hurt for
+				you to be part of the family legally as well. You will be better able to look after
+				affairs, at least as long as Beatrice and the “thing” are alive. But
+				take heed! I don’t want any grandchildren. This family of cripples and
+				imbeciles must end with my husband. There’s no use in your protesting.
+				It’s your fault and the fault of that impetuous Leonora, who, for each thing
+				she did right, always did a hundred things wrong. I’ll give you three days to
+				recover. Because Don Antonio is going to marry you in the private chapel, at night.
+				Don’t count on my presence. I haven’t seen the “thing” since
+				he was born, and I certainly have no intention of seeing him now. The doctor and
+				Pietro will be your witnesses, because no one – understood? – no one must see him.
+				Oh, another thing: tell your friend Cavallina to stop it. For ten days now
+				she’s been plaguing me with her tears and sighs. Try to get her to calm down
+				unless you want me to send her off to some boarding school in Switzerland. Do we
+				understand each other? Good night.’ 
+
+The door slammed more forcefully than
+				before, but, strangely, her shouting had brought a warmth to my cheeks and a peace I
+				had never known before. Like after a job well done, eh, Mimmo? Basking snugly in
+				that peace, I sought out Mimmo on the silk-covered walls, along the plush velvet
+				drapes that protected me from the night. A job truly well done, right, Mimmo? 
+
+‘That’s right, Principessina, and afterwards one can enjoy the most
+					satisfying exhaustion there is.’ 
+
+Mimmo was always right. Even though
+				married to a monster, I was still a principessina . And the languor that
+				very slowly crept over me was indeed the well-deserved sleep that follows a hard
+				day’s labour in the fields.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">32
+
+多亏了那位老医生——如今他总以敬畏惧怕的目光望着我——我获得了公主的许可，打开了那房间的窗户。于是，风驱走了那股无论怎样擦洗都无法祛除的恶臭。
+
+有彼得罗守护着我和他亲爱的主子，那房间便成了我的家。旁人不得入内，彼得罗又不识字，我便可放心把雅各布的书带进那里，不受打扰地研读。日子久了，我发现伊波利托的快乐不单在我唱歌或讲故事的时候，就连我大声朗读之时——也许因为我吐字缓慢、一音一节——他也欢喜。他听得入迷，我则越学越多，依循雅各布的指引……以至于那位家庭教师——七八个月前我还以为他是天才——如今看来不过是个不值一提的庸人，靠不住。若说莱奥诺拉嬷嬷不过是个修女，那他便如可怜的憨第德，满足于自身的奴役，满心热情与天真。伏尔泰说过，二十岁还天真便是罪过。我虽天真，却尚未满二十。课我照上，但只为日后将其拆解、剥离，仅从中汲取于己有用的概念。伊波利托听得欢喜，浑然不知我的辛苦。可那确是一种辛苦！我的裙腰松垮，清晨帮彼得罗给伊波利托沐浴更衣时，竟会渗出一身异样的汗。
+
+&quot;莫德丝塔，你是圣人，圣人啊！可你也得照顾自己；瘦成这样，真叫人担心！是，我知道，这是你的本分，可如今你是我的了，对吧？即便此刻，你也没在惦记楼上那个丑&#x27;东西&#x27;吧？至少晚上你……&quot; </div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>ration</b><span>配给；限量</span><em>food rationing</em></div>
+<div><b>upheaval</b><span>剧变，动荡</span><em>social upheaval</em></div>
+<div><b>scarce</b><span>稀缺的</span><em>become scarce</em></div>
+<div><b>endure</b><span>忍受；持续</span><em>endure hardship</em></div>
+<div><b>aftermath</b><span>余波，后果</span><em>in the aftermath of</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch031.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch033.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

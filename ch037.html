@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 37 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part One</div></div>
+<div class="nav-row">
+  <a href="ch036.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch001.html" >Chapter 1</option><option value="ch002.html" >Chapter 2</option><option value="ch003.html" >Chapter 3</option><option value="ch004.html" >Chapter 4</option><option value="ch005.html" >Chapter 5</option><option value="ch006.html" >Chapter 6</option><option value="ch007.html" >Chapter 7</option><option value="ch008.html" >Chapter 8</option><option value="ch009.html" >Chapter 9</option><option value="ch010.html" >Chapter 10</option><option value="ch011.html" >Chapter 11</option><option value="ch012.html" >Chapter 12</option><option value="ch013.html" >Chapter 13</option><option value="ch014.html" >Chapter 14</option><option value="ch015.html" >Chapter 15</option><option value="ch016.html" >Chapter 16</option><option value="ch017.html" >Chapter 17</option><option value="ch018.html" >Chapter 18</option><option value="ch019.html" >Chapter 19</option><option value="ch020.html" >Chapter 20</option><option value="ch021.html" >Chapter 21</option><option value="ch022.html" >Chapter 22</option><option value="ch023.html" >Chapter 23</option><option value="ch024.html" >Chapter 24</option><option value="ch025.html" >Chapter 25</option><option value="ch026.html" >Chapter 26</option><option value="ch027.html" >Chapter 27</option><option value="ch028.html" >Chapter 28</option><option value="ch029.html" >Chapter 29</option><option value="ch030.html" >Chapter 30</option><option value="ch031.html" >Chapter 31</option><option value="ch032.html" >Chapter 32</option><option value="ch033.html" >Chapter 33</option><option value="ch034.html" >Chapter 34</option><option value="ch035.html" >Chapter 35</option><option value="ch036.html" >Chapter 36</option><option value="ch037.html" selected>Chapter 37</option><option value="ch038.html" >Chapter 38</option><option value="ch039.html" >Chapter 39</option></select>
+  <a href="ch038.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART ONE</p>
+  <h2>Chapter 37<span>战争前夕与家族秩序</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1915 年意大利参加第一次世界大战。乡村生活与国家大事并不同步，但战争、价格、劳动力和家族荣誉会逐步进入私人生活。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">37 
+
+The will could not be found. Everyone
+				bustled around looking for it, and I too of course, right behind them, but only to
+				keep an eye on Carmine. 
+
+As I knew he would, he went to
+				Ignazio’s room followed by Don Antonio and the doctor, and after glancing at
+				the papers on the nightstand, he turned to the three of us who had trailed after him
+				in single file. 
+
+‘If there’s nothing here, I
+				can assure you, Don Antonio, that there is no will.’ 
+
+‘No will? How can that be? She
+				told me many times …’ 
+
+‘Of course, me too. But you know
+				what the Princess was like, God rest her soul … You, like me, were with
+				her for twenty years.’ 
+
+‘And what was she like? Tell
+				us.’ 
+
+‘Don’t you think she liked
+				to play tricks at times?’ 
+
+‘That’s true,
+				but …’ 
+
+‘The facts speak for themselves.
+				We searched the whole villa with a fine-tooth comb. If it’s not even in here,
+				her favourite room, it means she changed her mind, or that she never made a will.
+				But what are you upset about, Don Antonio? About the construction of the church?
+				There’s no need. We have the Princess Modesta here who knows what should be
+				done. She’s the last person to have heard the spoken wishes of the Princess,
+				her mother-in-law, and surely she knows what is to go to the church and everyone
+				else. Am I right, Princess?’ 
+
+Carmine did not
+				look at me, but he was showing me what I must do. What could I have known about
+				inheritances if he hadn’t told me? As best I could, I reassured Don Antonio,
+				who followed me everywhere, even into the Princess’s study where, after hours
+				of discussions, we came to an agreement. I would never have imagined such tenacity
+				and determination in that churchly old man. As soon as the black skirt disappeared
+				behind the door, Carmine burst out laughing so loudly that I almost fell off my
+				chair. I hadn’t heard him laugh in months. 
+
+‘How does it feel to be in that
+				chair, figghia ? It doesn’t look too comfortable to me. You’ll
+				have to do a lot of practising to keep the wind from blowing you out of the
+				saddle.’ 
+
+I hated it when he talked to me like
+				that. 
+
+‘What are you trying to
+				say?’ 
+
+‘I’m not saying anything.
+				Did you see, I didn’t say a word? I just observe.’ 
+
+‘Did you know that I’m
+				expecting your child?’ 
+
+‘I hadn’t been told yet, but
+				I’ve noticed. I observe, as I said.’ 
+
+‘Why didn’t you tell me it
+				could happen? You’re an old man.’ 
+
+‘There’s young sap in this
+				old tree. Why are you sorry? You shouldn’t be sorry since, if you ask me, ’stu figghiu , this baby, comes just at the right time. Once
+				it’s born, especially if it’s a boy, it will stop all those tongues down
+				in Catania from wagging. If I were you, figghia , I wouldn’t be sorry
+				and I would give up this mania for the city that has come over you. I can read it in
+				your eyes; it’s unwholesome. And I’ll even tell you why: first, because
+				Catania is still infected with influenza, and second, because it’s better if
+				you show up bolstered by a fine male Brandiforti.’ 
+
+I couldn’t understand what he was
+				really thinking, but I had to restrain myself. What would I do without him? Even now
+				that he stood up, and without a word held my head in his hands, I would have liked
+				to throw him out. But the dry heat of his palms calmed me. 
+
+‘You’re not sorry, are you?
+				No answer? All right. It stands to reason. You hate me and you don’t want to
+				give me the satisfaction. But I observe. And I can see that you’re not sorry.
+				From the way you carry your belly it’s clear that you’re not
+				sorry.’ 
+
+Not only
+				wasn’t I sorry, but now that my nausea was gone and the stench of vomit had
+				faded in the villa, day by day everything was coming back to new life. The
+				draperies, the drawing rooms, the light, people’s gestures. A hunger I’d
+				never experienced before made all food seem like a marvellous gift of fortune. I
+				craved it all: fruit, water, milk, and especially bread. I had forgotten the taste
+				of warm bread, fresh from the oven, sprinkled with olive oil and salt. I could have
+				eaten nothing but that. And with the hunger, the light became warmer and more
+				intense, the grass fresher and greener, the peaches and figs sweeter and riper.
+				Picking them and holding them in my hand each morning, it was as if a stream of
+				forgotten sensations returned to get reacquainted, flowing from a distant past that
+				I kept hidden in some remote corner of my memory. Even sleep had become a carnal
+				pleasure. As soon as I got into bed, shadows and thoughts bent over me, lulling me.
+				To prolong that sensation of peace I tried to elude sleep, but it was hopeless:
+				dreams glided over me in streams of light and colour. When I was no longer able to
+				wear a corset and saw my huge, misshapen waist and swollen belly in the mirror,
+				instead of despairing, as I had at first thought I would, I laughed as if it were a
+				funny trick of no great concern that life had played on me. I couldn’t manage
+				to be serious. The only nuisance was the sorrow I had to simulate for everyone over
+				the Princess’s death. 
+
+With Ippolito it was easy. As soon as
+				the Princess died I allowed him to come out of that prison of a room and, as I had
+				thought, once outside, accompanied by Pietro, his attention was distracted from my
+				person. He had bonded to me because, aside from those who were paid, I was the only
+				woman he had ever seen. To gain more freedom, I had a skilled nurse come from Turin.
+				I chose the prettiest one. And when Signorina Inès began bustling around him with
+				her brown ringlets and her sprightly, competent ways, he forgot all about me. So
+				much so that I was nearly upset by his ‘fickleness’. But I didn’t
+				feel the need for anybody; I recalled Beatrice’s caresses and Carmine’s
+				embraces as though in a fog … 
+
+Carmine never came around anymore. All
+				the work had fallen on my shoulders. I didn’t need books either, or the piano.
+				I was a bit frightened by that discovery. Will I always be that way? But I soon understood. Just as I was now
+				swelling, afterwards I would deflate, and would surely go back to being as I was
+				before, if I didn’t die. Yes, that’s what that languor was which my body
+				imposed in the form of contented dreaminess, along with hours of sleep. Nature was
+				preparing me for the labour I would have to face. At the same time, I sensed that
+				gradually this languor, when repeated numerous times in women who did nothing but
+				give birth, generated a state of dull-witted deficiency that isolated them from
+				life. Of course, how could that preparation on the part of both body and mind – for
+				the most mysterious, most risky undertaking a human being can confront – how could
+				it not make everything else seem, in the long run, pointless and dull? 
+
+When the moment announced itself with a
+				fierce spasm that slashed down from the stomach, tearing hips, kidneys and
+				intestines, she knew she had to awaken from that torpor and fight. It wasn’t
+				just labour, as she had thought. It was a battle to the death that raged inside her
+				as if her body, whole at first, had split in two, and one part was struggling to eat
+				the other. 
+
+‘Scream! Scream, it will help
+				you!’ 
+
+‘The position is right. Good
+				it’s coming. Scream and push! You can do it!’ 
+
+Who can do it? That overwhelming wave of
+				pain? Was she supposed to follow that wave? Her body was fighting the other body
+				that, like an iron ram, kept battering the wall of her belly to get out. The enemy
+				was there, in that ram that kept pounding to get out of its prison and live at the
+				cost of tearing, destroying her body which, though prepared, couldn’t manage
+				to expel the enemy and not succumb. 
+
+‘There, brava ,
+				that’s the way. Not writhing all around, but pushing down; that way you help
+				it and you help yourself.’ 
+
+Yes, she had to push him out, that
+				stranger who already had a strong will to live his own life. She felt that he was
+				determined to live even if it meant killing her. And with one last push, which from
+				her shoulders ripped through her, sending a sharp spasm to her lower abdomen and
+				thighs, she felt him slip out of her with a silent thud and fall into space. 
+
+No. They had caught him. Hands held him
+				up, slapping him against the milky light
+				from the window. It must be dawn; the birds were screeching. Birds always screech at
+				dawn. In there, too, slapped by those hands, wails came from the mutilated part of
+				her exhausted body. 
+
+Why was he screaming like that? Was he
+				crying for the life he had won, or because, in the mystery of that carnal act, the
+				creature knew he had nearly killed for his life? Only my body and his knew the
+				secret meaning of that mortal, non-hostile struggle: each battling for his own
+				life.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">37
+
+遗嘱找不到了。人人都忙乱地四处寻觅，我自然也在其中，紧随其后，但只是为了盯住卡尔米内。
+
+如我所料，他走进伊尼亚齐奥的房间，安东尼奥神父和医生紧随其后，在扫了一眼床头柜上的文件之后，他转向我们三个鱼贯跟在他身后的人。
+
+&quot;如果这里也没有，那么，安东尼奥神父，我可以向您保证，没有遗嘱。&quot;
+
+&quot;没有遗嘱？怎么会？她跟我说过很多次……&quot;
+
+&quot;当然，也跟我说过。但您知道公主的为人，愿上帝让她安息……您和我一样，跟了她二十年。&quot;
+
+&quot;那她是什么样的人？请告诉我们。&quot;
+
+&quot;您不觉得她有时候喜欢捉弄人吗？&quot;
+
+&quot;确实如此，但……&quot;
+
+&quot;事实胜于雄辩。我们把整栋别墅翻了个底朝天。如果连她最钟爱的这间房里也没有，那只能说明她改了主意，或者她从未立过遗嘱。不过您有什么可担心的呢，安东尼奥神父？是为教堂的修建吗？不必担心。我们这里有莫德丝塔公主，她知道该怎么办。她是最后聆听到公主——她的婆母——口述遗愿的人，定当知晓教堂及其他各方应得之物。我说得对吗，公主？&quot;
+
+卡尔米内没有看我，但他在向我示意我该怎么做。若非他告知，我对继承之事又能知道些什么呢？我尽力安抚安东尼奥神父，他形影不离地跟着我，甚至跟进了公主的书房，在那里，经过数小时的讨论，我们达成了协议。我从未想到这位教会老人有如此韧性与决心。黑色裙摆刚从门后消失，卡尔米内便哈哈大笑……</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>enlist</b><span>参军；争取支持</span><em>enlist in the army</em></div>
+<div><b>ration</b><span>配给；限量</span><em>food rationing</em></div>
+<div><b>upheaval</b><span>剧变，动荡</span><em>social upheaval</em></div>
+<div><b>scarce</b><span>稀缺的</span><em>become scarce</em></div>
+<div><b>endure</b><span>忍受；持续</span><em>endure hardship</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch036.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch038.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

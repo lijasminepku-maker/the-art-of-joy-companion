@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 86 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch085.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" selected>Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" >Chapter 95</option></select>
+  <a href="ch087.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 86<span>解放后、政治与记忆</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1943 年政权垮台、1945 年解放后，重建并不等于问题消失。战后左翼政党、工会、家庭代际冲突与政治幻灭共同构成新的环境。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">86 
+
+And just as silence fell over the brief
+				reminders of my life in that distant 1945, I fall silent again now as I write,
+				trembling as I search for Jacopo’s name among the papers. I’m afraid
+				I’ve lost the date of his return. 
+
+Waiting makes us impervious,
+				distracted … Here it is: 6 August 1945, Hiroshima. Jacopo returned at just
+				that time. Clearly that was why I didn’t note the date. The A-bomb was able to
+				distract even me. Merely a bomb more powerful than the others, they said. And later
+				on, in fact, they gave the name ‘bikini’ to a bathing suit and the
+				uplifting nickname ‘atomic’ to a movie star. 
+
+I close my eyes and hear only the memory
+				of that waiting, which draws out the seconds and minutes in a single bleak sound.
+				And I don’t notice ’Ntoni coming toward me on the beach at Villa
+				Suvarita … From a distance – his body strong again, his hair trimmed – he
+				looks like he did many years earlier. But as soon as he comes closer I have to look
+				away to avoid seeing his bitter, unsmiling face. 
+
+‘You really missed the sea,
+				didn’t you, Modesta? You don’t even seem concerned about the
+				mines.’ 
+
+‘Don’t worry, ’Ntoni.
+				I settle for going back and forth along the permitted space. See, there are signs
+				posted. Besides, sooner or later we have to decide to fix up this villa.’ 
+
+‘It’s seen a lot, poor
+				Suvarita! I haven’t had the heart to go inside yet. Bambù sounds like a
+				madwoman when she talks about it, yet no one can say that Bambù isn’t strong,
+				right, Modesta?’ 
+
+‘No,
+				that’s for sure.’ 
+
+‘Is it true that all the walls are
+				smeared and soiled in the room we used as a theatre? Are there bloodstains on the
+				walls?’ 
+
+‘We cleaned everything,
+				’Ntoni.’ 
+
+‘Are the stains gone?’ 
+
+‘They’re gone.’ 
+
+‘Good.’ 
+
+‘Nina helped me.’ 
+
+‘Nina is the dearest, most
+				beautiful woman I have ever known. Poor Nina! You can tell she’s suffering
+				over her Arminio … how she waited for him! War is atrocious! After the
+				news, she became thin and old. But now she seems like a young girl again. How can it
+				be? How old is she?’ 
+
+‘I don’t know, ’Ntoni.
+				You know I can never remember anyone’s age.’ 
+
+‘Where does she get that strength?
+				From her daughter, maybe? She’s certainly a wonderful girl. It would be nice
+				to have a daughter like her! But I think – I spoke with Prando about this and he
+				agrees – I think it will be better, I’d say appropriate, not to have any more
+				children. Not to bring any more unfortunate creatures into the world. What kind of a
+				future can children have in these times? All we needed besides everything else was
+				this bomb, Mody! What a death: disintegrated, pulverized in an instant! Plus, who
+				knows what else they’re not telling us … We owe this to our American
+				friends.’ 
+
+‘Please,
+				’Ntoni … it’s really all so sad. 
+
+‘Oh, forgive me, Modesta,
+				you’re right, it’s just … I can’t help it! What were we
+				saying? Oh, yes, Nina is fantastic! And can she sing! It’s a shame she
+				wasn’t with us when we used to put on performances; she’d have driven
+				everyone wild. Too bad she didn’t know us then, right, Mody! 
+
+‘Let’s go, I can’t
+				stand to see our house destroyed like this. Yet even now, if I stare at it, I can
+				see you all the way you used to be: My mother in those funny outfits, part peasant,
+				part signora . Prando always muddy and tattered, trying to be like Jean
+					Gabin, 110 the
+				big snob! Bambù always the prettiest in her white dresses … oh, I can
+				still see her coming down the stairs! Then behind her, the starring couple: the Princess arm in arm with her
+				favourite … even though you never said so, did you, Mody? … arm
+				in arm with her Jacopo, tall, lanky, with his childlike face and old man’s
+				walk … There, now the Princess and her darling deign to come down the
+				stairs. Oh, Modesta, I’m losing my mind, losing it! Look, I see you there,
+				dressed in white, with Jacopo, and yet you’re here. Modesta, help. You look
+				too!’ 
+
+A deep terror makes me turn toward him
+				at once: his face is ashen, like that of someone who has seen a ghost. 
+
+‘Look, I haven’t lost my
+				mind. It’s Bambolina, with Jacopo! It’s him, Modesta, it’s him!
+				There can’t be anyone else that tall but him!’ 
+
+Can joy transfix you like lightning, and
+				rip through your body? Riveted by that joy, I barely have a chance to see him before
+				I faint in his arms. 
+
+When I open my eyes again, years seem to
+				have passed, even though the sea is there, lit by the same dazzling sun. 
+
+‘Oh, Mama, thank goodness
+				you’re opening your eyes again! For a moment I thought you had blacked
+				out.’ 
+
+It’s his voice, but that robust
+				chest, those strong arms that almost lift me off the ground must be Prando’s
+				arms. It’s best not to look; it must be an illusion. I shouldn’t have
+				listened to ’Ntoni and his madness. 
+
+‘No, Mama, no, I’m not
+				Prando. Here, look at me closely. I’m Jacopo, can’t you see? It’s
+				this American uniform that’s to blame, but I wanted to come right away rather
+				than waste time changing. Besides, what would I change into, Bambù? Nothing fits me
+				anymore.’ 
+
+‘Oh yes, Zia, even Prando’s
+				shirts are too tight for him!’ 
+
+Why don’t I recognize him? Yet
+				Nina had alerted me: ‘ Of course, Mody, your Jacopo carried you in his arms
+					all the way when you had the fever. ’ But it’s one thing to
+				imagine and another thing to see, to touch. With my hands on that broad chest, I
+				search for my Jacopo. With my palms, I inch slowly up toward the straight, broad
+				shoulders. And only when I meet the grey eyes behind the misted glasses do I find
+				him. It’s ridiculous, I know, and I can see why Bambolina bursts out laughing.
+				But I can’t help taking off his glasses to be sure. Stripped of them, the
+				pupils widen, gentle and shy, and the sad, demure gaze – as Beatrice used to say of
+				Uncle Jacopo’s – stares out at me intently as if from the photograph. ‘ Oh yes, if it weren’t for
+					his thinness and that stooped, solemn gait, Uncle Jacopo would have been a very
+					handsome man ’ … Uncle Jacopo moves off, bent under his
+				burden, while my Jacopo sighs and settles his eyeglasses on his slightly aquiline
+				nose with its thin nostrils. 
+
+‘Oh, thank you, Mama, now I can
+				finally see you again! That’s right, Bambolina: I’m really blind as a
+				bat! Just think, from a distance, even with my glasses on, I mistook you for
+				Modesta.’ 
+
+‘It’s just that she’s
+				all you think about. You see her everywhere.’ 
+
+‘And what about you, then? A fine
+				welcome! Mama, do you know that until I was right under her nose, she kept staring
+				at me suspiciously?’ 
+
+‘I mistook him for one of those
+				giant Americans.’ 
+
+‘You should be ashamed! And how
+				about ’Ntoni, staring at me as if I were a ghost? And you, Mama, so pale you
+				can’t say a word? It’s all because of this damn uniform. Come on,
+				let’s go, I want to take it off. I can’t stand it anymore!’ 
+
+Gradually, as he speaks, the lightning
+				bolt of joy that struck me dissolves into a happiness I’d never felt before.
+				But as soon as he loosens his hold and starts to let me go, fear of the soft,
+				unsteady sand underfoot makes me say foolishly, ‘No, Jacopo, don’t let
+				me go. Carry me in your arms like you did when you came with Pietro to free me from
+				the island.’ And Bambù laughs. 
+
+‘Of course, of course, but do you
+				remember that? How can you? You were delirious.’ 
+
+‘No, I don’t remember. Nina
+				told me about it.’ 
+
+‘Of course, Nina! Where is she?
+				I’m really eager to see her again. What a courageous woman, Bambù. You
+				can’t imagine.’ 
+
+‘Oh, tell us about it, Jacopo,
+				tell us and hold me tight.’ 
+
+In Jacopo’s arms I listen again to
+				the adventurous stages of our journey, and only now do my senses feel certain that
+				the time in prison, the war, is over. Only now do I hear in his voice that
+				it’s possible to think about a future. Indeed, as Jacopo says, settling me in
+				an armchair and covering me with a shawl … What is he saying? 
+
+‘Yes, Mama, the worst horrors are
+				over, at least for us here in Italy. But later on I’ll tell you about the
+				things I’ve seen among these Allies! I couldn’t wait to come back here and discuss them with all
+				of you. There is no Marxist thinking among their intellectuals, and I’m
+				talking about intellectuals, students like me: peculiar students, who specialize in
+				only one field. Of course, Roosevelt is a great man, but similar to our old Antonio,
+				a rose-water libertarian socialist. But the things I’ve seen among the young
+				people! Inhibitions, discrimination, racial hatred. Just think: there was a certain
+				Bob, whom I came to like – he was in the hospital with me – I didn’t find out
+				until later that at night, despite his poor condition, he would go out with a group
+				of guys to beat up any fellow soldier who was black. The first one they came across,
+				he told me afterwards with an innocent, disarming air: ‘The first black mug we
+				run into’ … But that part of my past is over now, and though we
+				shouldn’t be pessimistic, neither should we think – as most people
+				unfortunately do – that with the end of Fascism, all will be well. In the year I
+				spent in that hospital, Mama, I felt like I had gone from a real cell to a somewhat
+				more spacious one, with enough food and a newspaper or two: a slightly more
+				permissive cell, as Joyce once described Italy in comparison with Hitler’s
+				Germany.’ 
+
+* 
+
+‘… Twenty years, only to
+				start all over again. The revolution did not happen. And it will be all we can do to
+				get rid of the Savoia. There’s a price to pay for twenty years of ignorance
+				and the regime. On my trip back, all through Italy I heard talk that would make you
+				shudder. I’ve become convinced that we’ll pay for these years, all of
+				them, day by day, hour by hour.’ 
+
+‘If it weren’t for how happy
+				I am to see you alive, Jacopo, I swear to God I’d start arguing with you
+				again! But I don’t want to spoil my joy and Mama’s. Look at her, Mattia.
+				She looks like a different person; she seems ten years younger! Come here, Jacopo,
+				hug your brother Prando. Welcome back.’ 
+
+As they clutch one another, motionless,
+				there in the sun, a joy-filled silence emanates from their embrace. That silence
+				must have a certain pull, because one by one, all the residents of Carmelo pause at
+				the door, almost on tiptoe: Pietro, old Antonio, who takes off his glasses and concentrates on wiping them with
+				a freshly laundered handkerchief, Argentovivo with little Beatrice in her arms,
+				Crispina holding hands with Olimpia, pointing out her hero to her little friend, and
+				other faces new to me, the faces of carusi who work in the fields with
+				Mattia; among them is an elderly man with big blue eyes set among deep creases,
+				holding little Carlo by the hand. The beauty of that old man’s face captures
+				my gaze. Or maybe I’m looking for an unknown face so I won’t be
+				overwhelmed by emotion? Even Bambolina clings to me tightly, like when she was a
+				little girl and we would walk side by side on the sand, facing the sun and then
+				wading through the morning’s silent waves. With water up to her chin
+				she’d whisper: ‘Oh, Zia, I’m still too small. I can’t
+					wait to grow up so I can get close to the sun like you.’ 
+
+She isn’t talking about the sun
+				now, and even though her arm encircles my waist as it did then, I don’t have
+				to stoop to hear her. 
+
+‘Oh, Zia, in our joy we forgot
+				about ’Ntoni. He’s disappeared! Let’s go look for him right
+				away!’ 
+
+Without a word we go looking for him,
+				searching through the immense rooms, the vast corridors, up and down those endless
+				stairs that, given the anxiety that comes over me, suddenly assume the fearful
+				quality they had when I wandered through that intimidating house as a girl. 
+
+‘I knew it! He’s locked the
+				door. Quick, Zia! Good thing I realized …’ 
+
+‘Realized what, Bambù?’ 
+
+‘That’s why I had him sleep
+				in Uncle Jacopo’s room … Come on! I know a way to get into the room.
+				Here, behind this painting there’s a passageway that leads to the big tapestry
+				in there. Come on, help me take it down.’ 
+
+Going from the darkness of the passage
+				to the room’s dazzling light, all I can make out is a silhouette framed
+				against the open window: one arm raised as if to greet someone down in the garden. I
+				barely have time to turn to Bambolina and see her rush toward that arm. A shot makes
+				me instinctively bring my hands to my ears and close my eyes. 
+
+‘Put down the gun, ’Ntoni!
+				Give it to me; it’s over now! You could have shot me, did you know that? Shot
+				your Bambù!’ 
+
+Your
+					Bambù must be a magical expression between the two of them since it has the
+				effect of turning the laboured panting of that cornered animal into convulsive
+				weeping, as ’Ntoni falls to his knees crying, ‘Oh no, no, Bambù! You?
+				Never, I would never want to hurt you, never! I’m insane, a lunatic! A lunatic
+				and a coward! I even left the door unlocked!’ 
+
+‘You locked it, ’Ntoni,
+				unfortunately you locked it. But your Bambù is cunning, sly as a fox. Remember how
+				you used to call me your sly fox?’ 
+
+‘Oh, yes, yes … How did
+				you get in?’ 
+
+‘There’s a secret
+				door.’ 
+
+‘I’m so ashamed, Bambù!
+				Don’t tell anyone: I’m a coward! I want to die! You’re so
+				beautiful, a good person like Mama. I don’t want to hurt you like I hurt her.
+				She died because inside me I had rejected her … I had judged her, put her
+				out of my life. I’m like my father. Mama was right: like my father, I destroy
+				what I love most.’ 
+
+‘’Ntoni,
+				’Ntoni …’ 
+
+For a second I’m tempted to take a
+				step toward him and tell him the truth: that he’s not to blame. But my
+				knowledge is theoretical, and those young people must discover their lives on their
+				own, through their own senses, their own language. Indeed, like blind men trying to
+				see, they hug each other now, touching one another in silence. 
+
+Quietly, so they won’t hear me, I
+				leave the room.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">八十六
+
+正当寂静笼罩了我在遥远的一九四五年那些短暂的生活记录时，如今在我书写之际，我又再次陷入沉默，颤抖着在纸页间寻找雅各布的名字。我担心我弄丢了他归来的日期。
+
+等待让我们变得麻木、心不在焉……找到了：一九四五年八月六日，广岛。雅各布正是在那个时候回来的。显然，这就是为什么我没有记录日子。原子弹甚至能让我分心。他们说，不过是一颗比其他炸弹威力更大的炸弹罢了。后来，事实上，他们把&quot;比基尼&quot;这个名字给了一件泳装，把&quot;原子&quot;这个振奋人心的绰号给了一位电影明星。
+
+我闭上眼睛，只听见那段等待的记忆，它拖长了秒和分，汇成一种单调荒凉的声音。我没有留意到恩托尼在苏瓦里塔别墅的沙滩上向我走来……从远处看——他的身体重新强壮起来，头发修剪过——他看起来像许多年前的样子。但他一走近，我不得不移开视线，以免看到他苦涩的、没有笑容的脸。
+
+&quot;你真的很想念大海，对吧，莫德斯塔？你甚至似乎不关心那些地雷。&quot;
+
+&quot;别担心，恩托尼。我满足于在允许的空间里来回走动。看，有标志牌竖着呢。再说，我们迟早得决定修缮这座别墅。&quot;
+
+&quot;它经历了太多，可怜的苏瓦里塔！我还没有勇气进去。班布说起它时像个疯女人，但没人能说班布不坚强，对吧，莫德斯塔？&quot;
+
+&quot;不，那是肯定的。&quot;
+
+&quot;我们用作剧场的那间房间，所有的墙壁都被涂污了，是真的吗？墙上有血迹吗？&quot;
+
+&quot;我们都清理干净了，恩托尼。&quot;
+
+&quot;污迹没了吗？&quot;
+
+&quot;没了。&quot;
+
+&quot;好。&quot;
+
+&quot;尼娜帮了我。&quot;
+
+&quot;尼娜是个坚强的女人。但告诉我，莫德斯塔，你知道吗？我能在你眼中看到卡洛，还有盖娅。你的眼睛和他们的混合在一起。这很奇怪。我有时觉得你们还活着的人只是一面镜子，死去的人在镜中重新组合。&quot;
+
+&quot;也许你是对的。也许那正是记忆的样子。&quot;
+
+&quot;不，比记忆更多。比记忆更真实。来，我们走走吧。你累了吗？你看起来疲倦。&quot;
+
+&quot;不累。只是我想雅各布应该随时会到。他今天回来。&quot;
+
+&quot;雅各布？从山上？&quot;
+
+&quot;是的。他的疗养结束了。医生说他已经痊愈了。&quot;
+
+&quot;这是个好消息。但普兰多呢？他有消息吗？&quot;
+
+&quot;他们说他被俘虏了。他还活着，在某个战俘营里。他会回来的。&quot;
+
+&quot;如果他还活着，他会回来的。普兰多是个幸存者。但莫德斯塔，你必须准备好。他回来后，也许再也不会是以前那个普兰多了。&quot;
+
+&quot;我知道。所有回来的人，都不一样了。&quot;
+
+&quot;是的。你看到那些回来的人了吗？他们在街上走，眼神空洞。他们看到的太多了。也许太多了。但雅各布，至少雅各布没去打仗。&quot;
+
+&quot;是的。肺结核救了他。&quot;
+
+&quot;多讽刺啊，一种疾病救了一个人。但在这儿，在岛上，我们已经习惯了讽刺。&quot;
+
+&quot;恩托尼。&quot;
+
+&quot;嗯？&quot;
+
+&quot;你庆幸战争结束了，对吗？&quot;
+
+&quot;我不知道。我庆幸我还活着。我庆幸你在这儿。剩下的，我不知道。也许有一天我会知道。但不是今天。来，我们到房子那儿去。我看你冷了。海风起来了。雅各布随时会到，你最好在里面等他。&quot;
+
+&quot;好的。但在进去之前，告诉我一件事。你快乐吗？&quot;
+
+&quot;快乐？这是一个奇怪的词，莫德斯塔。我不知道它是什么意思了。也许我很久以前就知道了。也许有一天我会再知道。但不是今天。但我知道的是：有你在，这已经足够接近快乐了。&quot;&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>disillusionment</b><span>幻灭</span><em>political disillusionment</em></div>
+<div><b>compromise</b><span>妥协</span><em>reach a compromise</em></div>
+<div><b>solidarity</b><span>团结</span><em>act in solidarity</em></div>
+<div><b>legacy</b><span>遗产；留下的影响</span><em>leave a legacy</em></div>
+<div><b>reconcile</b><span>和解；调和</span><em>reconcile with</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch085.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch087.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

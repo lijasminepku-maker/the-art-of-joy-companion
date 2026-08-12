@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 50 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch049.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" selected>Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch051.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 50<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">50 
+
+After a lengthy silence, Beatrice
+				formally accepted Carlo’s marriage proposal, but on condition that everything
+				take place in accordance with tradition. She was adamant about this. 
+
+‘I can’t see him right away.
+				You be the ambassador. Tell him to put his mind at ease, since I have promised you,
+				who are father, mother and older sister to me, that I will be his bride. I will see
+				him in three days, as prescribed, in your presence and in the presence of a notary
+				who will draw up the engagement agreement. Then, after this formal procedure, I must
+				leave immediately. 
+
+‘Following this observance, he may
+				return every day for three months, but always in the afternoon, with the true light
+				of day and not in darkness, which is a bad counsellor. And only for two hours in
+				your presence or, if you’re busy, that of someone you assign to represent you.
+				During these three months, we must talk seriously about our future and get to know
+				each other. Of course, three months is a short time. But given that there have been
+				no recent deaths in the family, and since times have changed, as you rightly point
+				out, and Carlo and I know each other a little, I agree to a three-month
+				engagement. 
+
+‘If it so happened that during
+				these three months Carlo and I were to realize that we did not share enough views to
+				face a future together – a bride and groom must become one single mind and one
+				single heart – then the engagement must be dissolved without dishonour, either to
+				him or to me, to our family or his.’ 
+
+Opening the huge
+				hope chest containing the trousseau, Beatrice and Argentovivo counted the sheets,
+				pillowcases, blankets and bedspreads with the care one takes in handling glass. They
+				placed them in large travelling bags for the day of Beatrice’s departure from
+				her home and family. 
+
+‘See this blanket, Modesta? My tata and I crocheted it together. It was my first one; that’s why
+				I remember it. I was only seven or eight years old! See these stitches that are not
+				quite as perfect as the others? See them? Those are mine …’ 
+
+Beatrice spoke gravely with Carlo, never
+				meeting his eyes as she used to do. She told him about herself, enumerating her
+				faults and virtues. She asked him if he wanted to have children. Carlo, dazed,
+				stared at her radiantly and agreed to everything, answering all her questions. If
+				his gaze at times became too intense, Beatrice stood up with dignified authority
+				and, offering him a tray without looking at him, said, ‘Would you care for
+				another pastry, Carlo?’ 
+
+At the stroke of seven, no matter what
+				they were speaking about, no matter what music they were listening to, Beatrice rose
+				gracefully, said goodbye to Carlo, kissed me on the forehead and disappeared. 
+
+‘I would like Argentovivo to stay
+				here with you. You’ll feel very lonely after I leave.’ 
+
+‘But Beatrice, Catania is only
+				twenty minutes away by car.’ 
+
+‘Yes, I know, but I’m
+				worried about you. I can’t stand to think of you alone. Keep Argentovivo with
+				you.’ 
+
+‘That will never work! She’s
+				too attached to you. All she does is cry over you. Besides, you know that with me
+				she doesn’t talk. Don’t take offence, Beatrice, but I find Argentovivo a
+				little annoying. I’ll find a cook.’ 
+
+‘Really? If you assure me that
+				it’s all right with you, for me it will be a great comfort to have her there
+				in that strange house.’ 
+
+Carlo was not permitted to see the house
+				that his wife was making ready for him, even though the layout of the rooms, the
+				arrangement of the furniture and even the flower vases were described and submitted
+				for his approval during the two-hour conversations in the parlour. 
+
+Absorbed in quiet action, Beatrice was
+				withdrawing from me. In her solitary pursuit, she seemed young again. Her eyes grew
+				wider and full of wonder. She cleansed
+				herself of all past emotions so she could join her husband purified. 
+
+And never had I seen her so radiant and
+				‘pure’, as Carlo said, as on that morning in the sun’s glow and in
+				her white bridal veils. But I will stop in front of the church door, because all I
+				remember is the great boredom I had to endure, that of all the marriages, baptisms
+				and confirmations I’ve been forced to attend. And I return home just in time,
+				because the tedium of the long ceremony had reawakened a latent hatred in my
+				brain’s chemistry that I had somehow managed to keep at bay during those
+				months of formalities, tradition, rituals. Of course, Beatrice’s beauty,
+				serenity and happiness had compensated for it, but ten more minutes of incense and
+				hugs and tears, and I would have hated her for the rest of our lives. 
+
+Once past the gate, the grounds seemed
+				suddenly immense and solitary. As I entered the parlour, a tomb-like silence hung
+				over the sofas and chairs, the piano. The gigantic Moor’s head 47 on the piano was
+				now merely a skull. I had to fill it with flowers, as Beatrice had always done, or
+				throw out that lifeless vase. I looked for roses and vine shoots in the garden, but
+				darkness had fallen, obscuring the colours, and all my fingers found were thorns.
+				Not a sound came from the first or second floor. Maybe there was someone in the
+				kitchen, but it was far away. I found myself crying, sucking the blood from my
+				fingertip. A few tears, not really sad … a quirk of the emotions! I would
+				have liked to run upstairs to Eriprando and have him hug me, make him laugh and
+				play, but at that hour Eriprando was sleeping. In sleep he pulled away from me,
+				independent. 
+
+Her fingertip was no longer bleeding.
+				Modesta could finally take off the dress worn for the wedding ceremony and, in her
+				robe, try to finish the little story about a fish and a seaweed that she had begun
+				for Eriprando. But faced with her minute handwriting – why was her script so tiny? –
+				she gave up and, lowering her head to her arms, listened to the silence that from
+				the trees in the garden entered the parlour, ascended the stairs and now pressed its
+				hushed palms against the door. She was afraid. A new, unfamiliar fear. In the chiana , the lava plain, she had feared her mother’s rages,
+				Tuzzu’s indifference. In the convent, she had been afraid of being imprisoned
+				there and later, in that other, silken
+				convent, she had been afraid of Gaia, Argentovivo, of Beatrice herself. That’s
+				what it was: she had never been alone in an empty house, free to come and go as she
+				pleased. That’s what that fear was: she had almost mistaken it, thinking she
+				missed Beatrice and even Argentovivo. No, she didn’t miss them; she only
+				missed a way of life that had been impressed on her emotions for so long, that
+				couldn’t be expected to change overnight. She had to accept that fear, and
+				slowly get used to the solitude which now, she saw clearly, carried with it the word
+				‘freedom’. To prove to herself that solitude was a treasure compared to
+				the limitations of convention, she jumped out of bed and turned on all the lights in
+				the room. She put on a skirt, a blouse, her shawl. And – something she could never
+				have done for fear of upsetting Beatrice – she took the revolver with her and ran
+				off from the house, the grounds, with Menelik happily sprinting in front of her,
+				barking at the sea foam and at the palm trees – towers – castles – bisons awakened
+				by the moon among sand dunes, which for miles and miles unfolded the night’s
+				sleepless dreams. 
+
+His joy exhausted, Menelik, panting,
+				stared at the shroud the moon had cast over the sea. Or worn out by the joy of
+				running, had he too, like me, been gripped by an eagerness to see the sun appear on
+				the stage of the horizon, armed with shield and scimitar, to rout the pallid face
+				that fomented grief and madness in its aimless orbit? 
+
+Behind me, muffled thuds along with
+				Menelik’s furious barking made me whirl around. I wasn’t afraid. Menelik
+				was a trusted dog, and more than once I had seen him bite someone mercilessly.
+				Indeed, he flung himself toward the shadowy figure, but strangely enough, at the
+				foot of that shadow he quieted down. The shadow was a horse, and when I looked up I
+				saw the familiar white curls coming toward me, magnetized by the moon. 
+
+‘Good boy, Menelik, you recognized
+				me! Dogs, unlike people, have a good memory. See how the Padroncina is
+				looking at me? What do you think? Should I greet her or not?’ 
+
+‘I recognized you, Carmine. What
+				are you doing around here?’ 
+
+‘Ah, I’ve been roaming
+				around here for three nights!’ 
+
+‘Why?’ 
+
+‘To see you.’ 
+
+‘Couldn’t you knock at the door?’ 
+
+‘Carmine doesn’t knock at
+				the door. He waits for a sign from destiny.’ 
+
+‘And why did you want to see
+				me?’ 
+
+‘I’m a condemned man, figghia . Here, my chest: angina. And in the time they’ve given
+				me, three or four months, I got the urge to see you, assuming you still remember
+				me.’ 
+
+‘I remember you, Carmine. But
+				you’re dead to me inside. I killed you.’ 
+
+‘I know. That’s another
+				reason why I came. My death belongs to you. I once had to wrong you, and wrong
+				myself, but nothing ends, and Carmine has always cared for you. And now that
+				I’ve seen you and spoken to you, I’ll go back home satisfied, because
+				your voice was gentle in your response. Goodbye, Padroncina , and may God
+				bless you! Come, Orlando, old boy, it’s time to go!’ 
+
+The moon had sunk below the mountain and
+				I could barely make out the white curls and broad back moving away behind the
+				horse’s huge shadow. It was dark, but dawn was already peeking through here
+				and there among the low shadows of the dunes; a chill suddenly made my teeth
+				chatter, and I shivered. Those powerful shoulders and that slow gait rose up from my
+				past, magnified. ‘A condemned man,’ he had said. Not a sign of that
+				fatal sentence, either in his calm smile there in the moonlight, or in the
+				sure-footed trot that was already putting an unbridgeable distance between us. 
+
+‘Come back! I want to see you,
+				Carmine!’ 
+
+Slowly the shadow came back toward
+				me. 
+
+‘Here I am. Look at me.’ 
+
+‘It’s dark.’ 
+
+‘I can see you. Are you afraid? Is
+				that why you’re trembling like that?’ 
+
+‘I’m cold,
+				Carmine.’ 
+
+‘It’s the chill of dawn, figghia . Go back to the house.’ 
+
+‘It’s a long way to the
+				house. Like you once told me: going downhill is easy, but going back
+				up …’ 
+
+‘You remember that?’ 
+
+‘I remember everything. You
+				flushed me out of the fields like a hare.’ 
+
+‘Of
+				course, you were running like a hare.’ 
+
+‘Take me home on Orlando, like you
+				did that time.’ 
+
+‘At your command, Padroncina .’ 
+
+‘We’ve never been on the
+				horse at night, Carmine.’ 
+
+‘No.’ 
+
+‘It’s lovely at night. Too
+				bad we didn’t do it before.’ 
+
+‘There’s still time to do
+				it, for you at least.’ 
+
+His arms clasped me tight and his chest
+				seared my back; already beads of sweat were sliding down my neck and shoulders. He
+				was silent and rode slowly. Why? I wanted to see him. I wanted to see him in the
+				light. 
+
+‘Why are you going so
+				slowly?’ 
+
+‘Partly to be with you, partly
+				because of poor Menelik. Don’t you hear him hobbling along behind
+				Orlando?’ 
+
+‘So leave him behind. He knows the
+				way and I’m cold and sleepy.’ 
+
+I saw him on the portico in the light of
+				the large, moon-shaped lamp, a pale moon that was always lit, from sunset to
+				sunrise. 
+
+‘Here you are, home. I’ll
+				leave you.’ 
+
+No, that light wasn’t bright
+				enough, and I wanted to see him, to look closely. 
+
+‘What is there to see, figghia ? It’s not proper for you to receive a man at this hour of
+				night.’ 
+
+‘In this house I’m the
+				mistress. Come in.’ 
+
+‘Now that you’ve let me come
+				in, can I have a little smoke?’ 
+
+‘Of course you can.’ 
+
+‘The Princess, God rest her soul,
+				didn’t allow it. She said everything stank afterwards.’ 
+
+‘I like the smell of
+				tobacco.’ 
+
+I watched him as he pulled out the
+				little pouch and filled his pipe. Not a sign of that fatal sentence. I searched his
+				features in vain, the creases of his skin. Not a blotch, not one wrinkle more
+				ingrained, not a tremor in his hands. That iron-strong man, tamping the tobacco with
+				his thumb as if time still had the same slow, cadenced measure it had had before
+				he’d made an appointment with death, stood before me as though it were
+				yesterday, and like yesterday, seeing him made me feel protected and fearful. He
+				wouldn’t speak again, or look up
+				at me, until a small flame appeared between his meticulous, long fingers. 
+
+‘One thing at a time, figghia . Running around left and right like that, you lose life’s
+				flavour: a good cup of coffee, tobacco, your saliva … Slowly, that’s
+				how I want to taste your mouth, slowly.’ 
+
+Had he lied? No, Carmine was a man of
+				honour. I had to get nearer, look at him up close, but clouds of smoke obscured his
+				face. I had to at least touch that face of his. 
+
+‘Do you want me, figghia , ca mi tasti accussì ? Is that why you’re touching me like that, as
+				if you can’t see me … Do you still want me? I would never have
+				hoped! I desire you so much, but I don’t want to misread your
+				intention.’ 
+
+Riveted by surprise – how could I have
+				known if he hadn’t told me? – I can’t move or speak. He was dead to me.
+				I killed him, and I want his hot, heavy body on me. I should throw him out, pound my
+				fists on that face I put behind me, that is now back smiling. But I missed the
+				moment, and already his arms are lifting me up, light as a feather, and the hatred
+				dissolves, leaving only a sweet languor in my arms and in my mind. 
+
+‘What are you doing, crying, figghia ? Once, you would have got angry with me and scratched me. Did
+				you suffer that much?’ 
+
+‘I didn’t suffer, and I hate
+				you!’ 
+
+‘And you’re right to. But
+				don’t be ashamed. There’s no shame in suffering when fate opposes us. I,
+				too – and I was an old man – suffered at having to wrong you, leaving you warm and
+				loving, the way you had grown up in my hands. But now, during the three nights that
+				I was wandering around, I was sure there would be someone with you, and I
+				didn’t dare hope. That’s another reason why I was prudent, and
+				didn’t knock on your door.’ 
+
+‘Cowardly. Not prudent, Carmine,
+				cowardly! Go back to your sons! What do you mean, coming back whenever you please
+				like this? You do your duty as a father only when it’s convenient for
+				you?’ 
+
+‘No, figghia . It’s
+				death that decides. Death has liberated me, and now that I’m free, I’ve
+				come back to you.’ 
+
+A tenderness I’d never felt before
+				for that hefty body weighing so gently on mine makes my hands go to his mouth. To
+				make him stop talking, because his
+				voice, liberated by death, awakens a forgotten heat in my belly, and my nipples, now
+				hard, are painful against the touch of his jacket. 
+
+‘You want me, Modesta. I can feel
+				it in your hands.’ 
+
+His mouth speaks to me through my
+				fingers. No use denying the rain or wind or sun. All you can do is accept the blaze
+				of summer, the chill of winter. I don’t answer, and with my hand, as he had
+				done with me at one time when I didn’t yet know, I guide his mouth to that
+				swell of pleasure and pain that my breasts have become. Forgetful, my body is
+				aroused and my thighs open beneath him, but an icy chill worms its way into the warm
+				waves of pleasure and, against my will, makes my hand stop that blind throbbing
+				member that gives life. 
+
+‘What’s wrong, figghia , why are you stopping me like that? Has your anger frozen you
+				so much that you can’t forgive?’ 
+
+A tenderness I’d never felt before
+				for that big body lying naked, disappointed, on my belly and tightly locked thighs
+				almost makes me let go of his penis. But my hand will not obey me, and I’m
+				left crushed between his sex and mine, frozen. 
+
+‘What’s wrong, Modesta? What
+				is it? You can tell Carmine. If you’ve suffered so much that you can’t
+				forgive, Carmine can understand.’ 
+
+‘No, no. It’s that I’m
+				afraid, Carmine, afraid!’ 
+
+‘Afraid of what, picciridda ? I don’t understand.’ 
+
+‘There’s youthful sap in the
+				old tree, Carmine. I can feel it in my hands.’ 
+
+‘Ah, that’s all it is! And
+				you’re right. Forgive me, figghia . I should have thought of it, but I
+				wanted you so much and I was only thinking about my own pleasure.’ 
+
+Gently he lifts himself off of me and
+				drops beside me. 
+
+‘You’re right. I don’t
+				want to complicate your life with another pregnancy, but don’t leave me like
+				this. I’m in pain. Feel how hard I am. Here, use your hands and your mouth:
+				give me some relief. But when you feel that I’m about to come, move your mouth
+				away. I don’t want to make you gag.’ 
+
+With his hand, watchful like back then,
+				he guides my strokes. I had never kissed him like that, and a new wave of tenderness
+				drives away the earlier chill. A fierce
+				heat envelops my body again and makes my senses sway with his. And now that his cock
+				is rising and falling between my tongue and palate, I can’t let go and I come
+				with him, sucking the unfamiliar semen which bursts from the depths of his being to
+				quench the burning thirst in my mouth. A tangy, sweet taste: tree resin, or the
+				curdled milk of men also born to suckle. 
+
+His sex, now small again, rests
+				passively on the wiry, curly hair. I enjoy nudging it with my finger. Like back
+				then, he puts up no resistance, and like then I burst out laughing, an odd trick of
+				the emotions. 
+
+‘What’s so funny, tosta
+					carusa , my impudent little girl?’ 
+
+‘It’s just that it looks so
+				comical, so puny and drained! Also, I hadn’t noticed it before, Carmine, but
+				how come the hair is dark down here? Not even a single white strand?’ 
+
+‘If you look closely, there must
+				be a few.’ 
+
+‘No, Carmine, not even one! It
+				looks like Eriprando’s hair.’ 
+
+‘Ah, he has our colouring?
+				I’m glad.’ 
+
+‘But how can it be, Carmine, that
+				all the hair on your head is white and the hair here is dark?’ 
+
+‘What can I say? It must be that
+				I’m half old and half young; what can I tell you?’ 
+
+‘And your armpits? Let me see,
+				lift your arm.’ 
+
+Slowly I travel over his body. Under his
+				arms, too, the hair is all dark, but on his chest there is some white. 
+
+‘What a hairy chest you have,
+				Carmine! Thick and curly, whereas the hair on your arms is smooth and
+				soft.’ 
+
+Slowly I make my way back down that big
+				body. I want to see the hair down there again. I want to see if it really is as dark
+				as I’d thought it was before I travelled upward. 
+
+‘You’re prowling up and down
+				me like a kitten, figghia ! Your hair is tickling me. What are you looking
+				for?’ 
+
+After that long journey from head to
+				toe, I let my head rest on the dark curls. I’m tired. I close my eyes and
+				start toying with his cock again: satisfied, it almost fits in the palm of my
+				hand. 
+
+‘First it was sooo big, now
+				it’s teeny weeny. Why, Carmine?’ 
+
+‘Go ask the Saracen olive tree,
+				which enjoyed doing odd things. 48 Carmine knows nothing about
+				nature.’ 
+
+‘Not a
+				one; the hairs are all dark here, Carmine. How old are you anyway, old
+				man?’ 
+
+‘I’ll be fifty-three, if I
+				make it to the Day of the Dead.’ 
+
+‘You were born on 2
+				November?’ 
+
+‘Exactly, figghia . My
+				mother used to say that that year the dead brought her Carmine as a gift. 49 Who knows why
+				that beautiful woman laughed and liked to think that. I didn’t like the idea
+				at first, and for many years I told everyone, outside the family, that I had been
+				born on the 3rd. Then, little by little, I didn’t mind it anymore, and like my
+				mother, I laughed at both the dead and the living, and at God and the
+				devil!’ 
+
+I had never heard him talk so much. His
+				cock in my hands, I was lulled by his voice. I didn’t want him to stop
+				talking. 
+
+‘What was your mother like,
+				Carmine?’ 
+
+‘I told you: beautiful, tall and
+				strong like a man. She didn’t know how to read or write. And when one of us
+				misbehaved, without waiting for my father, as women do, she beat the living
+				daylights out of us. More than once she gave me a black eye. And I had to lie to my
+				buddies and pretend I’d had a fistfight with my brothers. What else could I
+				say? That a woman had made me look like a boxer after a match? Especially since I
+				wanted to be a boxer.’ 
+
+‘What did you know about
+				boxing?’ 
+
+‘An uncle who was a boxer in
+				America, loaded with money and women, had taught me something about the noble art
+				the last time he came to see us. I was obsessed with the idea, and I couldn’t
+				manage to apply myself to numbers and words. And every so often I would go to my
+				father and ask his permission to go to America, to Uncle Antonio, and eventually
+				become a boxer. You see, Uncle Antonio didn’t have any children and he often
+				asked my father to send me.’ 
+
+‘And your father?’ 
+
+‘Oh, he wouldn’t answer.
+				Instead he told me: “Go ask your mother for permission.”’ 
+
+‘And your mother?’ 
+
+‘Without saying boo, she gave me a
+				beating, and I respected her and we didn’t talk about it again for
+				months.’ 
+
+‘And then?’ 
+
+‘My
+				obsession with boxing gloves would come over me again. I’d lose my interest in
+				the fields, and I’d go to my father, and he’d send me to my mother and
+				she made me get over it with her beatings.’ 
+
+‘So you were little
+				then?’ 
+
+‘Well, fourteen or
+				fifteen.’ 
+
+‘And you let her hit
+				you?’ 
+
+‘I told you: I respected her.
+				Besides, she washed for us, she cooked for us … she was always laughing
+				and singing as she cooked. And I swear to God, after she died I never again ate maccu 50 as good as hers!’ 
+
+He falls quiet. In the silence, his
+				peaceful breathing draws faint sand dunes in my mind’s eye. Softly, under the
+				moon’s spiteful gaze, I place my ear on the spot he had shown me with a
+				clenched fist: the place where that bald hag had laid her eggs. But the slow beating
+				of his heart reveals nothing, not a cry, not a moan. The veil of silence becomes
+				heavy, and I don’t feel like sleeping. 
+
+‘Carmine, why are you speaking
+				now? Before, you never talked to me.’ 
+
+‘Why, does it bother you, picciridda ? If I’m bothering you, I’ll keep
+				quiet.’ 
+
+‘No, not at all, I like hearing
+				your voice. But how come?’ 
+
+‘How do I know, picciridda ! Or maybe I do know. You see, figghia , since they
+				told me down in Catania that I might have three or four months to live, memories,
+				good and bad, have come back to me … the faces of loved ones who have been
+				gone a long time, the beautiful places I’ve seen. How can I explain it to you?
+				It’s a kind of nostalgia for the good things and the many springtimes that
+				fate and good fortune have granted me. Carmine has been a lucky man, and even in bad
+				times he has lived fully. And so, hearing the word “end”, I felt a
+				strong desire to relive my life. Take tonight, for example: what old man around here
+				or anywhere in the world could have had the good fortune of feeling a weight as
+				beautiful as you on top of him?’ 
+
+‘And you’re not
+				afraid?’ 
+
+‘Afraid of what, figghia ?
+				My father died peacefully. He, too, had been granted a full life by fate. He amassed
+				houses and lands for us and for my mother who passed away, at a ripe old age, just
+				six years ago. Of course, as my father used to say, if you’re born weak in
+				mind and body, and let yourself be
+				hoodwinked by all those notions the priests hand us, then La Certa must
+				naturally be terrifying. To acquire what there was to acquire, my grandfather, my
+				father and I had to gain respect with our fists and with our shotguns. I’ve
+				had a close brush with La Certa many times. And how those shotguns or
+				knives flourished in the night! But I’m here with you, and I don’t
+				care.’ 
+
+‘Then you don’t believe in
+				God?’ 
+
+‘What does God have to do with
+				it?’ 
+
+His voice, set free by death, the only
+				sign of his fatal sentence, breathes through my hair and slams me against the reef
+				of emotion. I cling to his neck so as not to drown, and seal his mouth with my
+				own. 
+
+‘Oh, no, kitten, if you do that
+				I’ll get the urge again, and then you’ll stop me with your hand – I know
+				how you women are. And even though your lips are honey, I want to enter you all the
+				way to your heart.’ 
+
+‘So what will we do?’ 
+
+‘Leave it to Carmine, tomorrow
+				he’ll take care of it, but for now be good. Impulsive, that’s what you
+				are. Tosta maredda , impulsive and impudent! 51 You’re dead tired, and I have to
+				go.’ 
+
+‘But you’ll be
+				back?’ 
+
+‘Of course I’ll be back.
+				When the house is quiet, like tonight, I’ll be back.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">50
+
+經過漫長的沉默之後，貝雅特麗齊正式接受了卡洛的求婚，但條件是一切必須依照傳統進行。她對此非常堅持。
+
+「我不能馬上見他。你來做使者。告訴他放心，因為我已經向你——你是我的父親、母親和姐姐——承諾，我將成為他的新娘。三天後，我將按規矩在你的見證和一位公證人的見證下見他，公證人將起草婚約。然後，在完成這個正式程序之後，我必須立刻離開。
+
+「在此之後，他可以每天來，連續三個月，但總是在下午，借著白天的真光，而非黑暗——黑暗是壞顧問。而且每次只能兩小時，在你面前，或者如果你忙的話，在你指定代表你的人面前。在這三個月裡，我們必須認真談論未來，互相了解。當然，三個月時間很短。但鑑於家族近期沒有喪事，且時代已經改變了，正如你正確指出的，而且我和卡洛彼此也有點了解，我同意三個月的訂婚期。
+
+「如果在這三個月裡，卡洛和我發覺我們沒有足夠的共同觀點來共同面對未來——新娘和新郎必須成為同一個思想和同一顆心——那麼婚約必須在不給任何人帶來恥辱的情況下解除，無論是他還是我，或是我們的家族還是他的家族。」
+
+打開那隻裝著嫁妝的巨大希望之箱，貝雅特麗齊和阿爾真托維沃像對待玻璃一樣小心翼翼地清點著床單、枕套、毯子和床罩。她們把這些放進大旅行袋裡，為貝雅特麗齊離開家和家人的那一天做準備。
+
+「看到這條毯子了嗎，莫德斯塔？我和我的爸爸一起鉤的。這是我的第一條，所以我記得。我那時才七八歲！看到這些針腳沒有其他那些完美嗎？看到了嗎？那些是我的……」
+
+貝雅特麗齊鄭重地與卡洛交談，不再像以前那樣直視他的眼睛。她告訴他關於自己的一切，列舉自己的缺點和美德。她問他是否想要孩子。卡洛，暈陶陶地，容光煥發地凝視著她，對一切都表示同意，回答了她所有的問題。如果他的目光有時變得太過熾熱，貝雅特麗齊就會以端莊的權威站起來，不看他就遞給他一個托盤，說：「再來一塊糕點嗎，卡洛？」
+
+七點鐘一到，不管他們在談什麼，不管他們在聽什麼音樂，貝雅特麗齊都會優雅地起身，向卡洛道別，吻我的額頭，然後消失。
+
+「我想讓阿爾真托維沃留在這裡陪你。我走後你會很孤單的。」
+
+「可是貝雅特麗齊，開車到卡塔尼亞只要二十分鐘。」
+
+「是的，我知道，但我擔心你。一想到你獨自一人，我就受不了。讓阿爾真托維沃和你在一起。」
+
+「那絕對不行！她太依戀你了。她只會為你哭。而且，你知道她跟我是不說話的。別生氣，貝雅特麗齊，但我覺得阿爾真托維沃有點煩人。我會找個廚師。」
+
+「真的嗎？如果你向我保證你沒問題，對我來說有她在那棟陌生的房子裡將是莫大的安慰。」
+
+卡洛不被允許去看他妻子為他準備的房子，儘管房間的佈局、家具的擺放、甚至花瓶都在客廳那兩小時的談話中被描述並提交給他批准。
+
+沉浸在安靜的行動中，貝雅特麗齊正從我身邊退去。在她孤獨的追求中，她似乎又年輕了。她的眼睛變得更大，充滿驚奇。她淨化了自己所有過去的情感，以便能以純淨之身與丈夫結合。
+
+我從未見過她如此容光煥發、如此「純潔」，正如卡洛所說，就像那天早晨在陽光下、在她白色的婚紗中那樣。但我會在教堂門前停下腳步，因為我記得的只是我不得不忍受的巨大乏味，所有那些我被迫參加的婚禮、洗禮和堅信禮的乏味。我恰好在合適的時候回到家，因為冗長儀式的沉悶重新喚醒了我大腦化學中一種潛伏的憎恨——在那幾個月的禮節、傳統、儀式中，我多少設法壓制住了這種憎恨。當然，貝雅特麗齊的美麗、寧靜和幸福是對此的補償，但再聞十分鐘的焚香、擁抱和眼淚，我會在餘生恨她。
+
+一過大門，庭園突然顯得廣袤而孤寂。走進客廳時，一種墳墓般的寂靜籠罩著沙發、椅子和鋼琴。鋼琴上那巨大的摩爾人頭顱現在只是一個骷髏。我得像貝雅特麗齊一直做的那樣，把它插滿鮮花，或者扔掉那個沒有生命的花瓶。我在花園裡找玫瑰和藤蔓，但夜幕已降臨，模糊了顏色，我的手指只找到荊棘。一樓或二樓都沒有聲音。也許廚房裡有人，但很遠。我發現自己在哭泣，吮吸著指尖的血。幾滴眼淚，並不真的悲傷……一種情緒的怪癖！我本想跑上樓去找埃里普蘭多，讓他擁抱我，逗他笑、和他玩耍，但那個時間埃里普蘭多在睡覺。在睡夢中，他脫離了我，獨立了。
+
+她的指尖不再流血了。莫德斯塔終於可以脫下為婚禮穿的衣服，穿著睡袍，試著完成她為埃里普蘭多開始寫的那個關於一條魚和一片海藻的小故事。但面對她那極小的字跡——為什麼她的字那麼小？——她放棄了，把頭埋在手臂上，聆聽著從花園的樹木進入客廳、爬上樓梯、現在正用沉默的手掌壓在門上的寂靜。她害怕了。一種新的、陌生的恐懼。在熔岩平原上，她曾經害怕母親的暴怒、圖祖的冷漠。在修道院裡，她害怕被囚禁在那裡，後來在那另一個絲綢的修道院裡，她害怕蓋婭、阿爾真托維沃、甚至貝雅特麗齊本人。就是這樣：她從來沒有獨自一人在一棟空房子裡，自由來去。那就是那種恐懼：她差點弄錯了，以為是想念貝雅特麗齊，甚至是阿爾真托維沃。不，她不想念她們；她只是想念一種生活方式，這種方式如此之久地烙印在她的情感中，不可能指望一夜之間改變。她必須接受那種恐懼，慢慢地習慣孤獨——現在她清楚地看到，孤獨這個詞帶著「自由」的含義。為了向自己證明孤獨是相對於習俗限制而言的寶藏，她從床上跳起來，打開了房間裡所有的燈。她穿上裙子、襯衫和披肩。而且——這是她因為怕惹貝雅特麗齊不高興而從不敢做的事——她帶著左輪手槍，跑出了房子，跑出了庭園，梅內利克歡快地在她前面衝刺，對著海沫和棕櫚樹吠叫——塔樓——城堡——野牛，被月亮從沙丘中喚醒，沙丘綿延數英里，展開著夜晚不眠的夢。
+
+梅內利克的歡樂耗盡了，喘著氣，凝視著月亮在海面上投下的裹屍布。或者是否奔跑的喜悅耗盡了他，他也像我一樣，被一種渴望攫住了，渴望看到太陽手持盾牌和彎刀出現在天際的舞台上，驅散那蒼白的面孔——那在漫無目的的軌道上煽動悲傷與瘋狂的月亮？
+
+在我身後，沉重的撞擊聲伴隨著梅內利克的狂吠，讓我猛地轉過身。我不怕。梅內利克是一條值得信賴的狗，我不止一次看到它無情地咬人。果然，他朝那陰影般的身影衝去，但奇怪的是，在那個影子腳下，他安靜了下來。那影子是一匹馬，當我抬起頭時，我看見那熟悉的白色捲髮朝我走來，被月亮磁化了。
+
+「好孩子，梅內利克，你認出我了！狗，不像人，記性好。看小主人怎麼看著我？你覺得呢？我該不該跟她打招呼？」
+
+「我認出了你，卡米。你在這附近做什麼？」
+
+「啊，我已在這一帶徘徊了三夜了！」
+
+「為什麼？」
+
+「來看你。」
+
+「你不能敲門嗎？」
+
+「卡米不敲門。他等待命運的信號。」
+
+「你為什麼想見我？」
+
+「我是個被判死刑的人了，孩子。這兒，胸口：心絞痛。在他們給我的時間裡，三四個月，我產生了想見你的衝動，假設你還記得我的話。」
+
+「我記得你，卡米。但你在我心裡已經死了。我殺了你。」
+
+「我知道。這也是我來的另一個原因。我的死屬於你。我曾經不得不虧待你，也虧待我自己，但沒有什麼是終結的，卡米一直關心你。現在我見到了你，和你說了話，我會心滿意足地回家，因為你回答的聲音很溫柔。再見，小主人，願上帝保佑你！來吧，奧蘭多，老夥計，該走了！」
+
+月亮已沉到山後，我幾乎分辨不出那白色的捲髮和寬闊的後背，在馬匹巨大的影子後面漸漸遠去。天很暗，但黎明已從沙丘低矮的陰影中這裡那裡悄悄地探出頭來；一陣寒意突然讓我的牙齒打顫，我瑟瑟發抖。那強有力的肩膀和緩慢的步伐從我的過去中升起，被放大了。「被判死刑的人，」他說。在那月光下的平靜微笑中，無論如何都看不出那道死刑判決的跡象，在那已經在我們之間拉開了不可逾越的距離的穩健步伐中也看不出一絲跡象。
+
+「回來！我想見你，卡米！」
+
+那影子慢慢地朝我走回來。
+
+「我在這裡。看著我。」
+
+「天很黑。」
+
+「我能看見你。你害怕嗎？所以你才那樣發抖嗎？」
+
+「我冷，卡米。」
+
+「是黎明的寒意，孩子。回屋裡去吧。」
+
+「到屋子還有很長的路。就像你曾經告訴我的：下山容易，但回去……」
+
+「你記得那個？」
+
+「我記得一切。你像攆兔子一樣把我從田野裡趕了出來。」
+
+「當然，你跑起來像隻兔子。」
+
+「用奧蘭多帶我回家，就像你那次做的那樣。」
+
+「聽你的吩咐，小主人。」
+
+「我們從來沒有在夜裡騎過馬，卡米。」
+
+「沒有。」
+
+「夜裡真好。可惜我們以前沒這樣做。」
+
+「還有時間去做，至少對你來說。」
+
+他的雙臂緊緊摟著我，他的胸膛炙烤著我的背；汗珠已經順著我的脖子和肩膀滑下來了。他沉默著，慢慢地騎著。為什麼？我想見他。我想在光線下見他。
+
+「為什麼你走這麼慢？」
+
+「一半是為了和你在一起，一半是可憐梅內利克。你沒聽到他在奧蘭多後面蹣跚地跟著嗎？」
+
+「那就丟下他。他認得路，我又冷又睏。」
+
+在門廊的燈光下，我看到了他，那盞像月亮形狀的大燈的光，一輪蒼白的月亮，從日落到日出總是亮著。
+
+「到了，到家了。我走了。」
+
+不，那光不夠亮，我想見他，仔細地看。
+
+「有什麼好看的，孩子？你在這個時辰接待一個男人不合適。」
+
+「在這個家裡我是主人。進來吧。」
+
+「既然你讓我進來了，我可以抽一口煙嗎？」
+
+「當然可以。」
+
+「公主，願上帝安息她的靈魂，不允許。她說完後什麼都是臭的。」
+
+「我喜歡煙草的味道。」
+
+我看著他掏出小布袋，裝滿煙斗。沒有一絲那道死刑判決的跡象。我在他的五官和皮膚的皺褶中徒勞地搜尋。沒有一塊斑點，沒有一條額外的皺紋，沒有一絲雙手的顫抖。那個鐵一樣堅強的男人，用拇指壓著煙草，彷彿時間仍以他與死亡定下約會之前那緩慢而節奏分明的步調在進行，他站在我面前，恍如昨日，而像昨日一樣，看到他讓我感到既受保護又害怕。他不會再說話，也不會抬頭看我，直到他細緻修長的手指間出現一小簇火焰。
+
+「一件事一件事來，孩子。那樣左右亂跑，你會失去生活的滋味：一杯好咖啡、煙草、你的唾液……慢慢地，這就是我想品嚐你的嘴的方式，慢慢地。」
+
+他撒謊了嗎？不，卡米是個榮譽之人。我必須靠近些，仔細看他，但煙霧模糊了他的臉。我至少得觸碰他那張臉。
+
+「你想要我嗎，孩子，因為你那樣摸我？你那樣摸我，好像看不見我似的……你還想要我嗎？我從來不敢奢望！我如此渴望你，但我不想誤解你的意圖。」
+
+被驚訝定住了——要不是他告訴我，我又怎麼會知道呢？——我動彈不得，說不出話。他在我心中已經死了。我殺了他，但我想要他那炙熱沉重的身體壓在我身上。我應該把他趕出去，用拳頭搥打那張我已經拋在腦後、現在卻又微笑著回來的臉。但我錯過了時機，他的雙臂已經把我像羽毛一樣輕盈地舉了起來，而憎恨消融了，只剩下甜蜜的慵懶在我的手臂和心靈中。
+
+「你怎麼了，在哭，孩子？從前你會生我的氣，抓我。你受了那麼多苦嗎？」
+
+「我沒受苦，我恨你！」
+
+「你恨得對。但不要羞愧。當命運與我們作對時，受苦並不可恥。我也一樣——而且我是個老頭了——為不得不虧待你而痛苦，離開溫暖而充滿愛意的你，那個在我的手中長大的你。但現在，在我徘徊的三個夜晚裡，我確信你身邊會有人，所以不敢奢望。這也是我謹慎行事、沒有敲你門的另一個原因。」
+
+「是懦弱。不是謹慎，卡米，是懦弱！回到你的兒子們那裡去吧！你這樣隨心所欲地回來是什麼意思？你只在對你方便的時候才履行父親的責任嗎？」
+
+「不，孩子。是死亡決定的。死亡解放了我，現在我自由了，所以我回到了你身邊。」
+
+一種我從未感受過的柔情，對那沉重地壓在我身上的龐大身軀的柔情，讓我的雙手移向他的嘴。讓他停止說話，因為他被死亡解放的聲音，在我腹中喚醒了一種被遺忘的熱度，而我的乳頭，現在硬了，在他外套的觸碰下疼痛。
+
+「你想要我，莫德斯塔。我能從你的手感覺得到。」
+
+他的嘴透過我的手指對我說話。否認雨水、風或陽光都是徒勞的。你只能接受夏日的炙熱和冬日的寒冷。我沒有回答，用我的手——就像他曾經對我做的，那時我還不懂——引導他的嘴到我乳房那既是愉悅又是疼痛的隆起處。健忘地，我的身體被喚醒了，我的大腿在他身下張開，但一陣冰冷的寒意鑽進了溫暖的愉悅波浪中，違背我的意願，讓我的手阻止了那盲目的、賦予生命的悸動的器官。
+
+「怎麼了，孩子，你為什麼那樣阻止我？你的憤怒把你凍結得如此厲害，以至於你無法原諒嗎？」
+
+一種我從未感受過的柔情，對那赤裸地、失望地躺在我的腹部和緊緊夾住的大腿上的龐大身軀的柔情，幾乎讓我放開了他的陰莖。但我的手不服從我，我被夾在他的性器和我的性器之間，凍住了。
+
+「怎麼了，莫德斯塔？是什麼？你可以告訴卡米。如果你受了太多的苦，以至於無法原諒，卡米能理解。」
+
+「不，不。是我害怕，卡米，害怕！」
+
+「怕什麼，小不點？我不明白。」
+
+「老樹裡還有年輕的汁液，卡米。我能用雙手感覺得到。」
+
+「啊，就這個！你說得對。原諒我，孩子。我應該想到的，但我太想要你了，我只想到自己的快樂。」
+
+他輕輕地從我身上抬起身體，落在我旁邊。
+
+「你是對的。我不想讓你再懷孕，使你的生活變得複雜，但不要這樣離開我。我很難受。感受我有多硬。來，用你的手和嘴：給我一些緩解。但當你感覺我要射的時候，把你的嘴移開。我不想讓你噎著。」
+
+用他的手，像從前那樣警覺，他引導著我的撫摸。我從來沒有那樣吻過他，一股新的柔情驅散了先前的寒意。一種熾熱的熱度再次包裹住我的身體，讓我的感官與他一起搖晃。而現在，他的陰莖在我的舌頭和上顎之間起伏，我無法放開，和他一起達到高潮，吸吮著那不熟悉的精液，它從他存在深處迸發出來，以解我口中燃燒的渴望。一股辛辣而甜蜜的味道：樹脂，或者像男人凝結的乳汁——他們生來也是為了哺育的。
+
+他的性器，現在又變小了，被動地躺在刚硬、捲曲的毛髮上。我喜歡用手指輕輕撥弄它。像從前一樣，他不抗拒，而像那時一樣，我突然笑起來，一種情緒的古怪玩笑。
+
+「有什麼好笑的，放肆的小丫頭？」
+
+「就是它看起來太好笑了，這麼小，這麼萎靡！還有，我以前沒注意到，卡米，怎麼下面這裡的毛髮是黑色的？連一根白髮都沒有？」
+
+「如果你仔細看，肯定有幾根。」
+
+「不，卡米，一根都沒有！看起來像埃里普蘭多的頭髮。」
+
+「啊，他有我們這樣的顏色？我很高興。」
+
+「可是怎麼可能呢，卡米，你頭上所有的頭髮都是白色的，而這裡的頭髮是黑色的？」
+
+「我能說什麼呢？大概是我一半老、一半年輕吧；我能告訴你什麼呢？」
+
+「你的腋下呢？讓我看看，抬起你的手臂。」
+
+我慢慢地在他的身體上游走。在他的腋下，毛髮也全是黑色的，但在他的胸口有幾根白色的。
+
+「你的胸口毛髮真多，卡米！又濃又捲，而手臂上的毛髮卻又滑又軟。」
+
+我慢慢地沿著那龐大的身軀往回走。我想再看一眼下面那裡的毛髮。我想看看它是否真的像我在向上旅行之前想的那樣黑。
+
+「你像隻小貓一樣在我身上爬上爬下，孩子！你的頭髮弄得我癢。你在找什麼？」
+
+在從頭到腳的漫長旅程之後，我讓頭休息在那黑色的捲毛上。我累了。我閉上眼睛，又開始玩弄他的陰莖：滿足了，它幾乎能放進我的掌心。
+
+「先頭那麼大，現在這麼小。為什麼，卡米？」
+
+「去問撒拉遜橄欖樹吧，它喜歡做奇怪的事。卡米對大自然一無所知。」
+
+「一根都沒有；這裡的毛髮全是黑色的，卡米。你到底多大年紀了，老頭子？」
+
+「如果能活到亡靈節，我就五十三歲了。」
+
+「你是十一月二日出生的？」
+
+「正是，孩子。我母親常說，那年死人送給了她卡米做禮物。誰知道為什麼那個美麗的女人會笑著喜歡這麼想呢。起初我不喜歡這個說法，很多年我對家庭以外的人都說我是三號出生的。然後，漸漸地，我不再介意了，像我母親一樣，對死人和活人都笑，對上帝和魔鬼也笑！」
+
+我從沒聽他說過這麼多話。他的陰莖在我手中，我被他的聲音安撫著。我不想讓他停止說話。
+
+「你母親是什麼樣的，卡米？」
+
+「我告訴過你：美麗，高大，強壯得像男人。她不識字。當我們誰不乖的時候，她不等我父親來——像其他女人那樣——直接把我們打個半死。不止一次把我打成了烏眼青。我不得不對朋友們撒謊，假裝是和兄弟打架。我還能說什麼呢？說一個女人讓我像賽後的拳擊手一樣？尤其是我還想當拳擊手。」
+
+「你對拳擊知道些什麼？」
+
+「一個在美國當拳擊手的叔叔，滿身金錢和女人，他最後一次來看我們時教了我一些這門高尚藝術的東西。我被這個念頭迷住了，沒法用心在數字和文字上。所以我時不時去找我父親，請他允許我去美國，去安東尼奧叔叔那裡，最終成為一個拳擊手。你看，安東尼奧叔叔沒有孩子，他常常要我父親送我去。」
+
+「那你父親呢？」
+
+「哦，他不回答。而是告訴我：『去問你母親要許可。』」
+
+「那你母親呢？」
+
+「她一聲不吭，直接把我打了一頓，我尊重她，然後幾個月我們都沒再提這件事。」
+
+「然後呢？」
+
+「我對拳擊手套的執念又會回來。我會對田野失去興趣，去找我父親，他會打發我去找母親，而她就用一頓打讓我斷了念頭。」
+
+「那你那時候還小？」
+
+「嗯，十四五歲吧。」
+
+「你就讓她打你？」
+
+「我告訴過你了：我尊重她。再說，她給我們洗衣服，給我們做飯……她做飯的時候總是笑啊唱的。我向上帝發誓，她死後，我再也沒吃過像她做的那麼好吃的豆泥了！」
+
+他沉默了。在寂靜中，他平靜的呼吸在我心靈的眼中描繪出淡淡的沙丘。在月亮惡意的凝視下，我輕輕地把耳朵貼在他用緊握的拳頭指給我看的地方：那個禿頭老婦產卵的地方。但他心臟緩慢的跳動什麼也沒有透露，沒有一聲哭喊，沒有一聲呻吟。寂靜的面紗變得沉重，我不想睡覺。
+
+「卡米，你現在為什麼說話？以前你從來不跟我說話。」
+
+「為什麼，打擾到你了嗎，小不點？如果我打擾到你，我就保持安靜。」
+
+「不，一點也不，我喜歡聽你的聲音。但為什麼呢？」
+
+「我怎麼知道，小不點！也許我是知道。你看，孩子，自從他們在卡塔尼亞告訴我，我可能只有三四個月可活，好的和壞的回憶都回到了我身邊……那些已經離去很久的親人的面孔，我見過的美麗地方。我該怎麼跟你解釋呢？這是一種對美好事物和命運與好運賜予我的許許多多春天的懷念。卡米一直是個幸運的人，即使在壞的時候，他也活得充實。所以，聽到『終結』這個詞，我產生了一種強烈的渴望，想要重溫我的人生。就拿今晚來說吧：這附近，或者世界任何地方，哪個老頭能有這樣的福氣，感受到像你這樣美麗的重量壓在他身上？」
+
+「你就不害怕嗎？」
+
+「怕什麼，孩子？我父親平靜地去世了。他，也被命運賜予了充實的人生。他為我們和我母親積攢了房子和土地，她六年前以高齡過世了。當然，正如我父親常說的，如果你天生身心軟弱，讓自己被神父們塞給我們的所有那些觀念所愚弄，那死神自然是可怕的。為了得到該得到的東西，我的祖父、我的父親和我，都不得不用拳頭和獵槍來贏得尊重。我曾多次與死神擦肩而過。還有那些獵槍和刀子如何在夜晚閃耀！但我在這裡，和你在一起，我不在乎。」
+
+「那麼你不相信上帝？」
+
+「上帝和這有什麼關係？」
+
+他的聲音，被死亡解放了——那是那道死刑判決的唯一跡象——透過我的頭髮呼吸，把我摔在情感的礁石上。我緊緊抓住他的脖子以免溺斃，用我的嘴封住了他的嘴。
+
+「哦，不，小貓，如果你那樣做，我又會忍不住，然後你就用手阻止我——我知道你們這些女人是怎樣的。即使你的嘴唇是蜜，我也想一路進入你，直到你的心裡。」
+
+「那我們怎麼辦？」
+
+「交給卡米吧，明天他會處理，但現在乖一點。衝動，你就是這樣。放肆的小妞，衝動又放肆！你累得要死，我也該走了。」
+
+「但你會回來嗎？」
+
+「當然我會回來。等房子安靜了，像今晚一樣，我會回來。」</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>jealous</b><span>嫉妒的</span><em>be jealous of</em></div>
+<div><b>longing</b><span>渴望，思念</span><em>a longing for</em></div>
+<div><b>vow</b><span>誓言</span><em>make a vow</em></div>
+<div><b>conceal</b><span>隐瞒，掩藏</span><em>conceal the truth</em></div>
+<div><b>burden</b><span>负担</span><em>carry a burden</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch049.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch051.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

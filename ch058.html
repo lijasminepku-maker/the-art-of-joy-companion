@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 58 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Three</div></div>
+<div class="nav-row">
+  <a href="ch057.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch058.html" selected>Chapter 58</option><option value="ch059.html" >Chapter 59</option><option value="ch060.html" >Chapter 60</option><option value="ch061.html" >Chapter 61</option><option value="ch062.html" >Chapter 62</option><option value="ch063.html" >Chapter 63</option><option value="ch064.html" >Chapter 64</option><option value="ch065.html" >Chapter 65</option><option value="ch066.html" >Chapter 66</option><option value="ch067.html" >Chapter 67</option><option value="ch068.html" >Chapter 68</option><option value="ch069.html" >Chapter 69</option><option value="ch070.html" >Chapter 70</option><option value="ch071.html" >Chapter 71</option><option value="ch072.html" >Chapter 72</option><option value="ch073.html" >Chapter 73</option><option value="ch074.html" >Chapter 74</option></select>
+  <a href="ch059.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART THREE</p>
+  <h2>Chapter 58<span>法西斯时期与新的思想</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1922 年后法西斯逐步建立一党统治。自由主义、社会主义、无政府主义与共产主义并存。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">58 
+
+Anyone who’s had the good fortune
+				to reach thirty knows how difficult, arduous and exciting it was to scale the
+				mountain that rises from childhood to the summit of youth, and how quickly it goes:
+				a waterfall, a geometric flight of wings in the sunlight, a few moments
+				and … Yesterday I had the unlined cheeks of a twenty-year-old. Today –
+				overnight? – the three fingers of Time have brushed me, a warning of the brief span
+				remaining and of the final finishing line that inexorably awaits … A
+				first, false terror of turning thirty. 
+
+What had I done? Had I wasted my days?
+				Not enjoyed the sun and the sea to the fullest? Only later on, during the golden age
+				of fifty, an age soundly vilified by poets and registry clerks – only then do you
+				realize how much richness there is in the peaceful oases of being by yourself,
+				alone. But that comes later. 
+
+At the time, the anxiety of missing the
+				past and the future gripped me powerfully: What was I doing in that study? What
+				meaning did that search for words have, all those papers, poems, stories, notes? Was
+				I, unknowingly, about to fall into the mystical lot of becoming a poet, an artist?
+				Was I, unknowingly, retracing the path of Beatrice, who, in order to exist in her
+				own eyes and those of others, moulded herself into the sacred statue of a grieving
+				widow, beautiful and respected? Was I, with her same relentlessness and
+				determination, unknowingly raising a temple within me? And, would I, like her, lay
+				down my life just to comply with the subtle venom of tradition? 
+
+Imprisoned in
+				mourning, as tradition demanded, Beatrice fell ill with ‘consumption’
+				like her husband. Little by little, and with appalling placidity,, the wax wind-up
+				doll, which for years had wandered among the flowers and books, stopped within
+				months: she had wound down. 
+
+What was I doing among those pens and
+				pencils lined up on the desk? Or was it an altar? I had started it for
+				pleasure … But looking within myself I saw my future: caught in that
+				snare, legs broken by the trap of ‘being someone’. Though I had escaped
+				the convent, the piety I had sent packing was creeping out again from some hole in
+				my room, straddling the rat of aesthetics. I saw it, that mystical rat. Its eyes,
+				reddened by insatiable hunger, peered out from the shadowy corners, voracious. They
+				scoured my young flesh, my breast, seeking a crack to enter me and gnaw at the
+				backbone of my skeleton, which was held together by joy. Stopping it, I knew that I
+				had been right to be mistrustful, and that just a few more instants of unawareness
+				would have made me fall from reality into the grip of the ‘artist’ drug,
+				a drug more potent than morphine and religion. The rat realized it, looked away and
+				fled. 
+
+The scar throbbed from my effort to peer
+				into my future, and in the mirror I saw it redden and writhe for a few moments. A
+				centuries-old message from my depths, it warned me to guard against myself, and go
+				running in the sun. I would not resume the quest for poetry until I had proven to
+				myself that it was for fun and only for fun, like picking flowers or riding
+				Morella … 
+
+Bambolina was waiting patiently beside
+				old Morella. Her dark bangs, wispy as a shadow, fell over blue eyes that were
+				slightly more intense than Beatrice’s. I look for her across the lawn. Maybe
+				she’s just hiding behind a hedge, waiting to pop out, making her sudden
+				laughter more dear. 
+
+‘Don’t you feel like riding,
+				Zia? Staring out at the sea like that … It’s all right if you
+				don’t feel like it. Maybe you’re tired.’ 
+
+The same considerate voice,
+				Carlo’s same thoughtful, caring attention … The scar on my forehead
+				throbs, keeping back my tears, and I can’t help hugging her and lifting her up
+				in the air. I want her to laugh. I want to hear Cavallina’s laughter
+				again. 
+
+‘Oh, what
+				fun, Zia, you’re making me fly! It’s been so long since you made me fly
+				like this! How come you’re so strong? … Oh! Enough, stop!
+				You’re tickling me. Enough, Modesta!’ 
+
+When I’m serious she calls me Zia;
+				when I’m playing with her, I’m Modesta. 
+
+‘Oh, what fun, Modesta! How strong
+				you are!’ 
+
+‘You’re just a scazzittula di picciridda , a little bit of a thing! … You
+				don’t weigh any more than a few ounces!’ 
+
+‘But Prando can’t lift
+				me.’ 
+
+‘In a few years, you’ll see!
+				And if you don’t watch out, he’ll send you flying right around the
+				moon.’ 
+
+‘Oh, what fun that would be,
+				Modesta! Then when I’m big too, will you teach me how to fly? I love airplanes
+				a lot. You’ll teach me, won’t you? Like you taught me how to ride a
+				horse and how to swim?’ 
+
+Now she’s rattling on excitedly
+				like Beatrice, Carlo’s careful attention forgotten. What is she saying?
+				She’s talking about some photographs she found … 
+
+‘And who is that handsome man?
+				Jacopo and I opened a trunk up in the attic. He took a bunch of books and
+				a … what do you call that thing you look in to see everything
+				bigger?’ 
+
+‘A microscope.’ 
+
+‘And I took some photographs. Who
+				was that handsome man near the airplane? Prando says he was my papa, but he was
+				joking because my papa wasn’t a pilot, was he? So who was he?’ 
+
+‘That was Ignazio, your
+				Mama’s uncle.’ 
+
+‘And were all those airplanes
+				his?’ 
+
+‘Oh, no! He flew them. He was a
+				pilot.’ 
+
+‘What fun! When I grow up
+				I’m going to be a pilot too!’ 
+
+‘Of course, Bambolina. Now
+				let’s ride before the sun gets too hot. Come on, that’s it.
+				Faster!’ 
+
+* 
+
+Pietro was waiting for me in the study,
+				cap in hand, unchanged – how old was he now? Maybe as old as the fire wheel that
+				Carmine used to drag down the slopes of the Mountain. 
+
+‘ Voscenza benedica , my respects, Princess. Please forgive Pietro
+				for disturbing you. But it’s an urgent matter.’ 
+
+‘No need for apologies, Pietro. I
+				know you come to see me for a reason.’ 
+
+‘I’ll get to the point then,
+				or rather, two points. One is a matter of great joy for Pietro and his wife. The
+				other is a painful matter that eclipses the joy in my heart.’ 
+
+‘Tell me, Pietro! Speak freely in
+				sorrow and in joy … Don’t stand there mute, turning all
+				red!’ 
+
+‘Voscenza has understood:
+				Argentovivo, my wife that Voscenza was good enough to grant
+				me … after two years, who could have hoped any more,
+				Mody … she’s … she’s …’ 
+
+‘Is she expecting a baby, Pietro?
+				You seem like a carusu !’ 
+
+‘Naturally, Mody; a child holds
+				death and old age at bay. With a child to raise, as my father used to say,
+				it’s easier to close your ears to the siren songs of those old women, the lava
+				spirits, who extol the praises of giving up the struggle and yielding to the peace
+				of La Certa .’ 
+
+‘I’m happy for you, Pietro.
+				And how is Argentovivo?’ 
+
+‘She’s very well. My little
+				sparrow sings and chatters from morning till night! And she’s preparing the
+				layette with Signorina Inès who has had the good grace to embroider with
+				her … Well!’ 
+
+‘So why are you frowning now,
+				Pietro? Is there some doubt, some drawback that keeps you from being happy about
+				this lovely news you’ve brought me?’ 
+
+‘The second point, as I said
+				earlier, Princess … And I hesitate to tell you because I’m afraid I
+				acted recklessly, even though out of respect for Voscenza and for your
+				tranquillity.’ 
+
+‘We’ll see, Pietro. Explain
+				the situation and then we’ll see.’ 
+
+‘Does Voscenza recall
+				that friend of Signor Carlo, God rest his soul, that republican Bartolomeo
+				Inzerillo, with the heart condition, whom Signor Carlo treated with such care and
+				concern?’ 
+
+‘What about him?’ 
+
+‘Two years after Signor Carlo
+				passed away, he sent for me. He was at the point of death. Remorse kills, Mody,
+				unless you are a lava demon.’ 
+
+‘I know what you’re trying
+				to tell me: that before dying he declared himself repentant, said that he had turned his back on the Fascists, that
+				Mussolini had deceived them …’ 
+
+‘Not only that! He confessed to me
+				that he was among those five men who attacked Signor Carlo and told me the name of
+				the fifth man, a certain Serge Greco, a journalist.’ 
+
+‘It must be Grecò, Pietro: a
+				Frenchman.’ 
+
+‘He wasn’t French. He was
+				the traitor Sergio Greco, an expatriate. His father was Giovanni Greco of Piana dei
+				Greci, now called Piana degli Albanesi. 63 Now tell me, Mody, what could I do, come
+				here and disturb Voscenza , grieving over our Beatrice who was wasting away?
+				I thought it best to follow his movements from a distance, and when I had the
+				opportunity, I nailed him here on the island, six feet under his own land: he
+				travelled too much!’ 
+
+Six feet under myself, I struggle in the
+				dark to break out of memory’s mantle of lava that Pietro has thrown over me. I
+				stare at him and I see the rat of vengeance scurry out of the eyes of a man who is a
+				slave to men’s laws, embedded in the island’s millennial Mountain. I
+				don’t want to hate him, but my revulsion for that look drives me out of the
+				mantle of lava, out of the island. 
+
+‘You won’t look at me, Mody.
+				Are you angry?’ 
+
+‘Weren’t three lives enough
+				for one death, Pietro?’ 
+
+‘A life that is taken has no
+				price, Princess. Voscenza said so, and with conviction!’ 
+
+‘You are about to have a child,
+				Pietro. If you are devoted to me, forget about the past and be happy over this joy
+				that destiny has given you.’ 
+
+‘I am happy, but first there is an
+				offence to vindicate.’ 
+
+‘What else is there,
+				Pietro?’ 
+
+‘I heard from reliable friends
+				that that Pasquale, who said he was a friend of our Signor Carlo, and who has now
+				been made a prefect by the Fascists, knew about the attack on that cursed night. He
+				must die, Mody. He must die!’ 
+
+‘That’s enough, Pietro! All
+				of Carlo’s friends have gone over to the Fascists, except those who were
+				killed or imprisoned. As for Pasquale, I’ll tell you what Carlo would have
+				said: either we all rebel together – because we’re talking about politics
+				here, and not a family quarrel – and it
+				may be that we’ll all rebel together in five or ten years and get rid of them
+				all – but no private retaliation! 
+
+‘Back then, I agreed to those just
+				killings because there was still hope. But to kill Pasquale today would be a
+				personal vendetta that makes no sense. Not only that: it would compromise the many,
+				many friends who still resist in their mind. Plus, Pasquale protects these friends
+				out of old feelings of remorse. We as real men, and not hysterical women, pretend to
+				believe in his partial loyalty to our ideas; we make the most of him, we use him.
+				Who else could have saved Maria from Ucciardone, 64 from the blissful Villa Mori, as they
+				call it in Palermo, where people are tortured and killed without a trial? 
+
+‘This is not the time for action,
+				Pietro, it’s a time to winter, a time to hibernate. And don’t worry;
+				when the time is right, we won’t fail to disillusion Pasquale, who thinks
+				he’s bought us for eternity for the few favours he’s doing us. Our
+				gratitude will be a bullet between the eyes like it was for Tudia and the others.
+				Don’t you worry.’ 
+
+‘You’ve said a lot of
+				things, Mody, and I think I’ve understood. But you’re angry at Pietro,
+				since you never looked at me when you spoke.’ 
+
+From the dark depths of the island his
+				heart perceived the slightest falling shadow, the subtlest change in nerves and
+				veins. 
+
+‘If I was wrong, Mody, tell me!
+				Pietro doesn’t deserve a silent condemnation.’ 
+
+‘Do you trust me, Pietro? Then
+				listen to me. Times are changing, and we have to be cautious: look around and see
+				how we should act.’ 
+
+‘Oh! Is that why you’ve
+				crossed the sea so many times then? I had some idea, mainly because Prince Jacopo
+				did like Voscenza does. And he gained great knowledge from those
+				trips.’ 
+
+‘Yes, Pietro, and it’s
+				becoming more and more plain to me that the island, our land, must abandon its
+				isolation.’ 
+
+‘You mean abandon our thinking,
+				Mody? Accept the ways and customs of the continent?’ 
+
+‘The train, the airplane and the
+				radio have made the world a smaller place, and it may overtake us and overwhelm us
+				if we’re unprepared.’ 
+
+‘The Prince used to say that too,
+				but the Princess, God rest her soul, didn’t agree.’ 
+
+‘Gaia was a grand old woman,
+				Pietro, but out of date, no offence to
+				the dead, obsolete! Fascism might last a hundred years, but it might also end in a
+				moment, and Carlo’s world might come back. So our children must be prepared to
+				make their way in life alone, to cope on their own, both materially and
+				morally.’ 
+
+‘Is that why you send them to
+				public schools? Now I understand.’ 
+
+‘And abroad in the summer, Pietro.
+				They need to know.’ 
+
+‘The old timers used to say you
+				lose your roots by wandering around the world. Prince Jacopo came back from his
+				travels more and more stooped.’ 
+
+‘You lose roots that are rotten,
+				and he became stooped because he found here a failure to understand his
+				problems.’ 
+
+‘You have explained things to me,
+				and I see that it is not Pietro who angered you, but Pietro’s old-fashioned
+				heart. And I accept that I was wrong. I’m old and I tremble at this struggle
+				you are facing. I understand your intent, but I don’t see a way forward, both
+				because I am ignorant and because of my age. But I have confidence in you. First,
+				because you’re educated. And second, because you are my mistress and I accept
+				your orders without question.’ 
+
+‘Then it’s understood,
+				Pietro? We leave Pasquale where he is. It’s not the time to act,
+				understood?’ 
+
+Troubled but silent, Pietro stoops to
+				kiss my hand. I have to look him in the eye. You can’t escape the sweep of his
+				gaze, either by crossing the sea, as he says, or by staring from the window of a
+				train at the endless tracts of woodland and cultivated fields, laid out unnaturally
+				and with no imagination: straight, neat towns and cities, pale faces with colourless
+				eyes and no smile. Mouths without teeth to bite bread. I had hoped … by
+				crossing the sea, I had hoped to find what Tuzzu used to say: ‘ There are
+					cities full of all sorts of wonderful things, huge ports where ships come and
+					go, laden with treasures. ’ But behind the ornately painted facades of
+				sumptuous palazzos lay the same twisted streets in the throes of hunger, the same
+				wretched litany of poverty and constraints, only just a little more hidden and more
+				resigned. 
+
+Following Uncle Jacopo’s hunched
+				steps, I retraced the stages of his trips and returned with yet another theatre
+				programme, another good book, some ribbons and fabric for Stella. After years of
+				mourning, first for her husband and then for her father, she strokes the silks and velvets, thirsty for colour.
+				Confined in mourning, her sturdy limbs seemed to have grown thinner, giving her slow
+				gestures an adolescent uncertainty. Stella was being reborn from the anguish of
+				separating from her dead. Or was it habitually talking to the children, gazing into
+				their eyes and anticipating their needs that filled her gaze and voice with that
+				childlike wonder and enthusiasm? Modesta had never in her life witnessed such an
+				absolute metamorphosis. Astounded, she stares at the new Stella, who laughs as she
+				unrolls on the carpet a long stream of turquoise silk strewn with countless golden
+				suns. 
+
+‘How beautiful it is! Oh, when
+				Bambolina comes she’ll be so happy!’ 
+
+‘Actually, I brought it for you,
+				Stella.’ 
+
+‘Oh Mody, do you think I can?
+				Could I …’ 
+
+‘Of course you can!’ 
+
+‘But my older brother is ill!
+				Maybe it’s pointless to stop wearing mourning when in …’ 
+
+‘Oh, nonsense! You’ve worn
+				mourning long enough! Plus, you have to think of the children.’ 
+
+‘It’s true! Just yesterday
+				Prando said to me: “Either you take off that black or I’m
+				leaving”. And I said: “Where will you go?” “With
+				Mody,” he said. “Abroad, where the women dress in hundreds of
+				colours!”’ 
+
+‘You see, Stella?’ 
+
+‘Yes, yes, of
+				course … but the one who surprised me was Jacopo. He doesn’t seem to
+				notice these things; he always has his nose in a book, that picciriddu .’ 
+
+‘What did Jacopo say?’ 
+
+‘With a very serious face he tells
+				me: “That’s right, Stella! It’s about time Prando said that.
+				I’m leaving too.”’ 
+
+‘So, a mutiny?’ 
+
+‘What does that mean,
+				Mody?’ 
+
+‘A rebellion.’ 
+
+‘Oh, right, even my ’Ntoni:
+				“I don’t want a Mama who’s always wearing black. Look at this
+				photo: that’s how I want to see you!”’ Imagine, Mody, it was a
+				picture of a blond actress wearing a very low- cut neckline. Jesus, Mary and Joseph! These carusi ! The
+				movies, always the movies! It isn’t wrong, Mody, is it? I don’t know
+				what to think. This silk is certainly beautiful. It looks like a bit of
+				sky!’ 
+
+‘Good! Then with this bit of sky
+				make yourself a dress for the midsummer feast day; you’ll see what a hit
+				you’ll be with the children!’ 
+
+‘All right, Mody. I’ll brace
+				myself, I’ll forget about my sisters-in-law and their looks … oh, I
+				can just see them, but I won’t think about them.’ Stella steels herself
+				and accepts the fabric. ‘Oh Mody, my hands are trembling just folding it. It
+				isn’t wrong, is it?’ 
+
+‘Wrong, Stella? What harm can
+				there be in colours?’ 
+
+‘What harm can there be in making
+				my children happy? As my mother used to say: “When you make your children
+				happy, they promptly return the happiness a hundredfold.” Elena was happy here
+				with them.’ 
+
+‘Well, now she’s found a new
+				happiness, I would imagine.’ 
+
+‘Happiness, Mody? Please!
+				Yesterday she came and she was crying, not even married one year and already she was
+				crying, miserable, pinched, scared of everything and everybody. I felt like I was
+				seeing myself, meeting myself as I used to be. It gave me a scare! And those two, my
+				brothers I mean, want me to marry again! Not a month goes by when they don’t
+				show up with a match, and they keep at it. They say I’ve changed, that I talk
+				like a foreigner, that … what do they want from me?’ 
+
+‘They think they’re doing it
+				for your own good. You’re young …’ 
+
+‘Never! Anyone who has ever gone
+				through serving a man once – never again! Besides, give my ’Ntoni a
+				stepfather, I …’ 
+
+‘All right, Stella, calm down. In
+				time, we’ll see. Now why are you blushing like a little girl?’ 
+
+‘Because now you’ll get
+				angry, Stella knows it. You’ve been back one hour and now you’ll get
+				angry.’ 
+
+‘And why should I get
+				angry?’ 
+
+‘It’s that
+				girl … Mela, the one whose father and mother were killed by the
+				Fascists.’ 
+
+‘Yes, I know, the one Pasquale
+				sent to us. So?’ 
+
+‘Oh, Pasquale did the right thing,
+				taking her out of that convent where they first brought her. The things she’s
+				told me! And to think they’re nuns, oh! No one would believe it!’ 
+
+‘I know
+				all about it, Stella. Please, what are you trying to say? Why are you beating around
+				the bush like that?’ 
+
+‘Do you hear the piano?’ 
+
+‘What does the piano have to do
+				with it, Stella! Now I really will get angry! Of course I hear it. I’m not
+				deaf! It must be one of Prando’s friends playing so well, certainly not Bambù
+				or ’Ntoni, who are hopeless at music.’ 
+
+‘It’s Mela.’ 
+
+‘Her? She’s still here? But
+				Pasquale said …’ 
+
+‘Yes, I know, but it’s hard
+				to find a decent boarding school without money, Mody!’ 
+
+‘Exactly! We have no more money,
+				Stella. Everything is in decline, another reason why I came back … and who
+				knows when I’ll be able to travel again! Don’t make such a face. What do
+				you think, that I’m stingy, like Prando does?’ 
+
+‘No, Mody,
+				frugal …’ 
+
+‘Who would have said it, eh,
+				Stella? That even offering a piece of bread would be a luxury! And this incessant
+				piano playing!’ 
+
+‘First you said she played
+				well.’ 
+
+‘She does!’ 
+
+‘So what do you say, shall we go
+				and see her? She and Bambù have become such great friends. We needed a girl for
+				Bambù! Always surrounded by rowdy boys. Do you want to meet her?’ 
+
+‘No, I don’t want to see
+				her! She has to go and that’s that!’ 
+
+‘Now what? Are you going
+				away?’ 
+
+‘Of course I’m
+				going!’ 
+
+‘You’re leaving?’ 
+
+‘Of course not! I’m going to
+				my room. This idle female prattle and the thought of money have put me in a bad
+				mood. I must find some money!’ 
+
+‘I’ve told you, Mody, I have
+				the house, the farm. I could …’ 
+
+‘Don’t be silly! Your money
+				and Bambolina’s can’t be touched. I’ll see you later,
+				Stella.’ 
+
+‘Mody!’ 
+
+‘What now?’ 
+
+‘Wait, I … I
+				didn’t tell you everything. I have to tell you what happens when you’re
+				away …’ 
+
+‘What else
+				happened? Let’s hear it.’ 
+
+‘The fact is that there’s
+				another woman, a signora who …’ 
+
+‘Another woman?’ 
+
+‘Well, yes. She arrived four days
+				ago. I put her in Signorina Elena’s room.’ 
+
+‘Oh no, that’s enough now!
+				I’ll phone Pasquale right away. He has to stop sending us these people. The
+				devil take him! He’s gone too far!’ 
+
+‘But that’s the point!
+				It’s not Signor Pasquale who sent her, it’s Signor Jose.’ 
+
+‘Jose?’ 
+
+‘At least, that’s what the signora said. She said: “I have a letter from Signor Jose Giudice
+				for the Princess.”’ 
+
+Jose! Although I had read in his parting
+				smile, that long-ago evening, that we would never see each other again, I had
+				constantly looked for him in my travels, often going miles and miles out of my way,
+				whenever I was able, to obtain some news of him. In Basel, in that room littered
+				with newspapers, saturated with lead and oil, filled with the din of the rotary
+				press: 
+
+‘The editor has left, ma’am. You’ve come from Italy? Sorry,
+					but we have orders not to tell strangers … I’m sorry,
+					ma’am!’ 
+
+In Paris, in the barbershop of comrade
+				Reggiani of Padua: 
+
+‘Ah, so you’re the famous princess? So it’s true! Just think,
+					we didn’t believe him. Forgive me, comrade, but who believes in Sicilian
+					princesses anymore! It’s really too bad, but he left a week ago. Where?
+					You can imagine, with Jose, knowing his haunts is easier said than
+					done!’ 
+
+‘Don’t you even want to read
+				the letter, Modesta?’ 
+
+‘Oh, yes, Stella, of
+				course.’ 
+
+I opened the envelope. Just a few lines:
+				‘My dear friend, I commend Joyce to your care; she is like a sister to me. She
+				has suffered greatly over the loss of her parents. She will tell you all about it.
+				Look after her, my dear friend. Confident of your understanding, please accept the
+				brotherly affection and gratitude of your good friend. Jose’. 
+
+‘Forgive me, Mody. I see you are
+				lost in thought. Maybe I shouldn’t ask, but is it really Signor Jose’s
+				handwriting?’ 
+
+‘Yes, Stella, it is.’ 
+
+‘Of
+				course, I shouldn’t …’ 
+
+‘You shouldn’t what,
+				Stella?’ 
+
+‘It’s just that that lady is
+				odd, very odd!’ 
+
+‘In what sense?’ 
+
+‘I don’t know!
+				Strange … looking at her flusters me. I can’t express
+				it … Oh God, here she comes! Look, you see! She’s done that these
+				past few days, like clockwork. Shut up in her room all day, then at this hour she
+				goes out walking in the shade.’ 
+
+‘Call her.’ 
+
+‘Oh no, Mody, look at her. Look at
+				her closely!’ 
+
+‘Well? What’s so odd about
+				her, Stella? You know I don’t tolerate prejudices. How many times do I have to
+				tell you? She’s just a lot taller than our women. Maybe that’s what
+				strikes you as odd?’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">58
+
+任何有幸活到三十歲的人都知道，從童年攀登到青春的巔峰，那座山是多麼艱難、艱辛而又激動人心，而這一切過得又是多麼快：一道瀑布，幾何形狀的翅膀在陽光下飛翔，幾個瞬間，然後……昨天我還有二十歲那沒有皺紋的臉頰。今天——是一夜之間嗎？——時間的三根手指拂過了我，警告著我剩餘的短暫時光和那無情等待著的最後終點線……一種對三十歲的虛假的第一波恐懼。
+
+我做了什麼？我浪費了我的日子嗎？沒有盡情享受陽光和大海嗎？直到後來，在五十歲的黃金時代——那個被詩人和戶籍員徹底詆毀的年齡——你才意識到，獨自一人、孑然一身的平靜綠洲中有多麼豐富的寶藏。但那是後來的事了。
+
+那時候，對錯過過去和未來的焦慮強烈地攫住了我：我在那間書房裡做什麼？那些詞語的搜尋有什麼意義，所有那些紙張、詩歌、故事、筆記？我是否不知不覺中就要陷入成為詩人、藝術家的神秘命運？我是否不知不覺中正在重蹈貝雅特麗齊的覆轍——她為了在自己和他人眼中存在，把自己塑造成了一個悲傷寡婦的神聖雕像，美麗而受人尊敬？我是否以同樣的無情和決心，不知不覺中在自己內心建造一座神廟？而且，我會不會像她一樣，為了遵從傳統那微妙的毒藥而獻出我的生命？
+
+被困在喪服中，正如傳統所要求的那樣，貝雅特麗齊像她丈夫一樣染上了「癆病」。一點一點地，帶著令人驚駭的平靜，那個上了發條的蠟娃娃——多年來一直在花叢和書本間徘徊——停止了移動。她陷入了一種緩慢的、陶瓷般的靜止，這比任何尖叫都更讓我害怕。我會去看她，她會微笑，但她似乎已經不在那裡了。就好像她所有的內臟都被掏空了，只留下一個精緻的、微笑的外殼。最後一個莫希干人。那就是她想要的樣子：最後一個純血的布蘭迪福爾蒂家的人，像她父親一樣死於胸部的病。
+
+但卡洛留下了那個小女孩——洋娃娃。貝雅特麗齊似乎忘記了她。是我來照顧她。不——是埃萊娜，願上帝保佑她。埃萊娜，來自大陸的沉默的女人，承擔了所有的負擔：埃里普蘭多、雅各布、恩托尼、小洋娃娃。我看到她在那群孩子中間，我感到羞愧。埃萊娜是我的支柱，然而我幾乎沒跟她說過話。我在做什麼？閱讀，寫作，游泳——游泳總是在游泳。觀察孩子們的成長。
+
+埃里普蘭多正在變成一個英俊的少年。他的跛腳幾乎看不出來。他學會了把它當作一件可以忽略的事情，就像一個痣或一塊胎記。和卡洛一樣，醫生把他照顧得很好，但更多是靠他自己的意志。這個男孩有一種頑強的性格，一種我欽佩的頑固。
+
+有一天，我看到他和洋娃娃玩耍。她大概四五歲，有著她父親那雙溫柔的眼睛和她母親那纖細的身材。埃里普蘭多正在堆石頭，而她要把它們推倒。他不生氣；他只是再堆起來。這讓我欣慰——我的兒子不是一個欺凌弱小的人。他可能從雅各布那裡學會了耐心，雅各布那灰色的眼睛似乎蘊含著幾個世紀的智慧。
+
+我能看到雅各布的成長，就好像我已經活過了這段時間。有時他看著我，我能感覺到那雙眼睛中的認知，彷彿他記得他活過的前世——因為那就是我相信的：他已故的叔叔，那個死在美國的雅各布，在他身上重生了。也許不是字面上的，不是像斯特拉和彼得羅相信的那樣。但某種東西——一種火花，一個本質——已經轉移了。
+
+我看到未來了嗎？或者我只是在編造故事來安慰自己？
+
+那個穿灰西裝的女人，我的新朋友，說我應該把這些都寫下來。不是作為幻想，而是作為見證。她從不透露太多關於她自己的信息，但她的眼睛告訴我她曾經受過苦。也許這就是為什麼她的手在倒茶的時候微微顫抖。
+
+時間在流逝。我感覺到了。三十歲。四十歲就在轉角處。五十歲也一樣。而然後——什麼？更多的書？更多的孩子？更多的愛人？他們來來去去的。只有海保持不變，她的波浪，她的冷酷，她那沒有記憶的自我更新。
+
+今天我游了很遠——比以往任何時候都遠。我一直游到礁石對面那塊看不見的岩石那裡。在水中，在那片藍色的、無邊無際的廣闊中，我感覺到了那個老女人的存在——你們叫她死神——她在等待。她微笑著，但她不著急。我也不急。
+
+因為也許這就是喬伊的藝術：不急。從不著急。一切都是它該有的樣子，在它該有的時候發生。而當它不該發生的時候，改變它。
+
+或者不改變。等待。像海一樣。
+
+這是我從卡洛那裡學到的，在他死後。不——不是死後。他沒有死。他活了下來，儘管傷痕累累。但某種東西在他身上死了，在他談論暴力的那個晚上。他不再相信他可以通過理性來改變世界了。我也看到了他的幻滅，而那讓我悲傷。
+
+但悲傷也是生命的一部分。這是卡米會說的。沒有痛苦，沒有悲傷，就沒有對比，也就沒有真正的喜悅。這就是那個老農民教給我的，那個我曾經恨過、愛過、又恨過的人。
+
+涼爽的微風提醒我該回去了。孩子們在等待。埃萊娜在等待。整個世界都在等待——也許吧。」</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>propaganda</b><span>宣传</span><em>state propaganda</em></div>
+<div><b>refuge</b><span>避难处；庇护</span><em>seek refuge</em></div>
+<div><b>defy</b><span>违抗，挑战</span><em>defy an order</em></div>
+<div><b>regime</b><span>政权，统治体制</span><em>an authoritarian regime</em></div>
+<div><b>dissent</b><span>异议</span><em>voice dissent</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch057.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch059.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

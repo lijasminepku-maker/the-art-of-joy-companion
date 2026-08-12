@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 45 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch044.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" selected>Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" >Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch046.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 45<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">45 
+
+From Beatrice’s diary, found many
+				years later by Modesta 
+
+7 January 1921 
+
+Why can’t one be happy for ever? Why does something always get in the
+						way of our happiness? 
+
+It’s been a year since
+						I turned to you, dear diary, and that’s because I was so happy and had
+						so many things to do: get ready for the evening, rummage through the
+						wardrobes or chest for a blouse or shawl to smarten up the dresses and
+						skirts that Modesta had made for me when we were wealthy . 
+
+What beautiful things Grandmother had! Who would have imagined! I found so
+						many ribbons and belts! And then, with Argentovivo, I would try new ways to
+						wear my hair. How important it is to change one’s hairstyle! Modesta
+						should do it too, I’ve told her so many times. All it takes is a new
+						comb, a ribbon, some flowers; but of course, she’s like Nonna; she
+						doesn’t care much about her personal appearance. Maybe because like
+						Nonna she’s too intelligent. But it’s a shame because whenever
+						I’ve managed to persuade her to let me do her hair, she looked
+						fabulous, as even Carlo noted. Then too, it was so wonderful to find new
+						flowers for the parlour and dining room, in the garden or at the market, and
+						with Argentovivo, discover Carlo’s tastes – they have very different
+						tastes on the continent – so that he wouldn’t tire of our food. It
+						wasn’t easy because, as Argentovivo rightly says, men don’t like
+						to talk about cooking and you have to be deft at discovering their
+						preferences without asking. What’s more, they like to eat well even if
+						they are intelligent and preoccupied like Carlo. Dear diary, I think I will stop here because
+						seeing his name in writing hurts so much. It’s been a month since he
+						left for Livorno to organize the birth of this new party. Who knows why
+						it’s taking such a long time! Besides, everything should already be
+						done according to what he said. What if that midget and the communist party
+						that frightens me so still need him, and won’t ever let him come
+						back? 
+
+5 March 1921 
+
+The more time passes, the more I hate this new party and all those comrades
+						of his. What a disaster, that Sunday he took us to them. Before, we always
+						spent evenings down in the parlour, and on Sunday afternoons he took us to
+						the movies or the theatre. But that Sunday Modesta insisted so
+						much … I have to stop because it makes me cry to think of those
+						Sundays in that big sad, cold house, but at least he was still with us.
+						It’s really true what Dante says: 
+
+There is no greater
+						sorrow 
+than thinking back upon a happy time 
+in misery . 37 
+
+I must stop because I can already see tears spotting the paper. I
+						don’t want to stain you, dear diary. 
+
+12 March 1921, five o’clock in the afternoon 
+
+I’ve wept so much, dear diary, but now I’m here with you again.
+						Talking with you gives me great consolation. Another week has passed and no
+						word from Carlo. Modesta doesn’t know when he’ll be back either.
+						Or does she know he won’t ever return and doesn’t want to upset
+						me? She must know, since she spends all her time with those socialists now,
+						afternoons and even evenings. She comes to dinner and then runs off to them.
+						I hate them, plus I just don’t see how she can enjoy being in that big
+						room full of dusty books with only a table and some uncomfortable chairs –
+						there isn’t even a sofa – with all those badly dressed men who talk
+						loudly and smoke, with no respect for us women. I was so uncomfortable that
+						Sunday! Not only were we practically the only women in there, but no one
+						stood up when we entered. Not that I think they’re rude; they’re
+						Carlo’s friends. It’s just that when they start debating, they’re not
+						aware of anything anymore, as that woman told me. The only woman who was
+						there besides us. 
+
+12 March 1921, 10:30 p.m. 
+
+I’m ashamed to tell even you, dear diary, but I’m jealous of
+						that woman. She stole Modesta from me with her glib tongue and that high
+						forehead, her hair cut short just like a man. Modesta doesn’t say so,
+						but I know she admires her greatly. All she does is read. As if the books
+						and magazines Carlo gave her weren’t enough! Now she always comes back
+						with bundles of newspapers. She told me they’re back issues of the
+						newspaper that this woman edits. Besides going to her house, I’m
+						afraid she also goes to the print shop because she sometimes comes back with
+						ink stains on her blouse. Of course I shouldn’t speak about it and I
+						would never do so with strangers, but you are my one true friend.
+						We’ve known each other since I was eleven years old and you have never
+						betrayed me. I know I shouldn’t judge that woman and be jealous of
+						her, and I ask forgiveness here before you and God, but I can’t help
+						it. I hate her and, what’s even more shameful, it’s because
+						she’s so beautiful … There, I said it. I’ll leave you
+						now so I can go and pray and try to rid myself of this vile feeling that
+						haunts me night and day. 
+
+13 March 
+
+I prayed and I hope I can manage to think of her neutrally, even if not as a
+						friend. Mainly because she is a good friend of Carlo and, as Carlo told us,
+						a champion of their ‘ideal’. She’s worked with the unions
+						since she was a young girl; she’s been imprisoned and tortured many
+						times. 38 She must not be as young as she seems, because Carlo said she was a comrade
+						who took part in the strikes up on the continent – she isn’t Sicilian
+						either – to promote a nine-hour day instead of the eleven hours which is the
+						workday for all workers today. I remember now that on the few occasions that
+						I went to her place, she insisted that a man can’t work for more than
+						six hours a day. I did the wrong thing with Modesta, and now I’m
+						paying the price for it. I should have let her talk when she wanted to speak
+						with Carlo, rather than always interrupting her and acting silly. Nonna was
+						right: I’m spoiled and lazy, but that will change, I swear to you and
+						to God. And if Carlo comes back – I pray to the Madonna every night to grant
+						me this favour – if he comes back, I’ll let them talk about anything
+						they want and I too will try to study those books. I’ll do it for
+						Modesta and to correct this self-centred nature of mine. 
+
+15 March 
+
+I tried to read the Communist Party Manifesto, but I couldn’t get
+						through more than one page, at least for today. I understand it, but it
+						makes me feel sad. I don’t know why, but it makes me sad and a little
+						fearful. Can it be because of that spectre 39 that is haunting Europe? Why did Marx choose that dreadful word,
+						‘spectre’? Couldn’t he have found another word,
+						‘angel’, maybe? But so it is, and I have to overcome this fear!
+						Starting tomorrow I will continue reading it each day. 
+
+20 March 
+
+I am no longer hopeful that Carlo will return. Just today, a postcard
+						arrived saying: ‘Foggy greetings from foggy Turin to the goddesses of
+						the sun.’ I seem to hear his voice in those few words. But if he sent
+						the card, it means he’s still not coming back. I don’t have the
+						strength to cry and pray anymore, dear diary, and I don’t think I even
+						have the strength to talk to you. Besides, what would I tell you? It’s
+						raining. If it weren’t for Eriprando with his games and high spirits,
+						Argentovivo says this house would be sombre as … never mind. 
+
+25 March, afternoon 
+
+Though Carlo hasn’t returned, the Madonna has at least granted my
+						prayer as far as Modesta is concerned: starting yesterday, she’s
+						stopped going to those socialists. I wonder why? Whatever the reason, for me
+						it’s a relief from the loneliness I had sunk into. Naturally I’m
+						curious to know why she isn’t going there anymore. If I have the
+						courage, I’ll ask her tonight. She too is very sad. 
+
+26 March, morning 
+
+I found the courage to ask her. Smiling, she spoke these words which
+						I’m writing down in order to try to understand them, like she does
+						with poems. What she said was: ‘Well, Beatrice, that house is just
+						like a church, filled with frescos of madonnas and saints! But as Jacopo
+						used to say, it’s best to keep away from churches after you’ve
+						admired the masterpieces.’ I really don’t understand, talking
+						about that house as if it were a church. To me it seemed downright filthy.
+						And frescos? Sure, there were some paintings, but … sometimes
+						Modesta is truly a mystery. Or was she perhaps joking? 
+
+30 March 1921 
+
+Just a few lines, dear diary, because I am so happy my hands are shaking.
+						Carlo is in Catania and is coming to dinner tonight. I’ll leave you
+						now. I have so many things to do and I’m also very fearful. I
+						don’t know why, but my forehead has been burning up since this morning
+						and I’ve got the chills. I didn’t take my temperature; I’m
+						afraid I have a fever. Just now, of all times! And that’s not all
+						I’m afraid of. Recently I’ve thought and thought about what
+						Argentovivo, in her impertinent way, told me that night. It can’t be
+						true! But she’s been in love and knows more about it than I do. And if
+						it were true? It’s terrible but I’m afraid, dear diary, that
+						Argentovivo may be right. If only I could ask Modesta! She’s so
+						intelligent, she knows so many things. But how can I? She might get jealous
+						again and … I can’t bear to think about it. I mustn’t
+						think about it. Because never, ever, would I leave Modesta, even if this
+						misfortune were true. I swore to myself I wouldn’t. What would she do
+						without me looking after her and taking care of the house? She, who is
+						always busy working with all those lawyers and notaries and who, like all
+						intelligent people, is so distracted and impractical? Even yesterday, if I
+						hadn’t been here, she would have skipped breakfast, and she’s
+						gotten so thin lately! I will never, ever leave her; among other things, it
+						would offend the sacred memory of my grandmother. I will stifle this love
+						inside me, so I can at least go on seeing him with Modesta and we can be
+						happy together, for ever.</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">45
+
+摘自贝亚特里切的日记，多年后被莫德丝塔发现
+
+1921年1月7日
+
+为什么人不能永远幸福？为什么总有什么东西阻碍我们的幸福？
+
+我已经一年没向你倾诉了，亲爱的日记，那是因为我太幸福了，有那么多事情要做：为晚会做准备，在衣柜或箱子里翻找衬衫或披肩，来点缀莫德丝塔在我们还富有时为我做的衣裙。
+
+祖母有过多少美丽的东西啊！谁能想到！我找到好多丝带和腰带！然后，和活银一起，我尝试各种新发型。换个发型多重要啊！莫德丝塔也该试试，我跟她说过好多遍了。只需一把新梳子、一条丝带、几朵花；可当然啦，她跟奶奶一样，不太在意自己的外表。也许是因为她跟奶奶一样太聪明了。但这很可惜，因为每当我劝服她让我给她做头发时，她看起来美极了，连卡洛都注意到了。还有，为客厅和餐厅寻找新花——在花园或市场里——和活银一起，摸清卡洛的口味——大陆人的口味很不一样——好让他不厌倦我们的饭菜，这一切是多么美妙啊。这并不容易，因为如活银说得对，男人不喜欢谈论烹饪，你得机灵地摸清他们的偏好而不直接问。再说，他们就算像卡洛那样聪明而心事重重，也喜欢美食。亲爱的日记，我想我就写到这里吧，因为看到他的名字落在纸上，太痛了。他去利沃诺已经一个月了……</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>longing</b><span>渴望，思念</span><em>a longing for</em></div>
+<div><b>vow</b><span>誓言</span><em>make a vow</em></div>
+<div><b>conceal</b><span>隐瞒，掩藏</span><em>conceal the truth</em></div>
+<div><b>burden</b><span>负担</span><em>carry a burden</em></div>
+<div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch044.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch046.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

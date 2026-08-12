@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 48 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Two</div></div>
+<div class="nav-row">
+  <a href="ch047.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch040.html" >Chapter 40</option><option value="ch041.html" >Chapter 41</option><option value="ch042.html" >Chapter 42</option><option value="ch043.html" >Chapter 43</option><option value="ch044.html" >Chapter 44</option><option value="ch045.html" >Chapter 45</option><option value="ch046.html" >Chapter 46</option><option value="ch047.html" >Chapter 47</option><option value="ch048.html" selected>Chapter 48</option><option value="ch049.html" >Chapter 49</option><option value="ch050.html" >Chapter 50</option><option value="ch051.html" >Chapter 51</option><option value="ch052.html" >Chapter 52</option><option value="ch053.html" >Chapter 53</option><option value="ch054.html" >Chapter 54</option><option value="ch055.html" >Chapter 55</option><option value="ch056.html" >Chapter 56</option><option value="ch057.html" >Chapter 57</option></select>
+  <a href="ch049.html">下一章 →</a>
+</div>
+<div class="card">
+  <p class="eyebrow">PART TWO</p>
+  <h2>Chapter 48<span>成年、亲密关系与后果</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1920 年代的婚姻、继承、名誉与母职仍强烈约束女性。注意 diary、rumour、memory 等信息来源。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">48 
+
+‘May I come in? What’s wrong,
+				Modesta, why are you still in your dressing gown? Carlo is downstairs waiting
+				and …’ 
+
+‘Beatrice, these past two months,
+				as I promised after your illness, I’ve spent every evening with you two in the
+				hope that you would make up your mind to give up your insane devotion – I find no
+				other word for it after our talks – to outmoded customs or prejudices. But starting
+				today, I’ve had enough.’ 
+
+‘But …’ 
+
+‘There is no “but”
+				that will make me reconsider! I’m not coming down. You know how much time
+				I’ve had to spend with Eriprando to distract him from your agitation and
+				Argentovivo’s apprehensions. Now that he’s happy with Elena, I have to
+				get back to work.’ 
+
+‘That Elena! You’d rather
+				have that cold, silent stranger instead of me and Argentovivo, Modesta! Even today,
+				she only let me see him for a few minutes and she watched over me like a gendarme .’ 
+
+‘I don’t seem to recall that
+				you spent a great deal of time with him before. Besides, Elena is cold and silent
+				mainly because you two have certainly not treated her well.’ 
+
+‘But she’s an
+				outsider!’ 
+
+‘She’s someone who’s
+				doing her job! Open your eyes and ears, Beatrice. Can’t you hear how Eriprando
+				laughs? How could we have got this result with you, when you started crying as soon
+				as you saw him? Naturally, he reminded you of your own affliction, because
+				that’s all it was, an illness, not
+				a curse, Beatrice! Come now, when you get over it too, you can see him as often as
+				you want. But as long as you look so remorseful, just talking about Eriprando,
+				no!’ 
+
+‘Yes, of course, Carlo said so
+				too, but I can’t help it. I’m always afraid he’ll
+				remain …’ 
+
+‘All right. Now go because I have
+				to finish writing some letters.’ 
+
+‘So you really won’t come
+				down?’ 
+
+‘I can’t Beatrice! How can I
+				make you understand? Between your illness and Eriprando’s, I’ve lost too
+				much time. Look at all the letters, the documents to be signed, the accounts, the
+				damned accounts!’ 
+
+‘But you’ll come down to
+				dinner at least, won’t you?’ 
+
+‘Of course. I have to eat,
+				don’t I?’ 
+
+‘And afterwards?’ 
+
+‘Afterwards I’ll
+				see.’ 
+
+‘God, all these documents,
+				Modesta! I’m really an ingrate. Here you are working for us. I hate myself,
+				Modesta, I hate myself! And all these handwritten pages … such odd, tiny
+				handwriting, it looks like a doctor’s writing. It’s illegible. What are
+				these pages?’ 
+
+‘My work, poems, notes.’ 
+
+‘Oh, yes, you told me. Like Nonna
+				used to say, I’m really a scatterbrain!’ 
+
+‘That’s enough about your
+				grandmother! I don’t want to hear you mention her again. She’s dead,
+				Beatrice.’ 
+
+‘But she thought so highly of
+				you … and I’m sure she still does. 
+
+‘I doubt it. Or maybe she does.
+				Why not? You’re not entirely wrong. It’s typical of people like her to
+				admire those who are able to outplay them. Remember how happy she was when the old
+				doctor beat her at chess?’ 
+
+‘But you didn’t outplay her,
+				you simply disobeyed her, and I think …’ 
+
+‘Disobeyed? Did you say
+				“disobeyed”, Beatrice? You make me laugh.’ 
+
+‘Oh, Modesta, you’re finally
+				smiling! You’re finally looking at me. It’s been months since
+				you’ve looked at me!’ 
+
+In fact, it had been
+				months … since hearing those screams of Eriprando that sometimes still
+				woke me up at night; only the sight of his face rapt in deep sleep could drive them out of my memory. She was right too,
+				and regaining my composure, I put my arm around her waist and kissed her wispy,
+				hay-scented hair: the same scent as Eriprando’s hair, as Carmine’s. Only
+				the texture was different. Hers still retained the softness of Eriprando’s
+				hair when he was a baby; later, after his battle with illness, his hair grew into
+				wiry curls like those of Carmine, the father of both Eriprando and Beatrice. Up
+				close like that, I saw a few grey strands already showing among the blond. Beatrice
+				had inherited that premature grey hair and her bad foot from the paternal line of
+				the family. From the peasant stock of that man of honour, Carmine, came two overly
+				refined, exquisitely fin de râce signs. 
+
+‘Oh, Modesta, you’re smiling
+				and stroking my hair. You don’t hate me anymore?’ 
+
+‘I’ve never hated you,
+				Beatrice, it’s just that you—’ 
+
+‘Yes, I know, Carlo told me that
+				it was only that you were worried, exhausted. He also used a word … what
+				was it?’ 
+
+‘Trauma, Beatrice.’ 
+
+‘Yes, saying that, like me, you
+				too had suffered a trauma. But I can’t bear it, I can’t stand it when
+				you’re so distant. I can’t help it. I feel it’s my fault, but at
+				the same time I keep on doing things that I know are wrong. Why do I do things I
+				know I shouldn’t do?’ 
+
+‘I don’t know. Maybe
+				it’s just that you’re not used to affection. How would you know about
+				affection? All you ever got were reprimands.’ 
+
+‘Oh, that must be it, Modesta,
+				because I’m always imagining I’m unworthy of you, of Eriprando, of
+				Carlo.’ 
+
+‘Fine. That’s enough now! We
+				forgot about him, and the poor thing is waiting. Come, that’s a good girl, go
+				to your Carlo, Beatrice. And don’t feel unworthy because you’re the
+				best, most beautiful little girl.’ 
+
+‘You think so? But why did you say
+				“your Carlo”, Modesta?’ 
+
+‘Because we’re fond of him.
+				I said “your Carlo” just as I might have said “my Carlo”.
+				Come now, don’t get upset. We’re grateful to him, aren’t we? He
+				saved our Eriprando. There, you see? I said “our Eriprando”. It’s
+				the same thing, isn’t it?’ 
+
+‘Oh, yes! Our Carlo and our
+				Eriprando. Oh God! It’s already six-thirty; I have to run. We’ll expect you for dinner. Argentovivo made
+				something you really love, but I can’t tell you what it is. She asked me
+				please not to tell you. You’ll see; it’ll be a surprise!’ 
+
+The door closed just in time behind that
+				lace skirt of luminous ivory, like her neck and arms. No, it wasn’t a skirt. A
+				shawl, perhaps? Where did Beatrice find those laces and silks? The door closed just
+				in time, for already the bitter saliva she’d been holding in the back of her
+				throat flowed over her tongue, her teeth: ‘Argentovivo made something you
+					really love.’ She ran to the porcelain washbasin dotted with tiny
+				flowers. There, too: gleaming, shimmering ivory. The surprise must be custard, a
+				custard pudding. With that custard wavering before her eyes, she threw up. It was a
+				confirmation of the sweet languor that for weeks had been keeping her in bed, and
+				that had suddenly become as gentle and welcoming as a lover’s warm embrace. Or
+				that held her for hours and hours on the chair by the open window, staring at the
+				trees, the sky, the distant sea. Without looking at the ivory she cleaned her teeth,
+				her tongue, and with some misgiving looked at herself in the mirror: two wide eyes
+				stared back at her, dazed, yet serene. Her cheeks had thinned, but her breasts and
+				hips were already pressing against her skirt, her blouse. Abandoning her image there
+				in the mirror, she escaped to stare at the sea. She should get to work. Behind her,
+				on the desk, piles and piles of documents awaited her. With an effort, she broke
+				away from the window and sat down, contemplating the inkwell, the pen, the stamped
+					paper. 43 Revolted by the acrid smell of the ink, she closed the bottle and rested her head on
+				her arms. The warmth of her arms was pleasant, sweet and cool at the same time; her
+				feverish brow found solace in that coolness … It was nice to let
+				one’s imagination wander between the heat of the sand and the cool shade of
+				the woods. 
+
+‘May I come in,
+				Princess?’ 
+
+How much time had passed? Hours
+				probably, and Beatrice was behind the door calling her. No, Beatrice didn’t
+				call her ‘Princess’ and that was a male voice. Carlo? 
+
+‘Come in.’ 
+
+Pietro, standing there with cap in hand,
+				stared down at her with his round, expressionless eyes, his marble-smooth skull
+				bowed in respect. What fear that man had
+				once roused in her and Beatrice! Whereas now, if she weren’t the
+				‘Princess’ she had to be, she would have run and thrown her arms around
+				him. Another sign of the condition in which she found herself again: wanting only to
+				be embraced, protected, cradled by the strong arms of that good man who was as
+				gentle as a child. His eyes weren’t really expressionless; they were just too
+				docile for that massive physique, and the contrast was frightening. What did that
+				man do without a woman, totally devoted as he was to his dear prince? He probably
+				masturbated, and visited whores in the afternoon like Tuzzu used to say his father
+				did: ‘What was he supposed to do, as a widower, bring home a stepmother to
+					drive us all crazy?’ 
+
+‘Vossignoria will forgive
+				me for disturbing her. I swear to God I wouldn’t have done so, Princess, if it
+				weren’t a matter of great urgency.’ 
+
+‘Of course. Don’t be silly,
+				Pietro, you’re not disturbing me. What is this urgent matter?’ 
+
+‘It’s that … I
+				don’t know where to start. It’s a matter without rhyme or reason, but
+				it’s complicated. I swear to God, Princess, very complicated.’ 
+
+‘Begin wherever you like, Pietro.
+				It’s up to you. You know we two understand each other.’ 
+
+‘So kind of you, Princess, but
+				I’m afraid that you might take it amiss.’ 
+
+‘Does it concern the
+				Prince?’ 
+
+‘No. It concerns Signorina
+				Inès.’ 
+
+‘Signorina Inès? What about
+				Signorina Inès, Pietro? I see you’re upset. Don’t you get along with
+				each other?’ 
+
+‘No, it’s not that.
+				She’s polite, agreeable and devoted to the Prince but …’ 
+
+‘Pietro, with me you can speak
+				frankly, you know that. Are you perhaps in love with Signorina Inès?’ 
+
+‘Me, fall in love with such an
+				educated, proper young lady? Vossignoria will forgive me, Princess, but you
+				are mistaken to think that. Pietro is sensible, and knows his place, what he can
+				have and what he cannot have.’ 
+
+‘Then what is it? I can see that
+				you’re worked up.’ 
+
+‘Perhaps
+				the Princess hasn’t looked at the expense accounts in recent months and in
+				particular at the expenditures for my dear Prince’s “amusement”.
+				And I can understand it, because you’ve been worried about Principessina Beatrice and the curse that …’ 
+
+‘Affliction, you must say, Pietro,
+				not a curse, an affliction.’ 
+
+‘You’re right, and the
+				affliction that has struck the young Prince.’ 
+
+‘That struck him, Pietro.
+				You’ve seen yourself that everything is back to normal now.’ 
+
+‘Of course, of course, a miracle,
+				Princess, a miracle that you …’ 
+
+‘All right, Pietro, I understand.
+				What’s in the accounts? Was too much spent for the Prince’s
+				“amusement”?’ 
+
+‘Oh, no, Princess, on the
+				contrary. For months and months he’s no longer wanted those women. Well, I
+				should have realized right away! But who would have thought that such a respectable,
+				level-headed young woman like Signorina Inès …’ 
+
+‘Don’t tell me! The Prince
+				has fallen in love?’ 
+
+‘Seeing you smile instead of
+				getting angry takes a weight off my shoulders, Princess. A saint is what you are!
+				Now I feel I have the courage to continue’. 
+
+‘So continue, Pietro, go on.
+				Don’t be so embarrassed.’ 
+
+‘The fact is that I discovered
+				that Signorina Inès – who would have thought it! – gave … how can I say
+				certain words before a woman? Well, she allowed the Prince liberties. There! I said
+				it and now it’s up to Voscenza to make the decision to send Signorina
+				Inès back to Turin.’ 
+
+‘Why would I do that, Pietro? How
+				is the Prince doing?’ 
+
+‘Oh, he’s really happy about
+				it, happy as a three-year-old child!’ 
+
+‘So then why should we send
+				Signorina Inès back to Turin?’ 
+
+‘That’s what the Princess,
+				God rest her soul, would have done.’ 
+
+‘Pietro, you and I care about the
+				Prince, don’t we?’ 
+
+‘Oh, so help me God, very
+				much!’ 
+
+‘Well then, if he’s happy
+				this way, isn’t Signorina Inès better than those other women? Not to mention,
+				how can we be certain that sooner or later he wouldn’t catch some awful
+				disease? Don’t blush like that, Pietro.’ 
+
+‘I hadn’t thought about
+				that. Vossignoria is truly as firm and tolerant as a man! Like the Princess
+				Gaia, buonanima , may God rest her soul! And seeing that for Voscenza things are fine the way
+				they are, I can tell you that for me it’s a relief, a real relief to see my
+				dear Prince so content.’ 
+
+‘Good Pietro. As long as
+				you’re content and Ippolito is content, I’m at peace. What more can you
+				ask for? Now go.’ 
+
+‘Of course, of course. I’ve
+				already taken too much time from Voscenza ’s work. Bacio le
+					mani , my respects, and may God bless you, Princess.’ 
+
+‘God bless you too,
+				Pietro … Oh, listen! Tell Signorina Inès about our conversation and tell
+				her that I must speak to her right away.’ 
+
+I don’t have to tell you that I
+				sent Pietro away just in time. A fit of uncontrollable laughter shook me so that I
+				had to throw myself on the bed and stifle it with a pillow. Gradually, the laughter
+				turned into a deep exhaustion. ‘I hadn’t laughed so hard since I was
+					six or seven years old, Princess … Laughing is good for you.
+					It’s tiring, but it’s a good, pleasant fatigue, like after a good
+					swim.’ 
+
+* 
+
+It must have been late, because the
+				window panes were slowly darkening. Had she fallen asleep? Argentovivo had in fact
+				come to wake her, knocking lightly at the door. Since she had become a princess, not
+				by virtue of lineage but by the force of nature, as Mimmo used to say, Argentovivo
+				no longer burst into the room, but knocked quietly, and she never spoke unless she
+				was given permission. 
+
+Avanti , come in, entrez … She was already laughing again. ‘There,
+					that’s how I like to see you, princess, laughing! Even in a bad situation,
+					one must enjoy a good laugh.’ That’s right, Mimmo, you taught
+				me to laugh and no one will take that away from me. 
+
+Mimmo’s calm, serious face gently
+				draws away from my eyelashes and backs off toward the window. Talking with his principessina does him good, and he finds it hard to leave even if it
+				is almost night. At the window, the light still lingered uncertainly, bemused by the
+				languid season already waiting around the corner. Soon the sunsets would lengthen,
+				exhausting the expectant sea with their caresses. The sea awaited her, as usual.
+				Would she still be able to swim after the long winter? ‘ Quannu s’è imparato un mestiere,
+					principessina mia, non lu si scorda cchiù. Once you learn to do something, you never forget it. Listen to Mimmo, who can do many things, build tables, mend socks … It’s the same for you . Now that you’ve learned to swim, no
+					one can take this skill away from you. Carlo says so .’ 
+
+‘Oh, forgive me, Princess, were
+				you sleeping? I’ll let you rest! Forgive me, but Pietro told me that you
+				wanted to speak with me right away. I … well! I’ll come back another
+				time. When would you like me to come back, Princess?’ 
+
+Signorina Inès, frozen in front of the
+				window, spoke of leaving, but she didn’t budge. Rigid, her silhouette stood
+				out against the last glimmer in the sky. 
+
+‘Forgive me, Inès, but I’m
+				very tired.’ 
+
+‘Of course, Princess, I’ll
+				go now. I apologize again.’ 
+
+That silhouette, outlined on the window
+				panes, was swelling at the waist, at the hips. ‘You’re not playing
+					tricks on me, are you, Mody? You must lose weight. Your peasant origins show
+					when you’re puffy like that. Eat less, girl, if it’s a matter of
+					eating too much!’ 
+
+‘No, wait, Inès. Now that
+				you’ve woken me … There’s never a moment’s peace in this
+				house!’ 
+
+‘But Pietro—’ 
+
+‘Turn on the light, girl. I have a
+				thing or two to tell you, and I’d better do so right away, given the
+				situation.’ 
+
+In the glow of the electric light, I was
+				finally able to observe her, though she kept her head lowered and I couldn’t
+				see her eyes. 
+
+‘Come now, there’s no use
+				standing there stiff and contrite like a demure goody-goody. Come over here and sit
+				in that chair. On second thought: go over there and get me some water. I’m
+				dying of thirst.’ 
+
+I sat up in bed, leaning against the
+				headboard the way Gaia used to do. A grand old woman she was! She sat paralysed in
+				bed as if on a throne. With her eyes, I followed the girl’s movements. It was
+				true, the heavier waist and hips had swept away her elegant, ladylike movements and
+				revealed her peasant origins. I was overcome by a sympathy for the girl that I
+				didn’t know I had, and I would have burst out laughing … when I met
+				her bewildered, wide eyes, full of unshed tears. The tears made her look ugly. No,
+				those weren’t the eyes I had once had. I had to be careful. 
+
+‘So, my
+				girl, it appears that things between you and the Prince have gone beyond
+				“falling in love”, as Pietro ingenuously told me.’ 
+
+I hadn’t finished speaking when
+				she fell to her knees in front of me (she certainly wasn’t me!), crying so
+				hard – tears gushing all over the place – and uttering words so disjointed that I
+				leapt out of bed, fearing she meant to throw herself at me. Not touching her – I
+				felt sorry for her but I couldn’t afford to lose my authority – I tried to get
+				to my desk, saying: 
+
+‘Come, come now, girl, don’t
+				be so disconsolate! Compose yourself! Have a glass of water yourself, then sit down
+				here so we can talk calmly. That’s it, good girl!’ 
+
+With the desk between us – a shield that
+				kept me from taking her in my arms and comforting her – I strove to attain an inner
+				compromise between Modesta and Gaia so that those trembling lips and hands, not to
+				mention the quivering curls, might stop shaking. I was still striving for that
+				compromise when Signorina Inès, probably terrified by my silence, began crying and
+				talking again, squirming and fidgeting like an amateur actress. I couldn’t
+				understand what she was saying. She kept wiping her eyes with a lacy white
+				handkerchief, which she then balled up in her hands or shoved into the neckline of
+				her dress … There, she pulled it out again and, rolling her eyes, pressed
+				it to her swollen, heart-shaped lips. It was a horrifying performance! Slumped in my
+				chair, stunned, I merely waited for the dramatic scene to be over, just as I did at
+				the theatre. Diderot’s actor! 44 It was true, and not only on the stage.
+				It was true there in that room as well. That bad actress was letting her emotion
+				overtake her and losing her detachment, making that passion of hers unpleasant to
+				watch and to listen to. Like at the theatre, I decided to wait patiently and try to
+				understand the script at least, ignoring the performance. 
+
+‘I … I was going to come
+				and confess! Today, this very day! Even if Pietro hadn’t
+				come … I’m not blaming him. He’s only doing his duty, but I,
+				I … was about to come today, tomorrow! What I’ve done to you, to
+				your family, is horrible, horrible! I would have … I was going to come and
+				confess everything and then disappear, go away.’ 
+
+I began to understand: the script was
+				awful as well. 
+
+‘Go where, girl?’ 
+
+‘I
+				don’t know! Anywhere I could, to hide my shame, my sin.’ 
+
+‘Let’s try to talk it over,
+				Signorina Inès. Calm down, I believe you. You would have come, you’re sorry,
+				but please compose yourself, all right?’ 
+
+Again the handkerchief disappeared into
+				the neckline of her dress. Her hands, tightly gripped, were still nervous, but at
+				least she was no longer crying, and she looked at me almost serenely. 
+
+‘Thank you, Princess. You’re
+				very kind, I knew that, but I won’t take advantage of your generosity and
+				magnanimity. I don’t deserve it. Tomorrow morning I will disappear!’ 
+
+The idea of disappearing was an
+				obsession, but I had to be careful, because if she disappeared, who would take my
+				prince Ippolito? 
+
+‘Inès, we’ve known each
+				other a long time now. I think highly of you. Why go on tormenting yourself this
+				way? Let he who has not sinned cast the first stone, as they say. I’m not the
+				one who must forgive you. God will forgive you! It’s not up to me to
+				judge.’ 
+
+The effect of those words was immediate
+				in her and in me: she smiled humbly, almost radiantly, and I lost all sympathy for
+				that bleating little curly head. 
+
+‘Ooh! Ooh! Princess, what a weight
+				you’ve lifted from my conscience. Ooh! Ooh!’ 
+
+I had been relieving other
+				people’s minds all afternoon. I couldn’t take it anymore! 
+
+‘Of course, this does not lessen
+				my guilt and I will pray to God endlessly for the forgiveness that you, in your
+				goodness, have granted me.’ 
+
+‘Fine, Inès, that’s good.
+				Pray! Don’t do anything else, don’t get upset, don’t cry,
+				don’t disappear, but pray! That’s all that counts!’ 
+
+‘Then I can stay here?’ 
+
+‘That’s what I’ve been
+				trying to tell you for the past hour, Inès.’ 
+
+‘Oh, Princess, thank you, thank
+				you!’ 
+
+I gripped the desk firmly to make sure
+				it was there to protect me from the effusion of gratitude that she heaped on me. 
+
+‘All right, girl! Unfortunately
+				now we must speak about your condition. There’s no time to lose. How many
+				months along are you?’ 
+
+‘Three, I think, Princess. Oh God!
+				I’m so ashamed, so ashamed!’ 
+
+‘Enough
+				Inès, don’t start in again. It’s nothing terrible. With a good doctor
+				it’s child’s play.’ 
+
+‘A good doctor, Princess? Oh, no,
+				you are too kind! A doctor is a luxury when you give birth, a midwife is good
+				enough. At home the women …’ 
+
+‘What were you thinking,
+				Inès?’ Both Modesta and Gaia were losing patience. ‘You want to keep the
+				child of …’ 
+
+‘Yes, Princess, I know! It’s
+				a child of sin, a bastard, I know!’ 
+
+‘Never mind sin, Inès, come to
+				your senses! It’s the child of a mongoloid, for heaven’s sake!
+				You’re a nurse; you know what that means, don’t you?’ 
+
+‘Of course, Princess, but
+				it’s also a living creature throbbing inside me. And if God wants to punish me
+				by making him be born like his father, it will be a sign that I have to atone, not
+				only through prayer but also by having to look at him. This child will be my cross
+				to bear, like our Redeemer did.’ 
+
+‘We must atone, Modesta.
+					Pray .’ I hadn’t heard Mother Leonora’s voice for years.
+				As the words slipped slowly out of those swollen heart-shaped lips, like the worn
+				beads of a rosary gliding through damp, incense-scented fingers, an acrid, sour
+				fluid made me clamp my mouth shut so I wouldn’t throw up on the desk. I
+				lowered my head. The ink bottle was closed, the pens lined up, the letters and
+				stamped paper waiting. I had to work; at least for an hour, I had to work. Firmly
+				swallowing the saliva and the cloying rosary, I leapt to my feet. 
+
+‘That’s enough! First tears
+				and apologies, then the most extraordinary arrogance. Stop right there! You
+				can’t expect me to let you carry a child fathered by my husband, the Prince? I
+				didn’t mean a doctor for the birth, I meant …’ 
+
+I wasn’t able to finish the
+				sentence because she, jumping to her feet with unexpected agility, began flitting
+				around the room like a bat blinded by the light. The dramatic plot twist
+				wasn’t bad. It managed to silence me and Gaia mainly because agitated and
+				flying around like that, she was quite graceful and spirited. I leaned my elbows on
+				the desk, chin in my hands, and watched her. I was actually curious to see how many
+				times she would whirl around the room blabbering words and exclamations such as ‘Ooh God! A sin! Ooh! Killing a
+				soul! Ooh, I’d rather kill myself … jump in the sea! I’ll
+				throw myself into the sea rather than …’ 
+
+That whirling pirouette preceded by the
+				fluttering white handkerchief mesmerized me like an equestrienne’s sequinned
+				dress at the circus. As she poured it all out, I thought: shall I stop her? Give her
+				a couple of slaps and send her back to where she came from? And Ippolito? What will
+				I do about Ippolito? In fact, all in all she’s delightful and, in her own way,
+				she’s fighting for her passionate will to exist just as I had done at one
+				time. She wasn’t the coward I had thought. In her own way, dear Gaia, she
+				knows she is essential to the running of this household and she has managed to
+				silence us: checkmate! Plus, it takes a good deal of courage to make love with the
+				‘thing’! I wonder if I would have had the same courage back then! 
+
+One last cry and plop! I saw her topple
+				over on the carpet. I knew she would faint; sooner or later it had to happen; it was
+				customary. She hadn’t fallen too gracefully, but this allowed me to observe
+				the shape of her legs – perfect – and her lovely, plump arms, whose slender wrists
+				boasted skin as transparent as a child’s. On one of these wrists she wore a
+				tiny, quite exquisite watch. I tried to lift her up, but she was too heavy. I
+				didn’t know what to do. I had never found myself holding a
+					‘ signorina ’ who had fainted. ‘ If you should feel
+					ill, signorina , look: just raise the armrest and you’ll find the
+					salts. ’ Should I get the smelling salts? I didn’t have any.
+				Maybe some cold water. Her shoulders and arms, which from a distance seemed like
+				marble, in my own had an appealing softness. The Prince, my husband, had good taste!
+				I had doubted – like you, for that matter – that the child was the
+				‘thing’’s and I had intended to verify it. But that pale little
+				face, slumped against my arm, gave me the feeling that while this Inès indeed had a
+				passionate will to survive, she did not have the courage to lie. I tried rousing her
+				gently, but there was nothing for it. That soft, talcum-scented flesh attracted me,
+				and had it not been for the authority I had to maintain with her and with the
+				others, I would have pressed her to my breast and kissed every inch of her. Careful,
+				Modesta! Helpless young ladies have always been a danger … I was about to
+				lay her back down on the carpet again and summon Argentovivo, when that sweet little marzipan-lamb abruptly straightened
+				up and, clinging to my neck, stared at me with confused, shining eyes. 
+
+‘No, no, Princess, don’t
+				send me away! I was going to come and confess! I was going to come, I swear
+				it!’ 
+
+‘Of course, Inès, I’m sure
+				you were. But now you must get up. You’re heavy,
+				child … Up!’ 
+
+‘But where am I? What happened? Oh
+				God! Lying here in front of you with my legs all exposed!’ 
+
+Indeed, the plump, firm legs also
+				boasted slim, graceful ankles. 
+
+‘It’s nothing Inès, a
+				momentary blackout. You were very upset.’ 
+
+‘Upset, Princess? It was fear,
+				Princess, fear and shame!’ 
+
+‘All right, Inès. It was fear;
+				whatever you say. But it’s over now. Compose yourself, go and lie down on your
+				bed and …’ 
+
+‘How kind you are,
+				Princess!’ 
+
+‘And think carefully about what
+				you wish to do, because afterwards I don’t want any whining and tears, do you
+				understand? If you want to keep this creature that’s throbbing inside
+				you …’ 
+
+‘Oh, yes! Princess, I
+				do!’ 
+
+‘But think it over carefully,
+				because it’s the child of an idiot.’ 
+
+‘The Prince is not truly an idiot,
+				Princess; he’s kind and he understands a lot of things.’ 
+
+Now she was offended: that pretty little
+				chin turned up, with a stern, distant air. Simply criticizing the object of her love
+				offended her. 
+
+‘Besides, Eriprando is healthy and
+				intelligent.’ 
+
+There, she’d silenced me again.
+				Inside me, Gaia was snarling, so that I heard myself say, ‘All right, Inès.
+				But we have to come to terms. With you women one never knows: patti chiari e
+					inimicizia eterna , clear understandings breed eternal animosity!’ 
+
+‘Did you say animosity,
+				Princess?’ 
+
+‘I meant friendship,
+				Inès … So then, do you recall that Dr Civardi – now that Eriprando is
+				beginning to take notice of the outside world – advised sending the Prince, his
+				father, away, and concocting a white lie about his condition, since the
+				Prince’s constant presence could upset the child’s peace of
+				mind?’ 
+
+‘Yes, I remember.’ 
+
+‘Fine.
+				Then the agreement between you and me is this: if this creature is born
+				healthy …’ 
+
+‘With God’s
+				forgiveness!’ 
+
+‘Of course, of
+				course … If the baby is born healthy, you will give it to me, for its own
+				good as well. A little brother or sister can only be good for Eriprando. If
+				it’s born like the Prince, we’ll put it in some institution for retarded
+				children or …’ 
+
+‘What are you saying, Princess! I
+				will never refuse the cross that God may give me to bear for my sin.’ 
+
+‘We’ll see, Inès.
+				Let’s not put the cart before the horse, as they say. We’ll see! Think
+				it over tomorrow. And keep in mind that, child or no child, in a month you are going
+				to live in the little house I showed you, which has finally become
+				vacant.’ 
+
+‘But it’s so far
+				away!’ 
+
+‘Far from here, but closer to
+				Catania, Inès … Why don’t you go and see a film sometime, for
+				heaven’s sake! Or buy yourself something nice, a book,
+				whatever …’ 
+
+‘A woman doesn’t go out
+				alone!’ 
+
+‘But there’s Argentovivo,
+				another one who is walled up alive. 45 You can go out together.’ 
+
+‘But two women, Princess, is the
+				same thing, if not worse.’ 
+
+‘Oh, enough! Do as you please!
+				Pietro will of course go with you and the Prince, but he will go back and forth
+				since I may need him here more than the Prince does. The Prince is at peace,
+				isn’t he?’ 
+
+‘Oh, he’s a little angel! He
+				no longer gives us any trouble.’ 
+
+‘Fine then, if you don’t let
+				your manias and dejection get the better of you as you’ve done this past
+				hour … It’s been an hour, if not more! What was I saying? Oh, yes!
+				I’ll talk to Attorney Santangelo about what we can afford. So that even if the
+				Prince should die …’ 
+
+‘Oh, God forbid!’ 
+
+‘God forbid, all right! Stop it!
+				I’m speaking for your own good, for heaven’s sake! And fix your
+				neckline: your whole breast is showing. So then, whatever happens, happens: I, too,
+				could die tomorrow … Hush! I’ll leave you a small annuity and the
+				little house. Do you understand?’ 
+
+‘Oh, Princess, how kind and
+				generous you are.’ 
+
+‘Hush now!
+				That’s enough! Off with you! I’ve lost enough time with you as it is.
+				They’re waiting for me downstairs and I still have to get dressed. No, stop.
+				There’s no need to kiss my hand. Think it over, and give me your answer
+				tomorrow.’</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">48
+
+「我可以進來嗎？怎麼了，莫德斯塔，你怎麼還穿著晨衣？卡洛在樓下等著呢……」
+
+「貝雅特麗齊，這兩個月來，正如我上次你生病後承諾的那樣，我每晚都和你們倆在一起，希望你能下定決心，放棄你對過時習俗或偏見的瘋狂執著——經過我們的談話，我找不到別的詞來形容。但從今天起，我受夠了。」
+
+「可是……」
+
+「沒有什麼『可是』能讓我改變主意！我不下樓了。你知道我花了多少時間陪埃里普蘭多，來分散他對你的焦慮和阿爾真托維沃的憂慮的注意力。現在他和埃萊娜在一起很快樂，我必須回去工作了。」
+
+「那個埃萊娜！莫德斯塔，你寧可要那個冷漠沉默的陌生人，也不要我和阿爾真托維沃！即使今天，她也只讓我看了他幾分鐘，還像憲兵一樣盯著我。」
+
+「我好像不記得你以前在他身上花過很多時間。再說，埃萊娜冷漠沉默，主要是因為你們倆肯定沒有善待她。」
+
+「可她是個外人！」
+
+「她是在做她該做的事！睜開你的眼睛和耳朵，貝雅特麗齊。你聽不到埃里普蘭多笑得多開心嗎？我們怎麼可能和你一起得到這個結果，而你一看見他就開始哭？當然，他讓你想起了你自己的疾病，因為那不過是一種病，不是詛咒，貝雅特麗齊！好了，等你也克服了這個問題，你想什麼時候見他都行。但只要你看起來還那麼悔恨，光是提起埃里普蘭多，就不行！」
+
+「是的，當然，卡洛也這麼說，但我控制不住。我總是害怕他會一直……」
+
+「好吧。現在去吧，因為我得寫完幾封信。」
+
+「所以你真的不下樓了？」
+
+「我去不了，貝雅特麗齊！我怎麼才能讓你明白呢？在你的病和埃里普蘭多的病之間，我浪費了太多時間。看看所有這些信，要簽的文件，帳目，該死的帳目！」
+
+「但你至少會下來吃晚飯吧，是嗎？」
+
+「當然。總得吃飯吧？」
+
+「那晚飯後呢？」
+
+「晚飯後再說。」
+
+「天哪，所有這些文件，莫德斯塔！我真是個忘恩負義的人。你在這兒為我們工作。我恨我自己，莫德斯塔，我恨我自己！還有這些手寫的紙頁……好奇怪、好小的字跡，像醫生的字。根本看不懂。這些是什麼？」
+
+「我的工作，詩，筆記。」
+
+「哦，是的，你告訴過我。就像奶奶常說的，我真是個沒頭腦的人！」
+
+「別再提你奶奶了！我不想再聽到你提起她。她已經死了，貝雅特麗齊。」
+
+「可她那麼看重你……我相信她現在還是。」
+
+「我懷疑。也許吧。有何不可？你也不是完全錯了。像她那樣的人，欣賞那些能夠勝過她們的人，這是常有的事。記得老醫生在棋盤上贏了她時，她有多高興嗎？」
+
+「可你沒有勝過她，你只是違背了她，我覺得……」
+
+「違背？你說『違背』，貝雅特麗齊？你讓我笑了。」
+
+「哦，莫德斯塔，你終於笑了！你終於看著我了。你好幾個月沒看我了！」
+
+事實上，已經好幾個月了……自從聽到埃里普蘭多的尖叫聲——那些尖叫有時仍會在夜裡把我驚醒；只有看到他熟睡中全神貫注的臉才能把它們從記憶中驅散。她也說得對，恢復了平靜，我用胳膊摟住她的腰，吻了她那纖細、散發著乾草香氣的頭髮：跟埃里普蘭多的頭髮、卡米的頭髮一樣的氣味。只是質地不同。她的頭髮還保留著埃里普蘭多嬰兒時的那種柔軟；後來，在與疾病搏鬥之後，他的頭髮長成了像卡米那樣的剛硬捲髮——卡米是埃里普蘭多和貝雅特麗齊兩人的父親。這麼近距離，我看到金色髮絲中已經夾雜著幾縷灰白。貝雅特麗齊從父系家族繼承了那早生的白髮和那隻壞腳。從那個榮譽之人卡米的農民血統中，產生了兩個過於精緻、極盡衰落之美的標記。
+
+「哦，莫德斯塔，你在微笑，還在撫摸我的頭髮。你不再恨我了？」
+
+「我從來沒有恨過你，貝雅特麗齊，只是你——」
+
+「是的，我知道，卡洛告訴我了，說你只是太擔心、太累了。他還用了一個詞……是什麼來著？」
+
+「創傷，貝雅特麗齊。」
+
+「是的，說我和你一樣，也遭受了創傷。但我受不了你那麼疏遠我。我控制不住。我覺得是我的錯，但同時我又繼續做那些我知道不對的事。為什麼我會做那些我知道不該做的事呢？」
+
+「我不知道。也許只是因為你不習慣被愛。你怎麼會知道愛呢？你得到的全是責備。」
+
+「哦，一定是這樣，莫德斯塔，因為我總是在幻想我配不上你，配不上埃里普蘭多，配不上卡洛。」
+
+「好了。夠了！我們把他給忘了，可憐的人在等著呢。來吧，乖女孩，到你卡洛那裡去，貝雅特麗齊。別覺得自己配不上，因為你是最好、最美的小女孩。」
+
+「你這麼認為？但你為什麼說『你的卡洛』，莫德斯塔？」
+
+「因為我們都喜歡他。我說『你的卡洛』，就像我可能說『我的卡洛』一樣。好了，別不高興。我們感激他，不是嗎？他救了我們的埃里普蘭多。你看，我說『我們的埃里普蘭多』。這是一樣的，不是嗎？」
+
+「哦，是的！我們的卡洛，我們的埃里普蘭多。天哪！已經六點半了，我得跑了。我們等你吃晚飯。阿爾真托維沃做了你最喜歡吃的東西，但我不能告訴你是什麼。她求我不要告訴你。你會看到的，會是個驚喜！」
+
+門恰好在那條象牙色蕾絲裙後面關上了，裙子的顏色就像她的脖子和手臂一樣明亮。不，那不是裙子。也許是披肩？貝雅特麗齊從哪裡找來那些蕾絲和絲綢的？門關得正是時候，因為她一直壓在喉嚨後面的苦澀唾液已經漫過了舌頭和牙齒：「阿爾真托維沃做了你最愛吃的東西。」她跑到點綴著小花的瓷質洗手盆前。那裡也是：閃閃發亮的象牙色。驚喜一定是奶黃醬，一份奶黃布丁。奶黃醬在她眼前搖晃，她吐了。這印證了那幾週以來讓她臥床不起的甜蜜倦怠，而這種倦怠突然變得像情人溫暖的擁抱一樣溫柔而令人愉悅。或者說，這倦怠讓她好幾個小時坐在敞開的窗邊的椅子上，凝視著樹木、天空和遠處的大海。她沒有看那象牙色，清潔了牙齒和舌頭，帶著一絲不安看著鏡中的自己：兩隻大大的眼睛回望著她，迷離而又平靜。她的臉頰瘦了，但乳房和臀部已經緊貼著裙子和襯衫。把鏡中的影像留在那裡，她逃開去凝視大海。她應該開始工作了。在她身後，書桌上，一堆又一堆的文件在等著她。她費力地從窗邊掙脫，坐下來，凝視著墨水瓶、鋼筆和印花公文紙。被墨水刺鼻的氣味噁心到，她蓋上墨水瓶，把頭靠在胳膊上。手臂的溫暖令人愉悅，既甘甜又清涼；她發燒的額頭在這清涼中找到了慰藉……讓想像力在沙灘的炎熱和樹林的涼爽陰影之間徘徊，真是愜意。
+
+「我可以進來嗎，公主？」
+
+過了多久？大概好幾個小時了，貝雅特麗齊在門後叫她。不，貝雅特麗齊不叫她「公主」，而且那是男人的聲音。卡洛？
+
+「進來。」
+
+彼得羅，手裡拿著帽子站在那裡，圓圓的、沒有表情的眼睛低頭看著她，大理石般光滑的頭頂恭敬地垂著。這個男人曾經在她和貝雅特麗齊心中引起過多大的恐懼啊！而現在，如果她不是必須做的那個「公主」，她會跑過去摟住他的脖子。這又是她再次陷入的那種狀態的另一個跡象：只想被這個像孩子一樣溫柔的好男人用強壯的雙臂擁抱、保護、搖晃。他的眼睛並不是真的沒有表情；只是相對於那龐大的體格，它們太過溫順，這種對比令人害怕。這個男人完全忠於他親愛的王子，沒有女人，他怎麼辦呢？他大概會手淫，下午去找妓女，就像圖祖以前說他父親那樣：「作為一個鰥夫，他還能怎麼辦，帶個繼母回家把我們都逼瘋嗎？」
+
+「請殿下原諒我打擾您。我向上帝發誓，要不是事關重大，我是不會這麼做的，公主。」
+
+「當然。別傻了，彼得羅，你沒有打擾我。這件緊急的事是什麼？」
+
+「是……我不知道從哪裡說起。這是件沒有頭緒的事，但很複雜。我向上帝發誓，公主，非常複雜。」
+
+「隨便從哪裡開始，彼得羅。由你決定。你知道我們倆能互相理解。」
+
+「您真好，公主，但我怕您可能會不高興。」
+
+「是和王子有關嗎？」
+
+「不。是關於伊內斯小姐。」
+
+「伊內斯小姐？伊內斯小姐怎麼了，彼得羅？我看你很不安。你們相處不好嗎？」
+
+「不，不是那樣。她禮貌、隨和，對王子很盡心，但……」
+
+「彼得羅，跟我你可以直說，你知道的。你該不會是愛上了伊內斯小姐吧？」
+
+「我，愛上這樣一位受過教育、正派的年輕小姐？請殿下原諒，公主，但您這麼想就錯了。彼得羅是懂得分寸的，知道自己的位置，知道自己能擁有什麼，不能擁有什麼。」
+
+「那到底是怎麼回事？我看得出你很激動。」
+
+「也許公主最近幾個月沒有看支出帳目，尤其是我親愛的王子的『消遣』開支。我能理解，因為您一直在為小公主貝雅特麗齊和那個詛咒……擔心。」
+
+「是疾病，你必須說，彼得羅，不是詛咒，是疾病。」
+
+「您說得對，還有降臨到小王子身上的疾病。」
+
+「是降臨過，彼得羅。你自己也看到了，現在一切都恢復正常了。」
+
+「當然，當然，是個奇蹟，公主，一個奇蹟，是您……」
+
+「好了，彼得羅，我明白了。帳目裡有什麼？為王子的『消遣』花費太多了嗎？」
+
+「哦，不，公主，恰恰相反。好幾個月了，他不再要那些女人了。唉，我本該立刻意識到的！但誰能想到，像伊內斯小姐這麼可敬、穩重的年輕女人……」
+
+「別說了！王子戀愛了？」
+
+「看到您微笑而不是生氣，我如釋重負，公主。您真是個聖人！現在我覺得有勇氣繼續說了。」
+
+「那就繼續吧，彼得羅，說下去。別這麼難為情。」
+
+「事實是，我發現伊內斯小姐——誰能想到呢！——給了……我該怎麼在女人面前說某些詞呢？總之，她允許王子對她放肆。好了！我說出來了，現在輪到殿下做決定，把伊內斯小姐送回都靈了。」
+
+「為什麼要這麼做，彼得羅？王子怎麼樣？」
+
+「哦，他對此真的很高興，高興得像個三歲的孩子！」
+
+「那我們為什麼要把伊內斯小姐送回都靈呢？」
+
+「公主，願上帝安息她的靈魂，就會這麼做的。」
+
+「彼得羅，你和我都關心王子，不是嗎？」
+
+「哦，上帝保佑，非常關心！」
+
+「那麼，如果他這樣高興，伊內斯小姐不是比那些其他女人好嗎？更不用說，我們怎能確定他遲早不會染上什麼可怕的疾病呢？別那樣臉紅，彼得羅。」
+
+「我沒想過這個。殿下真是像男人一樣堅定而又寬容！就像蓋婭公主，願上帝安息她的靈魂！看到殿下覺得現在這樣就好，我可以告訴您，對我來說，看到我親愛的王子這麼滿足，真是如釋重負，真正的如釋重負。」
+
+「好彼得羅。只要你滿足，伊波利托滿足，我就安心了。夫復何求？現在去吧。」
+
+「當然，當然。我已經佔用殿下太多工作時間了。吻您的手，向您致敬，願上帝保佑您，公主。」
+
+「願上帝也保佑你，彼得羅……哦，聽著！把我們的談話告訴伊內斯小姐，告訴她我必須馬上和她談談。」
+
+不必說，我打發彼得羅走正是時候。一陣無法抑制的大笑讓我顫抖，我不得不撲倒在床上，用枕頭悶住它。漸漸地，笑聲變成了深深的疲憊。「我從六七歲以後就沒這麼笑過了，公主……笑對你有好處。雖然累，但那是一種好的、愉快的疲勞，就像游完泳一樣。」
+
+*
+
+一定很晚了，因為窗玻璃正慢慢暗下來。她睡著了嗎？阿爾真托維沃其實來叫醒她了，輕輕敲了門。自從她成了公主——不是憑血統，而是憑天性的力量，正如米莫常說的那樣——阿爾真托維沃不再闖進房間，而是輕輕敲門，而且除非得到允許，她從不開口。
+
+進來吧。她已經又笑了起來。「這才是我想看到的你，公主，笑著！即使處境糟糕，也要好好笑一笑。」是啊，米莫，是你教會了我笑，沒有人能奪走這一點。
+
+米莫平靜而嚴肅的臉輕輕地從我的睫毛邊移開，退向窗戶。和他的小公主說話對他很有好處，即使天快黑了，他也捨不得離開。在窗邊，光線仍猶疑地徘徊，被已等在轉角處的慵懶季節迷住了。很快，日落會變長，用它們的愛撫耗盡那滿懷期待的大海。大海像往常一樣等待著她。經過漫長的冬天，她還能游泳嗎？「一旦學會了一門手藝，我的小公主，你就不會再忘記它。聽米莫的，他會做很多事情，做桌子、補襪子……對你來說也是一樣的。現在你學會了游泳，沒有人能奪走你這項技能。卡洛說的。」
+
+「哦，原諒我，公主，您睡著了嗎？我讓您休息吧！原諒我，但彼得羅告訴我，您想馬上和我說話。我……好吧！我改天再來。您希望我什麼時候回來，公主？」
+
+伊內斯小姐，僵在窗前，說著要走，卻一動不動。她的身影僵硬地襯托在天空最後的微光中。
+
+「原諒我，伊內斯，但我很累了。」
+
+「當然，公主，我這就走。再次道歉。」
+
+那個襯在窗玻璃上的身影，腰部和臀部正在隆起。「你不是在耍我吧，莫迪？你該減肥了。你浮腫成這樣，農民出身就暴露出來了。少吃點，姑娘，如果是吃太多的問題！」
+
+「不，等等，伊內斯。既然你已經把我叫醒了……這屋子裡從來沒有一刻安寧！」
+
+「可是彼得羅——」
+
+「把燈打開，姑娘。我有幾句話要跟你說，看這情形，最好現在就說。」
+
+在電燈的光輝中，我終於可以觀察她了，雖然她一直低著頭，我看不到她的眼睛。
+
+「好了，站在那裡僵硬又懊悔，像個裝模作樣的乖乖女，沒用的。過來，坐在那把椅子上。再想想：去那邊給我倒點水。我渴死了。」
+
+我在床上坐起來，靠著床頭板，就像蓋婭以前那樣。她可真是個了不起的老太太！癱瘓在床，卻如同坐在寶座上。我用眼睛追隨著女孩的動作。果然，變粗的腰部和臀部掃去了她優雅淑女的舉止，暴露了她的農民出身。我心中湧起一股對這女孩自己都不知道的同情，我本會放聲大笑……直到我遇上她那雙迷惘、睜大的眼睛，充滿了未曾流下的淚水。淚水讓她變醜了。不，那不是從前的我的眼睛。我得小心。
+
+「那麼，我的姑娘，看來你和王子之間的事情已經超出了彼得羅天真地告訴我的『戀愛』範圍。」
+
+我還沒說完，她就跪倒在我面前（她當然不是我！），哭得天昏地暗——眼淚到處都是——說出的話語支離破碎，我從床上跳了起來，生怕她想要撲到我身上。沒有碰她——我可憐她，但不能失去我的權威——我試圖走到書桌前，說：
+
+「來，來，姑娘，別這麼沮喪！鎮定下來！你自己也喝杯水，然後坐在這裡，我們平靜地談談。就是這樣，好姑娘！」
+
+書桌橫在我們之間——一面盾牌，讓我不至於把她摟進懷裡安慰她——我努力在內心找到莫德斯塔和蓋婭之間的折中，好讓那顫抖的嘴唇和雙手，還有那顫動的捲髮，能夠停止顫抖。我還在努力尋找那個折中點的時候，伊內斯小姐大概被我的沉默嚇壞了，又開始哭著說起話來，像個笨拙的女演員一樣扭動著，坐立不安。我聽不懂她在說什麼。她不停用一條白色蕾絲手帕擦眼睛，然後把它揉成一團握在手裡，或者塞進裙子的領口裡……又把它抽出來，轉著眼珠，壓在那雙腫脹的、心形的嘴唇上。真是駭人的表演！癱在椅子上，目瞪口呆，我只是等待著這一幕戲劇演完，就像在劇院裡一樣。狄德羅的演員！是真的，而且不僅在舞台上。在那個房間裡也是真的。那個糟糕的女演員讓情緒淹沒了自己，失去了距離感，讓那激情變得既難看又難聽。就像在劇院裡一樣，我決定耐心等待，至少先弄懂劇本，忽略表演。
+
+「我……我本來要來坦白的！今天，就在今天！即使彼得羅沒來……我不是在怪他。他只是盡他的職責，但我，我……本來打算今天來，明天來！我對不起您，對不起您的家庭，太可怕了，太可怕了！我本來要……本來要來坦白一切，然後消失，離開。」
+
+我開始明白了：劇本同樣糟糕。
+
+「去哪裡，姑娘？」
+
+「我不知道！任何地方都行，只要能藏起我的羞恥，我的罪。」
+
+「讓我們試著好好談談，伊內斯小姐。冷靜下來，我相信你。你本來會來的，你感到抱歉，但請鎮定下來，好嗎？」
+
+手帕又消失在連衣裙的領口裡。她的雙手緊緊握著，仍然緊張，但至少不再哭了，幾乎平靜地看著我。
+
+「謝謝您，公主。您真好，我知道的，但我不會利用您的慷慨和大度。我不配。明天一早我就消失！」
+
+消失的念頭成了一種執念，但我必須小心，因為如果她消失了，誰來照顧我的王子伊波利托呢？
+
+「伊內斯，我們認識很久了。我很看重你。何必這樣折磨自己呢？無罪的人方可投石，如俗話所說。該原諒你的不是我。上帝會原諒你的！輪不到我來審判。」
+
+這些話的效果在她和我身上立竿見影：她謙卑地微笑，幾乎容光煥發，而我對那個咩咩叫的小卷毛頭失去了所有的同情。
+
+「噢！噢！公主，您卸下了我良心上多大的重擔啊。噢！噢！」
+
+我整個下午都在替別人卸下心頭的重擔。我再也受不了了！
+
+「當然，這並不能減輕我的罪過，我會不斷向上帝祈禱，祈求您以善良之心所賜予我的寬恕。」
+
+「好，伊內斯，這就好。祈禱吧！別做其他的了，別沮喪，別哭，別消失，但要祈禱！這才是最重要的！」
+
+「那麼我可以留在這裡？」
+
+「這一個小時以來我一直在試圖告訴你這個，伊內斯。」
+
+「哦，公主，謝謝您，謝謝您！」
+
+我緊緊抓住書桌，確保它在那裡保護我，免受她向我傾瀉而來的感激之情的衝擊。
+
+「好的，姑娘！不幸的是，現在我們必須談談你的狀況。沒有時間可浪費了。你懷孕幾個月了？」
+
+「三個月，我想，公主。天哪！我好羞愧，好羞愧！」
+
+「夠了，伊內斯，別又開始了。這沒什麼可怕的。找個好醫生，小事一樁。」
+
+「好醫生，公主？哦，不，您太好了！醫生對生孩子來說是奢侈，助產士就夠了。在家裡女人們……」
+
+「你在想什麼，伊內斯？」莫德斯塔和蓋婭都失去了耐心。「你想留住……的孩子？」
+
+「是的，公主，我知道！這是罪孽之子，是私生子，我知道！」
+
+「別管什麼罪孽了，伊內斯，清醒一下！這是個蒙古症患者的孩子，看在老天份上！你是護士；你知道那意味著什麼，不是嗎？」
+
+「當然，公主，但它也是一個在我體內跳動的生命。如果上帝要懲罰我，讓它生來就像它父親那樣，那將是一個標誌，意味著我必須贖罪，不僅通過祈禱，還必須通過注視它。這個孩子將是我的十字架，就像我們的救世主一樣。」
+
+「我們必須贖罪，莫德斯塔。祈禱吧。」我已經好多年沒有聽到萊奧諾拉修女的聲音了。當這些話語從那雙腫脹的心形嘴唇中緩緩滑出，就像一串磨損的念珠在濕潤的、散發著焚香氣息的手指間滑動一樣，一股辛辣酸澀的液體迫使我緊緊閉上嘴，以免吐在書桌上。我低下頭。墨水瓶是關著的，筆排列整齊，信件和印花公文紙等待著。我必須工作；至少一個小時，我必須工作。我用力吞下唾液和那串使人膩煩的念珠，跳了起來。
+
+「夠了！先是眼淚和道歉，然後是極其驚人的傲慢。到此為止！你不能指望我讓你懷著一個由我丈夫——王子——所生的孩子吧？我說醫生不是指接生的醫生，我是說……」
+
+我沒能說完這句話，因為她以意想不到的敏捷跳了起來，像一隻被光晃瞎了眼的蝙蝠一樣在房間裡四處撲騰。這戲劇性情節的轉折倒是不錯。它讓我和蓋婭都沉默了，主要是因為她那樣激動地飛來飛去，相當優雅而且精神。我把胳膊肘支在書桌上，手托著下巴，看著她。我其實很好奇，她究竟要繞著房間轉多少圈，嘟噥著諸如「哦，上帝！罪孽！哦！殺害一個靈魂！哦，我寧可殺了我自己……跳海！我寧可跳海也不……」
+
+那旋轉的單腳尖旋轉，加上飄動的白手帕，像馬戲團裡女騎手的亮片衣服一樣讓我著迷。在她傾瀉這一切的時候，我在想：要阻止她嗎？給她兩巴掌，把她送回她來的地方？那伊波利托呢？我該怎麼處置伊波利托？事實上，總的來說，她很可愛，而且以她自己的方式，她在為自己熱情的生存意志而戰，就像我曾經做過的那樣。她不是我以為的那種懦夫。親愛的蓋婭，以她自己的方式，她知道自己對這個家的運轉至關重要，她成功地讓我們沉默了：將死！再說，和那個「東西」做愛需要相當大的勇氣。不知道當年我是否會有同樣的勇氣！
+
+最後一聲喊叫，撲通！我看見她倒在地毯上。我就知道她會暈倒；遲早會發生；這是慣例。她摔得不怎麼優雅，但這讓我得以觀察她雙腿的形狀——很完美——還有她那可愛豐腴的手臂，纖細的手腕上那孩子的皮膚般透明。其中一隻手腕上戴著一隻小巧精緻的手錶。我試圖把她扶起來，但她太重了。我不知道該怎麼辦。我從來沒有抱過一個暈倒的「小姐」。「如果您覺得不舒服，小姐，看：只要抬起扶手，您就會找到嗅鹽。」我該去拿嗅鹽嗎？我沒有。也許用點冷水。她的肩膀和手臂，遠看像大理石，在我手中卻有一種誘人的柔軟。王子，我的丈夫，品味不錯！我曾經懷疑——其實你也一樣——那個孩子是不是那個「東西」的，我本來打算去核實。但那張蒼白的小臉，靠在我的手臂上，讓我覺得這個伊內斯雖然確實有強烈的生存意志，卻沒有勇氣撒謊。我試著輕輕喚醒她，但沒用。那柔軟、散發著滑石粉香氣的肉體吸引著我，要不是我還得在她和其他人面前保持權威，我會把她摟在懷裡，吻遍她的全身。小心，莫德斯塔！無助的年輕小姐一直是個危險……我正要把她放回地毯上並叫阿爾真托維沃來的時候，那個甜美的杏仁糖小羔羊突然直起身子，摟住我的脖子，用迷亂而閃亮的眼睛盯著我。
+
+「不，不，公主，別送我走！我本來要來坦白的！我本來要來的，我發誓！」
+
+「當然，伊內斯，我相信你會的。但現在你必須起來。你很重，孩子……起來！」
+
+「可是我在哪裡？發生了什麼？天哪！這兒躺在你面前，腿都露出來了！」
+
+確實，那雙豐腴結實的腿也有著纖細優美的腳踝。
+
+「沒事的，伊內斯，只是短暫的昏厥。你太激動了。」
+
+「激動，公主？是恐懼，公主，恐懼和羞恥！」
+
+「好了，伊內斯。是恐懼；隨你怎麼說。但已經過去了。鎮定下來，去床上躺下，還有……」
+
+「您真好，公主！」
+
+「好好想想你想做什麼，因為事後我不想聽到任何抱怨和眼淚，你明白嗎？如果你想留住這個在你體內跳動的生命……」
+
+「哦，是的！公主，我想！」
+
+「但仔細想清楚，因為這是一個白痴的孩子。」
+
+「王子並不是真的白痴，公主；他很善良，而且明白很多事情。」
+
+她現在生氣了：那漂亮的小下巴翹了起來，帶著一種嚴肅而疏遠的神情。光是批評她所愛的對象，就冒犯了她。
+
+「再說，埃里普蘭多健康又聰明。」
+
+得，她又讓我沉默了。我內心，蓋婭在咆哮，以致我聽到自己說：「好了，伊內斯。但我們得達成協議。跟你們這些女人在一起，誰也說不準：清楚的理解滋生永恆的敵意！」
+
+「您說敵意嗎，公主？」
+
+「我是說友誼，伊內斯……那麼，你還記得西瓦爾迪醫生——現在埃里普蘭多開始注意外面的世界了——曾建議把王子，他的父親，送走，並編造一個善意的謊言來解釋他的狀況，因為王子的持續存在可能會打擾孩子的內心平靜嗎？」
+
+「是的，我記得。」
+
+「好。那麼我們之間的協議是這樣的：如果這個孩子生下來是健康的……」
+
+「上帝寬恕！」
+
+「當然，當然……如果嬰兒出生時是健康的，你就把它交給我，這也是為了它好。一個小弟弟或小妹妹只會對埃里普蘭多有好處。如果它生下來像王子，我們就把它送到某個智障兒童收容機構或者……」
+
+「您在說什麼，公主！我永遠不會拒絕上帝可能因我的罪過而賜給我的十字架。」
+
+「我們再看看吧，伊內斯。別本末倒置，如俗話所說。我們再看看！明天好好考慮。記住，不管有沒有孩子，一個月後你要搬到我給你看過的那間小房子去住，它終於騰空了。」
+
+「可那太遠了！」
+
+「離這裡遠，但離卡塔尼亞近，伊內斯……看在老天份上，偶爾去看看電影吧！或者給自己買點好東西，一本書，隨便什麼……」
+
+「一個女人不單獨出門！」
+
+「但還有阿爾真托維沃呢，又一個活活被砌在牆裡的人。你們可以一起出去。」
+
+「可是兩個女人，公主，是一樣的，如果不是更糟的話。」
+
+「哦，夠了！隨你的便！彼得羅當然會陪你和王子去，但他會來回跑，因為我這裡可能比王子更需要他。王子很平靜，不是嗎？」
+
+「哦，他是個小天使！他不再給我們添麻煩了。」
+
+「那好吧，如果你不讓你的狂躁和沮喪佔據上風，就像過去這一個小時你所做的那樣……已經一個多小時了！我剛才說什麼來著？哦，是的！我會和聖安傑洛律師談談我們能負擔些什麼。這樣即使王子去世……」
+
+「哦，上帝保佑！」
+
+「上帝保佑，好吧！別說了！我是為你好才說的，看在老天份上！把你領口整理好：整個乳房都露出來了。那麼，不管發生什麼，就讓它發生吧：我，也可能明天就去世……別說了！我會給你留下一小筆年金和那間小房子。你明白嗎？」
+
+「哦，公主，您是多麼善良和慷慨啊。」
+
+「現在別說了！夠了！走吧！我在你身上已經浪費了足夠多的時間。樓下有人在等我，我還得穿衣服。不，停下。沒必要吻我的手。好好考慮，明天給我答覆。」</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>burden</b><span>负担</span><em>carry a burden</em></div>
+<div><b>tenderness</b><span>温柔，柔情</span><em>show tenderness</em></div>
+<div><b>jealous</b><span>嫉妒的</span><em>be jealous of</em></div>
+<div><b>longing</b><span>渴望，思念</span><em>a longing for</em></div>
+<div><b>vow</b><span>誓言</span><em>make a vow</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch047.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <a href="ch049.html">下一章 →</a>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

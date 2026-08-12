@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch 95 · The Art of Joy</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">Part Four</div></div>
+<div class="nav-row">
+  <a href="ch094.html">← 上一章</a>
+  <select onchange="if(this.value)location=this.value"><option value="ch075.html" >Chapter 75</option><option value="ch076.html" >Chapter 76</option><option value="ch077.html" >Chapter 77</option><option value="ch078.html" >Chapter 78</option><option value="ch079.html" >Chapter 79</option><option value="ch080.html" >Chapter 80</option><option value="ch081.html" >Chapter 81</option><option value="ch082.html" >Chapter 82</option><option value="ch083.html" >Chapter 83</option><option value="ch084.html" >Chapter 84</option><option value="ch085.html" >Chapter 85</option><option value="ch086.html" >Chapter 86</option><option value="ch087.html" >Chapter 87</option><option value="ch088.html" >Chapter 88</option><option value="ch089.html" >Chapter 89</option><option value="ch090.html" >Chapter 90</option><option value="ch091.html" >Chapter 91</option><option value="ch092.html" >Chapter 92</option><option value="ch093.html" >Chapter 93</option><option value="ch094.html" >Chapter 94</option><option value="ch095.html" selected>Chapter 95</option></select>
+  <span></span>
+</div>
+<div class="card">
+  <p class="eyebrow">PART FOUR</p>
+  <h2>Chapter 95<span>解放后、政治与记忆</span></h2>
+  <div class="rule"></div>
+  <h3>背景</h3>
+  <p class="bg">1943 年政权垮台、1945 年解放后，重建并不等于问题消失。战后左翼政党、工会、家庭代际冲突与政治幻灭共同构成新的环境。</p>
+  
+  <h3>英文原文</h3>
+  <div class="english-text">95 
+
+‘Good morning, Zia.’ 
+
+‘Oh Bambù, have they
+				gone?’ 
+
+‘Of course, it’s been two
+				days!’ 
+
+‘Go on, stop kidding. I heard it
+				all perfectly. Carluzzu was teasing Nina …’ 
+
+‘Sure, two days ago!’ 
+
+‘I see: I was asleep and dreamt I
+				wasn’t sleeping. In fact, I’m ravenous! This sleep hasn’t happened
+				to me in a long time. I must have wanted to escape from something … but
+				what?’ 
+
+‘Maybe, as Nina says, you wanted
+				to get away from our carrying on. She gave us quite a talking-to, good-naturedly
+				I’d say, your Nina! And she’s right, because I myself have been very
+				irritating lately. Even for the party, you had to do everything yourself.’ 
+
+‘It was a lovely party,
+				wasn’t it?’ 
+
+‘Just the way Prando wanted it!
+				The whole island is talking about it, and will do so for quite some time.’ 
+
+‘Oh, Bambù, it’s déjà
+					vu ! I’ve already experienced this moment: me eating, you looking at
+				me, the big window, the mirror with the vine leaves and gilded fruit. I woke up in
+				this room that other time too, when I had typhus after being in prison. I wanted to
+				ask you, and then I forgot …’ 
+
+‘What?’ 
+
+‘Maybe you don’t
+				remember …’ 
+
+‘Of
+				course I remember! How could I forget the fall of Fascism and you about to
+				die?’ 
+
+‘That mirror, Bambolina – who put
+				it there?’ 
+
+‘I did.’ 
+
+‘This was my room when I knew your
+				mother. Did you know that?’ 
+
+‘Really?’ 
+
+‘What made you choose that
+				particular mirror to hang there?’ 
+
+‘I don’t know. It was in the
+				attic.’ 
+
+‘Now I know why I fell asleep. I
+				wanted to stay here, now that the dead are gone and the house is lived in.
+				It’s nice here. The girls must be awake, Bambù. Hear them laughing downstairs?
+				How many are there?’ 
+
+‘Beatrice, Gaia, and two or three
+				of their friends who slept over … They can’t stop talking about the
+				party. In their own way, they’re continuing it.’ 
+
+‘Yes, I wanted to stay
+				here!’ 
+
+‘Oh, I wish! Stay here, Zia,
+				stay! 
+
+‘I’d like to stay here with
+				you, Bambù, but life goes on. Someone is knocking at the door. Let’s see who
+				it is …’ 
+
+Carlo: ‘Oh, Nonna, you had us
+				worried. The whole island is worried! Everything is at a standstill in the bookshop!
+				Your secretary – how pretty she is, wow! I almost don’t want to leave, so I
+				can flirt with her – your secretary says she’s terrified without
+				you … But you, how lovely you are, oh! You must stay like that for
+				ever.’ 
+
+Modesta: ‘A little exaggerated,
+				don’t you think, Bambù?’ 
+
+Carlo: ‘Well, at least until
+				I’ve captured your image by having a daughter identical to you, or until
+				I’ve written a great novel that depicts you to a tee.’ 
+
+Bambù: ‘I’ll see to the
+				latter!’ 
+
+Carlo: ‘Oh, no, Bambù!’ 
+
+Bambù: ‘Oh, yes I will!’ 
+
+Carlo: ‘Oh, all right. What if we
+				wrote it together?’ 
+
+Modesta: ‘Together or not,
+				don’t write it right away, please, because I plan to live until I’m a
+				hundred. You don’t write about the living.’ 
+
+Bambù: ‘What beautiful roses,
+				Carluzzu! Why did you toss them on the table? I’ll put them in a vase.
+				They’re suffering.’ 
+
+Carlo:
+				‘Hey, Bambù, give me a hug before you take care of the flowers. This is the
+				first time we’ll be far apart for so long.’ 
+
+Bambù: ‘Listen to him! And the
+				time you went to America?’ 
+
+Carlo: ‘Just look at her, Modesta.
+				She has tears in her eyes!’ 
+
+Bambù: ‘Have some pity, Carluzzu!
+				You all leave. I know it’s only right, but it saddens me.’ 
+
+Carlo: ‘But I’ll be back.
+				Military service isn’t for ever.’ 
+
+Bambù: ‘You will come back,
+				won’t you?’ 
+
+Carlo: ‘Of course! And I’ll
+				tell you all about what’s happened to me. What good is experiencing things if
+				you don’t come back and share them in the piazza, talk about them at the bar
+				and tell all your friends?’ 
+
+Bambù: ‘You must be a bit of a
+				sadist, Carluzzu, let me tell you. I bet you’re going away just so you can
+				enjoy seeing us suffer. But I’m not falling for it anymore! I’d rather
+				go over there and take my mind off of it with the flowers.’ 
+
+Carlo: ‘Aren’t you going to
+				come with me to the station?’ 
+
+Bambù: ‘Sure, so I can watch you
+				enjoy my tears. He’s a monster, this carusu !’ 
+
+Carlo: ‘You do know that
+				you’re a sweet little aunt, Zietta Bambù?’ 
+
+Bambù: ‘Why? What is it, an excuse
+				to make me stay here and suffer a little longer?’ 
+
+Carlo: ‘You’re right when
+				you say I like knowing that you worry. And I think it’s because when I was a
+				child, everyone always left, and sometimes they didn’t come back. It must be a
+				form of revenge: subjecting others to the abandonment I went through. 
+
+Bambù: ‘That may be, Carluzzu, but
+				it seems a little too pat to me, even from a psychoanalytical point of
+				view …’ 
+
+Carlo: ‘Hey, Mody, why are your
+				eyes shut? Are you feeling moved?’ 
+
+Modesta: ‘Well of course!
+				There’s no escaping someone who delights in moving you to pity.’ 
+
+Carlo: ‘Oh, Mody, I brought you a
+				book by a certain Pierre Daco, a shitty priest, as Nina would say. Look: What is
+					Psychoanalysis? I spent all day yesterday reading it. This bastard turns it
+				into Christianity. I couldn’t believe my eyes.’ 
+
+Modesta: ‘And this surprises you?
+				Before long, we’ll even have Christian materialism. Those priests weren’t born yesterday, as Nina
+				says.’ 
+
+Carlo: ‘We have to do
+				something!’ 
+
+Modesta: ‘You will,
+				Carluzzu.’ 
+
+Carlo: ‘But I’m also very
+				fearful. They’re powerful, Mody! Oh, I almost forgot. Here: look at this
+				cover.’ 
+
+Modesta: ‘Why did you buy the Economist ?’ 
+
+Carlo: ‘Look, the person here,
+				next to Brandt … Isn’t he a male copy of Joyce?’ 
+
+On the cover is a perfect head, bald,
+				with two dark eyes that stare at me intently, dolefully slanted toward the delicate
+				temples. Timur smiles ironically and confidently, as if only a few hours had passed
+				since our lunch on the terrace of the San Domenico in Taormina. 
+
+* 
+
+‘You haven’t changed a bit,
+				Princess …’ 
+
+Who else but he could call me that now?
+				I knew I would meet him again, but I never would have imagined hearing his voice in
+				this remote café in Istanbul, surrounded by tombs like decayed tree trunks. 
+
+‘I never for a moment doubted
+				it.’ 
+
+‘You haven’t changed either,
+				Timur.’ 
+
+‘People who possess great moral
+				intensity grow old, yes, but stay intact, like the immortal marble of the temples.
+				No, don’t go! Grant me a few more moments of your precious time. Your smile is
+				a balm for my nostalgia.’ 
+
+‘Nostalgia, Timur?’ 
+
+‘Yes, I confess: nostalgia for
+				your expanses of sun and shadow, for your human and metaphysical
+				spaces … De Chirico 122 could only have been Italian.’ 
+
+‘Your Italian, if possible, has
+				improved.’ 
+
+‘Distance is a good teacher. You
+				only fully understand that which you have lost.’ 
+
+‘You never returned to
+				Sicily?’ 
+
+‘No, the destruction I saw in Rome
+				and Naples was enough for me. I fear I
+				will no longer find the land that our Goethe extolled, our land. A land, as
+				well as art, belong to those who understand them. Is De Chirico Sicilian,
+				Princess?’ 
+
+‘I don’t know.’ 
+
+‘He must be, because the key to
+				everything is to be found in Sicily … We would have made your island into
+				a garden, not the rubbish heap – is that how you say it? – that I saw in Naples. But
+				why talk about the past? This radiant sun scatters the clouds and impels us toward
+				the future, and the future will be ours. Too bad, though: thirty years lost. We
+				would have made quick work of it, clean and scientific, not this slow blood-letting
+				they call democracy. Hitler was betrayed, but his dream will come to pass: a united
+				Europe led by Germanic genius … But must you go, Princess?’ 
+
+‘Yes, I really must.’ 
+
+‘You’re trembling.
+				It’s my fault for keeping you here at this table. Here on the Bosphorus, I
+				sometimes delude myself that I’m in balmy Palermo. Temperate, majestic
+				Palermo, cradled in the rosy corolla of her mountains … but as soon as the
+				sun goes down, the barbarous cold wind of the Asiatic plains brings me back to
+				reality.’ 
+
+I’m cold and I don’t want to
+				listen to his words or look into his eyes anymore. I have to return to Catania. I
+				feel cold, and I don’t understand why I’m listening to that slimy
+				creature with the eyes of a snake … 
+
+* 
+
+Bambù: ‘Carluzzu, Carluzzu,
+				what’s happened?’ 
+
+Carlo: ‘I don’t know; she
+				suddenly fell asleep again.’ 
+
+Bambù: ‘And you’re just
+				standing there, not doing anything?’ 
+
+Carlo: ‘Nonna, Nonna, for
+				God’s sake!’ 
+
+Bambù: ‘She’s opening her
+				eyes, Carlo, she’s opening them! But run and get a doctor!’ 
+
+The Economist has slid off the
+				bed. Its cover, which had showed me a glimpse of my future, lies face down on the
+				floor: a flashy advertisement for a tropical drink makes a fine showing amid sand
+				and palm trees … That encounter took place later, much later, when I had
+				also learned the art of travelling, and
+				finding joy in observing a vase, a statue, a flower … In my eagerness to
+				live, my mind raced ahead too fast. 
+
+Bambù: ‘Modesta, Zia, what
+				happened?’ 
+
+Modesta: ‘Nothing, Bambù. A
+				momentary blackout. I slept too much. Help me get up. You’ll see, with a nice
+				bath and some coffee …’ 
+
+Bambù: ‘And a doctor, my dear!
+				This time, either you let a doctor see you or I’ll get angry. I mean it, Zia!
+				Carlo, how come you’re back? I told you to go find a doctor!’ 
+
+Carlo: ‘Calm down, Bambù. Our
+				lucky day! I was about to go and look for a doctor, and who knows where I’d
+				find one. Since Antonio died we can’t seem to get one! It was so reassuring to
+				have a permanent doctor around, dropping by every night … How nice it was!
+				Why did he have to die?’ 
+
+Bambù: ‘He was eighty years old,
+				Carlo! You’re driving me crazy! Is that all you’re worried
+				about?’ 
+
+Nina: ‘Look at her, how well she
+				looks. She’s even laughing … Come, Marco. Here she is, our impulsive
+				little girl.’ 
+
+Bambù: ‘Oh, Nina! Forgive me if I
+				don’t kiss you, but I have to go find a doctor.’ 
+
+Carlo: ‘But here he is! Marco is a
+				doctor, I told you …’ 
+
+Bambù: ‘You didn’t tell me
+				that, Carluzzu! When will you stop thinking that you said something you didn’t
+				say!’ 
+
+Carlo: ‘Didn’t I tell you I
+				met Nina and Marco at the gate and that she said, “Where are you running off
+				to?” and I said, “To look for a doctor and blah-blah-blah”? Come
+				on now, so I glossed over it, Bambù. How old-fashioned you are!’ 
+
+Bambù: ‘Listen, Marco, you have to
+				examine her.’ 
+
+Carlo: ‘But there’s nothing
+				wrong with her, Bambù! It’s not as if it were the first time she fell under a
+				spell and flew off to other shores!’ 
+
+Bambù: ‘Nevertheless, I insist
+				that she be checked.’ 
+
+Modesta: ‘It’s all right,
+				Carlo. Let’s put Bambù’s mind at ease. How lovely you look, Nina.
+				What’s different?’ 
+
+Nina: ‘It’s just this white
+				dress, my dear Mody; white makes you look younger. Whenever I put on this dress, she
+				thinks I look nice. Face it, Bambù, our
+				Mody will never understand anything about clothes. No one is perfect, you
+				know … Oh, Carlo, I saw Some Like It Hot again. The more times I
+				see it, the more I like it.’ 
+
+Nina is right, my dress tossed on the
+				chair is a sickly colour. It might be fine in artificial light, but in the sun like
+				that it has the putrid colour of a poisonous mushroom. I’m embarrassed, and I
+				don’t dare take my eyes off that purplish mushroom. And then who knows what
+				colour undergarments I’m wearing! I’m embarrassed in front of that tall,
+				tall stranger who stands silent, motionless at the foot of the bed. I pull the
+				covers up and with my hands try to guess the colour of my slip. My only hope is that
+				Bambolina put something of hers on me, like the time when they arrested me. It must
+				be so, because I touch a fabric as light as silk. It must be one of those glamorous
+				cotton nightshirts they wear now. 
+
+‘So, shall we proceed with this
+				examination?’ 
+
+From the looks of him I thought the
+				musician would have a faltering way of speaking, as many Englishmen do. How annoying
+				when they start in with
+				“that … um … er … and … um …”
+				But he must be an exception, because after palpating me all over like a rabbit, he
+				pronounces seriously in a deep, well-modulated voice: 
+
+‘In my opinion you are quite
+				healthy, but I advise you to have some tests done. Today the clinical eye no longer
+				exists … Tell me: did either of your parents suffer from
+				diabetes?’ 
+
+‘But aren’t you a
+				musician?’ 
+
+‘A musician? What makes you say
+				that? Truthfully music is a mystery to me; it sounds like noise and nothing but
+				noise. But you haven’t answered my question.’ 
+
+From a distance, his musician’s
+				face seemed too smooth and perfect, but up close it has myriads of anxious, elegant
+				lines that enchant the eye. 
+
+‘You have such elegant wrinkles,
+				Marco. I’ve never seen wrinkles like that.’ 
+
+‘It’s taken a lot of work,
+				Modesta: fifty-eight years of dogged effort! But you haven’t answered
+				me.’ 
+
+‘My parents?’ 
+
+‘Yes.’ 
+
+‘Who knew
+				them! I may have exchanged four or five words with my mother. She was a woman who
+				didn’t know if she was alive or already dead. My sister was a mongoloid. Does
+				that have anything to do with diabetes? Why are you laughing? Is it related or
+				not?’ 
+
+‘No, it isn’t. And your
+				father?’ 
+
+‘I met a man who claimed to be my
+				father, but I didn’t have a chance to ask him if he had diabetes or
+				not.’ 
+
+* 
+
+‘Are you done in there? If
+				you’re laughing like that, it means the examination is over and I can come in.
+				Nonna, please. I have to leave, and as is customary, a grandson can’t leave
+				without his grandmother’s blessing.’ 
+
+Why are they making such a fuss? She had
+				been tempted to stay at Carmelo, but now she saw that it was a foolish idea; she
+				craved the silence of her little room, her simple objects and her papers. That
+				nightshirt was nice, but it cut into her armpits. And Carluzzu too, why was he so
+				effusive? All that joviality made you think of birds of passage, who slam into the
+				lighthouse on stormy nights … 123 No, that was a poem, a poem learned
+				many years ago. The discovery of poetry! That was what she should do: go back to her
+				room and take up reading again. New voices called to her from the book covers:
+				Kerouac, Burroughs and that other one … She was always glad she had
+				learned some foreign languages; even now that the world had shrunk to a small
+				piazza, translations were always slow in coming … 
+
+I’m slow too, I want to get up but
+				Carluzzu hugs me, the vein on his forehead throbbing against my neck. Whenever
+				Carluzzu is sad, he covers up his sadness with those jokes that make others laugh so
+				much. I like him better when he’s serious. 
+
+‘You’re right, Mody,
+				I’m very nervous about the journey. All in all, I’m just a neurotic –
+				like the rest of my generation.’ 
+
+‘We were neurotic too, Carlo –
+				only we didn’t know it.’ 
+
+‘I’m taking away this
+				magazine that caused you to pass out suddenly … Just one question, Mody:
+				what was it that upset you like that?’ 
+
+‘Look at
+				the cover, Carlo; it’s obvious.’ 
+
+‘Well then, Nonna?’ 
+
+‘Well, I think we were
+				presumptuous. I think it’s time we realized that we’re still nothing but
+				a small, meagre group of anti-fascists, exactly as we were all those years
+				ago.’ 
+
+Why is everyone so silent, eyes cast
+				down, like at Pietro’s final sleep? Am I perhaps ill and, as always in these
+				cases, they’re hiding it from me? That stranger – musician or doctor, whatever
+				he is – is pleasant enough now that he’s moved away and is looking at
+				Bambolina. But he’s too tall and perfect, too polished, as we say. 
+
+‘You really won’t come to
+				the station with me, Nonna?’ 
+
+‘No, Carlo.’ 
+
+Finally they’ve gone, and I can
+				take a leisurely bath, get dressed, and – why not? – even smoke a cigarette gazing
+				at those beautiful red roses, vibrant in the sun. 
+
+The cigarette burns down between my
+				fingers, and I remain suspended there between a death, a party and a departure. I
+				had been tempted to stay at Carmelo, but now the silence of those walls chills my
+				blood. Even at the window, the sun fails to warm me, nor does Pietro’s slow
+				wave reassure me as he rounds the corner of the villa with his steady step,
+				unsmiling. 
+
+‘Oh, micia , what are you
+				doing there all alone? Come, we’ll take you home … Marco, come back,
+				my micia will come down with us now. Right, micia ?’ 
+
+For a moment I stare at that man,
+				stopped midstride. His indecision is becoming comical. 
+
+‘And this villa seems deadly to me
+				when isn’t full of people. Come on, Mody, come down and we’ll get out of
+				here!’ 
+
+Nina is right. For the young people
+				there’s air, space and light here, but for me that light is darkened by
+				ghosts. Besides, even though she’s joking, I hear Nina’s apprehension
+				for me loud and clear; she knows about desertions, all of them, she knows the
+				thickness of each wall. She’s the one I must follow. 
+
+‘Finally! How about a nice swim,
+				Mody, so we can shake off these departures and funerals? How strange life is! For
+				years we’re all together, then in a flash Olimpia leaves, marries, has a
+				child … and now Carluzzu. And
+				your head becomes a whirl of speeding trains and station masters’
+				whistles!’ 
+
+In the close space inside the car, the
+				man who’s driving seems like someone I’ve known for ever. But maybe
+				it’s just because I always saw him in a crowd of people before. Is it the
+				‘Marco’, whispered by Nina, that makes him seem familiar? Or is it
+				simply because he’s laughing now as he chases Nina on the beach? 
+
+They laugh, and in the meantime
+				I’ve learned to dive. Bambolina taught me. I rise up on my toes, get a running
+				start and plunge into the water. ‘ When you’re under, give a forceful
+					lunge, and there’s nothing to fear . The water itself brings you
+					up .’ The cold water must have washed away the mists of sleep, because
+				when I open my eyes I find myself fully alert, and I can finally see the blue sky
+				racing over the expanse of sea. 
+
+Without his clothes, the man appears to
+				be smaller and more agile. Nina too, with her long, girlish legs, runs toward the
+				waves, pretending to be afraid of that man as she once did with Carluzzu, and
+				yesterday with little Ignazio. The deserted beach encourages the game; plus there
+				are arms, teeth and claws of lava extending beyond the sand where one can hide. ‘Come on, Nina, let’s play hide-and-seek! Count to a hundred,
+					and Nonna, make sure she doesn’t peek … There! I found you,
+					Nina. There’s no use hiding …’ 
+
+‘Oh no, micia , sleeping
+				in the sun, no! How do you feel?’ 
+
+‘Fine, Nina, but why such a sad
+				face? You’re not becoming anxious about me like Bambù is, are you?’ 
+
+‘But why are you sleeping so much,
+				Mody? I …’ 
+
+‘For heaven’s sake, Nina,
+				I’m fine. Your friend even confirmed it.’ 
+
+‘Well, as a friend I trust Marco a
+				great deal, but as a doctor less so.’ 
+
+‘Don’t disparage me in front
+				of Modesta, Nina. I was a doctor even in the army.’ 
+
+‘Sure, in Africa. Some guarantee
+				of reliability that is! And then, it’s not as if it were yesterday!
+				You’ve probably forgotten everything.’ 
+
+‘Doctors are born, just as
+				denigrators are – is that the right word?’ 
+
+‘Yes, and you know it.’ 
+
+‘Denigrators like you.’ 
+
+‘You can’t say that. As far
+				as your body goes, I admire you a lot, as Carluzzu would say. It’s quite a scene going out with Marco, Mody: everyone
+				turns their head.’ 
+
+‘Class, Nina! You can’t beat
+				class!’ 
+
+They joke around as if they’ve
+				known each other for years. To my surprise, I find myself listening to his voice,
+				which sounds to me like a refrain I once knew but later forgot. 
+
+‘He seems like one of us,
+				doesn’t he, Modesta?’ 
+
+‘Yes, but how did you meet
+				him?’ 
+
+‘Prowling around, micia … Damn, it’s late! Speaking of prowling reminded me of an appointment.
+				I’m going up to get dressed … No, Marco, why are you getting up?
+				Stay, I’ll have the gardener call a taxi.’ 
+
+I’d like to go back up with Nina,
+				partly because heavy clouds are darkening the Prophet’s brow, and that profile
+				is frightening when it’s angry. But Marco says nothing; his silence has a
+				familiar rhythm. Plus, he must know everything about us since he calmly murmurs,
+				‘I agree with Nina. I find this villa more agreeable than Carmelo. Bambù was
+				wise to buy it back. I can’t forget the joy in her eyes when she told me:
+				“Go, Marco. Go and see how beautiful our childhood villa is! You’ll see,
+				every room still echoes with our songs and games.” Then, too, it’s a way
+				of preserving something in this race to destruction that’s seized everyone. I
+				want to photograph it. Bambù gave me permission.’ 
+
+I don’t feel like talking. Maybe
+				they’re right to be concerned about me. I hear myself say with effort,
+				‘Don’t tell me you revel in looking back on the past as well, Marco?
+				It’s become stylish, this nostalgia, a real bore.’ 
+
+‘No, I don’t mourn anything
+				from the past, but for some time now I’ve also understood the lie that
+				masquerades behind the word “progress”, and I console myself by going
+				around photographing things that will soon disappear … Rome’s last
+				trattorias, the last of the taverns … I have hundreds of photos of the
+				Civita … They’ve demolished street after street, house after
+				house.’ 
+
+‘How come you speak Italian so
+				well?’ 
+
+‘It’s simple: my mother was
+				Sicilian and my father British. And in the battle that parents always wage to have
+				you all to themselves, my mother won; that’s it. And so I rejected a
+				specialist’s life – that of a doctor, in my case – as my father wanted, and returned to my maternal
+				Eden.’ 
+
+‘Poor Marco! That path must have
+				cost you dearly.’ 
+
+‘As it does all outsiders: hunger,
+				a variety of jobs, adventures.’ 
+
+‘Now I remember. Nina insisted
+				that I meet you this winter, and to entice me she said: “My Marco is one big
+				adventure!”’ 
+
+‘Nina exaggerates. Basically
+				I’m just a photographer … But you’re cold, Modesta.’ 
+
+Yes, I’m cold. And grateful for
+				his silence, I let him take my hands and help me up from the sand, which has become
+				damp beneath me. When I stand up, my head spins – I must be really unwell – and
+				it’s no wonder he holds me close against his chest to support me. Maybe La
+					Certa has decided to keep her appointment right here on our beach, still
+				filled with the cries of children, the fluttering of Beatrice’s white skirts,
+				the sound of Carlo’s voice, and Pietro’s slow, solicitous
+				step … Could be. 
+
+I open my eyes to decipher that message,
+				but I encounter a calm gaze, as though he were intent on listening to some melody.
+				That gaze prompts me to rest my head on his shoulder and listen with him. 
+
+‘You have an intense feeling for
+				life, Modesta, which I now understand because I followed you this entire past
+				year.’ 
+
+‘You followed me,
+				Marco?’ 
+
+‘Yes. Not that I was really aware
+				of it. I was very intrigued by your way of speaking, your way of falling silent. You
+				were silent a moment ago as well, but I could see by your face that you were
+				thinking. About what, Modesta?’ 
+
+‘I was gripped by an intense
+				curiosity about my death. Yes, as if another biological adventure could be read in
+				that word, yet another metamorphosis that awaits us, Marco: me, you,
+				Nina.’ 
+
+‘I’m frightened by
+				it …’ 
+
+‘Naturally. But there’s also
+				an intense curiosity to know . You’re a man, Marco, and you
+				don’t know – or you knew and then, in your haste to act, forgot – the material
+				transformations in your body, so the word makes you tremble a little. But if you
+				hold me close, I, a woman, will help you remember, and not be afraid of that which
+				must change in order to continue living.’ 
+
+As he holds me
+				tightly, his tremor disappears, and between my body and his, the eternal, shivery
+				heat rises in waves until his eyes widen in mine with pleasure. Now I understand:
+				I’ve learned many things in life, but never how to inhibit
+				love … Can you inhibit love, Mimmo? ‘ You can inhibit the
+					intelligence of others, the facts of history, even destiny – I grant you, even
+					destiny – but never love! ’ And if Carmine hadn’t told me, how
+				could I have known that the indifference I thought I felt for that man, the apathy
+				and boredom, were merely my attempts to evade the mysterious imperative that always
+				inspires fear, and which the scalpel of human speculation has not yet managed to
+				dissect? 
+
+‘How could I have told you,
+				Modesta, when I myself didn’t know it yet? But now that we’ve discovered
+				it, if you like, we can be together for some time. I’ve been alone for many
+				years, and wandering the world alone is tiring. Will you come with me?’ 
+
+And so it was that with a simple
+				gesture, abetted by Nina, life handed me the most beautiful gift a child’s
+				mind could ever imagine. And from a man I had mistakenly thought to be a former
+				golden boy, grown old in comfort and ennui, I discovered day by day, year after
+				year, the wealth of knowledge and experience that only a mature body can
+				possess. 
+
+From him I learned that I did not know
+				my island – its powerful, secret physical body, its hot nocturnal drafts that fuse
+				stone upon stone to solidify the spirit of the drywalls into a single block, the
+				mystical breath that keeps the columns of the temples alive and makes them throb in
+				the sunsets: ‘Here, Mody, this is where the stone widens so that the column
+				breathes and produces the optical illusion of levitation’; the white silence
+				of abandoned fishing nets, cast away by the sea and by man, yet for ever pervaded by
+				the ghosts of the tuna that stop there, seeking the reason for their life and death;
+				the eternal currents of the seas that converge around the island, at times enclosing
+				it, at times releasing it, ever changing in intensity and colour. ‘That
+				emerald coloured strip over there is the sea of Africa.’ 
+
+From him I learned the art, which I
+				still did not know, of coming and going from my land, forgetting it at times,
+				travelling to different continents and oceans, then rediscovering it: new, and even
+				richer with layered memories and
+				sensations. And what can I say about our evenings and nights together? If only I
+				could freeze them! Being alone together, holding hands, looking into each
+				other’s eyes, recounting impressions, intuitions, talking … 
+
+‘They say so much about first
+				love, don’t they, Marco? Lies, like all the rest.’ 
+
+‘That’s true, Modesta. I
+				never would have imagined it either, and unfortunately you have to reach our age to
+				find out. Did you see how those kids were looking at us on the bridge today? I was
+				almost tempted to tell them, but they wouldn’t have believed me.’ 
+
+No, it’s impossible to describe to
+				anyone this joy, full of vital excitement, at defying time as a couple, being
+				partners in stretching it out, living it as intensely as possible before the hour of
+				the last adventure strikes. And when this old youngster of mine lies on top of me
+				with his beautiful body, heavy yet light, and takes me as he’s doing now, or
+				kisses me between my legs just like Tuzzu did back then, I find myself thinking
+				oddly that death might simply be an orgasm as satisfying as this one. 
+
+‘Are you sleeping,
+				Modesta?’ 
+
+‘No.’ 
+
+‘Are you thinking?’ 
+
+‘Yes.’ 
+
+‘Tell me, Modesta, tell
+				me.’ 
+
+Rome, 1967–76</div>
+  
+  <button class="zh-toggle-btn" onclick="var z=this.nextElementSibling;z.classList.toggle('show');this.textContent=z.classList.contains('show')?'隐藏中文翻译 ▲':'显示中文翻译 ▼'">显示中文翻译 ▼</button>
+  <div class="zh-text">九十五
+
+&quot;早上好，阿姨。&quot;
+
+&quot;哦，班布，他们走了吗？&quot;
+
+&quot;当然，已经两天了！&quot;
+
+&quot;行了，别逗我了。我全都听得很清楚。卡卢祖在逗尼娜……&quot;
+
+&quot;当然，两天前！&quot;
+
+&quot;我明白了：我睡着了，梦见我没在睡觉。事实上，我饿坏了！这种睡眠很久没有发生了。我一定是想逃避什么……但什么呢？&quot;
+
+&quot;也许，像尼娜说的，你想避开我们不停折腾。她好好说了我们一顿，我得说是善意地，你的尼娜！她是对的，因为我自己最近也特别烦人。连派对，你都不得不自己做了所有事。&quot;
+
+&quot;那是个可爱的派对，不是吗？&quot;
+
+&quot;正如普兰多所希望的那样！整个岛都在谈论它，还会谈上好一阵子。&quot;
+
+&quot;哦，班布，这是似曾相识！我已经经历过这一刻：我在吃东西，你看着我，大窗户，带藤叶和镀金果实的镜子。我那次也在这间屋子里醒来过，那是我出狱后得斑疹伤寒时。我想问你，然后忘了……&quot;
+
+&quot;什么？&quot;
+
+&quot;也许你不记得了……&quot;
+
+&quot;我当然记得！我怎么能忘记法西斯垮台而你都快要死了？&quot;
+
+&quot;那面镜子，班博利娜——是谁放在那儿的？&quot;
+
+&quot;我放的。&quot;
+
+&quot;这是我和你母亲相识时我的房间。你知道吗？&quot;
+
+&quot;真的？&quot;
+
+&quot;是什么让你选了那面镜子挂在那里？&quot;
+
+&quot;我不知道。它当时在阁楼上。&quot;
+
+&quot;现在我知道我为什么睡着了。我想留在这里，现在死者已经离去，房子里充满了生机。这儿真好。女孩们一定醒了，班布。听到她们在楼下笑了吗？有多少个？&quot;
+
+&quot;贝阿特里切，盖娅，还有她们两三个留下来过夜的朋友。事实上，她们一直吵着要见你。&quot;
+
+&quot;让她们等一下。先再给我些咖啡。还有面包。我想坐在这儿，在这个房间里，再享受一会儿这种平静。你知道我多久没感受到这种平静了吗？&quot;
+
+&quot;多久？&quot;
+
+&quot;从我还是个孩子起。在卡尔梅洛，在诺娜·盖娅的柳树下。我以为那种平静永远消失了。但它没有。它回来了。它就在这儿，在这个房间里，在所有这些是我一部分的人中间——活着的和死去的。你知道这意味着什么吗，班博利娜？&quot;
+
+&quot;不知道，阿姨。告诉我。&quot;
+
+&quot;这意味着我没有弄错。听从生命，永远不害怕——它确实会把你带到某个地方。它把你带回家。不是回到一个地方，而是回到一种存在的方式。一种你可以真正见到他人的方式……感受到他们既在你内心又在你周围。这就像学会了游泳。一旦你会游了，水就不再淹没你。它托起你。&quot;
+
+&quot;你在说些很美的话，阿姨。&quot;
+
+&quot;你也说得很美，班博利娜。在你的诗里。&quot;
+
+&quot;你怎么知道的？我以为我没有给任何人看过。&quot;
+
+&quot;我知道很多事情。我是你的阿姨。而且我知道，总有一天，你会写一些比我今天说的话更美的东西。也许不是今天。也许是很多年后。但你会写。因为你继承了你母亲的天赋，还有你父亲的勇气。加上一些完全属于你自己的东西。一些我无法命名但我在你小时候就看到了的东西。&quot;
+
+&quot;你在哭，阿姨。&quot;
+
+&quot;这是喜悦。很久以前，卡尔米内教会了我一件事：喜悦不是在快乐中。喜悦是在一切之中——在悲伤中，在痛苦中，在失去中。如果你能找到喜悦在这些事物中，像他在临死前所做的那样，那么你就可以安息了。我不需要安息。还不是时候。但我可以喜悦。今天我喜悦。和你们所有人一起。在所有这些喧闹、所有这些折腾、所有这些来来去去之中。在所有这些生生死死之中。在这一切之中。喜悦。&quot;</div>
+  
+  <h3>本章词汇</h3>
+  <div class="vocab-grid"><div><b>legacy</b><span>遗产；留下的影响</span><em>leave a legacy</em></div>
+<div><b>reconcile</b><span>和解；调和</span><em>reconcile with</em></div>
+<div><b>rebuild</b><span>重建</span><em>rebuild a life</em></div>
+<div><b>disillusionment</b><span>幻灭</span><em>political disillusionment</em></div>
+<div><b>compromise</b><span>妥协</span><em>reach a compromise</em></div></div>
+</div>
+<div class="nav-row">
+  <a href="ch094.html">← 上一章</a>
+  <a href="index.html">回目录</a>
+  <span></span>
+</div>
+<div class="footer"><p>中英双语 · 离线可读</p></div>
+</main></body></html>

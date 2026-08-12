@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Art of Joy · 中英双语阅读</title>
+<style>
+:root{--ink:#1d211c;--muted:#72776d;--paper:#f5f3ed;--line:#d9d8d0;--moss:#355243;--soft:#e4ebe2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:Georgia,"Noto Serif SC","Songti SC",serif}
+main{width:min(100%,760px);margin:auto;padding:0 22px 68px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+.brand{font-weight:700;display:flex;gap:9px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#d76547;display:inline-block}
+.progress-label{color:var(--muted);letter-spacing:.04em}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:0}
+h1 span{font-size:14px;letter-spacing:0;display:block;color:var(--muted);margin-top:4px}
+h2{font-size:22px;line-height:1.2;letter-spacing:-.03em;font-weight:500;margin:0 0 10px}
+h3{font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--moss);margin:0 0 8px}
+.eyebrow{font:10px/1.3 Arial,sans-serif;letter-spacing:.13em;color:var(--moss);font-weight:700;margin:0 0 12px}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0;gap:10px;flex-wrap:wrap}
+.nav-row select{padding:10px;border:1px solid var(--line);background:#fffefa;border-radius:2px;font:13px Arial,sans-serif;min-width:160px}
+.nav-row a{text-decoration:none;color:var(--moss);font:700 13px Arial,sans-serif;padding:10px 16px;border:1px solid var(--line);border-radius:2px}
+.nav-row a:hover{background:var(--soft)}
+.card{background:#fffefa;border:1px solid var(--line);padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(38,48,38,.04)}
+.card h2{font-size:24px}.card h2 span{font-size:14px;display:block;color:var(--muted);margin-top:5px}
+.rule{height:1px;background:var(--line);margin:22px 0}
+.bg{font-size:15px;line-height:1.7;margin-bottom:16px}
+.english-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:18px 0;padding:18px;background:#faf8f2;border-left:2px solid #d76547}
+.zh-toggle-btn{display:inline-block;margin:0 0 12px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer}
+.zh-text{font-size:16px;line-height:1.85;white-space:pre-line;margin:12px 0;padding:18px;background:#fdf9f0;border-left:2px solid #c25d43;display:none}
+.zh-text.show{display:block}
+.focus-q{margin:12px 0;padding:12px;background:#f5f2e9;border-left:2px solid #d76547;font-size:14px;line-height:1.55}
+.focus-q b{display:block;margin-bottom:4px;color:var(--moss);font:700 10px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:12px 0}
+.vocab-grid div{padding:10px;background:#f4f6ef;border:1px solid #dde2d9}
+.vocab-grid b{display:block;font:700 14px Arial,sans-serif}
+.vocab-grid span{display:block;margin:3px 0;color:var(--muted);font:11px/1.3 Arial,sans-serif}
+.vocab-grid em{color:var(--moss);font:10px/1.3 Arial,sans-serif}
+.sentence-lab{margin:12px 0;padding:14px;border-left:2px solid #d76547;background:#fbf6ed}
+.sentence-lab p{margin:0 0 5px;font-size:14px;line-height:1.55}
+.sentence-lab em{color:var(--muted);font:11px/1.3 Arial,sans-serif;font-style:normal}
+.save-btn{display:inline-block;margin:10px 0;padding:12px 20px;border:0;background:var(--moss);color:#fff;border-radius:2px;font:700 11px Arial,sans-serif;letter-spacing:.06em;cursor:pointer}
+.word-box{margin:12px 0;padding:18px;background:var(--soft)}
+.word-box input{padding:10px;border:1px solid #b9c6b9;border-radius:2px;font:13px Arial,sans-serif;width:200px}
+.word-box button{padding:10px 14px;border:0;color:#fff;background:var(--moss);border-radius:2px;font:700 11px Arial,sans-serif;margin-left:6px;cursor:pointer}
+.word-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.word-list span{background:#fffefa;border:1px solid #c8d2c8;border-radius:20px;padding:4px 8px;font:11px Arial,sans-serif}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0;text-align:center;color:var(--muted);font:11px/1.5 Arial,sans-serif}
+.footer strong{color:#c25d43}
+@media(max-width:560px){main{padding:0 14px 48px}.vocab-grid{grid-template-columns:1fr}.nav-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<main>
+<div class="topbar"><div class="brand"><span class="dot"></span>JOY / READING</div><div class="progress-label">95 章 · 中英双语</div></div>
+<div style="padding:40px 0 20px"><p class="eyebrow">THE ART OF JOY · PENGUIN MODERN CLASSICS</p>
+<h1>The Art of Joy<span>Goliarda Sapienza · 中英双语阅读</span></h1>
+<p style="color:var(--muted);font-size:15px;line-height:1.6;max-width:500px">选择章节开始阅读。每章含英文原文、中文翻译、核心词汇和学习提示。所有内容在本地加载，无需网络。</p></div>
+<h2>章节目录</h2>
+<p><a href="ch001.html"><b>01</b> 西西里乡村与童年</a> <span>Part One</span></p>
+<p><a href="ch002.html"><b>02</b> 西西里乡村与童年</a> <span>Part One</span></p>
+<p><a href="ch003.html"><b>03</b> 西西里乡村与童年</a> <span>Part One</span></p>
+<p><a href="ch004.html"><b>04</b> 西西里乡村与童年</a> <span>Part One</span></p>
+<p><a href="ch005.html"><b>05</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch006.html"><b>06</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch007.html"><b>07</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch008.html"><b>08</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch009.html"><b>09</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch010.html"><b>10</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch011.html"><b>11</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch012.html"><b>12</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch013.html"><b>13</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch014.html"><b>14</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch015.html"><b>15</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch016.html"><b>16</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch017.html"><b>17</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch018.html"><b>18</b> 修道院、教育与规训</a> <span>Part One</span></p>
+<p><a href="ch019.html"><b>19</b> 庄园、贵族与社会流动</a> <span>Part One</span></p>
+<p><a href="ch020.html"><b>20</b> 庄园、贵族与社会流动</a> <span>Part One</span></p>
+<p><a href="ch021.html"><b>21</b> 庄园、贵族与社会流动</a> <span>Part One</span></p>
+<p><a href="ch022.html"><b>22</b> 庄园、贵族与社会流动</a> <span>Part One</span></p>
+<p><a href="ch023.html"><b>23</b> 庄园、贵族与社会流动</a> <span>Part One</span></p>
+<p><a href="ch024.html"><b>24</b> 庄园、贵族与社会流动</a> <span>Part One</span></p>
+<p><a href="ch025.html"><b>25</b> 庄园、贵族与社会流动</a> <span>Part One</span></p>
+<p><a href="ch026.html"><b>26</b> 庄园、贵族与社会流动</a> <span>Part One</span></p>
+<p><a href="ch027.html"><b>27</b> 庄园、贵族与社会流动</a> <span>Part One</span></p>
+<p><a href="ch028.html"><b>28</b> 庄园、贵族与社会流动</a> <span>Part One</span></p>
+<p><a href="ch029.html"><b>29</b> 庄园、贵族与社会流动</a> <span>Part One</span></p>
+<p><a href="ch030.html"><b>30</b> 战争前夕与家族秩序</a> <span>Part One</span></p>
+<p><a href="ch031.html"><b>31</b> 战争前夕与家族秩序</a> <span>Part One</span></p>
+<p><a href="ch032.html"><b>32</b> 战争前夕与家族秩序</a> <span>Part One</span></p>
+<p><a href="ch033.html"><b>33</b> 战争前夕与家族秩序</a> <span>Part One</span></p>
+<p><a href="ch034.html"><b>34</b> 战争前夕与家族秩序</a> <span>Part One</span></p>
+<p><a href="ch035.html"><b>35</b> 战争前夕与家族秩序</a> <span>Part One</span></p>
+<p><a href="ch036.html"><b>36</b> 战争前夕与家族秩序</a> <span>Part One</span></p>
+<p><a href="ch037.html"><b>37</b> 战争前夕与家族秩序</a> <span>Part One</span></p>
+<p><a href="ch038.html"><b>38</b> 战争前夕与家族秩序</a> <span>Part One</span></p>
+<p><a href="ch039.html"><b>39</b> 战争前夕与家族秩序</a> <span>Part One</span></p>
+<p><a href="ch040.html"><b>40</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch041.html"><b>41</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch042.html"><b>42</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch043.html"><b>43</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch044.html"><b>44</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch045.html"><b>45</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch046.html"><b>46</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch047.html"><b>47</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch048.html"><b>48</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch049.html"><b>49</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch050.html"><b>50</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch051.html"><b>51</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch052.html"><b>52</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch053.html"><b>53</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch054.html"><b>54</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch055.html"><b>55</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch056.html"><b>56</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch057.html"><b>57</b> 成年、亲密关系与后果</a> <span>Part Two</span></p>
+<p><a href="ch058.html"><b>58</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch059.html"><b>59</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch060.html"><b>60</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch061.html"><b>61</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch062.html"><b>62</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch063.html"><b>63</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch064.html"><b>64</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch065.html"><b>65</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch066.html"><b>66</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch067.html"><b>67</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch068.html"><b>68</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch069.html"><b>69</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch070.html"><b>70</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch071.html"><b>71</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch072.html"><b>72</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch073.html"><b>73</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch074.html"><b>74</b> 法西斯时期与新的思想</a> <span>Part Three</span></p>
+<p><a href="ch075.html"><b>75</b> 战争、流离与国家权力</a> <span>Part Four</span></p>
+<p><a href="ch076.html"><b>76</b> 战争、流离与国家权力</a> <span>Part Four</span></p>
+<p><a href="ch077.html"><b>77</b> 战争、流离与国家权力</a> <span>Part Four</span></p>
+<p><a href="ch078.html"><b>78</b> 战争、流离与国家权力</a> <span>Part Four</span></p>
+<p><a href="ch079.html"><b>79</b> 战争、流离与国家权力</a> <span>Part Four</span></p>
+<p><a href="ch080.html"><b>80</b> 战争、流离与国家权力</a> <span>Part Four</span></p>
+<p><a href="ch081.html"><b>81</b> 战争、流离与国家权力</a> <span>Part Four</span></p>
+<p><a href="ch082.html"><b>82</b> 战争、流离与国家权力</a> <span>Part Four</span></p>
+<p><a href="ch083.html"><b>83</b> 战争、流离与国家权力</a> <span>Part Four</span></p>
+<p><a href="ch084.html"><b>84</b> 战争、流离与国家权力</a> <span>Part Four</span></p>
+<p><a href="ch085.html"><b>85</b> 解放后、政治与记忆</a> <span>Part Four</span></p>
+<p><a href="ch086.html"><b>86</b> 解放后、政治与记忆</a> <span>Part Four</span></p>
+<p><a href="ch087.html"><b>87</b> 解放后、政治与记忆</a> <span>Part Four</span></p>
+<p><a href="ch088.html"><b>88</b> 解放后、政治与记忆</a> <span>Part Four</span></p>
+<p><a href="ch089.html"><b>89</b> 解放后、政治与记忆</a> <span>Part Four</span></p>
+<p><a href="ch090.html"><b>90</b> 解放后、政治与记忆</a> <span>Part Four</span></p>
+<p><a href="ch091.html"><b>91</b> 解放后、政治与记忆</a> <span>Part Four</span></p>
+<p><a href="ch092.html"><b>92</b> 解放后、政治与记忆</a> <span>Part Four</span></p>
+<p><a href="ch093.html"><b>93</b> 解放后、政治与记忆</a> <span>Part Four</span></p>
+<p><a href="ch094.html"><b>94</b> 解放后、政治与记忆</a> <span>Part Four</span></p>
+<p><a href="ch095.html"><b>95</b> 解放后、政治与记忆</a> <span>Part Four</span></p>
+
+<div class="footer"><p>所有内容内嵌在页面中，无需加载外部资源。</p></div>
+</main></body></html>
